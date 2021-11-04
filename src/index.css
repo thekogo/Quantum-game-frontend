@@ -7,4 +7,9 @@
     font-weight: normal;
     src: url("./assets/fonts/Poppins-Medium.ttf");
   }
+  @font-face {
+    font-family: "Anuphan";
+    font-weight: normal;
+    src: url("./assets/fonts/Anuphan-Regular.otf");
+  }
 }

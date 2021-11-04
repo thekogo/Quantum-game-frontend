@@ -21,6 +21,7 @@ module.exports = {
     },
     fontFamily: {
       poppins: ["Poppins"],
+      thaifonts: ["Anuphan"],
     },
     extend: {
       backgroundImage: {
