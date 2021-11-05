@@ -7,14 +7,14 @@ import MissionBoard from "./pages/MissionBoard";
 function App() {
   return (
     <Switch>
-      <Route path="/">
-        <Login />
-      </Route>
       <Route path="/scoreboard">
         <Scoreboard />
       </Route>
       <Route path="/mission">
         <MissionBoard />
+      </Route>
+      <Route path="/">
+        <Login />
       </Route>
     </Switch>
   );

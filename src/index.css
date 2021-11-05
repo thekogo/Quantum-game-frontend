@@ -13,3 +13,7 @@
     src: url("./assets/fonts/Anuphan-Regular.otf");
   }
 }
+iframe {
+  width: 100%;
+  height: calc(100% / 1.77);
+}

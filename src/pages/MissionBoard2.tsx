@@ -58,7 +58,7 @@ export default function MissionBoard({}: Props): ReactElement {
             className="mt-2 rounded-full w-2/4 py-1 text-md p-3 font-poppins text-fifthpurple placeholder-secondpurple focus:outline-none focus:border-thirdpurple"
             placeholder="input your answer"
           />{" "}
-          <button className="mt-2 bg-secondpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
+          <button className="mt-2 bg-secondpurple hover:bg-firstpurple text-white font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
             ส่งคำตอบ
           </button>
         </div>
