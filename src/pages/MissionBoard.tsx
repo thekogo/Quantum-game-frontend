@@ -44,8 +44,10 @@ export default function MissionBoard({}: Props): ReactElement {
             </div>
           </div>
         </div>
-
         <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-center mt-2">
+          <p className="text-white mb-10 text-5xl ">
+            ภารกิจ 1 : ถาม-ตอบ ควอนตัม
+          </p>
           <iframe
             className="border-4 p-3 rounded-3xl"
             src="https://www.youtube.com/embed/aehbDMIEmnM"

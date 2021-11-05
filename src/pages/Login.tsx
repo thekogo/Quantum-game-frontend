@@ -11,7 +11,9 @@ export default function Login({}: Props): ReactElement {
       <Stars className="absolute h-full w-full z-0" />
       {/* <BgLogin className=" object-cover overflow-hidden object-bottom"> */}
       <div className="max-w-lg m-auto bg-white py-10  rounded-3xl px-20 z-10 w-96">
-        <p className="text-fifthpurple text-center text-2xl">เข้าสู่ระบบ</p>
+        <p className="text-fifthpurple text-center text-2xl font-poppins">
+          Sign In
+        </p>
         <p className="text-firstpurple">E-mail</p>
         <div className="flex mt-1 ">
           <input
@@ -26,11 +28,8 @@ export default function Login({}: Props): ReactElement {
         />
 
         <div className="flex justify-center mt-4">
-          <button
-            className="bg-gradient-to-r from-fifthpurple to-secondpurple hover:bg-indigo-400 
-        text-white font-poppins py-1 px-5 rounded-full text-xs "
-          >
-            Log in
+          <button className=" mt-2 bg-secondpurple hover:bg-firstpurple text-white text-sm font-poppins text-sm hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
+            Login
           </button>
         </div>
       </div>

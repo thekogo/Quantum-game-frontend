@@ -12,6 +12,11 @@
     font-weight: normal;
     src: url("./assets/fonts/Anuphan-Regular.otf");
   }
+  @font-face {
+    font-family: "Ab";
+    font-weight: normal;
+    src: url("./assets/fonts/Stars-Regular.ttf");
+  }
 }
 iframe {
   width: 100%;

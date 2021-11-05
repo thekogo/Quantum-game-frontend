@@ -9,6 +9,7 @@ module.exports = {
       thirdpurple: "#C4CAFF",
       forthpurple: "#211342",
       fifthpurple: "#7A65B7",
+      mhoored: "#D3437B",
       transparent: "transparent",
 
       current: "currentColor",
@@ -22,6 +23,7 @@ module.exports = {
     fontFamily: {
       poppins: ["Poppins"],
       thaifonts: ["Anuphan"],
+      stars: ["Ab"],
     },
     extend: {
       backgroundImage: {
