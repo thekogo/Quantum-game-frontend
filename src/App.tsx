@@ -7,6 +7,7 @@ import MissionBoard2 from "./pages/MissionBoard2";
 import MissionBoard3 from "./pages/MissionBoard3";
 import MissionBoard5 from "./pages/MissionBoard5";
 import MissionBoard4 from "./pages/MissionBoard4";
+import MissionBoard6 from "./pages/MissionBoard6";
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
       </Route>
       <Route path="/mission">
         <MissionBoard />
+      </Route>
+      <Route path="/mission6">
+        <MissionBoard6 />
       </Route>
       <Route path="/">
         <Login />

@@ -9,6 +9,8 @@ module.exports = {
       thirdpurple: "#C4CAFF",
       forthpurple: "#211342",
       fifthpurple: "#7A65B7",
+      lbFirstpurple: "#47178F",
+      lbSecondpurple: "#9F85FB",
       mhoored: "#D3437B",
       transparent: "transparent",
 
