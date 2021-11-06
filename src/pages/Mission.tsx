@@ -24,33 +24,33 @@ export default function Scoreboard({ }: Props): ReactElement {
         <div>
           <MissionHeader className="m-auto" />
         </div>
-        <div className="grid grid-rows-2 grid-flow-col gap-x-20 ml-20 mr-72 my-8">
-          <div className="col-span-2 row-span-2 bg-red-500">
+        <div className="grid grid-rows-2 grid-cols-12 w-fulls m-6">
+          <div className="p-3 col-span-3 row-span-2 bg-red-500 gap-3">
             1
           </div>
-          <div className="row-span-1 col-span-4 bg-red-400 w-full">
+          <div className="row-span-1 col-span-7 w-full">
             <div className="flex flex-row gap-x-4">
-              <div className="w-1/3 bg-red-600">
+              <div className="w-1/3">
                 <img src={game1} className="object-contain h-52 m-auto" />
               </div>
-              <div className="w-1/3 bg-red-700">
+              <div className="w-1/3">
                 <img src={game2} className="object-contain h-56 m-auto" />
               </div>
-              <div className="w-1/3 bg-red-800">
+              <div className="w-1/3">
                 <img src={game3} className="object-contain h-48 m-auto" />
               </div>
             </div>
           </div>
-          <div className="row-span-1 col-span-4 bg-red-300 w-full">
+          <div className="row-span-1 col-span-7 w-full">
             <div className="flex flex-row gap-x-4">
-              <div className="w-1/3 bg-red-600">
-                <img src={game4} className="object-contain h-60 m-auto" />
+              <div className="w-1/3">
+                <img src={game4} className="object-contain h-56 m-auto" />
               </div>
-              <div className="w-1/3 bg-red-700">
-                <img src={game5} className="object-contain h-60 m-auto" />
+              <div className="w-1/3">
+                <img src={game5} className="object-contain h-56 m-auto" />
               </div>
-              <div className="w-1/3 bg-red-800">
-                <img src={game6} className="object-contain h-64 m-auto" />
+              <div className="w-1/3">
+                <img src={game6} className="object-contain h-60 m-auto" />
               </div>
             </div>
           </div>
