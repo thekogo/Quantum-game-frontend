@@ -12,6 +12,7 @@ import game4 from "../assets/images/Scoreboard/game4.png";
 import game5 from "../assets/images/Scoreboard/game5.png";
 import game6 from "../assets/images/Scoreboard/game6.png";
 import trophy from "../assets/images/Scoreboard/trophy.png";
+import { Link } from "react-router-dom";
 
 interface Props {}
 
@@ -86,7 +87,7 @@ export default function Scoreboard({}: Props): ReactElement {
           <div className="row-span-1 col-span-7 w-full">
             <div className="flex flex-row gap-x-4">
               <div className="w-1/3 transform transition duration-500 hover:scale-125 hover:-rotate-12">
-                <img src={game1} className="object-contain h-52 m-auto" />
+                <Link to = "/mission"><img src={game1} className="object-contain h-52 m-auto" /></Link>
               </div>
               <div className="w-1/3 transform transition duration-500 hover:scale-125">
                 <img src={game2} className="object-contain h-52 m-auto" />
