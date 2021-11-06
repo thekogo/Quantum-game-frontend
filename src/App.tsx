@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import { Switch, Route } from "react-router-dom";
 import Login from "./pages/Login";
-import Scoreboard from "./pages/Scoreboard";
+import Scoreboard from "./pages/Mission";
 import MissionBoard from "./pages/MissionBoard";
 import MissionBoard2 from "./pages/MissionBoard2";
 import MissionBoard3 from "./pages/MissionBoard3";
