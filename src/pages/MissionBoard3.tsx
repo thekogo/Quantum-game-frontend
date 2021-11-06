@@ -1,16 +1,13 @@
 import React, { ReactElement } from "react";
-import { ReactComponent as SpaceCat } from "../assets/images/space-cat.svg";
-import { ReactComponent as Footerpageone } from "../assets/images/footerpageone.svg";
 import { ReactComponent as Stars } from "../assets/images/stars.svg";
-import { ReactComponent as Ovalone } from "../assets/images/object-missionone.svg";
-import mq from "../assets/images/karn.png";
-import ma from "../assets/images/mr-quantum.png";
-import oval from "../assets/images/object-missionone.png";
-import logo1 from "../assets/images/logo1.png";
-import logo2 from "../assets/images/logo2.png";
-import footer2 from "../assets/images/footermission2.png";
-import P1 from "../assets/images/p1.png";
+import logo3 from "../assets/images/Mission3/logo-crop.png";
 import Cloud from "../assets/images/cloud.png";
+import P1 from "../assets/images/Mission3/set1/1.png";
+import P2 from "../assets/images/Mission3/set1/2.png";
+import P3 from "../assets/images/Mission3/set1/3.png";
+import P4 from "../assets/images/Mission3/set1/4.png";
+import P5 from "../assets/images/Mission3/set1/5.png";
+import arrow from "../assets/images/Mission3/arrow.png";
 
 interface Props {}
 
@@ -20,10 +17,10 @@ export default function MissionBoard({}: Props): ReactElement {
       <Stars className="absolute h-full w-full z-0" />
       <img className="absolute top-0 object-cover opacity-90" src={Cloud} />
 
-      <div className="grid grid-cols-4 w-full">
-        <div className="col-span-1 flex items-center justify-center">
+      <div className="grid grid-cols-12 w-full">
+        <div className="col-span-3 flex items-center justify-center">
           <div className=" p-3 rounded-3xl">
-            <img src={logo2} />
+            <img src={logo3} />
             <div className="font-poppins text-white text-center mt-2 ">
               SCOREBOARD
             </div>
@@ -49,38 +46,95 @@ export default function MissionBoard({}: Props): ReactElement {
             </div>
           </div>
         </div>
-        <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-evenly mt-2">
-          <p className="text-white  text-5xl ">
+        <div className=" w-auto z-10 col-span-7 flex flex-col items-center justify-evenly mt-2">
+          <p className="text-white text-5xl ">
             ภารกิจ 3 : เรียงปีไม่เรียงเบอร์
           </p>
-          <div className="border-4 p-2 rounded-3xl w-3/5 h-36 mr-auto flex flex-col justify-between mb-48">
-            <div>
-              {" "}
-              <img className="border-2 rounded-3xl" src={P1} />
-            </div>
-            <div className="border-4 p-2 rounded-3xl w-3/5 h-36  flex flex-col justify-between mt-16 -ml-3 ">
-              <div>
-                <img className="border-2 rounded-3xl" src={P1} />
+          <div className="flex flex-col p-4 w-full">
+            <div className="grid grid-cols-2 gap-8 h-full">
+              {/* PIC 1-1 */}
+              <div className="border-4 p-2 rounded-3xl h-full">
+                <div className="flex h-full">
+                  <img
+                    src={P1}
+                    className="border-2 h-32 w-1/5 rounded-3xl object-cover"
+                  />
+                  <p className="p-4 text-white">
+                    ผู้มีส่วนร่วมในความก้าวหน้าของฟิสิกส์เชิงทฤษฎี
+                    แต่ก็เป็นผู้ถูกจดจำในฐานะนักฟิสิกส์ผู้ริเริ่มทฤษฎีควอนตัมซึ่งปฏิวัติความเข้าใจของมนุษย์เกี่ยวกับกระบวนการปรมาณูและอะตอม
+                  </p>
+                </div>
+              </div>
+              {/* PIC 1-2 */}
+              <div className="border-4 p-2 rounded-3xl h-full">
+                <div className="flex h-full">
+                  <img
+                    src={P2}
+                    className="border-2 h-32 w-1/5 rounded-3xl object-cover"
+                  />
+                  <p className="p-4 text-white">
+                    ผู้มีส่วนสนับสนุนพื้นฐานในการทำความเข้าใจโครงสร้างอะตอมและทฤษฎีควอนตัม
+                    ซึ่งเขาได้รับรางวัลโนเบลสาขาฟิสิกส์จากงานด้านการสำรวจโครงสร้างอะตอมและรังสีที่เล็ดลอดออกมา
+                  </p>
+                </div>
+              </div>
+              {/* PIC 2-1 */}
+              <div className="border-4 p-2 rounded-3xl h-full">
+                <div className="flex h-full">
+                  <img
+                    src={P3}
+                    className="border-2 h-32 w-1/5 rounded-3xl object-cover"
+                  />
+                  <p className="p-4 text-white">
+                    ผู้สร้างเมทริกซ์ 2 × 2
+                    ที่เป็นพื้นฐานของตัวดำเนินการการหมุนในทฤษฎีควอนตัม
+                  </p>
+                </div>
+              </div>
+              {/* PIC 2-2 */}
+              <div className="border-4 p-2 rounded-3xl h-full">
+                <div className="flex h-full">
+                  <img
+                    src={P4}
+                    className="border-2 h-32 w-1/5 rounded-3xl object-cover"
+                  />
+                  <p className="p-4 text-white">
+                    นักวิทยาศาสตร์ผู้สร้างการอินทีเกรทตามวิถี (path integral)
+                    และผู้ตั้งสมมติฐานว่าหากเราต้องการจำลองระบบควอนตัม
+                    เราจำเป็นจะต้องสร้างด้วยควอนตัมคอมพิวเตอร์
+                  </p>
+                </div>
+              </div>
+              {/* PIC 3-1 */}
+              <div className="border-4 p-2 rounded-3xl h-full">
+                <div className="flex h-full">
+                  <img
+                    src={P5}
+                    className="border-2 h-32 w-1/5 rounded-3xl object-cover"
+                  />
+                  <p className="p-4 text-white">
+                    นักวิทยาศาสตร์ผู้คิดค้นควอนตัมอัลกอริทึมสำหรับแยกตัวประกอบเฉพาะของจำนวนเต็มขนาดใหญ่
+                  </p>
+                </div>
+              </div>
+              <div className="text-center m-full my-auto">
+                <div className="flex bg-thirdpurple w-full mx-auto rounded-2xl justify-center p-2">
+                  <input className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center" />{" "}
+                  <img src={arrow} className="flex my-auto w-6"/>
+                  <input className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center" />{" "}
+                  <img src={arrow} className="flex my-auto w-6"/>
+                  <input className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center" />{" "}
+                  <img src={arrow} className="flex my-auto w-6"/>
+                  <input className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center" />{" "}
+                  <img src={arrow} className="flex my-auto w-6"/>
+                  <input className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center" />{" "}
+                </div>
+                <button className="mt-2 mx-auto w-24  bg-secondpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
+                  ส่งคำตอบ
+                </button>
               </div>
             </div>
-
-            <div className="">
-              <div className="flex justify-between"></div>
-            </div>
           </div>
-          <div></div>
-          <div></div>
-        </div>
-
-        <div className="flex flex-col justify-center">
-          <div className="text-3xl text-white font-poppins mb-2 ml-2 ">
-            Across
-          </div>
-          <div className="border-4 p-3 rounded-3xl w-4/6 h-1/3 mr-auto flex flex-col justify-between text-md text-white"></div>
-          <div className="text-3xl text-white font-poppins mt-2 ml-2 font-">
-            Down
-          </div>
-          <div className="border-4 p-3 rounded-3xl w-5/6 h-1/4 mr-auto flex flex-col justify-between text-md text-white mt-2 font-poppins"></div>
         </div>
       </div>
 
