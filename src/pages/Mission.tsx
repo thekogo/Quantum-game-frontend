@@ -4,7 +4,7 @@ import planet from "../assets/images/Scoreboard/planet.png";
 import missionHeader from "../assets/images/Scoreboard/missionHeader.png";
 import { ReactComponent as Planet } from "../assets/images/Scoreboard/planet.svg";
 import { ReactComponent as MissionHeader } from "../assets/images/Scoreboard/missionHeader.svg";
-import { ReactComponent as Footer } from "../assets/images/footer.svg";
+import footerscore from "../assets/images/footer1.png";
 import game1 from "../assets/images/Scoreboard/game1.png";
 import game2 from "../assets/images/Scoreboard/game2.png";
 import game3 from "../assets/images/Scoreboard/game3.png";
@@ -12,9 +12,9 @@ import game4 from "../assets/images/Scoreboard/game4.png";
 import game5 from "../assets/images/Scoreboard/game5.png";
 import game6 from "../assets/images/Scoreboard/game6.png";
 
-interface Props { }
+interface Props {}
 
-export default function Scoreboard({ }: Props): ReactElement {
+export default function Scoreboard({}: Props): ReactElement {
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex">
       <Stars className="absolute h-full w-full z-0" />
@@ -25,9 +25,7 @@ export default function Scoreboard({ }: Props): ReactElement {
           <MissionHeader className="m-auto" />
         </div>
         <div className="grid grid-rows-2 grid-flow-col gap-x-20 ml-20 mr-72 my-8">
-          <div className="col-span-2 row-span-2 bg-red-500">
-            1
-          </div>
+          <div className="col-span-2 row-span-2 bg-red-500">1</div>
           <div className="row-span-1 col-span-4 bg-red-400 w-full">
             <div className="flex flex-row gap-x-4">
               <div className="w-1/3 bg-red-600">
@@ -56,9 +54,10 @@ export default function Scoreboard({ }: Props): ReactElement {
           </div>
         </div>
       </div>
-      {/* <img src={planet} className="absolute top-0 right-0" />
-      <img src={missionHeader} className="flex items-center" /> */}
-      <Footer className="absolute bottom-0  object-cover " />
+      <img
+        className="absolute bottom-0 object-cover opacity-90"
+        src={footerscore}
+      />
     </div>
   );
 }
