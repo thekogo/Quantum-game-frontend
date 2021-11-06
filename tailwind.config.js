@@ -29,6 +29,11 @@ module.exports = {
       backgroundImage: {
         bglogin: "url('./assets/images/Login.svg')",
       },
+      zIndex: {
+        auto: "auto",
+        negative: -1,
+        0: 0,
+      },
     },
   },
 

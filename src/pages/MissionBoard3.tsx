@@ -9,6 +9,8 @@ import oval from "../assets/images/object-missionone.png";
 import logo1 from "../assets/images/logo1.png";
 import logo2 from "../assets/images/logo2.png";
 import footer2 from "../assets/images/footermission2.png";
+import P1 from "../assets/images/p1.png";
+import Cloud from "../assets/images/cloud.png";
 
 interface Props {}
 
@@ -16,6 +18,7 @@ export default function MissionBoard({}: Props): ReactElement {
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
+      <img className="absolute top-0 object-cover opacity-90" src={Cloud} />
 
       <div className="grid grid-cols-4 w-full">
         <div className="col-span-1 flex items-center justify-center">
@@ -47,24 +50,22 @@ export default function MissionBoard({}: Props): ReactElement {
           </div>
         </div>
         <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-evenly mt-2">
-          <p className="text-white  text-5xl ">ภารกิจ 2 : อักษรที่หายไป</p>
-          <div className="border-4 p-3 rounded-3xl w-5/6 h-3/6 mr-auto flex flex-col justify-between">
-            <div></div>
-            <div className="">
-              <div className="flex justify-between">
-                <button className="mt-2 bg-mhoored border-fifthpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
-                  ดาวน์โหลดตารางครอสเวิร์ด
-                </button>
-                <div className="flex justify-between gap-2">
-                  <input
-                    className=" mr-auto  rounded-full text-sm w-96 py-1 p-3 font-poppins text-fifthpurple placeholder-secondpurple focus:outline-none focus:border-thirdpurple"
-                    placeholder="input your answer"
-                  />
-                  <button className="mt-2 bg-indigo-500 hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
-                    ส่งคำตอบ
-                  </button>
-                </div>
+          <p className="text-white  text-5xl ">
+            ภารกิจ 3 : เรียงปีไม่เรียงเบอร์
+          </p>
+          <div className="border-4 p-2 rounded-3xl w-3/5 h-36 mr-auto flex flex-col justify-between mb-48">
+            <div>
+              {" "}
+              <img className="border-2 rounded-3xl" src={P1} />
+            </div>
+            <div className="border-4 p-2 rounded-3xl w-3/5 h-36  flex flex-col justify-between mt-16 -ml-3 ">
+              <div>
+                <img className="border-2 rounded-3xl" src={P1} />
               </div>
+            </div>
+
+            <div className="">
+              <div className="flex justify-between"></div>
             </div>
           </div>
           <div></div>
@@ -82,10 +83,7 @@ export default function MissionBoard({}: Props): ReactElement {
           <div className="border-4 p-3 rounded-3xl w-5/6 h-1/4 mr-auto flex flex-col justify-between text-md text-white mt-2 font-poppins"></div>
         </div>
       </div>
-      <img
-        className="absolute bottom-0 object-cover opacity-90"
-        src={footer2}
-      />
+
       {/* <Maa className="w-60 absolute bottom-0 right-0" /> */}
     </div>
   );

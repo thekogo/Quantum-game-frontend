@@ -4,10 +4,18 @@ import Login from "./pages/Login";
 import Scoreboard from "./pages/Mission";
 import MissionBoard from "./pages/MissionBoard";
 import MissionBoard2 from "./pages/MissionBoard2";
+import MissionBoard3 from "./pages/MissionBoard3";
+import MissionBoard5 from "./pages/MissionBoard5";
 
 function App() {
   return (
     <Switch>
+      <Route path="/mission5">
+        <MissionBoard5 />
+      </Route>
+      <Route path="/mission3">
+        <MissionBoard3 />
+      </Route>
       <Route path="/mission2">
         <MissionBoard2 />
       </Route>
