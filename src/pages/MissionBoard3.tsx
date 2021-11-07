@@ -8,6 +8,7 @@ import P3 from "../assets/images/Mission3/set1/3.png";
 import P4 from "../assets/images/Mission3/set1/4.png";
 import P5 from "../assets/images/Mission3/set1/5.png";
 import arrow from "../assets/images/Mission3/arrow.png";
+import footer3 from "../assets/images/footer3.png";
 
 interface Props {}
 
@@ -15,7 +16,6 @@ export default function MissionBoard({}: Props): ReactElement {
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
-      <img className="absolute top-0 object-cover opacity-90" src={Cloud} />
 
       <div className="grid grid-cols-12 w-full">
         <div className="col-span-3 flex items-center justify-center">
@@ -120,13 +120,13 @@ export default function MissionBoard({}: Props): ReactElement {
               <div className="text-center m-full my-auto">
                 <div className="flex bg-thirdpurple w-full mx-auto rounded-2xl justify-center p-2">
                   <input className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center" />{" "}
-                  <img src={arrow} className="flex my-auto w-6"/>
+                  <img src={arrow} className="flex my-auto w-6" />
                   <input className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center" />{" "}
-                  <img src={arrow} className="flex my-auto w-6"/>
+                  <img src={arrow} className="flex my-auto w-6" />
                   <input className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center" />{" "}
-                  <img src={arrow} className="flex my-auto w-6"/>
+                  <img src={arrow} className="flex my-auto w-6" />
                   <input className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center" />{" "}
-                  <img src={arrow} className="flex my-auto w-6"/>
+                  <img src={arrow} className="flex my-auto w-6" />
                   <input className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center" />{" "}
                 </div>
                 <button className="mt-2 mx-auto w-24  bg-secondpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
@@ -137,7 +137,10 @@ export default function MissionBoard({}: Props): ReactElement {
           </div>
         </div>
       </div>
-
+      <img
+        className="absolute bottom-0 object-cover opacity-90 "
+        src={footer3}
+      />
       {/* <Maa className="w-60 absolute bottom-0 right-0" /> */}
     </div>
   );

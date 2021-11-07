@@ -12,26 +12,26 @@ import MissionBoard6 from "./pages/MissionBoard6";
 function App() {
   return (
     <Switch>
-      <Route path="/mission4">
+      <Route path="/mission/4">
         <MissionBoard4 />
       </Route>
 
-      <Route path="/mission5">
+      <Route path="/mission/5">
         <MissionBoard5 />
       </Route>
-      <Route path="/mission3">
+      <Route path="/mission/3">
         <MissionBoard3 />
       </Route>
-      <Route path="/mission2">
+      <Route path="/mission/2">
         <MissionBoard2 />
       </Route>
       <Route path="/scoreboard">
         <Scoreboard />
       </Route>
-      <Route path="/mission">
+      <Route path="/mission/1">
         <MissionBoard />
       </Route>
-      <Route path="/mission6">
+      <Route path="/mission/6">
         <MissionBoard6 />
       </Route>
       <Route path="/">

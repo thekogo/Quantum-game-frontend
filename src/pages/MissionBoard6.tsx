@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import { ReactComponent as Stars } from "../assets/images/stars.svg";
 
 import logo5 from "../assets/images/Mission6/logo-crop.png";
-import footer5 from "../assets/images/footer5.png";
+import footer6 from "../assets/images/footer6.png";
 import beamDetector from "../assets/images/Mission6/beamDetector.png";
 import beamSlitterL from "../assets/images/Mission6/beamSlitter-l.png";
 import beamSlitterR from "../assets/images/Mission6/beamSlitter-r.png";
@@ -52,7 +52,7 @@ export default function MissionBoard({}: Props): ReactElement {
           <p className="text-white  text-5xl ">ภารกิจ 6 : ลำแสงแห่งอนาคต</p>
           <div className="flex flex-col gap-4 p-4 w-full">
             <div className="grid grid-cols-4 gap-4">
-                {/* ROW 1 */}
+              {/* ROW 1 */}
               <div className="bg-white">
                 <img src={laserGun} className="object-contain" />
               </div>
@@ -114,7 +114,7 @@ export default function MissionBoard({}: Props): ReactElement {
       </div>
       <img
         className="absolute bottom-0 object-cover opacity-90"
-        src={footer5}
+        src={footer6}
       />
       {/* <Maa className="w-60 absolute bottom-0 right-0" /> */}
     </div>
