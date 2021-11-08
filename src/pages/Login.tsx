@@ -9,6 +9,7 @@ export default function Login({}: Props): ReactElement {
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex">
       <Stars className="absolute h-full w-full z-0" />
+
       {/* <BgLogin className=" object-cover overflow-hidden object-bottom"> */}
       <div className="max-w-lg m-auto bg-white py-10  rounded-3xl px-20 z-10 w-96">
         <p className="text-fifthpurple text-center text-2xl font-poppins">
@@ -17,13 +18,13 @@ export default function Login({}: Props): ReactElement {
         <p className="text-firstpurple">E-mail</p>
         <div className="flex mt-1 ">
           <input
-            className="border-secondpurple border-2 rounded-lg p-1 w-full text-sm focus:outline-none focus:border-thirdpurple"
+            className="border-thirdpurple border-2 rounded-lg p-1 w-full text-sm focus:outline-none focus:border-secondpurple"
             placeholder="กรุณาใส่อีเมล์"
           />
         </div>
         <p className="text-firstpurple mt-2">Password</p>
         <input
-          className="border-secondpurple border-2 rounded-lg p-1 w-full text-sm focus:outline-none focus:border-thirdpurple "
+          className="border-thirdpurple border-2 rounded-lg p-1 w-full text-sm focus:outline-none focus:border-secondpurple "
           placeholder="กรอกรหัสผ่าน"
         />
 
