@@ -1,40 +1,81 @@
-import React, { ReactElement } from "react";
-import { ReactComponent as SpaceCat } from "../assets/images/space-cat.svg";
-import { ReactComponent as Footerpageone } from "../assets/images/footerpageone.svg";
+import React, { ReactElement, useState } from "react";
+import { useHistory } from "react-router";
+import Swal from "sweetalert2";
+import footerpageone from "../assets/images/footerpageone.png";
 import { ReactComponent as Stars } from "../assets/images/stars.svg";
+import { login } from "../services/auth";
 
-interface Props {}
+export default function Login(): ReactElement {
+  const [email, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
-export default function Login({}: Props): ReactElement {
+  const history = useHistory();
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const canLogin = await login(email, password);
+    if (!canLogin) {
+      Swal.fire({
+        title: "เข้าสู่ระบบผิดพลาด",
+        text: "อีเมล์ หรือ พาสเวิร์ด ไม่ถูกต้อง",
+        icon: "error",
+        timer: 2000,
+        timerProgressBar: true,
+      });
+      return;
+    }
+    Swal.fire({
+      title: "เข้าสู่ระบบสำเร็จ",
+      icon: "success",
+      timer: 2000,
+      timerProgressBar: true,
+    });
+    history.push("/scoreboard");
+  };
+
   return (
-    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex">
+    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
       {/* <BgLogin className=" object-cover overflow-hidden object-bottom"> */}
       <div className="max-w-lg m-auto bg-white py-10  rounded-3xl px-20 z-10 w-96">
-        <p className="text-fifthpurple text-center text-2xl font-poppins">
-          Sign In
-        </p>
-        <p className="text-firstpurple">E-mail</p>
-        <div className="flex mt-1 ">
+        <form onSubmit={handleLogin}>
+          <p className="text-fifthpurple text-center text-2xl font-poppins">
+            Sign In
+          </p>
+          <p className="text-firstpurple">E-mail</p>
+          <div className="flex mt-1 ">
+            <input
+              className="border-secondpurple border-2 rounded-lg p-1 w-full text-sm focus:outline-none focus:border-thirdpurple"
+              placeholder="กรุณาใส่อีเมล์"
+              value={email}
+              type="email"
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <p className="text-firstpurple mt-2">Password</p>
           <input
-            className="border-secondpurple border-2 rounded-lg p-1 w-full text-sm focus:outline-none focus:border-thirdpurple"
-            placeholder="กรุณาใส่อีเมล์"
+            className="border-secondpurple border-2 rounded-lg p-1 w-full text-sm focus:outline-none focus:border-thirdpurple "
+            placeholder="กรอกรหัสผ่าน"
+            value={password}
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
           />
-        </div>
-        <p className="text-firstpurple mt-2">Password</p>
-        <input
-          className="border-secondpurple border-2 rounded-lg p-1 w-full text-sm focus:outline-none focus:border-thirdpurple "
-          placeholder="กรอกรหัสผ่าน"
-        />
 
-        <div className="flex justify-center mt-4">
-          <button className=" mt-2 bg-secondpurple hover:bg-firstpurple text-white text-sm font-poppins text-sm hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
-            Login
-          </button>
-        </div>
+          <div className="flex justify-center mt-4">
+            <button
+              type="submit"
+              className=" mt-2 bg-secondpurple hover:bg-firstpurple text-white font-poppins text-sm hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full"
+            >
+              Login
+            </button>
+          </div>
+        </form>
       </div>
       {/* </BgLogin> */}
-      <Footerpageone className="absolute bottom-0 object-cover " />
+      <img
+        className="absolute bottom-0 w-full object-cover opacity-90"
+        src={footerpageone}
+      />
     </div>
   );
 }

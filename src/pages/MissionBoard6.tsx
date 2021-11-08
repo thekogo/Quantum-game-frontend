@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import { ReactComponent as Stars } from "../assets/images/stars.svg";
 
 import logo5 from "../assets/images/Mission6/logo-crop.png";
@@ -11,10 +11,29 @@ import laserGun from "../assets/images/Mission6/laserGun.png";
 import mirrorLT from "../assets/images/Mission6/mirror-lt.png";
 import mirrorRB from "../assets/images/Mission6/mirror-rb.png";
 import opaquePlate from "../assets/images/Mission6/OpaquePlate.png";
+import classNames from "classnames";
 
 interface Props {}
 
 export default function MissionBoard({}: Props): ReactElement {
+  const [answer, setAnswer] = useState([
+    [false, false, false, false],
+    [false, false, false, false],
+    [false, false, false, false],
+    [false, false, false, false],
+  ]);
+
+  const classIsChoose = (row: number, col: number): string => {
+    return answer[row][col] ? "" : "filter grayscale opacity-20";
+  };
+
+  const handleClickAnswer = (row: number, col: number) => {
+    let temp = [...answer];
+    temp[row][col] = !temp[row][col];
+    console.log("OK");
+    setAnswer(temp);
+  };
+
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
@@ -22,7 +41,7 @@ export default function MissionBoard({}: Props): ReactElement {
       <div className="grid grid-cols-4 w-full">
         <div className="col-span-1 flex items-center justify-center">
           <div className=" p-3 rounded-3xl">
-            <img src={logo5} />
+            <img src={logo5} alt="logo mission" />
             <div className="font-poppins text-white text-center mt-2 ">
               SCOREBOARD
             </div>
@@ -54,55 +73,161 @@ export default function MissionBoard({}: Props): ReactElement {
             <div className="grid grid-cols-4 gap-4">
               {/* ROW 1 */}
               <div className="bg-white">
-                <img src={laserGun} className="object-contain" />
+                <img
+                  src={laserGun}
+                  className={classNames("object-contain", "cursor-pointer")}
+                  alt="gun"
+                />
               </div>
               <div className="bg-white">
-                <img src={opaquePlate} className="object-contain" />
+                <img
+                  src={opaquePlate}
+                  alt="block"
+                  className={classNames("object-contain", "cursor-pointer", {
+                    "filter grayscale opacity-20": !answer[0][1],
+                  })}
+                  onClick={() => handleClickAnswer(0, 1)}
+                />
               </div>
               <div className="bg-white">
-                <img src={beamSlitterL} className="object-contain" />
+                <img
+                  src={beamSlitterL}
+                  alt="change"
+                  className={classNames("object-contain", "cursor-pointer", {
+                    "filter grayscale opacity-20": !answer[0][2],
+                  })}
+                  onClick={() => handleClickAnswer(0, 2)}
+                />
               </div>
               <div className="bg-white">
-                <img src={beamSlitterL} className="object-contain" />
+                <img
+                  src={beamSlitterL}
+                  alt="change"
+                  className={classNames("object-contain", "cursor-pointer", {
+                    "filter grayscale opacity-20": !answer[0][3],
+                  })}
+                  onClick={() => handleClickAnswer(0, 3)}
+                />
               </div>
               {/* ROW 2 */}
               <div className="bg-white">
-                <img src={opaquePlate} className="object-contain" />
+                <img
+                  src={opaquePlate}
+                  alt="block"
+                  className={classNames("object-contain", "cursor-pointer", {
+                    "filter grayscale opacity-20": !answer[1][0],
+                  })}
+                  onClick={() => handleClickAnswer(1, 0)}
+                />
               </div>
               <div className="bg-white">
-                <img src={mirrorRB} className="object-contain" />
+                <img
+                  src={mirrorRB}
+                  alt="mirror"
+                  className={classNames("object-contain", "cursor-pointer", {
+                    "filter grayscale opacity-20": !answer[1][1],
+                  })}
+                  onClick={() => handleClickAnswer(1, 1)}
+                />
               </div>
               <div className="bg-white">
-                <img src={mirrorLT} className="object-contain" />
+                <img
+                  src={mirrorLT}
+                  alt="mirror"
+                  className={classNames("object-contain", "cursor-pointer", {
+                    "filter grayscale opacity-20": !answer[1][2],
+                  })}
+                  onClick={() => handleClickAnswer(1, 2)}
+                />
               </div>
               <div className="bg-white">
-                <img src={beamSlitterT} className="object-contain" />
+                <img
+                  src={beamSlitterT}
+                  alt="change"
+                  className={classNames("object-contain", "cursor-pointer", {
+                    "filter grayscale opacity-20": !answer[1][3],
+                  })}
+                  onClick={() => handleClickAnswer(1, 3)}
+                />
               </div>
               {/* ROW 3 */}
               <div className="bg-white">
-                <img src={beamSlitterR} className="object-contain" />
+                <img
+                  src={beamSlitterR}
+                  alt="change"
+                  className={classNames("object-contain", "cursor-pointer", {
+                    "filter grayscale opacity-20": !answer[2][0],
+                  })}
+                  onClick={() => handleClickAnswer(2, 0)}
+                />
               </div>
               <div className="bg-white">
-                <img src={opaquePlate} className="object-contain" />
+                <img
+                  src={opaquePlate}
+                  alt="block"
+                  className={classNames("object-contain", "cursor-pointer", {
+                    "filter grayscale opacity-20": !answer[2][1],
+                  })}
+                  onClick={() => handleClickAnswer(2, 1)}
+                />
               </div>
               <div className="bg-white">
-                <img src={beamSlitterT} className="object-contain" />
+                <img
+                  src={beamSlitterT}
+                  alt="change"
+                  className={classNames("object-contain", "cursor-pointer", {
+                    "filter grayscale opacity-20": !answer[2][2],
+                  })}
+                  onClick={() => handleClickAnswer(2, 2)}
+                />
               </div>
               <div className="bg-white">
-                <img src={mirrorLT} className="object-contain" />
+                <img
+                  src={mirrorLT}
+                  alt="mirror"
+                  className={classNames("object-contain", "cursor-pointer", {
+                    "filter grayscale opacity-20": !answer[2][3],
+                  })}
+                  onClick={() => handleClickAnswer(2, 3)}
+                />
               </div>
               {/* ROW 4 */}
               <div className="bg-white">
-                <img src={beamDetector} className="object-contain" />
+                <img
+                  src={beamDetector}
+                  alt="mirror"
+                  className={classNames("object-contain", "cursor-pointer")}
+                />
               </div>
               <div className="bg-white">
-                <img src={opaquePlate} className="object-contain" />
+                <img
+                  src={opaquePlate}
+                  alt="plate"
+                  className={classNames("object-contain", "cursor-pointer", {
+                    "filter grayscale opacity-20": !answer[3][1],
+                  })}
+                  onClick={() => handleClickAnswer(3, 1)}
+                />
               </div>
               <div className="bg-white">
-                <img src={mirrorRB} className="object-contain" />
+                <img
+                  src={mirrorRB}
+                  alt="mirror"
+                  className={classNames("object-contain", "cursor-pointer", {
+                    "filter grayscale opacity-20": !answer[3][2],
+                  })}
+                  onClick={() => handleClickAnswer(3, 2)}
+                />
               </div>
               <div className="bg-white">
-                <img src={mirrorLT} className="object-contain" />
+                <img
+                  src={mirrorLT}
+                  alt="mirror"
+                  className={classNames("object-contain", "cursor-pointer", {
+                    "filter grayscale opacity-20": !answer[3][3],
+                  })}
+                  onClick={() => handleClickAnswer(3, 3)}
+                />
               </div>
             </div>
             <button className="mt-2 mx-auto w-24  bg-secondpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
@@ -115,6 +240,7 @@ export default function MissionBoard({}: Props): ReactElement {
       <img
         className="absolute bottom-0 object-cover opacity-90"
         src={footer6}
+        alt="footer"
       />
       {/* <Maa className="w-60 absolute bottom-0 right-0" /> */}
     </div>

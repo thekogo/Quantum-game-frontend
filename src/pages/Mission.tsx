@@ -87,26 +87,62 @@ export default function Scoreboard({}: Props): ReactElement {
           <div className="row-span-1 col-span-7 w-full">
             <div className="flex flex-row gap-x-4">
               <div className="w-1/3 transform transition duration-500 hover:scale-125 hover:-rotate-12">
-                <Link to = "/mission"><img src={game1} className="object-contain h-52 m-auto" /></Link>
+                <Link to="/mission/1">
+                  <img
+                    src={game1}
+                    className="object-contain h-52 m-auto cursor-pointer"
+                    alt="mission 1"
+                  />
+                </Link>
               </div>
               <div className="w-1/3 transform transition duration-500 hover:scale-125">
-                <img src={game2} className="object-contain h-52 m-auto" />
+                <Link to="/mission/2">
+                  <img
+                    src={game2}
+                    className="object-contain h-52 m-auto cursor-pointer"
+                    alt="mission 2"
+                  />
+                </Link>
               </div>
               <div className="w-1/3 transform transition duration-500 hover:scale-125 hover:rotate-12">
-                <img src={game3} className="object-contain h-48 m-auto" />
+                <Link to="/mission/3">
+                  <img
+                    src={game3}
+                    className="object-contain h-48 m-auto cursor-pointer"
+                    alt="mission 3"
+                  />
+                </Link>
               </div>
             </div>
           </div>
           <div className="row-span-1 col-span-7 w-full">
             <div className="flex flex-row gap-x-4">
               <div className="w-1/3 transform transition duration-500 hover:scale-125 hover:rotate-12 z-10">
-                <img src={game4} className="object-contain h-60 m-auto" />
+                <Link to="/mission/4">
+                  <img
+                    src={game4}
+                    className="object-contain h-60 m-auto cursor-pointer"
+                    alt="mission 4"
+                  />
+                </Link>
               </div>
               <div className="w-1/3 transform transition duration-500 hover:scale-125 z-10">
-                <img src={game5} className="object-contain h-60 m-auto" />
+                <Link to="/mission/5">
+                  <img
+                    src={game5}
+                    className="object-contain h-60 m-auto cursor-pointer"
+                    alt="mission 5"
+                  />
+                </Link>
               </div>
               <div className="w-1/3 transform transition duration-500 hover:scale-125 hover:-rotate-12 z-10">
-                <img src={game6} className="object-contain h-64 m-auto" />
+                <Link to="/mission/6">
+                  <img
+                    src={game6}
+                    className="object-contain h-64 m-auto cursor-pointer"
+                    alt="mission 6"
+                  />
+                </Link>
               </div>
             </div>
           </div>
