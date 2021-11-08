@@ -15,3 +15,5 @@ export const login = (email: string, password: string): Promise<boolean> => {
       return false;
     });
 };
+
+export const getUser = () => {};
