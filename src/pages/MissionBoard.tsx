@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import { ReactComponent as SpaceCat } from "../assets/images/space-cat.svg";
 import { ReactComponent as Footerpageone } from "../assets/images/footerpageone.svg";
 import { ReactComponent as Stars } from "../assets/images/stars.svg";
@@ -7,10 +7,55 @@ import mq from "../assets/images/karn.png";
 import ma from "../assets/images/mr-quantum.png";
 import oval from "../assets/images/object-missionone.png";
 import logo1 from "../assets/images/logo1.png";
+import { submitMission1 } from "../services/mission";
+import Swal from "sweetalert2";
+import { useHistory } from "react-router";
 
 interface Props {}
 
 export default function MissionBoard({}: Props): ReactElement {
+  const [answer, setAnswer] = useState<number>();
+
+  const history = useHistory();
+
+  const handleSubmitAnswer = async () => {
+    const isCorrect = await submitMission1(answer);
+    if (isCorrect) {
+      Swal.fire({
+        title: "คำตอบถูกต้อง",
+        icon: "success",
+      });
+      history.push("/scoreboard");
+    } else {
+      Swal.fire({
+        title: `<span className="font-thaifonts">คำตอบไม่ถูกต้อง</span>`,
+        iconHtml: "",
+      });
+    }
+  };
+
+  const showDetailMission1 = () => {
+    Swal.fire({
+      title: "<strong>HTML <u>example</u></strong>",
+      icon: "info",
+      html:
+        "You can use <b>bold text</b>, " +
+        '<a href="//sweetalert2.github.io">links</a> ' +
+        "and other HTML tags",
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      confirmButtonText: '<i class="fa fa-thumbs-up"></i> Great!',
+      confirmButtonAriaLabel: "Thumbs up, great!",
+      cancelButtonText: '<i class="fa fa-thumbs-down"></i>',
+      cancelButtonAriaLabel: "Thumbs down",
+    });
+  };
+
+  useState(() => {
+    showDetailMission1();
+  }, []);
+
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
@@ -59,8 +104,15 @@ export default function MissionBoard({}: Props): ReactElement {
           <input
             className="mt-2 rounded-full w-2/4 py-1 text-md p-3 font-poppins text-fifthpurple placeholder-secondpurple focus:outline-none focus:border-thirdpurple"
             placeholder="input your answer"
+            type="number"
+            autoComplete="nope"
+            value={answer}
+            onChange={(e) => setAnswer(e.target.value)}
           />{" "}
-          <button className="mt-2 bg-secondpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
+          <button
+            onClick={handleSubmitAnswer}
+            className="mt-2 bg-secondpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full"
+          >
             ส่งคำตอบ
           </button>
         </div>

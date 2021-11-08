@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import { ReactComponent as Stars } from "../assets/images/stars.svg";
 import logo3 from "../assets/images/Mission3/logo-crop.png";
 import Cloud from "../assets/images/cloud.png";
@@ -9,10 +9,45 @@ import P4 from "../assets/images/Mission3/set1/4.png";
 import P5 from "../assets/images/Mission3/set1/5.png";
 import arrow from "../assets/images/Mission3/arrow.png";
 import footer3 from "../assets/images/footer3.png";
+import { useHistory } from "react-router";
+import { submitMission3 } from "../services/mission";
+import Swal from "sweetalert2";
 
 interface Props {}
 
 export default function MissionBoard({}: Props): ReactElement {
+  const [answer, setAnswer] = useState<(number | undefined)[]>([
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+  ]);
+
+  const history = useHistory();
+
+  const handleSubmitAnswer = async () => {
+    const isCorrect = await submitMission3(answer);
+    if (isCorrect) {
+      Swal.fire({
+        title: "คำตอบถูกต้อง",
+        icon: "success",
+      });
+      history.push("/scoreboard");
+    } else {
+      Swal.fire({
+        title: `<span className="font-thaifonts">คำตอบไม่ถูกต้อง</span>`,
+        iconHtml: "",
+      });
+    }
+  };
+
+  const handleSetAnswer = (idx: number, value: number) => {
+    let temp = [...answer];
+    temp[idx] = value;
+    setAnswer(temp);
+  };
+
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
@@ -119,17 +154,40 @@ export default function MissionBoard({}: Props): ReactElement {
               </div>
               <div className="text-center m-full my-auto">
                 <div className="flex bg-thirdpurple w-full mx-auto rounded-2xl justify-center p-2">
-                  <input className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center" />{" "}
+                  <input
+                    value={answer[0]}
+                    onChange={(e) => handleSetAnswer(0, Number(e.target.value))}
+                    className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                  />{" "}
                   <img src={arrow} className="flex my-auto w-6" />
-                  <input className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center" />{" "}
+                  <input
+                    value={answer[1]}
+                    onChange={(e) => handleSetAnswer(1, Number(e.target.value))}
+                    className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                  />{" "}
                   <img src={arrow} className="flex my-auto w-6" />
-                  <input className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center" />{" "}
+                  <input
+                    value={answer[3]}
+                    onChange={(e) => handleSetAnswer(3, Number(e.target.value))}
+                    className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                  />{" "}
                   <img src={arrow} className="flex my-auto w-6" />
-                  <input className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center" />{" "}
+                  <input
+                    value={answer[4]}
+                    onChange={(e) => handleSetAnswer(4, Number(e.target.value))}
+                    className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                  />{" "}
                   <img src={arrow} className="flex my-auto w-6" />
-                  <input className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center" />{" "}
+                  <input
+                    value={answer[5]}
+                    onChange={(e) => handleSetAnswer(5, Number(e.target.value))}
+                    className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                  />{" "}
                 </div>
-                <button className="mt-2 mx-auto w-24  bg-secondpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
+                <button
+                  onClick={handleSubmitAnswer}
+                  className="mt-2 mx-auto w-24  bg-secondpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full"
+                >
                   ส่งคำตอบ
                 </button>
               </div>
