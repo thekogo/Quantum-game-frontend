@@ -11,6 +11,8 @@ import { submitMission1 } from "../services/mission";
 import Swal from "sweetalert2";
 import { useHistory } from "react-router";
 import star_timer from "../assets/images/star-timer.png";
+import "./alert.css";
+import { assert } from "console";
 
 interface Props {}
 
@@ -37,19 +39,21 @@ export default function MissionBoard({}: Props): ReactElement {
 
   const showDetailMission1 = () => {
     Swal.fire({
-      title: "<strong>HTML <u>example</u></strong>",
-      icon: "info",
+      title: '<strong class="title"><u>ภารกิจ 1</u>: ถาม-ตอบ ควอนตัม</strong>',
       html:
+      // '<img src="'+ "{logo1}" +'"/>' +
         "You can use <b>bold text</b>, " +
         '<a href="//sweetalert2.github.io">links</a> ' +
         "and other HTML tags",
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
-      confirmButtonText: '<i class="fa fa-thumbs-up"></i> Great!',
-      confirmButtonAriaLabel: "Thumbs up, great!",
-      cancelButtonText: '<i class="fa fa-thumbs-down"></i>',
+      customClass: 'manual-wide',
+      cancelButtonText: '<i class="fa fa-thumbs-down"> กลับหน้าหลัก </i>',
       cancelButtonAriaLabel: "Thumbs down",
+      confirmButtonText: 'เริ่มเล่น!',
+      confirmButtonAriaLabel: "Thumbs up, great!",
+      reverseButtons: true,
     });
   };
 

@@ -1,0 +1,9 @@
+.title {
+    font-family: "Anuphan";
+    font-weight: bolder;
+}
+
+.manual-wide{
+    width:1200px !important;
+    height: 600px !important;
+}
