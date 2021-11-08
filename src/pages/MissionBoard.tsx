@@ -5,17 +5,31 @@ import { ReactComponent as Stars } from "../assets/images/stars.svg";
 import { ReactComponent as Ovalone } from "../assets/images/object-missionone.svg";
 import mq from "../assets/images/karn.png";
 import ma from "../assets/images/mr-quantum.png";
-import oval from "../assets/images/object-missionone.png";
+import oval from "../assets/images/object-missionone-edit.png";
 import logo1 from "../assets/images/logo1.png";
+import star_timer from "../assets/images/star-timer.png"
+import Swal from "sweetalert2";
 
 interface Props {}
 
 export default function MissionBoard({}: Props): ReactElement {
+
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
-      <img className="absolute  mx-auto h-full w-full" src={oval} />
+      <img className="absolute  mx-auto h-auto w-full self-center" src={oval} />
       <div className="grid grid-cols-4 w-full">
+        <div className="absolute top-0 right-0 m-8 w-48 h-28">
+          <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
+          <img className="absolute m-2 self-center top-0 right-0" src={star_timer} />
+            <p className="text-white font-poppins text-4xl mt-2">00:00</p>
+          </div>
+          <div className="flex flex-wrap justify-center">
+            <button className="w-4/5 mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center">
+              คู่มือการเล่นเกม
+            </button>
+          </div>
+        </div>
         <div className="col-span-1 flex items-center justify-center">
           <div className=" p-3 rounded-3xl">
             <img src={logo1} />
