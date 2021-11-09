@@ -212,6 +212,23 @@ export default function MissionBoard({}: Props): ReactElement {
             ส่งคำตอบ
           </button>
         </div>
+        <div className="flex flex-col justify-center z-10">
+          <p className="text-2xl  font-poppins text-white mb-2 ml-36 ">
+            {" "}
+            Question
+          </p>
+          <div className="border rounded-2xl h-60 w-11/12 p-3 text-white">
+            1. กระบวนการทำงานของคอมพิวเตอร์แบ่งเป็นกี่ขั้น <br />{" "}
+            (จากที่ได้รับฟังบรรยาย)
+            <br /> <br />
+            2. ค่าที่เป็นไปได้ของ 1 บิต มีอะไรบ้าง (เรียงจากน้อยไปมาก)
+            <br />
+            <br />
+            3. สำหรับการประมวลผลด้วยควอนตัมคอมพิวเตอร์
+            หากพบว่ามีโอกาสได้ค่าคิวบิตเป็น 0 เท่ากับร้อยละ 75
+            โอกาสที่จะได้ค่าคิวบิตเป็น 1 จะเป็นร้อยละเท่าใด
+          </div>
+        </div>
       </div>
 
       {/* <Maa className="w-60 absolute bottom-0 right-0" /> */}
