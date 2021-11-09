@@ -11,6 +11,7 @@ import laserGun from "../assets/images/Mission6/laserGun.png";
 import mirrorLT from "../assets/images/Mission6/mirror-lt.png";
 import mirrorRB from "../assets/images/Mission6/mirror-rb.png";
 import opaquePlate from "../assets/images/Mission6/OpaquePlate.png";
+import equipment from "../assets/images/Mission6/equipment.png";
 import classNames from "classnames";
 import {
   getDuration,
@@ -182,19 +183,23 @@ export default function MissionBoard(): ReactElement {
             <MissionScoreboard logo={logo6} missionId="6" />
           </div>
         </div>
-        <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-evenly mt-2">
-          <p className="text-white  text-5xl ">ภารกิจ 6 : ลำแสงแห่งอนาคต</p>
+        <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-center mt-2">
+          <p className="text-white mb-8 text-5xl">ภารกิจ 6 : ลำแสงแห่งอนาคต</p>
+          <p className="text-2xl font-thaifonts text-center text-white mb-8">
+            ยิงแสงให้โดนเป้าโดยต้องแยกแสงออกเป็นสองเส้นทาง
+            <p />
+          </p>
           <div className="flex flex-col gap-4 p-4 w-full">
             <div className="grid grid-cols-4 gap-4">
               {/* ROW 1 */}
-              <div className="bg-white">
+              <div className="bg-white justify-center flex flex-wrap">
                 <img
                   src={laserGun}
                   className={classNames("object-contain", "cursor-pointer")}
                   alt="gun"
                 />
               </div>
-              <div className="bg-white">
+              <div className="bg-white justify-center flex flex-wrap">
                 <img
                   src={opaquePlate}
                   alt="block"
@@ -204,7 +209,7 @@ export default function MissionBoard(): ReactElement {
                   onClick={() => handleClickAnswer(0, 1)}
                 />
               </div>
-              <div className="bg-white">
+              <div className="bg-white justify-center flex flex-wrap">
                 <img
                   src={beamSlitterL}
                   alt="change"
@@ -214,7 +219,7 @@ export default function MissionBoard(): ReactElement {
                   onClick={() => handleClickAnswer(0, 2)}
                 />
               </div>
-              <div className="bg-white">
+              <div className="bg-white justify-center flex flex-wrap">
                 <img
                   src={beamSlitterL}
                   alt="change"
@@ -225,7 +230,7 @@ export default function MissionBoard(): ReactElement {
                 />
               </div>
               {/* ROW 2 */}
-              <div className="bg-white">
+              <div className="bg-white justify-center flex flex-wrap">
                 <img
                   src={opaquePlate}
                   alt="block"
@@ -235,7 +240,7 @@ export default function MissionBoard(): ReactElement {
                   onClick={() => handleClickAnswer(1, 0)}
                 />
               </div>
-              <div className="bg-white">
+              <div className="bg-white justify-center flex flex-wrap">
                 <img
                   src={mirrorRB}
                   alt="mirror"
@@ -245,7 +250,7 @@ export default function MissionBoard(): ReactElement {
                   onClick={() => handleClickAnswer(1, 1)}
                 />
               </div>
-              <div className="bg-white">
+              <div className="bg-white justify-center flex flex-wrap">
                 <img
                   src={mirrorLT}
                   alt="mirror"
@@ -255,7 +260,7 @@ export default function MissionBoard(): ReactElement {
                   onClick={() => handleClickAnswer(1, 2)}
                 />
               </div>
-              <div className="bg-white">
+              <div className="bg-white justify-center flex flex-wrap">
                 <img
                   src={beamSlitterT}
                   alt="change"
@@ -266,7 +271,7 @@ export default function MissionBoard(): ReactElement {
                 />
               </div>
               {/* ROW 3 */}
-              <div className="bg-white">
+              <div className="bg-white justify-center flex flex-wrap">
                 <img
                   src={beamSlitterR}
                   alt="change"
@@ -276,7 +281,7 @@ export default function MissionBoard(): ReactElement {
                   onClick={() => handleClickAnswer(2, 0)}
                 />
               </div>
-              <div className="bg-white">
+              <div className="bg-white justify-center flex flex-wrap">
                 <img
                   src={opaquePlate}
                   alt="block"
@@ -286,7 +291,7 @@ export default function MissionBoard(): ReactElement {
                   onClick={() => handleClickAnswer(2, 1)}
                 />
               </div>
-              <div className="bg-white">
+              <div className="bg-white justify-center flex flex-wrap">
                 <img
                   src={beamSlitterT}
                   alt="change"
@@ -296,7 +301,7 @@ export default function MissionBoard(): ReactElement {
                   onClick={() => handleClickAnswer(2, 2)}
                 />
               </div>
-              <div className="bg-white">
+              <div className="bg-white justify-center flex flex-wrap">
                 <img
                   src={mirrorLT}
                   alt="mirror"
@@ -307,14 +312,14 @@ export default function MissionBoard(): ReactElement {
                 />
               </div>
               {/* ROW 4 */}
-              <div className="bg-white">
+              <div className="bg-white justify-center flex flex-wrap">
                 <img
                   src={beamDetector}
                   alt="mirror"
                   className={classNames("object-contain", "cursor-pointer")}
                 />
               </div>
-              <div className="bg-white">
+              <div className="bg-white justify-center flex flex-wrap">
                 <img
                   src={opaquePlate}
                   alt="plate"
@@ -324,7 +329,7 @@ export default function MissionBoard(): ReactElement {
                   onClick={() => handleClickAnswer(3, 1)}
                 />
               </div>
-              <div className="bg-white">
+              <div className="bg-white justify-center flex flex-wrap">
                 <img
                   src={mirrorRB}
                   alt="mirror"
@@ -334,7 +339,7 @@ export default function MissionBoard(): ReactElement {
                   onClick={() => handleClickAnswer(3, 2)}
                 />
               </div>
-              <div className="bg-white">
+              <div className="bg-white justify-center flex flex-wrap">
                 <img
                   src={mirrorLT}
                   alt="mirror"
@@ -354,10 +359,11 @@ export default function MissionBoard(): ReactElement {
           </div>
           <div></div>
         </div>
-        <div className="col-span-1 flex flex-col items-center justify-center z-10">
-          <a href="https://drive.google.com/u/0/uc?id=1stByaWJZkoXQU6_7Iop3htdY9toHfpfZ&export=download">
-            <button className="z-10 w-52 mt-2 text-sm bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center">
-              สัญลักษณ์ในเกม
+        <div className="flex flex-col justify-center z-10">
+          <img className="h-44 w-40 mt-16 ml-32 mx-auto" src={equipment} />
+          <a href="https://drive.google.com/u/0/uc?id=10r5ABbZM3fpww7ZAVGkI9JDCltfoOdqG&export=download">
+            <button className=" mb-32 mt-2 ml-32   bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
+              รายละเอียดอุปกรณ์
             </button>
           </a>
         </div>
