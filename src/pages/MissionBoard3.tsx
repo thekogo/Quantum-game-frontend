@@ -85,6 +85,7 @@ export default function MissionBoard({}: Props): ReactElement {
           <p className="text-white text-5xl ">
             ภารกิจ 3 : เรียงปีไม่เรียงเบอร์
           </p>
+          <p>จงเรียงปีเกิดของนักวิทยาศาสตร์ทั้ง 5 ท่านจากก่อนไปหลัง</p>
           <div className="flex flex-col p-4 w-full">
             <div className="grid grid-cols-2 gap-8 h-full">
               {/* PIC 1-1 */}
