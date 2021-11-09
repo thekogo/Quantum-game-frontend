@@ -89,52 +89,52 @@ export default function MissionBoard({}: Props): ReactElement {
           <div className="flex flex-col p-4 w-full">
             <div className="grid grid-cols-2 gap-8 h-full">
               {/* PIC 1-1 */}
-              <div className="border-4 p-2 rounded-3xl h-full">
+              <div className="border p-2 rounded-3xl h-full">
                 <div className="flex h-full">
                   <img
                     src={P1}
-                    className="border-2 h-32 w-1/5 rounded-3xl object-cover"
+                    className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white text-">
+                  <p className="p-4 text-white text-lg">
                     ผู้มีส่วนร่วมในความก้าวหน้าของฟิสิกส์เชิงทฤษฎี
                     แต่ก็เป็นผู้ถูกจดจำในฐานะนักฟิสิกส์ผู้ริเริ่มทฤษฎีควอนตัมซึ่งปฏิวัติความเข้าใจของมนุษย์เกี่ยวกับกระบวนการปรมาณูและอะตอม
                   </p>
                 </div>
               </div>
               {/* PIC 1-2 */}
-              <div className="border-4 p-2 rounded-3xl h-full">
+              <div className="border p-2 rounded-3xl h-full">
                 <div className="flex h-full">
                   <img
                     src={P2}
-                    className="border-2 h-32 w-1/5 rounded-3xl object-cover"
+                    className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white">
+                  <p className="p-4 text-white text-lg">
                     ผู้มีส่วนสนับสนุนพื้นฐานในการทำความเข้าใจโครงสร้างอะตอมและทฤษฎีควอนตัม
                     ซึ่งเขาได้รับรางวัลโนเบลสาขาฟิสิกส์จากงานด้านการสำรวจโครงสร้างอะตอมและรังสีที่เล็ดลอดออกมา
                   </p>
                 </div>
               </div>
               {/* PIC 2-1 */}
-              <div className="border-4 p-2 rounded-3xl h-full">
+              <div className="border p-2 rounded-3xl h-full">
                 <div className="flex h-full">
                   <img
                     src={P3}
-                    className="border-2 h-32 w-1/5 rounded-3xl object-cover"
+                    className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white">
+                  <p className="p-4 text-white text-lg">
                     ผู้สร้างเมทริกซ์ 2 × 2
                     ที่เป็นพื้นฐานของตัวดำเนินการการหมุนในทฤษฎีควอนตัม
                   </p>
                 </div>
               </div>
               {/* PIC 2-2 */}
-              <div className="border-4 p-2 rounded-3xl h-full">
+              <div className="border p-2 rounded-3xl h-full">
                 <div className="flex h-full">
                   <img
                     src={P4}
-                    className="border-2 h-32 w-1/5 rounded-3xl object-cover"
+                    className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white">
+                  <p className="p-4 text-white text-lg">
                     นักวิทยาศาสตร์ผู้สร้างการอินทีเกรทตามวิถี (path integral)
                     และผู้ตั้งสมมติฐานว่าหากเราต้องการจำลองระบบควอนตัม
                     เราจำเป็นจะต้องสร้างด้วยควอนตัมคอมพิวเตอร์
@@ -142,13 +142,13 @@ export default function MissionBoard({}: Props): ReactElement {
                 </div>
               </div>
               {/* PIC 3-1 */}
-              <div className="border-4 p-2 rounded-3xl h-full">
+              <div className="border p-2 rounded-3xl h-full">
                 <div className="flex h-full">
                   <img
                     src={P5}
-                    className="border-2 h-32 w-1/5 rounded-3xl object-cover"
+                    className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white">
+                  <p className="p-4 text-white text-lg">
                     นักวิทยาศาสตร์ผู้คิดค้นควอนตัมอัลกอริทึมสำหรับแยกตัวประกอบเฉพาะของจำนวนเต็มขนาดใหญ่
                   </p>
                 </div>

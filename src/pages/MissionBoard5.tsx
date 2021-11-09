@@ -68,9 +68,17 @@ export default function MissionBoard(): ReactElement {
                 <p className="text-white font-poppins text-4xl mt-2">00:00</p>
               </div>
               <div className="flex flex-wrap justify-center">
-                <button className="w-4/5 mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center">
+                <button className="w-full mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center">
                   คู่มือการเล่นเกม
                 </button>
+                <a
+                  href="https://drive.google.com/u/0/uc?id=1QumrLQS_LJU2OH4u4aWhaUAMM0kT1mWb&export=download"
+                  className="flex justify-center w-full"
+                >
+                  <button className="w-full mt-2  text-sm bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center">
+                    ดาวน์โหลดกระดาษโอริกามิ
+                  </button>
+                </a>
               </div>
             </div>
             <MissionScoreboard logo={logo5} missionId="5" />
@@ -79,24 +87,24 @@ export default function MissionBoard(): ReactElement {
         <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-evenly mt-2">
           <p className="text-white  text-5xl ">ภารกิจ 5 : ดูดวง...ดาว</p>
           <div className="flex flex-col gap-4 p-4">
-            <div className="border-4 p-3 rounded-3xl w-full mr-auto ">
+            <div className="border p-3 rounded-3xl w-full mr-auto ">
               <p className=" text-white text-lg">
                 1. ในปี ค.ศ.2011
                 มีการขายควอนตัมคอมพิวเตอร์สำหรับธุรกิจเครื่องแรก
               </p>
             </div>
-            <div className="border-4 p-3 rounded-3xl w-full mr-auto">
+            <div className="border p-3 rounded-3xl w-full mr-auto">
               <p className=" text-white text-lg">
                 2.ในปี ค.ศ.2016 มีการให้บริการคลาวด์สาธารณะ สำหรับโปรแกรมบน
                 เครื่องควอนตัมคอมพิวเตอร์เป็นครั้งแรก
               </p>
             </div>
-            <div className="border-4 p-3 rounded-3xl w-full mr-auto">
+            <div className="border p-3 rounded-3xl w-full mr-auto">
               <p className=" text-white text-lg">
                 3.ในปี ค.ศ.2019 มีข่าวการอ้างความสำเร็จ Quantum Supremacy
               </p>
             </div>
-            <div className="border-4 p-3 rounded-3xl w-full mr-auto">
+            <div className="border p-3 rounded-3xl w-full mr-auto">
               <p className=" text-white text-lg">
                 4.ในกลางปี ค.ศ.2020 มีการเปิดตัวการให้บริการคลาวด์สาธารณะอีก
                 แต่พิเศษที่เป็นควอนตัมคอมพิวเตอร์ที่ทำงานด้วยแสงหรือโฟโตนิกส์
@@ -162,24 +170,6 @@ export default function MissionBoard(): ReactElement {
             </div>
           </div>
           <div></div>
-        </div>
-
-        <div className="flex flex-col justify-center z-10">
-          <div className="text-3xl text-white font-poppins mb-2 ml-2 font-thaifonts "></div>
-          <div className="border-4 p-3 rounded-3xl w-5/6 h-1/4 mr-auto flex flex-col justify-between text-md text-white mt-2 font-poppins">
-            <div className="border-4 p-3 rounded-3xl w-full h-3/4 mr-auto flex flex-col  text-md text-white mt-2 font-thaifonts">
-              <img className="h-32 " src={origami} />
-            </div>
-            <a
-              href="https://drive.google.com/u/0/uc?id=1QumrLQS_LJU2OH4u4aWhaUAMM0kT1mWb&export=download"
-              className="flex justify-center"
-            >
-              {" "}
-              <button className="mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
-                ดาวน์โหลดกระดาษโอริกามิ
-              </button>
-            </a>
-          </div>
         </div>
       </div>
       <img

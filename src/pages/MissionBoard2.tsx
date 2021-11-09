@@ -52,7 +52,7 @@ export default function MissionBoard(): ReactElement {
       <div className="grid grid-cols-4 w-full z-10">
         <div className="col-span-1 flex items-center justify-center">
           <div className="absolute top-0 right-0 m-8 w-48 h-28">
-            <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
+            <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full borderrounded-3xl flex flex-wrap content-center justify-center relative">
               <img
                 className="absolute m-2 self-center top-0 right-0"
                 src={star_timer}
@@ -71,7 +71,7 @@ export default function MissionBoard(): ReactElement {
         </div>
         <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-evenly mt-2">
           <p className="text-white  text-5xl ">ภารกิจ 2 : อักษรที่หายไป</p>
-          <div className="border-4 p-3 rounded-3xl w-5/6 h-3/6 mr-auto flex flex-col justify-between">
+          <div className="border p-3 rounded-3xl w-5/6 h-3/6 mr-auto flex flex-col justify-between">
             <img
               className="h-5/6 w-auto mx-auto hover:scale-150 z-20"
               src={crossword}
@@ -122,7 +122,7 @@ export default function MissionBoard(): ReactElement {
           <div className="text-3xl text-white font-poppins mb-2 ml-2 ">
             Across
           </div>
-          <div className="border-2 p-3 rounded-3xl w-2/3 h- mr-auto flex flex-col justify-between text-md  text-white">
+          <div className="border-2 p-3 rounded-3xl w-2/3 h- mr-auto flex flex-col justify-between text-md  text-white font-poppins text-lg">
             1.A wavefunction can propagate through a potential barrier <br />
             5.A phenomenon in quantum mechanics in which a particle or system
             does not have a definite state <br /> 7.A cat in a box with unknown
