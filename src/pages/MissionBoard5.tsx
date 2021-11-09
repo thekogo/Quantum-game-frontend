@@ -9,10 +9,13 @@ import { submitMission5 } from "../services/mission";
 import Swal from "sweetalert2";
 import { useHistory } from "react-router";
 import arrow from "../assets/images/Mission3/arrow.png";
+import star_timer from "../assets/images/star-timer.png";
+import origami from "../assets/images/origami.png";
+import back from "../assets/images/backward.png";
+import { Link } from "react-router-dom";
+import MissionScoreboard from "../components/MissionScoreboard";
 
-interface Props {}
-
-export default function MissionBoard({}: Props): ReactElement {
+export default function MissionBoard(): ReactElement {
   const [answer, setAnswer] = useState<(string | undefined)[]>([
     undefined,
     undefined,
@@ -46,57 +49,62 @@ export default function MissionBoard({}: Props): ReactElement {
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
+      <Link to="/scoreboard">
+        <img
+          className="absolute  mx-auto mt-16 ml-14 cursor-pointer z-10"
+          src={back}
+        />
+      </Link>
 
-      <div className="grid grid-cols-4 w-full">
+      <div className="grid grid-cols-4 w-full z-10">
         <div className="col-span-1 flex items-center justify-center">
           <div className=" p-3 rounded-3xl">
-            <img src={logo5} />
-            <div className="font-poppins text-white text-center mt-2 ">
-              SCOREBOARD
+            <div className="absolute top-0 right-0 m-8 w-48 h-28">
+              <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
+                <img
+                  className="absolute m-2 self-center top-0 right-0"
+                  src={star_timer}
+                />
+                <p className="text-white font-poppins text-4xl mt-2">00:00</p>
+              </div>
+              <div className="flex flex-wrap justify-center">
+                <button className="w-full mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center">
+                  คู่มือการเล่นเกม
+                </button>
+                <a
+                  href="https://drive.google.com/u/0/uc?id=1QumrLQS_LJU2OH4u4aWhaUAMM0kT1mWb&export=download"
+                  className="flex justify-center w-full"
+                >
+                  <button className="w-full mt-2  text-sm bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center">
+                    ดาวน์โหลดกระดาษโอริกามิ
+                  </button>
+                </a>
+              </div>
             </div>
-            <div className="flex flex-col gap-3">
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                score
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-            </div>
+            <MissionScoreboard logo={logo5} missionId="5" />
           </div>
         </div>
         <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-evenly mt-2">
           <p className="text-white  text-5xl ">ภารกิจ 5 : ดูดวง...ดาว</p>
           <div className="flex flex-col gap-4 p-4">
-            <div className="border-4 p-3 rounded-3xl w-full mr-auto ">
+            <div className="border p-3 rounded-3xl w-full mr-auto ">
               <p className=" text-white text-lg">
                 1. ในปี ค.ศ.2011
                 มีการขายควอนตัมคอมพิวเตอร์สำหรับธุรกิจเครื่องแรก
               </p>
             </div>
-            <div className="border-4 p-3 rounded-3xl w-full mr-auto">
+            <div className="border p-3 rounded-3xl w-full mr-auto">
               <p className=" text-white text-lg">
                 2.ในปี ค.ศ.2016 มีการให้บริการคลาวด์สาธารณะ สำหรับโปรแกรมบน
                 เครื่องควอนตัมคอมพิวเตอร์เป็นครั้งแรก
               </p>
             </div>
-            <div className="border-4 p-3 rounded-3xl w-full mr-auto">
+            <div className="border p-3 rounded-3xl w-full mr-auto">
               <p className=" text-white text-lg">
                 3.ในปี ค.ศ.2019 มีข่าวการอ้างความสำเร็จ Quantum Supremacy
               </p>
             </div>
-            <div className="border-4 p-3 rounded-3xl w-full mr-auto">
+            <div className="border p-3 rounded-3xl w-full mr-auto">
               <p className=" text-white text-lg">
                 4.ในกลางปี ค.ศ.2020 มีการเปิดตัวการให้บริการคลาวด์สาธารณะอีก
                 แต่พิเศษที่เป็นควอนตัมคอมพิวเตอร์ที่ทำงานด้วยแสงหรือโฟโตนิกส์
@@ -162,18 +170,6 @@ export default function MissionBoard({}: Props): ReactElement {
             </div>
           </div>
           <div></div>
-        </div>
-
-        <div className="flex flex-col justify-center z-10">
-          <div className="text-3xl text-white font-poppins mb-2 ml-2 font-thaifonts "></div>
-          <div className="border-4 p-3 rounded-3xl w-5/6 h-1/4 mr-auto flex flex-col justify-between text-md text-white mt-2 font-poppins">
-            <div className="border-4 p-3 rounded-3xl w-full h-3/4 mr-auto flex flex-col  text-md text-white mt-2 font-thaifonts">
-              ใส่ตัวอย่างกระดาษ
-            </div>
-            <button className="mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
-              ดาวน์โหลดกระดาษโอริกามิ
-            </button>
-          </div>
         </div>
       </div>
       <img
