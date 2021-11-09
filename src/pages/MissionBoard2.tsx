@@ -12,6 +12,7 @@ import footer2 from "../assets/images/footermission2.png";
 import { useHistory } from "react-router";
 import { submitMission2 } from "../services/mission";
 import Swal from "sweetalert2";
+import star_timer from "../assets/images/star-timer.png";
 
 export default function MissionBoard(): ReactElement {
   const [answer, setAnswer] = useState<string>();
@@ -40,6 +41,20 @@ export default function MissionBoard(): ReactElement {
 
       <div className="grid grid-cols-4 w-full">
         <div className="col-span-1 flex items-center justify-center">
+          <div className="absolute top-0 right-0 m-8 w-48 h-28">
+            <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
+              <img
+                className="absolute m-2 self-center top-0 right-0"
+                src={star_timer}
+              />
+              <p className="text-white font-poppins text-4xl mt-2">00:00</p>
+            </div>
+            <div className="flex flex-wrap justify-center">
+              <button className="w-4/5 mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center">
+                คู่มือการเล่นเกม
+              </button>
+            </div>
+          </div>
           <div className=" p-3 rounded-3xl">
             <img src={logo2} />
             <div className="font-poppins text-white text-center mt-2 ">
@@ -102,7 +117,7 @@ export default function MissionBoard(): ReactElement {
           <div className="text-3xl text-white font-poppins mb-2 ml-2 ">
             Across
           </div>
-          <div className="border-4 p-3 rounded-3xl w-4/6 h-1/3 mr-auto flex flex-col justify-between text-md text-white"></div>
+          <div className="border-4 p-3 rounded-3xl w-2/3 h-1/3 mr-auto flex flex-col justify-between text-md text-white"></div>
           <div className="text-3xl text-white font-poppins mt-2 ml-2 font-">
             Down
           </div>

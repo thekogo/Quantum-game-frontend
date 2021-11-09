@@ -92,6 +92,20 @@ export default function MissionBoard({}: Props): ReactElement {
       </div>
       <div className="grid grid-cols-4 w-full">
         <div className="col-span-1 flex items-center justify-center">
+          <div className="absolute top-0 right-0 m-8 w-48 h-28">
+            <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
+              <img
+                className="absolute m-2 self-center top-0 right-0"
+                src={star_timer}
+              />
+              <p className="text-white font-poppins text-4xl mt-2">00:00</p>
+            </div>
+            <div className="flex flex-wrap justify-center">
+              <button className="w-4/5 mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center">
+                คู่มือการเล่นเกม
+              </button>
+            </div>
+          </div>
           <div className=" p-3 rounded-3xl">
             <img src={logo4} />
             <div className="font-poppins text-white text-center mt-2 ">
@@ -294,9 +308,11 @@ export default function MissionBoard({}: Props): ReactElement {
           <div></div>
         </div>
         <div className="flex flex-col justify-center">
-          <button className=" z-10 mb-32 mt-6 ml-32 text-lg w-2/4 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
-            ข้อมูลของตำแหน่งงาน
-          </button>
+          <a href="https://drive.google.com/file/d/10r5ABbZM3fpww7ZAVGkI9JDCltfo">
+            <button className=" z-10 mb-32 mt-6 ml-32 text-lg w-2/4 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
+              ข้อมูลของตำแหน่งงาน
+            </button>
+          </a>
         </div>
       </div>
       <img
