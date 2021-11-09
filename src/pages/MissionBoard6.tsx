@@ -12,6 +12,7 @@ import mirrorLT from "../assets/images/Mission6/mirror-lt.png";
 import mirrorRB from "../assets/images/Mission6/mirror-rb.png";
 import opaquePlate from "../assets/images/Mission6/OpaquePlate.png";
 import classNames from "classnames";
+import star_timer from "../assets/images/star-timer.png";
 
 interface Props {}
 
@@ -41,6 +42,20 @@ export default function MissionBoard({}: Props): ReactElement {
       <div className="grid grid-cols-4 w-full">
         <div className="col-span-1 flex items-center justify-center">
           <div className=" p-3 rounded-3xl">
+            <div className="absolute top-0 right-0 m-8 w-48 h-28">
+              <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
+                <img
+                  className="absolute m-2 self-center top-0 right-0"
+                  src={star_timer}
+                />
+                <p className="text-white font-poppins text-4xl mt-2">00:00</p>
+              </div>
+              <div className="flex flex-wrap justify-center">
+                <button className="w-4/5 mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center">
+                  คู่มือการเล่นเกม
+                </button>
+              </div>
+            </div>
             <img src={logo5} alt="logo mission" />
             <div className="font-poppins text-white text-center mt-2 ">
               SCOREBOARD
