@@ -138,36 +138,53 @@ export default function MissionBoard({}: Props): ReactElement {
 
             <div>
               <div className=" border-2 p-2 rounded-2xl mt-8 ">
-                <table className="mt-4 text-base text-white">
+                <table className="border border-collapse border-transparent mt-2 text-base text-white">
                   <thead>
                     <tr>
-                      <th className="w-1/4 ... ">ชื่อ</th>
-                      <th className="w-1/4 ...">อาชีพ</th>
-                      <th className="w-1/4 ...">งานที่ทำ</th>
-                      <th className="w-1/2 ...">ตอบ</th>
+                      <th className="border border-l-0 border-t-0 px-4 pb-5">ชื่อ</th>
+                      <th className="border border-l-0 border-t-0 px-4 pb-5">อาชีพ</th>
+                      <th className="border border-l-0 border-t-0 px-4 pb-5">งานที่ทำ</th>
+                      <th className="border border-l-0 border-t-0 border-r-0 px-4 pb-5">ตอบ</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="  p-3">
-                      <td>Alan</td>
-                      <td>วิศวกรรมเครื่องกล</td>
-                      <td>ทำระบบหล่อเย็นในโรงงาน</td>
-                      <td>
-                        <div className="flex items-center relative inline-block w-full h-14 text-black ">
-                          <select
-                            className="w-full h-10 pl-2 pr-7 text-sm placeholder-secondpurple rounded-md  appearance-none  font-poppins"
-                            placeholder="เลือกคำตอบ"
-                          >
-                            <option>เลือกคำตอบ </option>
-                            <option>1.Quantum FPGA Engineers </option>
-                            <option>2.Quantum Cryogenic Engineers </option>
-                            <option>3.Quantum Computer Architects</option>
-                            <option>4.Quantum Algorithms Researcher</option>
-                            <option>5.Quantum Complexity Theorists</option>
-                            <option>6.Quantum Software Developers</option>
-                            <option>7.Quantum Community Builders</option>
-                            <option>8.Superconducting Qubit Researchers</option>
-                            <option>9.Quantum Microwave Engineers </option>
+                    <tr className="p-2">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4">Alan</td>
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4">วิศวกรรมเครื่องกล</td>
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4">ทำระบบหล่อเย็นในโรงงาน</td>
+                      <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
+                      <div className="flex items-center relative inline-block w-full h-14 text-white ">
+                          <select className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins">
+                            <option className="bg-lbFirstpurple text-thaifonts">
+                              เลือกคำตอบ{" "}
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              1.Quantum FPGA Engineers{" "}
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              2.Quantum Cryogenic Engineers{" "}
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              3.Quantum Computer Architects
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              4.Quantum Algorithms Researcher
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              5.Quantum Complexity Theorists
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              6.Quantum Software Developers
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              7.Quantum Community Builders
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              8.Superconducting Qubit Researchers
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              9.Quantum Microwave Engineers{" "}
+                            </option>
                           </select>
                           <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                             <svg
@@ -185,25 +202,42 @@ export default function MissionBoard({}: Props): ReactElement {
                       </td>
                     </tr>
                     <tr className=" ">
-                      <td>Gus</td>
-                      <td>วิศวกรรมไฟฟ้า</td>
-                      <td>ทำงานเกี่ยวกับอุปกรณ์รับส่งคลื่นแม่เหล็กไฟฟ้า</td>
-                      <td>
-                        <div className="flex items-center relative inline-block w-full h-14 text-black ">
-                          <select
-                            className="w-full h-10 pl-2 pr-7 text-sm placeholder-secondpurple rounded-md  appearance-none  font-poppins"
-                            placeholder="เลือกคำตอบ"
-                          >
-                            <option>เลือกคำตอบ </option>
-                            <option>1.Quantum FPGA Engineers </option>
-                            <option>2.Quantum Cryogenic Engineers </option>
-                            <option>3.Quantum Computer Architects</option>
-                            <option>4.Quantum Algorithms Researcher</option>
-                            <option>5.Quantum Complexity Theorists</option>
-                            <option>6.Quantum Software Developers</option>
-                            <option>7.Quantum Community Builders</option>
-                            <option>8.Superconducting Qubit Researchers</option>
-                            <option>9.Quantum Microwave Engineers </option>
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4">Gus</td>
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4">วิศวกรรมไฟฟ้า</td>
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4">ทำงานเกี่ยวกับอุปกรณ์รับส่งคลื่นแม่เหล็กไฟฟ้า</td>
+                      <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
+                      <div className="flex items-center relative inline-block w-full h-14 text-white ">
+                          <select className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins">
+                            <option className="bg-lbFirstpurple text-thaifonts">
+                              เลือกคำตอบ{" "}
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              1.Quantum FPGA Engineers{" "}
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              2.Quantum Cryogenic Engineers{" "}
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              3.Quantum Computer Architects
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              4.Quantum Algorithms Researcher
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              5.Quantum Complexity Theorists
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              6.Quantum Software Developers
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              7.Quantum Community Builders
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              8.Superconducting Qubit Researchers
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              9.Quantum Microwave Engineers{" "}
+                            </option>
                           </select>
                           <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                             <svg
@@ -222,87 +256,15 @@ export default function MissionBoard({}: Props): ReactElement {
                     </tr>
 
                     <tr className="">
-                      <td>Finley</td>
-                      <td>ฟิสิกส์</td>
-                      <td>เป็นเน็ตไอดอล</td>
-                      <td>
-                        <div className="flex items-center relative inline-block w-full h-14 text-black ">
-                          <select
-                            className="w-full h-10 pl-2 pr-7 text-sm placeholder-secondpurple rounded-md  appearance-none  font-poppins"
-                            placeholder="เลือกคำตอบ"
-                          >
-                            <option>เลือกคำตอบ </option>
-                            <option>1.Quantum FPGA Engineers </option>
-                            <option>2.Quantum Cryogenic Engineers </option>
-                            <option>3.Quantum Computer Architects</option>
-                            <option>4.Quantum Algorithms Researcher</option>
-                            <option>5.Quantum Complexity Theorists</option>
-                            <option>6.Quantum Software Developers</option>
-                            <option>7.Quantum Community Builders</option>
-                            <option>8.Superconducting Qubit Researchers</option>
-                            <option>9.Quantum Microwave Engineers </option>
-                          </select>
-                          <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                            <svg
-                              className="w-4 h-4 fill-current"
-                              viewBox="0 0 20 20"
-                            >
-                              <path
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"
-                                fill-rule="evenodd"
-                              ></path>
-                            </svg>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr className="">
-                      <td>Belinda </td>
-                      <td>คณิตศาสตร์</td>
-                      <td>เป็นอาจารย์สอนคณิตศาสตร์ในมหาวิทยาลัย</td>
-                      <td>
-                        <div className="flex items-center relative inline-block w-full h-14 text-black ">
-                          <select
-                            className="w-full h-10 pl-2 pr-7 text-sm placeholder-secondpurple rounded-md  appearance-none  font-poppins"
-                            placeholder="เลือกคำตอบ"
-                          >
-                            <option>เลือกคำตอบ </option>
-                            <option>1.Quantum FPGA Engineers </option>
-                            <option>2.Quantum Cryogenic Engineers </option>
-                            <option>3.Quantum Computer Architects</option>
-                            <option>4.Quantum Algorithms Researcher</option>
-                            <option>5.Quantum Complexity Theorists</option>
-                            <option>6.Quantum Software Developers</option>
-                            <option>7.Quantum Community Builders</option>
-                            <option>8.Superconducting Qubit Researchers</option>
-                            <option>9.Quantum Microwave Engineers </option>
-                          </select>
-                          <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                            <svg
-                              className="w-4 h-4 fill-current"
-                              viewBox="0 0 20 20"
-                            >
-                              <path
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"
-                                fill-rule="evenodd"
-                              ></path>
-                            </svg>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr className="">
-                      <td>Belinda </td>
-                      <td>คณิตศาสตร์</td>
-                      <td>เป็นอาจารย์สอนคณิตศาสตร์ในมหาวิทยาลัย</td>
-                      <td>
-                        <div
-                          className="flex items-center relative inline-block w-full h-14 text-white 
-                        "
-                        >
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4">Finley</td>
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4">ฟิสิกส์</td>
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4">เป็นเน็ตไอดอล</td>
+                      <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
+                      <div className="flex items-center relative inline-block w-full h-14 text-white ">
                           <select className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins">
+                            <option className="bg-lbFirstpurple text-thaifonts">
+                              เลือกคำตอบ{" "}
+                            </option>
                             <option className="bg-lbFirstpurple">
                               1.Quantum FPGA Engineers{" "}
                             </option>
@@ -347,10 +309,116 @@ export default function MissionBoard({}: Props): ReactElement {
                       </td>
                     </tr>
                     <tr className="">
-                      <td>Belinda </td>
-                      <td>คณิตศาสตร์</td>
-                      <td>เป็นอาจารย์สอนคณิตศาสตร์ในมหาวิทยาลัย</td>
-                      <td>
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4">Belinda </td>
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4">คณิตศาสตร์</td>
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4">เป็นอาจารย์สอนคณิตศาสตร์ในมหาวิทยาลัย</td>
+                      <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
+                      <div className="flex items-center relative inline-block w-full h-14 text-white ">
+                          <select className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins">
+                            <option className="bg-lbFirstpurple text-thaifonts">
+                              เลือกคำตอบ{" "}
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              1.Quantum FPGA Engineers{" "}
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              2.Quantum Cryogenic Engineers{" "}
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              3.Quantum Computer Architects
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              4.Quantum Algorithms Researcher
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              5.Quantum Complexity Theorists
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              6.Quantum Software Developers
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              7.Quantum Community Builders
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              8.Superconducting Qubit Researchers
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              9.Quantum Microwave Engineers{" "}
+                            </option>
+                          </select>
+                          <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                            <svg
+                              className="w-4 h-4 fill-current"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"
+                                fill-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr className="">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4">Belinda </td>
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4">คณิตศาสตร์</td>
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4">เป็นอาจารย์สอนคณิตศาสตร์ในมหาวิทยาลัย</td>
+                      <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
+                      <div className="flex items-center relative inline-block w-full h-14 text-white ">
+                          <select className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins">
+                            <option className="bg-lbFirstpurple text-thaifonts">
+                              เลือกคำตอบ{" "}
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              1.Quantum FPGA Engineers{" "}
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              2.Quantum Cryogenic Engineers{" "}
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              3.Quantum Computer Architects
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              4.Quantum Algorithms Researcher
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              5.Quantum Complexity Theorists
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              6.Quantum Software Developers
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              7.Quantum Community Builders
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              8.Superconducting Qubit Researchers
+                            </option>
+                            <option className="bg-lbFirstpurple">
+                              9.Quantum Microwave Engineers{" "}
+                            </option>
+                          </select>
+                          <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                            <svg
+                              className="w-4 h-4 fill-current"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"
+                                fill-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr className="">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4">Belinda </td>
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4">คณิตศาสตร์</td>
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4">เป็นอาจารย์สอนคณิตศาสตร์ในมหาวิทยาลัย</td>
+                      <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
                         <div className="flex items-center relative inline-block w-full h-14 text-white ">
                           <select className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins">
                             <option className="bg-lbFirstpurple text-thaifonts">
