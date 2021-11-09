@@ -6,6 +6,8 @@ import logo4 from "../assets/images/logo4.png";
 import footer4 from "../assets/images/footer4.png";
 import topper4 from "../assets/images/topper4.png";
 import star_timer from "../assets/images/star-timer.png";
+import back from "../assets/images/backward.png";
+import { Link } from "react-router-dom";
 
 interface Props {}
 
@@ -13,6 +15,12 @@ export default function MissionBoard({}: Props): ReactElement {
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
+      <Link to="/scoreboard">
+        <img
+          className="absolute  mx-auto mt-16 ml-14 cursor-pointer z-10"
+          src={back}
+        />
+      </Link>
       <img className="absolute  z-0" src={topper4} />
 
       <div className="grid grid-cols-4 w-full">
@@ -232,9 +240,9 @@ export default function MissionBoard({}: Props): ReactElement {
           <div></div>
           <div></div>
         </div>
-        <div className="flex flex-col justify-center">
-          <a href="https://drive.google.com/file/d/10r5ABbZM3fpww7ZAVGkI9JDCltfo">
-            <button className=" z-10 mb-32 mt-6 ml-32 text-lg w-2/4 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
+        <div className="flex flex-col justify-center z-10">
+          <a href="https://drive.google.com/u/0/uc?id=10r5ABbZM3fpww7ZAVGkI9JDCltfoOdqG&export=download">
+            <button className=" mb-32 mt-6 ml-32 text-lg w-2/4 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
               ข้อมูลของตำแหน่งงาน
             </button>
           </a>

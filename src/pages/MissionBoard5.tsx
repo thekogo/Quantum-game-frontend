@@ -10,6 +10,9 @@ import Swal from "sweetalert2";
 import { useHistory } from "react-router";
 import arrow from "../assets/images/Mission3/arrow.png";
 import star_timer from "../assets/images/star-timer.png";
+import origami from "../assets/images/origami.png";
+import back from "../assets/images/backward.png";
+import { Link } from "react-router-dom";
 
 interface Props {}
 
@@ -47,6 +50,12 @@ export default function MissionBoard({}: Props): ReactElement {
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
+      <Link to="/scoreboard">
+        <img
+          className="absolute  mx-auto mt-16 ml-14 cursor-pointer z-10"
+          src={back}
+        />
+      </Link>
 
       <div className="grid grid-cols-4 w-full">
         <div className="col-span-1 flex items-center justify-center">
@@ -183,11 +192,17 @@ export default function MissionBoard({}: Props): ReactElement {
           <div className="text-3xl text-white font-poppins mb-2 ml-2 font-thaifonts "></div>
           <div className="border-4 p-3 rounded-3xl w-5/6 h-1/4 mr-auto flex flex-col justify-between text-md text-white mt-2 font-poppins">
             <div className="border-4 p-3 rounded-3xl w-full h-3/4 mr-auto flex flex-col  text-md text-white mt-2 font-thaifonts">
-              ใส่ตัวอย่างกระดาษ
+              <img className="h-32 " src={origami} />
             </div>
-            <button className="mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
-              ดาวน์โหลดกระดาษโอริกามิ
-            </button>
+            <a
+              href="https://drive.google.com/u/0/uc?id=1QumrLQS_LJU2OH4u4aWhaUAMM0kT1mWb&export=download"
+              className="flex justify-center"
+            >
+              {" "}
+              <button className="mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
+                ดาวน์โหลดกระดาษโอริกามิ
+              </button>
+            </a>
           </div>
         </div>
       </div>

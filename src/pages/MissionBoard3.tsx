@@ -13,6 +13,8 @@ import { useHistory } from "react-router";
 import { submitMission3 } from "../services/mission";
 import Swal from "sweetalert2";
 import star_timer from "../assets/images/star-timer.png";
+import back from "../assets/images/backward.png";
+import { Link } from "react-router-dom";
 
 interface Props {}
 
@@ -52,6 +54,12 @@ export default function MissionBoard({}: Props): ReactElement {
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
+      <Link to="/scoreboard">
+        <img
+          className="absolute  mx-auto mt-16 ml-14 cursor-pointer z-10"
+          src={back}
+        />
+      </Link>
 
       <div className="grid grid-cols-12 w-full">
         <div className="col-span-3 flex items-center justify-center">
@@ -109,7 +117,7 @@ export default function MissionBoard({}: Props): ReactElement {
                     src={P1}
                     className="border-2 h-32 w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white">
+                  <p className="p-4 text-white text-">
                     ผู้มีส่วนร่วมในความก้าวหน้าของฟิสิกส์เชิงทฤษฎี
                     แต่ก็เป็นผู้ถูกจดจำในฐานะนักฟิสิกส์ผู้ริเริ่มทฤษฎีควอนตัมซึ่งปฏิวัติความเข้าใจของมนุษย์เกี่ยวกับกระบวนการปรมาณูและอะตอม
                   </p>

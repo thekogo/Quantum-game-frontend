@@ -13,6 +13,8 @@ import { useHistory } from "react-router";
 import star_timer from "../assets/images/star-timer.png";
 import "./alert.css";
 import { assert } from "console";
+import back from "../assets/images/backward.png";
+import { Link } from "react-router-dom";
 
 interface Props {}
 
@@ -41,17 +43,17 @@ export default function MissionBoard({}: Props): ReactElement {
     Swal.fire({
       title: '<strong class="title"><u>ภารกิจ 1</u>: ถาม-ตอบ ควอนตัม</strong>',
       html:
-      // '<img src="'+ "{logo1}" +'"/>' +
+        // '<img src="'+ "{logo1}" +'"/>' +
         "You can use <b>bold text</b>, " +
         '<a href="//sweetalert2.github.io">links</a> ' +
         "and other HTML tags",
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
-      customClass: 'manual-wide',
+      customClass: "manual-wide",
       cancelButtonText: '<i class="fa fa-thumbs-down"> กลับหน้าหลัก </i>',
       cancelButtonAriaLabel: "Thumbs down",
-      confirmButtonText: 'เริ่มเล่น!',
+      confirmButtonText: "เริ่มเล่น!",
       confirmButtonAriaLabel: "Thumbs up, great!",
       reverseButtons: true,
     });
@@ -64,6 +66,12 @@ export default function MissionBoard({}: Props): ReactElement {
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
+      <Link to="/scoreboard">
+        <img
+          className="absolute  mx-auto mt-16 ml-14 cursor-pointer z-10"
+          src={back}
+        />
+      </Link>
       <img className="absolute  mx-auto h-auto w-full self-center" src={oval} />
       <div className="grid grid-cols-4 w-full">
         <div className="absolute top-0 right-0 m-8 w-48 h-28">

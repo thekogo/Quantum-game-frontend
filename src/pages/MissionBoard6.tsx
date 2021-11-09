@@ -13,7 +13,8 @@ import mirrorRB from "../assets/images/Mission6/mirror-rb.png";
 import opaquePlate from "../assets/images/Mission6/OpaquePlate.png";
 import classNames from "classnames";
 import star_timer from "../assets/images/star-timer.png";
-
+import back from "../assets/images/backward.png";
+import { Link } from "react-router-dom";
 interface Props {}
 
 export default function MissionBoard({}: Props): ReactElement {
@@ -38,6 +39,12 @@ export default function MissionBoard({}: Props): ReactElement {
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
+      <Link to="/scoreboard">
+        <img
+          className="absolute  mx-auto mt-16 ml-14 cursor-pointer z-10"
+          src={back}
+        />
+      </Link>
 
       <div className="grid grid-cols-4 w-full">
         <div className="col-span-1 flex items-center justify-center">
@@ -251,7 +258,15 @@ export default function MissionBoard({}: Props): ReactElement {
           </div>
           <div></div>
         </div>
+        <div className="col-span-1 flex flex-col items-center justify-center z-10">
+          <a href="https://drive.google.com/u/0/uc?id=1stByaWJZkoXQU6_7Iop3htdY9toHfpfZ&export=download">
+            <button className="z-10 w-52 mt-2 text-sm bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center">
+              สัญลักษณ์ในเกม
+            </button>
+          </a>
+        </div>
       </div>
+
       <img
         className="absolute bottom-0 object-cover opacity-90"
         src={footer6}
