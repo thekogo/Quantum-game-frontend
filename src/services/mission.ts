@@ -47,7 +47,7 @@ export const submitMission3 = (
       { answer: answer },
       {
         headers: {
-          Authorization: `Bearer` + localStorage.getItem("acces_token"),
+          Authorization: `Bearer ` + localStorage.getItem("access_token"),
         },
       }
     )
@@ -58,7 +58,7 @@ export const submitMission3 = (
 };
 
 export const submitMission5 = (
-  answer: (number | undefined)[]
+  answer: (string | undefined)[]
 ): Promise<boolean> => {
   return client
     .post(
@@ -66,7 +66,7 @@ export const submitMission5 = (
       { answer: answer },
       {
         headers: {
-          Authorization: `Bearer` + localStorage.getItem("acces_token"),
+          Authorization: `Bearer ` + localStorage.getItem("access_token"),
         },
       }
     )
@@ -74,4 +74,72 @@ export const submitMission5 = (
       return true;
     })
     .catch((err) => false);
+};
+
+export const submitMission6 = (answer: boolean[][]): Promise<boolean> => {
+  return client
+    .post(
+      "mission/submitanswer/6",
+      { answer: answer },
+      {
+        headers: {
+          Authorization: `Bearer ` + localStorage.getItem("access_token"),
+        },
+      }
+    )
+    .then((res) => {
+      return true;
+    })
+    .catch((err) => false);
+};
+
+export const startMission = (missionId: number | string) => {
+  return client.post(
+    "mission/startmission/" + missionId,
+    { test: "test" },
+    {
+      headers: {
+        Authorization: `Bearer ` + localStorage.getItem("access_token"),
+      },
+    }
+  );
+};
+
+export const getMission = (missionId: number | string) => {
+  return client.get("mission/" + missionId, {
+    headers: {
+      Authorization: `Bearer ` + localStorage.getItem("access_token"),
+    },
+  });
+};
+
+export const getDuration = (d1: Date, d2: Date) => {
+  const timemil = d2.getTime() - d1.getTime();
+
+  return {
+    getMinutes: function () {
+      return Math.floor(timemil / 1000 / 60);
+    },
+    getMilliseconds: function () {
+      return Math.floor((timemil / 1000) % 60);
+    },
+    toString: function () {
+      return (
+        this.addZero(this.getMinutes()) +
+        ":" +
+        this.addZero(this.getMilliseconds()) +
+        ""
+      );
+    },
+    toDuration: function () {
+      return timemil;
+    },
+    addZero: function (str: number) {
+      let newStr = String(str);
+      if (newStr.length < 2) {
+        newStr = "0" + newStr;
+      }
+      return newStr;
+    },
+  };
 };
