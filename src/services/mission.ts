@@ -58,7 +58,7 @@ export const submitMission3 = (
 };
 
 export const submitMission5 = (
-  answer: (number | undefined)[]
+  answer: (string | undefined)[]
 ): Promise<boolean> => {
   return client
     .post(

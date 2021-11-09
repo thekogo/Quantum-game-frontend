@@ -1,7 +1,7 @@
 import React, { ReactElement, useEffect, useState } from "react";
 import { ReactComponent as Stars } from "../assets/images/stars.svg";
 
-import logo5 from "../assets/images/Mission6/logo-crop.png";
+import logo6 from "../assets/images/Mission6/logo-crop.png";
 import footer6 from "../assets/images/footer6.png";
 import beamDetector from "../assets/images/Mission6/beamDetector.png";
 import beamSlitterL from "../assets/images/Mission6/beamSlitter-l.png";
@@ -16,17 +16,15 @@ import {
   getDuration,
   getMission,
   startMission,
-  submitMission1,
   submitMission6,
 } from "../services/mission";
 import Swal from "sweetalert2";
 import { useHistory } from "react-router";
 import star_timer from "../assets/images/star-timer.png";
 import "./alert.css";
+import MissionScoreboard from "../components/MissionScoreboard";
 
-interface Props {}
-
-export default function MissionBoard({}: Props): ReactElement {
+export default function MissionBoard(): ReactElement {
   const [answer, setAnswer] = useState([
     [true, false, false, false],
     [false, false, false, false],
@@ -143,10 +141,6 @@ export default function MissionBoard({}: Props): ReactElement {
     getMissionTimmer(6);
   }, []);
 
-  const classIsChoose = (row: number, col: number): string => {
-    return answer[row][col] ? "" : "filter grayscale opacity-20";
-  };
-
   const handleClickAnswer = (row: number, col: number) => {
     let temp = [...answer];
     temp[row][col] = !temp[row][col];
@@ -162,6 +156,7 @@ export default function MissionBoard({}: Props): ReactElement {
           <img
             className="absolute m-2 self-center top-0 right-0"
             src={star_timer}
+            alt="star"
           />
           <p className="text-white font-poppins text-4xl mt-2">{timer}</p>
         </div>
@@ -174,44 +169,7 @@ export default function MissionBoard({}: Props): ReactElement {
       <div className="grid grid-cols-4 w-full">
         <div className="col-span-1 flex items-center justify-center">
           <div className=" p-3 rounded-3xl">
-            <div className="absolute top-0 right-0 m-8 w-48 h-28">
-              <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
-                <img
-                  className="absolute m-2 self-center top-0 right-0"
-                  src={star_timer}
-                />
-                <p className="text-white font-poppins text-4xl mt-2">00:00</p>
-              </div>
-              <div className="flex flex-wrap justify-center">
-                <button className="w-4/5 mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center">
-                  คู่มือการเล่นเกม
-                </button>
-              </div>
-            </div>
-            <img src={logo5} alt="logo mission" />
-            <div className="font-poppins text-white text-center mt-2 ">
-              SCOREBOARD
-            </div>
-            <div className="flex flex-col gap-3">
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                score
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-            </div>
+            <MissionScoreboard logo={logo6} missionId="6" />
           </div>
         </div>
         <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-evenly mt-2">

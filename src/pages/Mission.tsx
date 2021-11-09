@@ -11,6 +11,12 @@ import game3 from "../assets/images/Scoreboard/game3.png";
 import game4 from "../assets/images/Scoreboard/game4.png";
 import game5 from "../assets/images/Scoreboard/game5.png";
 import game6 from "../assets/images/Scoreboard/game6.png";
+import game1Pass from "../assets/images/Scoreboard/game1-pass.png";
+import game2Pass from "../assets/images/Scoreboard/game2-pass.png";
+import game3Pass from "../assets/images/Scoreboard/game3-pass.png";
+import game4Pass from "../assets/images/Scoreboard/game4-pass.png";
+import game5Pass from "../assets/images/Scoreboard/game5-pass.png";
+import game6Pass from "../assets/images/Scoreboard/game6-pass.png";
 import trophy from "../assets/images/Scoreboard/trophy.png";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -23,7 +29,9 @@ export default function Scoreboard({}: Props): ReactElement {
 
   useEffect(() => {
     const fetchData = async () => {
-      setMyPass(await getMyPass());
+      const data = await getMyPass();
+      console.log(data);
+      setMyPass(data);
     };
     fetchData();
   }, []);
@@ -100,7 +108,11 @@ export default function Scoreboard({}: Props): ReactElement {
               <div className="w-1/3 transform transition duration-500 hover:scale-125 hover:-rotate-12">
                 <Link to="/mission/1">
                   <img
-                    src={game1}
+                    src={
+                      myPass.find((score) => score.missionId === 1)
+                        ? game1Pass
+                        : game1
+                    }
                     className="object-contain h-52 m-auto cursor-pointer"
                     alt="mission 1"
                   />
@@ -109,7 +121,11 @@ export default function Scoreboard({}: Props): ReactElement {
               <div className="w-1/3 transform transition duration-500 hover:scale-125">
                 <Link to="/mission/2">
                   <img
-                    src={game2}
+                    src={
+                      myPass.find((score) => score.missionId === 2)
+                        ? game2Pass
+                        : game2
+                    }
                     className="object-contain h-52 m-auto cursor-pointer"
                     alt="mission 2"
                   />
@@ -118,7 +134,11 @@ export default function Scoreboard({}: Props): ReactElement {
               <div className="w-1/3 transform transition duration-500 hover:scale-125 hover:rotate-12">
                 <Link to="/mission/3">
                   <img
-                    src={game3}
+                    src={
+                      myPass.find((score) => score.missionId === 3)
+                        ? game3Pass
+                        : game3
+                    }
                     className="object-contain h-48 m-auto cursor-pointer"
                     alt="mission 3"
                   />
@@ -131,7 +151,11 @@ export default function Scoreboard({}: Props): ReactElement {
               <div className="w-1/3 transform transition duration-500 hover:scale-125 hover:rotate-12 z-10">
                 <Link to="/mission/4">
                   <img
-                    src={game4}
+                    src={
+                      myPass.find((score) => score.missionId === 4)
+                        ? game4Pass
+                        : game4
+                    }
                     className="object-contain h-60 m-auto cursor-pointer"
                     alt="mission 4"
                   />
@@ -140,7 +164,11 @@ export default function Scoreboard({}: Props): ReactElement {
               <div className="w-1/3 transform transition duration-500 hover:scale-125 z-10">
                 <Link to="/mission/5">
                   <img
-                    src={game5}
+                    src={
+                      myPass.find((score) => score.missionId === 5)
+                        ? game5Pass
+                        : game5
+                    }
                     className="object-contain h-60 m-auto cursor-pointer"
                     alt="mission 5"
                   />
@@ -149,7 +177,11 @@ export default function Scoreboard({}: Props): ReactElement {
               <div className="w-1/3 transform transition duration-500 hover:scale-125 hover:-rotate-12 z-10">
                 <Link to="/mission/6">
                   <img
-                    src={game6}
+                    src={
+                      myPass.find((score) => score.missionId === 6)
+                        ? game6Pass
+                        : game6
+                    }
                     className="object-contain h-64 m-auto cursor-pointer"
                     alt="mission 6"
                   />

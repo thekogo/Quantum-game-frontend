@@ -13,6 +13,7 @@ import { useHistory } from "react-router";
 import { submitMission2 } from "../services/mission";
 import Swal from "sweetalert2";
 import star_timer from "../assets/images/star-timer.png";
+import MissionScoreboard from "../components/MissionScoreboard";
 
 export default function MissionBoard(): ReactElement {
   const [answer, setAnswer] = useState<string>();
@@ -39,7 +40,7 @@ export default function MissionBoard(): ReactElement {
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
 
-      <div className="grid grid-cols-4 w-full">
+      <div className="grid grid-cols-4 w-full z-10">
         <div className="col-span-1 flex items-center justify-center">
           <div className="absolute top-0 right-0 m-8 w-48 h-28">
             <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
@@ -56,30 +57,7 @@ export default function MissionBoard(): ReactElement {
             </div>
           </div>
           <div className=" p-3 rounded-3xl">
-            <img src={logo2} />
-            <div className="font-poppins text-white text-center mt-2 ">
-              SCOREBOARD
-            </div>
-            <div className="flex flex-col gap-3">
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                score
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-            </div>
+            <MissionScoreboard logo={logo2} missionId="2" />
           </div>
         </div>
         <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-evenly mt-2">

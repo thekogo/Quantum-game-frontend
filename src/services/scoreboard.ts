@@ -20,8 +20,8 @@ export const getMissionScoreboard = async (missionId: number | string) => {
     let aDuration =
       new Date(a.endTime).getTime() - new Date(a.startTime).getTime();
     let bDuration =
-      new Date(a.endTime).getTime() - new Date(a.startTime).getTime();
-    return bDuration - aDuration;
+      new Date(b.endTime).getTime() - new Date(b.startTime).getTime();
+    return aDuration - bDuration;
   });
   return scores;
 };

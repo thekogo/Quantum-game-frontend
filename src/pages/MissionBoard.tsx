@@ -14,13 +14,13 @@ import Swal from "sweetalert2";
 import { useHistory } from "react-router";
 import star_timer from "../assets/images/star-timer.png";
 import "./alert.css";
-import { getMissionScoreboard, Score } from "../services/scoreboard";
+import MissionScoreboard from "../components/MissionScoreboard";
 interface Props {}
 
 export default function MissionBoard({}: Props): ReactElement {
   const [answer, setAnswer] = useState<string>();
   const [timer, setTimer] = useState<string>("00:00");
-  const [scoreboard, setScoreboard] = useState<Score[]>([]);
+  const [showManual, setShowManual] = useState(false);
 
   const history = useHistory();
 
@@ -42,6 +42,20 @@ export default function MissionBoard({}: Props): ReactElement {
     }
   };
 
+  const handleShowManual = () => {
+    Swal.fire({
+      title: '<strong class="title"><u>ภารกิจ 1</u>: ถาม-ตอบ ควอนตัม</strong>',
+      html:
+        // '<img src="'+ "{logo1}" +'"/>' +
+        "You can use <b>bold text</b>, " +
+        '<a href="//sweetalert2.github.io">links</a> ' +
+        "and other HTML tags",
+      customClass: {
+        popup: "manual-wide",
+      },
+    });
+  };
+
   const showDetailMission1 = () => {
     if (timer !== "00:00") return;
     Swal.fire({
@@ -54,7 +68,7 @@ export default function MissionBoard({}: Props): ReactElement {
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
-      cancelButtonText: '<i class="fa fa-thumbs-down"> กลับหน้าหลัก </i>',
+      cancelButtonText: "กลับหน้าหลัก",
       cancelButtonAriaLabel: "Thumbs down",
       confirmButtonText: "เริ่มเล่น!",
       reverseButtons: true,
@@ -129,7 +143,6 @@ export default function MissionBoard({}: Props): ReactElement {
   useEffect(() => {
     (async () => {
       getMissionTimmer();
-      setScoreboard(await getMissionScoreboard(1));
     })();
   }, []);
 
@@ -147,58 +160,17 @@ export default function MissionBoard({}: Props): ReactElement {
             <p className="text-white font-poppins text-4xl mt-2">{timer}</p>
           </div>
           <div className="flex flex-wrap justify-center">
-            <button className="w-4/5 mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center">
+            <button
+              onClick={handleShowManual}
+              className="w-4/5 mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center"
+            >
               คู่มือการเล่นเกม
             </button>
           </div>
         </div>
         <div className="col-span-1 flex items-center justify-center z-10">
-          <div className=" p-3 rounded-3xl">
-            <img src={logo1} className="mx-auto" />
-            <div className="font-poppins text-white text-center mt-2 ">
-              SCOREBOARD
-            </div>
-            <div className="flex flex-col gap-3 h-52 overflow-y-auto">
-              {scoreboard.map((log) => (
-                <p className="border-2 rounded-full px-3 text-white font-poppins flex gap-2 justify-between">
-                  <span>{log.teamName}</span>
-                  <span>{log.durationStr}</span>
-                </p>
-              ))}
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-            </div>
+          <div className=" p-3 rounded-3xl z-20">
+            <MissionScoreboard logo={logo1} missionId="1" />
           </div>
         </div>
         <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-center mt-2">
@@ -209,9 +181,7 @@ export default function MissionBoard({}: Props): ReactElement {
             className="border-4 p-3 rounded-3xl"
             src="https://www.youtube.com/embed/aehbDMIEmnM"
             title="YouTube video player"
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
           ></iframe>
           <input
             className="mt-2 rounded-full w-2/4 py-1 text-md p-3 font-poppins text-fifthpurple placeholder-secondpurple focus:outline-none focus:border-thirdpurple"

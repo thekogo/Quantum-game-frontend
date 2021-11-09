@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 import { getDuration, startMission } from "../services/mission";
 import star_timer from "../assets/images/star-timer.png";
 import { useHistory } from "react-router";
+import MissionScoreboard from "../components/MissionScoreboard";
 
 interface Props {}
 
@@ -107,30 +108,7 @@ export default function MissionBoard({}: Props): ReactElement {
             </div>
           </div>
           <div className=" p-3 rounded-3xl">
-            <img src={logo4} />
-            <div className="font-poppins text-white text-center mt-2 ">
-              SCOREBOARD
-            </div>
-            <div className="flex flex-col gap-3">
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                score
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-              <p className="border-2 rounded-full px-3 text-white font-poppins">
-                dsd
-              </p>
-            </div>
+            <MissionScoreboard logo={logo4} missionId="4" />
           </div>
         </div>
         <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-evenly mt-2">
