@@ -159,7 +159,7 @@ export default function MissionBoard({}: Props): ReactElement {
           src={back}
         />
       </Link>
-      <img className="absolute  mx-auto h-auto w-full self-center" src={oval} />
+
       <div className="grid grid-cols-4 w-full">
         <div className="absolute top-0 right-0 m-8 w-48 h-28">
           <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
@@ -184,18 +184,22 @@ export default function MissionBoard({}: Props): ReactElement {
           </div>
         </div>
         <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-center mt-2">
-          <p className="text-white mb-10 text-5xl ">
+          <p className="text-white mb-8 text-5xl ">
             ภารกิจ 1 : ถาม-ตอบ ควอนตัม
           </p>
+          <p className="text-2xl font-thaifonts text-center text-white mb-8">
+            ดูคลิปและตอบคำถาม <br /> Password คือ คำตอบของข้อ 1, 2, 3
+            เรียงตามลำดับ โดยไม่ต้องเว้นวรรค
+          </p>
           <iframe
-            className="border-4 p-3 rounded-3xl"
+            className="border p-3 rounded-3xl h-3/6 w-4/5"
             src="https://www.youtube.com/embed/aehbDMIEmnM"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           ></iframe>
           <input
-            className="mt-2 rounded-full w-2/4 py-1 text-md p-3 font-poppins text-fifthpurple placeholder-secondpurple focus:outline-none focus:border-thirdpurple"
-            placeholder="input your answer"
+            className="mt-2 rounded-full w-4/5 py-1 text-md p-3  text-fifthpurple placeholder-gray-400 focus:outline-none focus:border-thirdpurple font-thaifonts"
+            placeholder="เขียนคำตอบเป็นตัวเลขตามลำดับข้อโดยไม่ต้องเว้นวรรค"
             type="number"
             autoComplete="nope"
             value={answer}
