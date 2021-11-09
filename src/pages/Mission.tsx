@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import { ReactComponent as Stars } from "../assets/images/stars.svg";
 import planet from "../assets/images/Scoreboard/planet.png";
 import missionHeader from "../assets/images/Scoreboard/missionHeader.png";
@@ -14,10 +14,20 @@ import game6 from "../assets/images/Scoreboard/game6.png";
 import trophy from "../assets/images/Scoreboard/trophy.png";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { getMyPass, Score } from "../services/scoreboard";
 
 interface Props {}
 
 export default function Scoreboard({}: Props): ReactElement {
+  const [myPass, setMyPass] = useState<Score[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setMyPass(await getMyPass());
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex">
       <Stars className="absolute h-full w-full z-0" />

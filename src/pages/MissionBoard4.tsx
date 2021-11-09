@@ -1,19 +1,95 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import { ReactComponent as SpaceCat } from "../assets/images/space-cat.svg";
 import { ReactComponent as Footerpageone } from "../assets/images/footerpageone.svg";
 import { ReactComponent as Stars } from "../assets/images/stars.svg";
 import logo4 from "../assets/images/logo4.png";
 import footer4 from "../assets/images/footer4.png";
 import topper4 from "../assets/images/topper4.png";
+import Swal from "sweetalert2";
+import { getDuration, startMission } from "../services/mission";
+import star_timer from "../assets/images/star-timer.png";
+import { useHistory } from "react-router";
 
 interface Props {}
 
 export default function MissionBoard({}: Props): ReactElement {
+  const [timer, setTimer] = useState<string>("00:00");
+
+  const history = useHistory();
+
+  const showDetailMission1 = () => {
+    Swal.fire({
+      title: '<strong class="title"><u>ภารกิจ 1</u>: ถาม-ตอบ ควอนตัม</strong>',
+      html:
+        // '<img src="'+ "{logo1}" +'"/>' +
+        "You can use <b>bold text</b>, " +
+        '<a href="//sweetalert2.github.io">links</a> ' +
+        "and other HTML tags",
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      cancelButtonText: '<i class="fa fa-thumbs-down"> กลับหน้าหลัก </i>',
+      cancelButtonAriaLabel: "Thumbs down",
+      confirmButtonText: "เริ่มเล่น!",
+      reverseButtons: true,
+      customClass: {
+        popup: "manual-wide",
+      },
+    }).then(async (result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        startMission(2)
+          .then((res) => {
+            if (res.data.endTime) {
+              const stringDuration = getDuration(
+                new Date(res.data.startTime),
+                new Date(res.data.endTime)
+              ).toString();
+              console.log(stringDuration);
+              setTimer(stringDuration);
+            } else {
+              setInterval(() => {
+                const stringDuration = getDuration(
+                  new Date(res.data.startTime),
+                  new Date()
+                ).toString();
+                console.log(stringDuration);
+                setTimer(stringDuration);
+              }, 1000);
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+            history.push("/scoreboard");
+          });
+        console.log("OK");
+      } else if (result.isDismissed) {
+        history.push("/scoreboard");
+      }
+    });
+  };
+
+  useEffect(() => {
+    showDetailMission1();
+  });
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
       <img className="absolute  z-0" src={topper4} />
-
+      <div className="absolute top-0 right-0 m-8 w-48 h-28">
+        <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
+          <img
+            className="absolute m-2 self-center top-0 right-0"
+            src={star_timer}
+          />
+          <p className="text-white font-poppins text-4xl mt-2">{timer}</p>
+        </div>
+        <div className="flex flex-wrap justify-center">
+          <button className="w-4/5 mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center">
+            คู่มือการเล่นเกม
+          </button>
+        </div>
+      </div>
       <div className="grid grid-cols-4 w-full">
         <div className="col-span-1 flex items-center justify-center">
           <div className=" p-3 rounded-3xl">
