@@ -11,6 +11,7 @@ module.exports = {
       fifthpurple: "#7A65B7",
       lbFirstpurple: "#47178F",
       lbSecondpurple: "#9F85FB",
+      fadepurple: "#BFB3D7",
       mhoored: "#D3437B",
       transparent: "transparent",
 
