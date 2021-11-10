@@ -203,6 +203,11 @@ export default function Scoreboard({ user }: Props): ReactElement {
           </div>
         </div>
       </div>
+      <img
+        className="h-auto w-full absolute bottom-0 "
+        src={footer}
+        draggable={false}
+      />
     </div>
   );
 }
