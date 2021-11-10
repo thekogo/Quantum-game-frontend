@@ -16,10 +16,13 @@ import star_timer from "../assets/images/star-timer.png";
 import back from "../assets/images/backward.png";
 import { Link } from "react-router-dom";
 import MissionScoreboard from "../components/MissionScoreboard";
+import { IUser } from "../interface/user";
+import { questionList } from "../constrants/question3";
+interface Props {
+  user: IUser;
+}
 
-interface Props {}
-
-export default function MissionBoard({}: Props): ReactElement {
+export default function MissionBoard({ user }: Props): ReactElement {
   const [timer, setTimer] = useState<string>("00:00");
   const [answer, setAnswer] = useState<(number | undefined)[]>([
     undefined,
@@ -28,6 +31,8 @@ export default function MissionBoard({}: Props): ReactElement {
     undefined,
     undefined,
   ]);
+
+  const myQuestion = questionList[user.id % questionList.length];
 
   const history = useHistory();
 
@@ -162,13 +167,12 @@ export default function MissionBoard({}: Props): ReactElement {
               <div className="border p-2 rounded-3xl h-36">
                 <div className="flex h-full">
                   <img
-                    src={P1}
+                    src={myQuestion[0].imgPath}
                     className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
 
                   <p className="p-4 text-white text-lg self-center">
-                    ผู้มีส่วนร่วมในความก้าวหน้าของฟิสิกส์เชิงทฤษฎี
-                    แต่ก็เป็นผู้ถูกจดจำในฐานะนักฟิสิกส์ผู้ริเริ่มทฤษฎีควอนตัมซึ่งปฏิวัติความเข้าใจของมนุษย์เกี่ยวกับกระบวนการปรมาณูและอะตอม
+                    {myQuestion[0].description}
                   </p>
                 </div>
               </div>
@@ -176,12 +180,11 @@ export default function MissionBoard({}: Props): ReactElement {
               <div className="border p-2 rounded-3xl h-36">
                 <div className="flex h-full">
                   <img
-                    src={P2}
+                    src={myQuestion[1].imgPath}
                     className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
                   <p className="p-4 text-white text-lg self-center">
-                    ผู้มีส่วนสนับสนุนพื้นฐานในการทำความเข้าใจโครงสร้างอะตอมและทฤษฎีควอนตัม
-                    ซึ่งเขาได้รับรางวัลโนเบลสาขาฟิสิกส์จากงานด้านการสำรวจโครงสร้างอะตอมและรังสีที่เล็ดลอดออกมา
+                    {myQuestion[1].description}
                   </p>
                 </div>
               </div>
@@ -189,12 +192,11 @@ export default function MissionBoard({}: Props): ReactElement {
               <div className="border p-2 rounded-3xl h-36">
                 <div className="flex h-full">
                   <img
-                    src={P3}
+                    src={myQuestion[2].imgPath}
                     className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
                   <p className="p-4 text-white text-lg self-center">
-                    ผู้สร้างเมทริกซ์ 2 × 2
-                    ที่เป็นพื้นฐานของตัวดำเนินการการหมุนในทฤษฎีควอนตัม
+                    {myQuestion[2].description}
                   </p>
                 </div>
               </div>
@@ -202,13 +204,11 @@ export default function MissionBoard({}: Props): ReactElement {
               <div className="border p-2 rounded-3xl h-36">
                 <div className="flex h-full">
                   <img
-                    src={P4}
+                    src={myQuestion[3].imgPath}
                     className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
                   <p className="p-4 text-white text-lg self-center">
-                    นักวิทยาศาสตร์ผู้สร้างการอินทีเกรทตามวิถี (path integral)
-                    และผู้ตั้งสมมติฐานว่าหากเราต้องการจำลองระบบควอนตัม
-                    เราจำเป็นจะต้องสร้างด้วยควอนตัมคอมพิวเตอร์
+                    {myQuestion[3].description}
                   </p>
                 </div>
               </div>
@@ -216,11 +216,11 @@ export default function MissionBoard({}: Props): ReactElement {
               <div className="border p-2 rounded-3xl h-36 col-span-2 w-1/2 mx-auto">
                 <div className="flex h-full">
                   <img
-                    src={P5}
+                    src={myQuestion[4].imgPath}
                     className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
                   <p className="p-4 text-white text-lg self-center">
-                    นักวิทยาศาสตร์ผู้คิดค้นควอนตัมอัลกอริทึมสำหรับแยกตัวประกอบเฉพาะของจำนวนเต็มขนาดใหญ่
+                    {myQuestion[4].description}
                   </p>
                 </div>
               </div>
@@ -241,6 +241,12 @@ export default function MissionBoard({}: Props): ReactElement {
                   />{" "}
                   <img src={arrow} className="flex my-auto w-6" />
                   <input
+                    value={answer[2]}
+                    onChange={(e) => handleSetAnswer(2, Number(e.target.value))}
+                    className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                  />{" "}
+                  <img src={arrow} className="flex my-auto w-6" />
+                  <input
                     value={answer[3]}
                     onChange={(e) => handleSetAnswer(3, Number(e.target.value))}
                     className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
@@ -249,12 +255,6 @@ export default function MissionBoard({}: Props): ReactElement {
                   <input
                     value={answer[4]}
                     onChange={(e) => handleSetAnswer(4, Number(e.target.value))}
-                    className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
-                  />{" "}
-                  <img src={arrow} className="flex my-auto w-6" />
-                  <input
-                    value={answer[5]}
-                    onChange={(e) => handleSetAnswer(5, Number(e.target.value))}
                     className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                   />{" "}
                 </div>
