@@ -201,21 +201,22 @@ export default function MissionBoard({}: Props): ReactElement {
           ></iframe>
           {!isFinish && (
             <>
-          <input
-            className="mt-2 rounded-full w-4/5 py-1 text-md p-3  text-fifthpurple placeholder-gray-400 focus:outline-none focus:border-thirdpurple font-thaifonts"
-            placeholder="เขียนคำตอบเป็นตัวเลขตามลำดับข้อโดยไม่ต้องเว้นวรรค"
-            type="number"
-            autoComplete="nope"
-            value={answer}
-            onChange={(e) => setAnswer(e.target.value)}
-          />{" "}
-          <button
-            onClick={handleSubmitAnswer}
-            className="mt-2 bg-secondpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full"
-          >
-            ส่งคำตอบ
-          </button>
-          </>
+              <input
+                className="mt-2 rounded-full w-4/5 py-1 text-md p-3  text-fifthpurple placeholder-gray-400 focus:outline-none focus:border-thirdpurple font-thaifonts"
+                placeholder="เขียนคำตอบเป็นตัวเลขตามลำดับข้อโดยไม่ต้องเว้นวรรค"
+                type="number"
+                autoComplete="nope"
+                value={answer}
+                onChange={(e) => setAnswer(e.target.value)}
+              />{" "}
+              <button
+                onClick={handleSubmitAnswer}
+                className="mt-2 bg-secondpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full"
+              >
+                ส่งคำตอบ
+              </button>
+            </>
+          )}
         </div>
         <div className="flex flex-col justify-center z-10">
           <p className="text-2xl  font-poppins text-white mb-2 ml-36 ">
