@@ -1,9 +1,10 @@
 import React, { ReactElement, useState } from "react";
 import { useHistory } from "react-router";
 import Swal from "sweetalert2";
-import footerpageone from "../assets/images/footerpageone.png";
+import footer from "../assets/images/footer.png";
 import { ReactComponent as Stars } from "../assets/images/stars.svg";
 import { login } from "../services/auth";
+import toplogin from "../assets/images/toplogin.png";
 
 export default function Login(): ReactElement {
   const [email, setEmail] = useState<string>("");
@@ -36,6 +37,9 @@ export default function Login(): ReactElement {
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
+      <div className=" absolute ml- top-0">
+        <img src={toplogin} draggable={false} />
+      </div>
 
       {/* <BgLogin className=" object-cover overflow-hidden object-bottom"> */}
       <div className="max-w-lg m-auto bg-white py-10  rounded-3xl px-20 z-10 w-96">
@@ -75,7 +79,8 @@ export default function Login(): ReactElement {
       {/* </BgLogin> */}
       <img
         className="absolute bottom-0 w-full object-cover opacity-90"
-        src={footerpageone}
+        src={footer}
+        draggable={false}
       />
     </div>
   );

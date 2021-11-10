@@ -367,7 +367,7 @@ export default function MissionBoard(): ReactElement {
           <div></div>
         </div>
         <div className="flex flex-col justify-center items-center">
-          <div className="">
+          <div className="flex flex-col items-center">
             <img className="h-44 w-40 mx-auto " src={equipment} />
             <a href="https://drive.google.com/u/1/uc?id=1stByaWJZkoXQU6_7Iop3htdY9toHfpfZ&export=download">
               <button className="  mt-2   bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">

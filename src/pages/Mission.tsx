@@ -36,7 +36,7 @@ export default function Scoreboard({}: Props): ReactElement {
   }, []);
 
   return (
-    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex">
+    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
 
       <Planet className="absolute top-0 right-0" />
@@ -44,15 +44,15 @@ export default function Scoreboard({}: Props): ReactElement {
         <div>
           <img className="mx-auto" src={missionHeader} />
         </div>
-        <div className="grid grid-rows-2 grid-cols-12 w-fulls m-3">
-          <div className="p-3 col-span-3 row-span-2 gap-3">
+        <div className="grid grid-rows-2 grid-cols-12 w-fulls m-3 ">
+          <div className="p-3 col-span-3 row-span-2 gap-3 ">
             <div className="relative bg-gradient-to-b from-lbFirstpurple to-fifthpurple rounded-3xl w-3/4 h-3/4 m-auto mt-3 text-center shadow-2xl py-8">
               {/* <img src={trophy} className="absolute -inset-y-40 inset-x-8" /> */}
-              <img src={trophy} className="absolute -inset-y-40 inset-x-8" />
+              <img src={trophy} className="absolute -inset-y-40 inset-x-5 " />
               <div className="bg-lbSecondpurple rounded-3xl w-5/6 h-full m-auto text-center shadow-2xl py-4">
                 <div className="w-full h-full text-center">
                   <table className="text-left text-center w-full h-full flex flex-col">
-                    <thead className="bg-black flex text-white w-full">
+                    <thead className="bg-lbFirstpurple flex text-white w-full mx-auto rounded-sm">
                       <tr className="flex w-full mr-4">
                         <th className="p-4 w-1/3">Player</th>
                         <th className="p-4 w-1/3">Finish</th>
@@ -102,8 +102,8 @@ export default function Scoreboard({}: Props): ReactElement {
               </div>
             </div>
           </div>
-          <div className="row-span-1 col-span-7 w-full">
-            <div className="flex flex-row gap-x-4">
+          <div className="row-span-1 col-span-7 w-full ">
+            <div className="flex flex-row gap-x-4 ">
               <div className="w-1/3 transform transition duration-500 hover:scale-125 hover:-rotate-12">
                 <Link to="/mission/1">
                   <img
@@ -173,7 +173,7 @@ export default function Scoreboard({}: Props): ReactElement {
                   />
                 </Link>
               </div>
-              <div className="w-1/3 transform transition duration-500 hover:scale-125 hover:-rotate-12 z-10">
+              <div className="w-1/3 transform transition duration-500 hover:scale-125 hover:-rotate-12 z-10 ">
                 <Link to="/mission/6">
                   <img
                     src={
@@ -190,7 +190,6 @@ export default function Scoreboard({}: Props): ReactElement {
           </div>
         </div>
       </div>
-      <img className="h-auto w-full absolute bottom-0 " src={footer} />
     </div>
   );
 }
