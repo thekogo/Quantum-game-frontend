@@ -92,8 +92,10 @@ export default function MissionBoard(): ReactElement {
   };
   const handleShowManual = () => {
     Swal.fire({
-      title: '<strong class="title "><u>ภารกิจ 1</u>: ถาม-ตอบ ควอนตัม</strong>',
-      html: '<div class="text-left px-52 font-thaifonts text-xl ">1.ให้ผู้เล่นชมและศึกษาความรู้จากคลิปเพื่อค้นหาคำตอบ<br/><br/>2.ตอบคำถามทั้งสามข้อที่อยู่ด้านขวามือ<br/><br/>3.เมื่อได้คำตอบแล้วนำตัวเลขมาเรียงกันโดยไม่ต้องเว้นวรรค</div>',
+      title: '<strong class="title "><u>ภารกิจ 2</u>: อักษรที่หายไป</strong>',
+      html:
+        '<div class="text-left px-52 font-thaifonts text-xl"><p className="text-left">1.ผู้เล่นต้องแก้ Crossword ที่กำหนด โดยใช้คำตอบเป็นภาษาอังกฤษ<br/><br/>' +
+        "2.เมื่อแก้ปริศนา Crossword เสร็จสิ้น จะได้รับ Password สำหรับผ่านด่าน โดยพิจารณาตัวอักษรตามที่กำหนด</div>",
       customClass: {
         popup: "manual-wide",
       },

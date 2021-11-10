@@ -101,6 +101,15 @@ export default function MissionBoard(): ReactElement {
     temp[idx] = value;
     setAnswer(temp);
   };
+  const handleShowManual = () => {
+    Swal.fire({
+      title: '<strong class="title "><u>ภารกิจ 5</u>: ดูดวง...ดาว</strong>',
+      html: '<div class="text-left px-52 font-thaifonts text-xl">1.ให้ผู้เล่นดาวน์โหลดไฟล์และพิมพ์ Origami Fortune Teller ใส่กระดาษ A4 (หากไม่มีเครื่องพิมพ์ สามารถเขียนตามได้)<br/><br/>2.เรียนรู้วิธีการพับ Origami Fortune Teller ได้ผ่าน <a class="text-lbFirstpurple underline" href="https://www.youtube.com/watch?v=SAhiIlTxUYA" target="_blank">คลิกที่นี่</a></a></div>',
+      customClass: {
+        popup: "manual-wide",
+      },
+    });
+  };
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
@@ -111,7 +120,7 @@ export default function MissionBoard(): ReactElement {
         />
       </Link>
 
-      <div className="grid grid-cols-4 w-full z-20">
+      <div className="grid grid-cols-4 w-full">
         <div className="col-span-1 flex items-center justify-center">
           <div className=" p-3 rounded-3xl ">
             <div className="absolute top-0 right-0 m-8 w-48 h-28 ">
@@ -123,7 +132,10 @@ export default function MissionBoard(): ReactElement {
                 <p className="text-white font-poppins text-4xl mt-2">{timer}</p>
               </div>
               <div className="flex flex-wrap justify-center">
-                <button className="w-full mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center">
+                <button
+                  onClick={handleShowManual}
+                  className="w-full mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center"
+                >
                   คู่มือการเล่นเกม
                 </button>
               </div>
@@ -132,7 +144,7 @@ export default function MissionBoard(): ReactElement {
           </div>
         </div>
         <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-center mt-2">
-          <p className="text-white mb-8 text-5xl ">ภารกิจ 5 : ดูดวง...ดูดี</p>
+          <p className="text-white mb-8 text-5xl ">ภารกิจ 5 : ดูดวง...ดาว</p>
           <p className="text-2xl font-thaifonts text-center text-white mb-8">
             พับกระดาษโอริกามิตามคำใบ้ เพื่อตามหา Password
           </p>
@@ -221,11 +233,11 @@ export default function MissionBoard(): ReactElement {
           </div>
           <div></div>
         </div>
-        <div className="flex flex-col justify-center items-center z-10">
-          <div>
+        <div className="flex flex-col justify-center items-center">
+          <div className=" z-10">
             <img className="h-44 w-40 mx-auto " src={m5} />
             <a href="https://drive.google.com/u/0/uc?id=1QumrLQS_LJU2OH4u4aWhaUAMM0kT1mWb&export=download">
-              <button className="  mt-6   bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
+              <button className="  mt-6  mr-1 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
                 ดาวน์โหลดกระดาษโอริกามิ
               </button>
             </a>
