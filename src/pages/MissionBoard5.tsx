@@ -115,6 +115,7 @@ export default function MissionBoard(): ReactElement {
       <Stars className="absolute h-full w-full z-0" />
       <Link to="/scoreboard" className="z-50">
         <img
+          draggable={false}
           className="absolute  mx-auto mt-16 ml-14 cursor-pointer z-10"
           src={back}
         />
@@ -126,6 +127,7 @@ export default function MissionBoard(): ReactElement {
             <div className="absolute top-0 right-0 m-8 w-48 h-28 ">
               <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative ">
                 <img
+                  draggable={false}
                   className="absolute m-2 self-center top-0 right-0"
                   src={star_timer}
                 />
@@ -182,43 +184,71 @@ export default function MissionBoard(): ReactElement {
                   onChange={(e) => handleSetAnswer(0, e.target.value)}
                   className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                 />{" "}
-                <img src={arrow} className="flex my-auto p-1 h-3" />
+                <img
+                  draggable={false}
+                  src={arrow}
+                  className="flex my-auto p-1 h-3"
+                />
                 <input
                   value={answer[1]}
                   onChange={(e) => handleSetAnswer(1, e.target.value)}
                   className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                 />{" "}
-                <img src={arrow} className="flex my-auto p-1 h-3" />
+                <img
+                  draggable={false}
+                  src={arrow}
+                  className="flex my-auto p-1 h-3"
+                />
                 <input
                   value={answer[3]}
                   onChange={(e) => handleSetAnswer(3, e.target.value)}
                   className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                 />{" "}
-                <img src={arrow} className="flex my-auto p-1 h-3" />
+                <img
+                  draggable={false}
+                  src={arrow}
+                  className="flex my-auto p-1 h-3"
+                />
                 <input
                   value={answer[4]}
                   onChange={(e) => handleSetAnswer(4, e.target.value)}
                   className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                 />{" "}
-                <img src={arrow} className="flex my-auto p-1 h-3" />
+                <img
+                  draggable={false}
+                  src={arrow}
+                  className="flex my-auto p-1 h-3"
+                />
                 <input
                   value={answer[5]}
                   onChange={(e) => handleSetAnswer(5, e.target.value)}
                   className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                 />{" "}
-                <img src={arrow} className="flex my-auto p-1 h-3" />
+                <img
+                  draggable={false}
+                  src={arrow}
+                  className="flex my-auto p-1 h-3"
+                />
                 <input
                   value={answer[5]}
                   onChange={(e) => handleSetAnswer(5, e.target.value)}
                   className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                 />{" "}
-                <img src={arrow} className="flex my-auto p-1 h-3" />
+                <img
+                  draggable={false}
+                  src={arrow}
+                  className="flex my-auto p-1 h-3"
+                />
                 <input
                   value={answer[5]}
                   onChange={(e) => handleSetAnswer(5, e.target.value)}
                   className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                 />{" "}
-                <img src={arrow} className="flex my-auto p-1 h-3" />
+                <img
+                  draggable={false}
+                  src={arrow}
+                  className="flex my-auto p-1 h-3"
+                />
                 <input
                   value={answer[5]}
                   onChange={(e) => handleSetAnswer(5, e.target.value)}
@@ -237,7 +267,7 @@ export default function MissionBoard(): ReactElement {
         </div>
         <div className="flex flex-col justify-center items-center">
           <div className=" z-10">
-            <img className="h-44 w-40 mx-auto " src={m5} />
+            <img draggable={false} className="h-44 w-40 mx-auto " src={m5} />
             <a href="https://drive.google.com/u/0/uc?id=1QumrLQS_LJU2OH4u4aWhaUAMM0kT1mWb&export=download">
               <button className="  mt-6  mr-1 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
                 ดาวน์โหลดกระดาษโอริกามิ
@@ -247,6 +277,7 @@ export default function MissionBoard(): ReactElement {
         </div>
       </div>
       <img
+        draggable={false}
         className="absolute bottom-0 object-cover opacity-90"
         src={footer5}
       />

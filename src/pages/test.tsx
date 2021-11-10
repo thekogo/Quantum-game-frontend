@@ -22,7 +22,7 @@ export default function MissionBoard({}: Props): ReactElement {
       <div className="grid grid-cols-4 w-full">
         <div className="col-span-1 flex items-center justify-center">
           <div className=" p-3 rounded-3xl">
-            <img src={logo5} />
+            <img draggable={false} src={logo5} />
             <div className="font-poppins text-white text-center mt-2 ">
               SCOREBOARD
             </div>
@@ -54,55 +54,119 @@ export default function MissionBoard({}: Props): ReactElement {
             <div className="grid grid-cols-4 gap-4">
               {/* ROW 1 */}
               <div className="bg-white">
-                <img src={laserGun} className="object-contain" />
+                <img
+                  draggable={false}
+                  src={laserGun}
+                  className="object-contain"
+                />
               </div>
               <div className="bg-white">
-                <img src={opaquePlate} className="object-contain" />
+                <img
+                  draggable={false}
+                  src={opaquePlate}
+                  className="object-contain"
+                />
               </div>
               <div className="bg-white">
-                <img src={beamSlitterL} className="object-contain" />
+                <img
+                  draggable={false}
+                  src={beamSlitterL}
+                  className="object-contain"
+                />
               </div>
               <div className="bg-white">
-                <img src={beamSlitterL} className="object-contain" />
+                <img
+                  draggable={false}
+                  src={beamSlitterL}
+                  className="object-contain"
+                />
               </div>
               {/* ROW 2 */}
               <div className="bg-white">
-                <img src={opaquePlate} className="object-contain" />
+                <img
+                  draggable={false}
+                  src={opaquePlate}
+                  className="object-contain"
+                />
               </div>
               <div className="bg-white">
-                <img src={mirrorRB} className="object-contain" />
+                <img
+                  draggable={false}
+                  src={mirrorRB}
+                  className="object-contain"
+                />
               </div>
               <div className="bg-white">
-                <img src={mirrorLT} className="object-contain" />
+                <img
+                  draggable={false}
+                  src={mirrorLT}
+                  className="object-contain"
+                />
               </div>
               <div className="bg-white">
-                <img src={beamSlitterT} className="object-contain" />
+                <img
+                  draggable={false}
+                  src={beamSlitterT}
+                  className="object-contain"
+                />
               </div>
               {/* ROW 3 */}
               <div className="bg-white">
-                <img src={beamSlitterR} className="object-contain" />
+                <img
+                  draggable={false}
+                  src={beamSlitterR}
+                  className="object-contain"
+                />
               </div>
               <div className="bg-white">
-                <img src={opaquePlate} className="object-contain" />
+                <img
+                  draggable={false}
+                  src={opaquePlate}
+                  className="object-contain"
+                />
               </div>
               <div className="bg-white">
-                <img src={beamSlitterT} className="object-contain" />
+                <img
+                  draggable={false}
+                  src={beamSlitterT}
+                  className="object-contain"
+                />
               </div>
               <div className="bg-white">
-                <img src={mirrorLT} className="object-contain" />
+                <img
+                  draggable={false}
+                  src={mirrorLT}
+                  className="object-contain"
+                />
               </div>
               {/* ROW 4 */}
               <div className="bg-white">
-                <img src={beamDetector} className="object-contain" />
+                <img
+                  draggable={false}
+                  src={beamDetector}
+                  className="object-contain"
+                />
               </div>
               <div className="bg-white">
-                <img src={opaquePlate} className="object-contain" />
+                <img
+                  draggable={false}
+                  src={opaquePlate}
+                  className="object-contain"
+                />
               </div>
               <div className="bg-white">
-                <img src={mirrorRB} className="object-contain" />
+                <img
+                  draggable={false}
+                  src={mirrorRB}
+                  className="object-contain"
+                />
               </div>
               <div className="bg-white">
-                <img src={mirrorLT} className="object-contain" />
+                <img
+                  draggable={false}
+                  src={mirrorLT}
+                  className="object-contain"
+                />
               </div>
             </div>
             <button className="mt-2 mx-auto w-24  bg-secondpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
@@ -113,6 +177,7 @@ export default function MissionBoard({}: Props): ReactElement {
         </div>
       </div>
       <img
+        draggable={false}
         className="absolute bottom-0 object-cover opacity-90"
         src={footer6}
       />

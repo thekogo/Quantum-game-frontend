@@ -161,6 +161,7 @@ export default function MissionBoard(): ReactElement {
       <Stars className="absolute h-full w-full" />
       <Link to="/scoreboard" className="z-50">
         <img
+          draggable={false}
           className="absolute  mx-auto mt-16 ml-14 cursor-pointer z-10"
           src={back}
         />
@@ -169,6 +170,7 @@ export default function MissionBoard(): ReactElement {
       <div className="absolute top-0 right-0 m-8 w-48 h-28 z-20">
         <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
           <img
+            draggable={false}
             className="absolute m-2 self-center top-0 right-0"
             src={star_timer}
             alt="star"
@@ -201,6 +203,7 @@ export default function MissionBoard(): ReactElement {
               {/* ROW 1 */}
               <div className="bg-white justify-center flex flex-wrap">
                 <img
+                  draggable={false}
                   src={laserGun}
                   className={classNames("object-contain", "cursor-pointer")}
                   alt="gun"
@@ -208,6 +211,7 @@ export default function MissionBoard(): ReactElement {
               </div>
               <div className="bg-white justify-center flex flex-wrap">
                 <img
+                  draggable={false}
                   src={opaquePlate}
                   alt="block"
                   className={classNames("object-contain", "cursor-pointer", {
@@ -218,6 +222,7 @@ export default function MissionBoard(): ReactElement {
               </div>
               <div className="bg-white justify-center flex flex-wrap">
                 <img
+                  draggable={false}
                   src={beamSlitterL}
                   alt="change"
                   className={classNames("object-contain", "cursor-pointer", {
@@ -228,6 +233,7 @@ export default function MissionBoard(): ReactElement {
               </div>
               <div className="bg-white justify-center flex flex-wrap">
                 <img
+                  draggable={false}
                   src={beamSlitterL}
                   alt="change"
                   className={classNames("object-contain", "cursor-pointer", {
@@ -239,6 +245,7 @@ export default function MissionBoard(): ReactElement {
               {/* ROW 2 */}
               <div className="bg-white justify-center flex flex-wrap">
                 <img
+                  draggable={false}
                   src={opaquePlate}
                   alt="block"
                   className={classNames("object-contain", "cursor-pointer", {
@@ -249,6 +256,7 @@ export default function MissionBoard(): ReactElement {
               </div>
               <div className="bg-white justify-center flex flex-wrap">
                 <img
+                  draggable={false}
                   src={mirrorRB}
                   alt="mirror"
                   className={classNames("object-contain", "cursor-pointer", {
@@ -259,6 +267,7 @@ export default function MissionBoard(): ReactElement {
               </div>
               <div className="bg-white justify-center flex flex-wrap">
                 <img
+                  draggable={false}
                   src={mirrorLT}
                   alt="mirror"
                   className={classNames("object-contain", "cursor-pointer", {
@@ -269,6 +278,7 @@ export default function MissionBoard(): ReactElement {
               </div>
               <div className="bg-white justify-center flex flex-wrap">
                 <img
+                  draggable={false}
                   src={beamSlitterT}
                   alt="change"
                   className={classNames("object-contain", "cursor-pointer", {
@@ -280,6 +290,7 @@ export default function MissionBoard(): ReactElement {
               {/* ROW 3 */}
               <div className="bg-white justify-center flex flex-wrap">
                 <img
+                  draggable={false}
                   src={beamSlitterR}
                   alt="change"
                   className={classNames("object-contain", "cursor-pointer", {
@@ -290,6 +301,7 @@ export default function MissionBoard(): ReactElement {
               </div>
               <div className="bg-white justify-center flex flex-wrap">
                 <img
+                  draggable={false}
                   src={opaquePlate}
                   alt="block"
                   className={classNames("object-contain", "cursor-pointer", {
@@ -300,6 +312,7 @@ export default function MissionBoard(): ReactElement {
               </div>
               <div className="bg-white justify-center flex flex-wrap">
                 <img
+                  draggable={false}
                   src={beamSlitterT}
                   alt="change"
                   className={classNames("object-contain", "cursor-pointer", {
@@ -310,6 +323,7 @@ export default function MissionBoard(): ReactElement {
               </div>
               <div className="bg-white justify-center flex flex-wrap">
                 <img
+                  draggable={false}
                   src={mirrorLT}
                   alt="mirror"
                   className={classNames("object-contain", "cursor-pointer", {
@@ -321,6 +335,7 @@ export default function MissionBoard(): ReactElement {
               {/* ROW 4 */}
               <div className="bg-white justify-center flex flex-wrap">
                 <img
+                  draggable={false}
                   src={beamDetector}
                   alt="mirror"
                   className={classNames("object-contain", "cursor-pointer")}
@@ -328,6 +343,7 @@ export default function MissionBoard(): ReactElement {
               </div>
               <div className="bg-white justify-center flex flex-wrap">
                 <img
+                  draggable={false}
                   src={opaquePlate}
                   alt="plate"
                   className={classNames("object-contain", "cursor-pointer", {
@@ -338,6 +354,7 @@ export default function MissionBoard(): ReactElement {
               </div>
               <div className="bg-white justify-center flex flex-wrap">
                 <img
+                  draggable={false}
                   src={mirrorRB}
                   alt="mirror"
                   className={classNames("object-contain", "cursor-pointer", {
@@ -348,6 +365,7 @@ export default function MissionBoard(): ReactElement {
               </div>
               <div className="bg-white justify-center flex flex-wrap">
                 <img
+                  draggable={false}
                   src={mirrorLT}
                   alt="mirror"
                   className={classNames("object-contain", "cursor-pointer", {
@@ -368,7 +386,11 @@ export default function MissionBoard(): ReactElement {
         </div>
         <div className="flex flex-col justify-center items-center">
           <div className="">
-            <img className="h-44 w-40 mx-auto " src={equipment} />
+            <img
+              draggable={false}
+              className="h-44 w-40 mx-auto "
+              src={equipment}
+            />
             <a href="https://drive.google.com/u/1/uc?id=1stByaWJZkoXQU6_7Iop3htdY9toHfpfZ&export=download">
               <button className="  mt-2   bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
                 รายละเอียดอุปกรณ์
@@ -379,6 +401,7 @@ export default function MissionBoard(): ReactElement {
       </div>
 
       <img
+        draggable={false}
         className="absolute bottom-0 object-cover opacity-90"
         src={footer6}
         alt="footer"

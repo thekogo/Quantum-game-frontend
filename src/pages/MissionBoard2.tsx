@@ -105,6 +105,7 @@ export default function MissionBoard(): ReactElement {
       <Stars className="absolute h-full w-full z-0" />
       <Link to="/scoreboard" className="z-50">
         <img
+          draggable={false}
           className="absolute  mx-auto mt-16 ml-14 cursor-pointer z-10"
           src={back}
         />
@@ -115,6 +116,7 @@ export default function MissionBoard(): ReactElement {
           <div className="absolute top-0 right-0 m-8 w-48 h-28">
             <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
               <img
+                draggable={false}
                 className="absolute m-2 self-center top-0 right-0"
                 src={star_timer}
               />
@@ -145,7 +147,7 @@ export default function MissionBoard(): ReactElement {
 
             <div className="border rounded-3xl p-6">
               <div className="bg-fadepurple rounded-3xl flex flex-wrap justify-center items-center">
-                <img src={crossword} className="my-5" />
+                <img draggable={false} src={crossword} className="my-5" />
                 <div className="absolute">
                   {/* INSERT CROSSWORD HERE */}
                   <a href="https://drive.google.com/u/0/uc?id=18PHzI4o6XDpRPa6gFwwUyPROOU4XaSUV&export=download">
@@ -200,6 +202,7 @@ export default function MissionBoard(): ReactElement {
       </div>
 
       <img
+        draggable={false}
         className="absolute bottom-0 object-cover opacity-10"
         src={footer2}
       />

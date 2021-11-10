@@ -126,6 +126,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
       <Stars className="absolute h-full w-full z-0" />
       <Link to="/scoreboard" className="z-50">
         <img
+          draggable={false}
           className="absolute  mx-auto mt-16 ml-14 cursor-pointer z-10"
           src={back}
         />
@@ -137,6 +138,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
             <div className="absolute top-0 right-0 m-8 w-48 h-28">
               <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
                 <img
+                  draggable={false}
                   className="absolute m-2 self-center top-0 right-0"
                   src={star_timer}
                 />
@@ -167,6 +169,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
               <div className="border p-2 rounded-3xl h-36">
                 <div className="flex h-full">
                   <img
+                    draggable={false}
                     src={myQuestion[0].imgPath}
                     className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
@@ -180,6 +183,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
               <div className="border p-2 rounded-3xl h-36">
                 <div className="flex h-full">
                   <img
+                    draggable={false}
                     src={myQuestion[1].imgPath}
                     className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
@@ -192,6 +196,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
               <div className="border p-2 rounded-3xl h-36">
                 <div className="flex h-full">
                   <img
+                    draggable={false}
                     src={myQuestion[2].imgPath}
                     className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
@@ -204,6 +209,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
               <div className="border p-2 rounded-3xl h-36">
                 <div className="flex h-full">
                   <img
+                    draggable={false}
                     src={myQuestion[3].imgPath}
                     className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
@@ -216,6 +222,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
               <div className="border p-2 rounded-3xl h-36 col-span-2 w-1/2 mx-auto">
                 <div className="flex h-full">
                   <img
+                    draggable={false}
                     src={myQuestion[4].imgPath}
                     className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
@@ -233,25 +240,41 @@ export default function MissionBoard({ user }: Props): ReactElement {
                     className="self-center placeholder-gray-400 font-poppins rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                     placeholder=""
                   />{" "}
-                  <img src={arrow} className="flex my-auto w-6" />
+                  <img
+                    draggable={false}
+                    src={arrow}
+                    className="flex my-auto w-6"
+                  />
                   <input
                     value={answer[1]}
                     onChange={(e) => handleSetAnswer(1, Number(e.target.value))}
                     className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                   />{" "}
-                  <img src={arrow} className="flex my-auto w-6" />
+                  <img
+                    draggable={false}
+                    src={arrow}
+                    className="flex my-auto w-6"
+                  />
                   <input
                     value={answer[2]}
                     onChange={(e) => handleSetAnswer(2, Number(e.target.value))}
                     className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                   />{" "}
-                  <img src={arrow} className="flex my-auto w-6" />
+                  <img
+                    draggable={false}
+                    src={arrow}
+                    className="flex my-auto w-6"
+                  />
                   <input
                     value={answer[3]}
                     onChange={(e) => handleSetAnswer(3, Number(e.target.value))}
                     className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                   />{" "}
-                  <img src={arrow} className="flex my-auto w-6" />
+                  <img
+                    draggable={false}
+                    src={arrow}
+                    className="flex my-auto w-6"
+                  />
                   <input
                     value={answer[4]}
                     onChange={(e) => handleSetAnswer(4, Number(e.target.value))}
@@ -270,6 +293,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
         </div>
       </div>
       <img
+        draggable={false}
         className="absolute bottom-0 object-cover opacity-90 "
         src={footer3}
       />

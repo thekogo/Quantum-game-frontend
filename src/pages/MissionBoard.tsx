@@ -149,6 +149,7 @@ export default function MissionBoard({}: Props): ReactElement {
       <Stars className="absolute h-full w-full z-0" />
       <Link to="/scoreboard" className="z-50">
         <img
+          draggable={false}
           className="absolute  mx-auto mt-16 ml-14 cursor-pointer z-10"
           src={back}
         />
@@ -158,6 +159,7 @@ export default function MissionBoard({}: Props): ReactElement {
         <div className="absolute top-0 right-0 m-8 w-48 h-28">
           <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
             <img
+              draggable={false}
               className="absolute m-2 self-center top-0 right-0"
               src={star_timer}
             />
@@ -231,9 +233,17 @@ export default function MissionBoard({}: Props): ReactElement {
 
       {/* <Maa className="w-60 absolute bottom-0 right-0" /> */}
 
-      <img className="h-48 w-58 absolute bottom-0 left-0" src={ma} />
+      <img
+        draggable={false}
+        className="h-48 w-58 absolute bottom-0 left-0"
+        src={ma}
+      />
 
-      <img className="h-48 w-58 absolute bottom-0 right-0" src={mq} />
+      <img
+        draggable={false}
+        className="h-48 w-58 absolute bottom-0 right-0"
+        src={mq}
+      />
     </div>
   );
 }

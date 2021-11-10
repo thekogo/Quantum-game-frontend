@@ -107,14 +107,16 @@ export default function MissionBoard({ user }: Props): ReactElement {
       <Stars className="absolute h-full w-full z-0" />
       <Link to="/scoreboard" className="z-50">
         <img
+          draggable={false}
           className="absolute  mx-auto mt-16 ml-14 cursor-pointer z-10"
           src={back}
         />
       </Link>
-      <img className="absolute  z-0" src={topper4} />
+      <img draggable={false} className="absolute  z-0" src={topper4} />
       <div className="absolute top-0 right-0 m-8 w-48 h-28 z-40">
         <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
           <img
+            draggable={false}
             className="absolute m-2 self-center top-0 right-0"
             src={star_timer}
           />
@@ -728,7 +730,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
         </div>
         <div className="flex flex-col justify-center items-center z-10">
           <div>
-            <img className="h-44 w-40 mx-auto " src={m4} />
+            <img draggable={false} className="h-44 w-40 mx-auto " src={m4} />
             <a href="https://drive.google.com/u/0/uc?id=10r5ABbZM3fpww7ZAVGkI9JDCltfoOdqG&export=download">
               <button className="  mt-6   bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
                 ข้อมูลของตำแหน่งงาน
@@ -738,6 +740,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
         </div>
       </div>
       <img
+        draggable={false}
         className="absolute bottom-0 object-cover opacity-90 "
         src={footer4}
       />
