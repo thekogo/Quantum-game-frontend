@@ -161,7 +161,7 @@ export default function MissionBoard({}: Props): ReactElement {
           src={back}
         />
       </Link>
-      <img className="absolute  mx-auto h-auto w-full self-center" src={oval} />
+
       <div className="grid grid-cols-4 w-full">
         <div className="absolute top-0 right-0 m-8 w-48 h-28">
           <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
@@ -186,33 +186,53 @@ export default function MissionBoard({}: Props): ReactElement {
           </div>
         </div>
         <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-center mt-2">
-          <p className="text-white mb-10 text-5xl ">
+          <p className="text-white mb-8 text-5xl ">
             ภารกิจ 1 : ถาม-ตอบ ควอนตัม
           </p>
+          <p className="text-2xl font-thaifonts text-center text-white mb-8">
+            ดูคลิปและตอบคำถาม <br /> Password คือ คำตอบของข้อ 1, 2, 3
+            เรียงตามลำดับ โดยไม่ต้องเว้นวรรค
+          </p>
           <iframe
-            className="border-4 p-3 rounded-3xl"
+            className="border p-3 rounded-3xl h-3/6 w-4/5"
             src="https://www.youtube.com/embed/aehbDMIEmnM"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           ></iframe>
           {!isFinish && (
             <>
-              <input
-                className="mt-2 rounded-full w-2/4 py-1 text-md p-3 font-poppins text-fifthpurple placeholder-secondpurple focus:outline-none focus:border-thirdpurple"
-                placeholder="input your answer"
-                type="number"
-                autoComplete="nope"
-                value={answer}
-                onChange={(e) => setAnswer(e.target.value)}
-              />{" "}
-              <button
-                onClick={handleSubmitAnswer}
-                className="mt-2 bg-secondpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full"
-              >
-                ส่งคำตอบ
-              </button>
-            </>
-          )}
+          <input
+            className="mt-2 rounded-full w-4/5 py-1 text-md p-3  text-fifthpurple placeholder-gray-400 focus:outline-none focus:border-thirdpurple font-thaifonts"
+            placeholder="เขียนคำตอบเป็นตัวเลขตามลำดับข้อโดยไม่ต้องเว้นวรรค"
+            type="number"
+            autoComplete="nope"
+            value={answer}
+            onChange={(e) => setAnswer(e.target.value)}
+          />{" "}
+          <button
+            onClick={handleSubmitAnswer}
+            className="mt-2 bg-secondpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full"
+          >
+            ส่งคำตอบ
+          </button>
+          </>
+        </div>
+        <div className="flex flex-col justify-center z-10">
+          <p className="text-2xl  font-poppins text-white mb-2 ml-36 ">
+            {" "}
+            Question
+          </p>
+          <div className="border rounded-2xl h-60 w-11/12 p-3 text-white">
+            1. กระบวนการทำงานของคอมพิวเตอร์แบ่งเป็นกี่ขั้น <br />{" "}
+            (จากที่ได้รับฟังบรรยาย)
+            <br /> <br />
+            2. ค่าที่เป็นไปได้ของ 1 บิต มีอะไรบ้าง (เรียงจากน้อยไปมาก)
+            <br />
+            <br />
+            3. สำหรับการประมวลผลด้วยควอนตัมคอมพิวเตอร์
+            หากพบว่ามีโอกาสได้ค่าคิวบิตเป็น 0 เท่ากับร้อยละ 75
+            โอกาสที่จะได้ค่าคิวบิตเป็น 1 จะเป็นร้อยละเท่าใด
+          </div>
         </div>
       </div>
 

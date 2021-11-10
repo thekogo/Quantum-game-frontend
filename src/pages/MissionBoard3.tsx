@@ -82,59 +82,63 @@ export default function MissionBoard({}: Props): ReactElement {
             <MissionScoreboard logo={logo3} missionId="3" />
           </div>
         </div>
-        <div className=" w-auto z-10 col-span-7 flex flex-col items-center justify-evenly mt-2">
-          <p className="text-white text-5xl ">
+        <div className=" w-auto z-10 col-span-7 flex flex-col items-center justify-center mt-2">
+          <p className="text-white mb-8 text-5xl ">
             ภารกิจ 3 : เรียงปีไม่เรียงเบอร์
           </p>
-          <div className="flex flex-col p-4 w-full">
-            <div className="grid grid-cols-2 gap-8 h-full">
+          <p className="text-white font-thaifonts text-2xl mb-8">
+            จงเรียงปีเกิดของนักวิทยาศาสตร์ทั้ง 5 ท่านจากก่อนไปหลัง
+          </p>
+          <div className="flex flex-col p-4 w-full font-thaifonts text-lg">
+            <div className="flex flex-wrap grid grid-cols-2 gap-8 w-full">
               {/* PIC 1-1 */}
-              <div className="border-4 p-2 rounded-3xl h-full">
-                <div className="flex h-full">
+              <div className="border p-2 rounded-3xl h-36">
+              <div className="flex h-full">
                   <img
                     src={P1}
-                    className="border-2 h-32 w-1/5 rounded-3xl object-cover"
+                    className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white text-">
+
+                  <p className="p-4 text-white text-lg self-center">
                     ผู้มีส่วนร่วมในความก้าวหน้าของฟิสิกส์เชิงทฤษฎี
                     แต่ก็เป็นผู้ถูกจดจำในฐานะนักฟิสิกส์ผู้ริเริ่มทฤษฎีควอนตัมซึ่งปฏิวัติความเข้าใจของมนุษย์เกี่ยวกับกระบวนการปรมาณูและอะตอม
                   </p>
                 </div>
               </div>
               {/* PIC 1-2 */}
-              <div className="border-4 p-2 rounded-3xl h-full">
+              <div className="border p-2 rounded-3xl h-36">
                 <div className="flex h-full">
                   <img
                     src={P2}
-                    className="border-2 h-32 w-1/5 rounded-3xl object-cover"
+                    className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white">
+                  <p className="p-4 text-white text-lg self-center">
                     ผู้มีส่วนสนับสนุนพื้นฐานในการทำความเข้าใจโครงสร้างอะตอมและทฤษฎีควอนตัม
                     ซึ่งเขาได้รับรางวัลโนเบลสาขาฟิสิกส์จากงานด้านการสำรวจโครงสร้างอะตอมและรังสีที่เล็ดลอดออกมา
                   </p>
                 </div>
               </div>
               {/* PIC 2-1 */}
-              <div className="border-4 p-2 rounded-3xl h-full">
+              <div className="border p-2 rounded-3xl h-36">
                 <div className="flex h-full">
                   <img
                     src={P3}
-                    className="border-2 h-32 w-1/5 rounded-3xl object-cover"
+                    className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white">
+                  <p className="p-4 text-white text-lg self-center">
                     ผู้สร้างเมทริกซ์ 2 × 2
                     ที่เป็นพื้นฐานของตัวดำเนินการการหมุนในทฤษฎีควอนตัม
                   </p>
                 </div>
               </div>
               {/* PIC 2-2 */}
-              <div className="border-4 p-2 rounded-3xl h-full">
+              <div className="border p-2 rounded-3xl h-36">
                 <div className="flex h-full">
                   <img
                     src={P4}
-                    className="border-2 h-32 w-1/5 rounded-3xl object-cover"
+                    className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white">
+                  <p className="p-4 text-white text-lg self-center">
                     นักวิทยาศาสตร์ผู้สร้างการอินทีเกรทตามวิถี (path integral)
                     และผู้ตั้งสมมติฐานว่าหากเราต้องการจำลองระบบควอนตัม
                     เราจำเป็นจะต้องสร้างด้วยควอนตัมคอมพิวเตอร์
@@ -142,47 +146,49 @@ export default function MissionBoard({}: Props): ReactElement {
                 </div>
               </div>
               {/* PIC 3-1 */}
-              <div className="border-4 p-2 rounded-3xl h-full">
+              <div className="border p-2 rounded-3xl h-36 col-span-2 w-1/2 mx-auto">
                 <div className="flex h-full">
                   <img
                     src={P5}
-                    className="border-2 h-32 w-1/5 rounded-3xl object-cover"
+                    className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white">
+                  <p className="p-4 text-white text-lg self-center">
                     นักวิทยาศาสตร์ผู้คิดค้นควอนตัมอัลกอริทึมสำหรับแยกตัวประกอบเฉพาะของจำนวนเต็มขนาดใหญ่
                   </p>
                 </div>
               </div>
-              <div className="text-center m-full my-auto">
-                <div className="flex bg-thirdpurple w-full mx-auto rounded-2xl justify-center p-2">
+              {/* button */}
+              <div className="text-center mx-auto my-auto col-span-2 w-3/5">
+                <div className="flex flex-wrap bg-thirdpurple w-full mx-auto rounded-full justify-center p-3">
                   <input
                     value={answer[0]}
                     onChange={(e) => handleSetAnswer(0, Number(e.target.value))}
-                    className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                    className="self-center placeholder-gray-400 font-poppins rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                    placeholder = ""
                   />{" "}
                   <img src={arrow} className="flex my-auto w-6" />
                   <input
                     value={answer[1]}
                     onChange={(e) => handleSetAnswer(1, Number(e.target.value))}
-                    className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                    className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                   />{" "}
                   <img src={arrow} className="flex my-auto w-6" />
                   <input
                     value={answer[3]}
                     onChange={(e) => handleSetAnswer(3, Number(e.target.value))}
-                    className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                    className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                   />{" "}
                   <img src={arrow} className="flex my-auto w-6" />
                   <input
                     value={answer[4]}
                     onChange={(e) => handleSetAnswer(4, Number(e.target.value))}
-                    className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                    className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                   />{" "}
                   <img src={arrow} className="flex my-auto w-6" />
                   <input
                     value={answer[5]}
                     onChange={(e) => handleSetAnswer(5, Number(e.target.value))}
-                    className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                    className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                   />{" "}
                 </div>
                 <button

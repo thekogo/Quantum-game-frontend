@@ -3,7 +3,6 @@ import { ReactComponent as Stars } from "../assets/images/stars.svg";
 import planet from "../assets/images/Scoreboard/planet.png";
 import missionHeader from "../assets/images/Scoreboard/missionHeader.png";
 import { ReactComponent as Planet } from "../assets/images/Scoreboard/planet.svg";
-import { ReactComponent as MissionHeader } from "../assets/images/Scoreboard/missionHeader.svg";
 import footer from "../assets/images/footer.png";
 import game1 from "../assets/images/Scoreboard/game1.png";
 import game2 from "../assets/images/Scoreboard/game2.png";
@@ -43,7 +42,7 @@ export default function Scoreboard({}: Props): ReactElement {
       <Planet className="absolute top-0 right-0" />
       <div className="w-full m-6">
         <div>
-          <MissionHeader className="m-auto" />
+          <img className="mx-auto" src={missionHeader} />
         </div>
         <div className="grid grid-rows-2 grid-cols-12 w-fulls m-3">
           <div className="p-3 col-span-3 row-span-2 gap-3">
