@@ -8,32 +8,18 @@ import MissionBoard3 from "./pages/MissionBoard3";
 import MissionBoard5 from "./pages/MissionBoard5";
 import MissionBoard4 from "./pages/MissionBoard4";
 import MissionBoard6 from "./pages/MissionBoard6";
+import PrivateRoute from "./PrivateRoute";
 
 function App() {
   return (
     <Switch>
-      <Route path="/mission/4">
-        <MissionBoard4 />
-      </Route>
-
-      <Route path="/mission/5">
-        <MissionBoard5 />
-      </Route>
-      <Route path="/mission/3">
-        <MissionBoard3 />
-      </Route>
-      <Route path="/mission/2">
-        <MissionBoard2 />
-      </Route>
-      <Route path="/scoreboard">
-        <Scoreboard />
-      </Route>
-      <Route path="/mission/1">
-        <MissionBoard />
-      </Route>
-      <Route path="/mission/6">
-        <MissionBoard6 />
-      </Route>
+      <PrivateRoute path="/mission/6" component={MissionBoard6} />
+      <PrivateRoute path="/mission/5" component={MissionBoard5} />
+      <PrivateRoute path="/mission/4" component={MissionBoard4} />
+      <PrivateRoute path="/mission/3" component={MissionBoard3} />
+      <PrivateRoute path="/mission/2" component={MissionBoard2} />
+      <PrivateRoute path="/mission/1" component={MissionBoard} />
+      <PrivateRoute path="/scoreboard" component={Scoreboard} />
       <Route path="/">
         <Login />
       </Route>

@@ -20,10 +20,13 @@ import trophy from "../assets/images/Scoreboard/trophy.png";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { getMyPass, Score } from "../services/scoreboard";
+import { IUser } from "../interface/user";
 
-interface Props {}
+interface Props {
+  user: IUser;
+}
 
-export default function Scoreboard({}: Props): ReactElement {
+export default function Scoreboard({ user }: Props): ReactElement {
   const [myPass, setMyPass] = useState<Score[]>([]);
 
   useEffect(() => {
