@@ -123,7 +123,7 @@ export default function MissionBoard(): ReactElement {
                 onClick={handleShowManual}
                 className="w-4/5 mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center"
               >
-                คู่มือการเล่นเกม
+                กติกาภารกิจที่ 2
               </button>
             </div>
           </div>

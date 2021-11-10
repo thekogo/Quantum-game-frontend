@@ -168,7 +168,7 @@ export default function MissionBoard(): ReactElement {
         </div>
         <div className="flex flex-wrap justify-center">
           <button className="w-4/5 mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center">
-            คู่มือการเล่นเกม
+          กติกาภารกิจที่ 6
           </button>
         </div>
       </div>
