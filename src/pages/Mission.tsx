@@ -193,8 +193,6 @@ export default function Scoreboard({ user }: Props): ReactElement {
           </div>
         </div>
       </div>
-      {/* <img src={planet} className="absolute top-0 right-0" />
-      <img src={missionHeader} className="flex items-center" /> */}
       <img className="h-auto w-full absolute bottom-0 " src={footer} />
     </div>
   );

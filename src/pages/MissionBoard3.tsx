@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import { ReactComponent as Stars } from "../assets/images/stars.svg";
 import logo3 from "../assets/images/Mission3/logo-crop.png";
 import Cloud from "../assets/images/cloud.png";
@@ -10,7 +10,7 @@ import P5 from "../assets/images/Mission3/set1/5.png";
 import arrow from "../assets/images/Mission3/arrow.png";
 import footer3 from "../assets/images/footer3.png";
 import { useHistory } from "react-router";
-import { submitMission3 } from "../services/mission";
+import { getDuration, startMission, submitMission3 } from "../services/mission";
 import Swal from "sweetalert2";
 import star_timer from "../assets/images/star-timer.png";
 import back from "../assets/images/backward.png";
@@ -20,6 +20,7 @@ import MissionScoreboard from "../components/MissionScoreboard";
 interface Props {}
 
 export default function MissionBoard({}: Props): ReactElement {
+  const [timer, setTimer] = useState<string>("00:00");
   const [answer, setAnswer] = useState<(number | undefined)[]>([
     undefined,
     undefined,
@@ -51,7 +52,70 @@ export default function MissionBoard({}: Props): ReactElement {
     temp[idx] = value;
     setAnswer(temp);
   };
+  const showDetailMission1 = () => {
+    if (timer !== "00:00") return;
+    Swal.fire({
+      title:
+        '<strong class="title"><u>ภารกิจ 3</u>: เรียงปีไม่เรียงเบอร์</strong>',
+      html: '<div class="text-left px-52 font-thaifonts text-xl ">1.ผู้เล่นจะได้รับรูปนักวิทยาศาสตร์พร้อมคำบรรยายผลงานและความสามารถ<br/><br/>2.ผู้เล่นต้องเรียงลำดับปีเกิดของนักวิทยาศาสตร์ โดยเรียงลำดับจากน้อยไปมากให้ถูกต้อง จึงจะผ่านภารกิจ</div>',
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      cancelButtonText: '<i class="fa fa-thumbs-down"> กลับหน้าหลัก </i>',
+      cancelButtonAriaLabel: "Thumbs down",
+      confirmButtonText: "เริ่มเล่น!",
+      reverseButtons: true,
+      customClass: {
+        popup: "manual-wide",
+      },
+    }).then(async (result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        startMission(3)
+          .then((res) => {
+            if (res.data.endTime) {
+              const stringDuration = getDuration(
+                new Date(res.data.startTime),
+                new Date(res.data.endTime)
+              ).toString();
+              console.log(stringDuration);
+              setTimer(stringDuration);
+            } else {
+              setInterval(() => {
+                const stringDuration = getDuration(
+                  new Date(res.data.startTime),
+                  new Date()
+                ).toString();
+                console.log(stringDuration);
+                setTimer(stringDuration);
+              }, 1000);
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+            history.push("/scoreboard");
+          });
+        console.log("OK");
+      } else if (result.isDismissed) {
+        history.push("/scoreboard");
+      }
+    });
+  };
 
+  useEffect(() => {
+    showDetailMission1();
+  }, []);
+
+  const handleShowManual = () => {
+    Swal.fire({
+      title:
+        '<strong class="title "><u>ภารกิจ 3</u>: เรียงปีไม่เรียงเบอร์</strong>',
+      html: '<div class="text-left px-52 font-thaifonts text-xl ">1.ผู้เล่นจะได้รับรูปนักวิทยาศาสตร์พร้อมคำบรรยายผลงานและความสามารถ<br/><br/>2.ผู้เล่นต้องเรียงลำดับปีเกิด(คศ.) ของนักวิทยาศาสตร์ โดยเรียงลำดับจากน้อยไปมากให้ถูกต้อง จึงจะผ่านภารกิจ<br/><br/>ตัวอย่าง   19XX < 19XX < 19XX < 19XX <19XX</div>',
+      customClass: {
+        popup: "manual-wide",
+      },
+    });
+  };
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
@@ -71,11 +135,14 @@ export default function MissionBoard({}: Props): ReactElement {
                   className="absolute m-2 self-center top-0 right-0"
                   src={star_timer}
                 />
-                <p className="text-white font-poppins text-4xl mt-2">00:00</p>
+                <p className="text-white font-poppins text-4xl mt-2">{timer}</p>
               </div>
               <div className="flex flex-wrap justify-center">
-                <button className="w-4/5 mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center">
-                  คู่มือการเล่นเกม
+                <button
+                  onClick={handleShowManual}
+                  className="w-4/5 mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center"
+                >
+                  กติกาภารกิจที่ 3
                 </button>
               </div>
             </div>
@@ -93,7 +160,7 @@ export default function MissionBoard({}: Props): ReactElement {
             <div className="flex flex-wrap grid grid-cols-2 gap-8 w-full">
               {/* PIC 1-1 */}
               <div className="border p-2 rounded-3xl h-36">
-              <div className="flex h-full">
+                <div className="flex h-full">
                   <img
                     src={P1}
                     className="border h-32 w-1/5 rounded-3xl object-cover"
@@ -158,13 +225,13 @@ export default function MissionBoard({}: Props): ReactElement {
                 </div>
               </div>
               {/* button */}
-              <div className="text-center mx-auto my-auto col-span-2 w-3/5">
+              <div className="text-center mx-auto my-auto col-span-2 w-4/5">
                 <div className="flex flex-wrap bg-thirdpurple w-full mx-auto rounded-full justify-center p-3">
                   <input
                     value={answer[0]}
                     onChange={(e) => handleSetAnswer(0, Number(e.target.value))}
                     className="self-center placeholder-gray-400 font-poppins rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
-                    placeholder = ""
+                    placeholder=""
                   />{" "}
                   <img src={arrow} className="flex my-auto w-6" />
                   <input

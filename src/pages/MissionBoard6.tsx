@@ -57,59 +57,6 @@ export default function MissionBoard(): ReactElement {
     }
   };
 
-  const showDetailMission1 = () => {
-    if (timer !== "00:00") return;
-    Swal.fire({
-      title: '<strong class="title"><u>ภารกิจ 6</u>: ลำแสงแห่งอนาคต</strong>',
-      html:
-        // '<img src="'+ "{logo1}" +'"/>' +
-        "You can use <b>bold text</b>, " +
-        '<a href="//sweetalert2.github.io">links</a> ' +
-        "and other HTML tags",
-      showCloseButton: true,
-      showCancelButton: true,
-      focusConfirm: false,
-      cancelButtonText: '<i class="fa fa-thumbs-down"> กลับหน้าหลัก </i>',
-      cancelButtonAriaLabel: "Thumbs down",
-      confirmButtonText: "เริ่มเล่น!",
-      reverseButtons: true,
-      customClass: {
-        popup: "manual-wide",
-      },
-    }).then(async (result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        startMission(6)
-          .then((res) => {
-            if (res.data.endTime) {
-              const stringDuration = getDuration(
-                new Date(res.data.startTime),
-                new Date(res.data.endTime)
-              ).toString();
-              console.log(stringDuration);
-              setTimer(stringDuration);
-            } else {
-              setInterval(() => {
-                const stringDuration = getDuration(
-                  new Date(res.data.startTime),
-                  new Date()
-                ).toString();
-                console.log(stringDuration);
-                setTimer(stringDuration);
-              }, 1000);
-            }
-          })
-          .catch((err) => {
-            console.log(err);
-            history.push("/scoreboard");
-          });
-        console.log("OK");
-      } else if (result.isDismissed) {
-        history.push("/scoreboard");
-      }
-    });
-  };
-
   const getMissionTimmer = (missionId: number | string) => {
     getMission(missionId)
       .then((res) => {
@@ -151,7 +98,64 @@ export default function MissionBoard(): ReactElement {
     console.log("OK");
     setAnswer(temp);
   };
-
+  const showDetailMission1 = () => {
+    if (timer !== "00:00") return;
+    Swal.fire({
+      title:
+        '<strong class="title"><u>ภารกิจ 6</u>: เรียงปีไม่เรียงเบอร์</strong>',
+      html: '<div class="text-left px-52 font-thaifonts text-xl">1.ก่อนการเล่น ผู้เล่นควรทำความรู้จักสัญลักษณ์ต่าง ๆ และหน้าที่ของเครื่องมือแต่ละประเภท<br/><br/>2.เมื่อเริ่มเล่น ผู้เล่นจะเห็นแผ่นภาพ ที่ประกอบด้วย ตารางพร้อมทั้งสัญลักษณ์ของเครื่องมืออยู่ประจำช่องต่าง ๆ<br/> <br/>3.ให้ผู้เล่นเลือกกดช่องที่มีสัญลักษณ์ของเครื่องมือที่ต้องการเพื่อสร้างเส้นทางเดินของแสง โดยช่องที่ไม่ได้เลือกจะไม่เกี่ยวข้องกับทางเดินของแสง<br/><br/>4.ผู้เล่นสามารถยกเลิกเครื่องมือที่เลือกไว้โดยการกดที่รูปอีกครั้ง<br/><br/>5.ผู้เล่นจะต้องสร้างเส้นทางการเดินของแสงจากจุดเริ่มต้นให้เดินทางไปยังเป้าหมาย โดยกำหนดให้แสงต้องแยกการเดินทางออกมากกว่า 1 เส้นทาง และถึงเป้าหมาย ณ จุดเดียวกัน</div>',
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      cancelButtonText: '<i class="fa fa-thumbs-down"> กลับหน้าหลัก </i>',
+      cancelButtonAriaLabel: "Thumbs down",
+      confirmButtonText: "เริ่มเล่น!",
+      reverseButtons: true,
+      customClass: {
+        popup: "manual-wide",
+      },
+    }).then(async (result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        startMission(3)
+          .then((res) => {
+            if (res.data.endTime) {
+              const stringDuration = getDuration(
+                new Date(res.data.startTime),
+                new Date(res.data.endTime)
+              ).toString();
+              console.log(stringDuration);
+              setTimer(stringDuration);
+            } else {
+              setInterval(() => {
+                const stringDuration = getDuration(
+                  new Date(res.data.startTime),
+                  new Date()
+                ).toString();
+                console.log(stringDuration);
+                setTimer(stringDuration);
+              }, 1000);
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+            history.push("/scoreboard");
+          });
+        console.log("OK");
+      } else if (result.isDismissed) {
+        history.push("/scoreboard");
+      }
+    });
+  };
+  const handleShowManual = () => {
+    Swal.fire({
+      title: '<strong class="title "><u>ภารกิจ 6</u>: ลำแสงแห่งอนาคต</strong>',
+      html: '<div class="text-left px-52 font-thaifonts text-xl">1.ก่อนการเล่น ผู้เล่นควรทำความรู้จักสัญลักษณ์ต่าง ๆ และหน้าที่ของเครื่องมือแต่ละประเภท<br/><br/>2.เมื่อเริ่มเล่น ผู้เล่นจะเห็นแผ่นภาพ ที่ประกอบด้วย ตารางพร้อมทั้งสัญลักษณ์ของเครื่องมืออยู่ประจำช่องต่าง ๆ<br/> <br/>3.ให้ผู้เล่นเลือกกดช่องที่มีสัญลักษณ์ของเครื่องมือที่ต้องการเพื่อสร้างเส้นทางเดินของแสง โดยช่องที่ไม่ได้เลือกจะไม่เกี่ยวข้องกับทางเดินของแสง<br/><br/>4.ผู้เล่นสามารถยกเลิกเครื่องมือที่เลือกไว้โดยการกดที่รูปอีกครั้ง<br/><br/>5.ผู้เล่นจะต้องสร้างเส้นทางการเดินของแสงจากจุดเริ่มต้นให้เดินทางไปยังเป้าหมาย โดยกำหนดให้แสงต้องแยกการเดินทางออกมากกว่า 1 เส้นทาง และถึงเป้าหมาย ณ จุดเดียวกัน</div>',
+      customClass: {
+        popup: "manual-wide",
+      },
+    });
+  };
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full" />
@@ -162,7 +166,7 @@ export default function MissionBoard(): ReactElement {
         />
       </Link>
 
-      <div className="absolute top-0 right-0 m-8 w-48 h-28">
+      <div className="absolute top-0 right-0 m-8 w-48 h-28 z-20">
         <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
           <img
             className="absolute m-2 self-center top-0 right-0"
@@ -171,8 +175,11 @@ export default function MissionBoard(): ReactElement {
           />
           <p className="text-white font-poppins text-4xl mt-2">{timer}</p>
         </div>
-        <div className="flex flex-wrap justify-center">
-          <button className="w-4/5 mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center">
+        <div className="flex flex-wrap justify-center ">
+          <button
+            onClick={handleShowManual}
+            className="w-4/5 mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center"
+          >
             คู่มือการเล่นเกม
           </button>
         </div>
@@ -359,13 +366,15 @@ export default function MissionBoard(): ReactElement {
           </div>
           <div></div>
         </div>
-        <div className="flex flex-col justify-center z-10">
-          <img className="h-44 w-40 mt-16 ml-32 mx-auto" src={equipment} />
-          <a href="https://drive.google.com/u/0/uc?id=10r5ABbZM3fpww7ZAVGkI9JDCltfoOdqG&export=download">
-            <button className=" mb-32 mt-2 ml-32   bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
-              รายละเอียดอุปกรณ์
-            </button>
-          </a>
+        <div className="flex flex-col justify-center items-center">
+          <div className="">
+            <img className="h-44 w-40 mx-auto " src={equipment} />
+            <a href="https://drive.google.com/u/1/uc?id=1stByaWJZkoXQU6_7Iop3htdY9toHfpfZ&export=download">
+              <button className="  mt-2   bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
+                รายละเอียดอุปกรณ์
+              </button>
+            </a>
+          </div>
         </div>
       </div>
 
