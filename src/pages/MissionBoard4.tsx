@@ -110,7 +110,7 @@ export default function MissionBoard({}: Props): ReactElement {
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-4 w-full">
+      <div className="grid grid-cols-4 w-full z-10">
         <div className="col-span-1 flex items-center justify-center">
           <div className=" p-3 rounded-3xl">
             <MissionScoreboard logo={logo4} missionId="4" />
