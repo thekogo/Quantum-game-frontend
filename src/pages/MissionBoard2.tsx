@@ -5,34 +5,91 @@ import { ReactComponent as Stars } from "../assets/images/stars.svg";
 import logo2 from "../assets/images/logo2.png";
 import footer2 from "../assets/images/footermission2.png";
 import { useHistory } from "react-router";
-import { getDuration, startMission, submitMission2 } from "../services/mission";
+import {
+  getDuration,
+  getMission,
+  startMission,
+  submitMission2,
+} from "../services/mission";
 import Swal from "sweetalert2";
 import star_timer from "../assets/images/star-timer.png";
 import { Link } from "react-router-dom";
 import back from "../assets/images/backward.png";
 import MissionScoreboard from "../components/MissionScoreboard";
 import crossword from "../assets/images/Mission2/crossword.png";
+import { IUser } from "../interface/user";
+import { questionList } from "../constrants/question2";
 
-export default function MissionBoard(): ReactElement {
+interface Props {
+  user: IUser;
+}
+
+export default function MissionBoard({ user }: Props): ReactElement {
   const [answer, setAnswer] = useState<string>();
   const [timer, setTimer] = useState<string>("00:00");
+  const [isFinish, setIsFinish] = useState(false);
+  const myQuestion = questionList[user.id % questionList.length];
 
   const history = useHistory();
 
   const handleSubmitAnswer = async () => {
-    const isCorrect = await submitMission2(answer);
-    if (isCorrect) {
-      Swal.fire({
-        title: "คำตอบถูกต้อง",
-        icon: "success",
+    submitMission2(answer)
+      .then((res) => {
+        Swal.fire({
+          title: "คำตอบถูกต้อง",
+          icon: "success",
+          text: `ใช้เวลาไปทั้งหมด ${timer}`,
+        });
+        history.push("/scoreboard");
+        getMissionTimmer(2);
+      })
+      .catch((err) => {
+        if (err.response.status === 403) {
+          Swal.fire({
+            title: `<span className="font-thaifonts">ด่านคุณผ่านไปแล้ว</span>`,
+            icon: "success",
+          }).finally(() => {
+            history.push("/scoreboard");
+          });
+        } else {
+          Swal.fire({
+            title: `<span className="font-thaifonts">คำตอบไม่ถูกต้อง</span>`,
+            iconHtml: "",
+          });
+        }
       });
-      history.push("/scoreboard");
-    } else {
-      Swal.fire({
-        title: `<span className="font-thaifonts">คำตอบไม่ถูกต้อง</span>`,
-        iconHtml: "",
+  };
+
+  const getMissionTimmer = (missionId: number | string) => {
+    getMission(missionId)
+      .then((res) => {
+        if (res.data.endTime) {
+          const stringDuration = getDuration(
+            new Date(res.data.startTime),
+            new Date(res.data.endTime)
+          ).toString();
+          console.log(stringDuration);
+          setIsFinish(true);
+          setTimer(stringDuration);
+        } else {
+          setInterval(() => {
+            const stringDuration = getDuration(
+              new Date(res.data.startTime),
+              new Date()
+            ).toString();
+            console.log(stringDuration);
+            setTimer(stringDuration);
+          }, 1000);
+        }
+      })
+      .catch((err) => {
+        if (err.response.status === 400) {
+          showDetailMission1();
+          return;
+        }
+        console.log(err);
+        history.push("/scoreboard");
       });
-    }
   };
 
   const showDetailMission1 = () => {
@@ -97,7 +154,9 @@ export default function MissionBoard(): ReactElement {
     });
   };
   useEffect(() => {
-    showDetailMission1();
+    (async () => {
+      getMissionTimmer(2);
+    })();
   }, []);
 
   return (
@@ -118,7 +177,7 @@ export default function MissionBoard(): ReactElement {
                 className="absolute m-2 self-center top-0 right-0"
                 src={star_timer}
               />
-              <p className="text-white font-poppins text-4xl mt-2">00:00</p>
+              <p className="text-white font-poppins text-4xl mt-2">{timer}</p>
             </div>
             <div className="flex flex-wrap justify-center">
               <button
@@ -148,7 +207,7 @@ export default function MissionBoard(): ReactElement {
                 <img src={crossword} className="my-5" />
                 <div className="absolute">
                   {/* INSERT CROSSWORD HERE */}
-                  <a href="https://drive.google.com/u/0/uc?id=18PHzI4o6XDpRPa6gFwwUyPROOU4XaSUV&export=download">
+                  <a href={myQuestion.downloadLink}>
                     <button className="bg-mhoored border-fifthpurple hover:bg-firstpurple text-white text-lg font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
                       ดาวน์โหลด Crossword และคำใบ้
                     </button>
@@ -156,20 +215,24 @@ export default function MissionBoard(): ReactElement {
                 </div>
               </div>
               <div className="flex justify-center gap-3 mt-4">
-                <input
-                  className="mt-2 rounded-full w-4/5 py-1 text-md p-4  text-fifthpurple placeholder-gray-400 focus:outline-none focus:border-thirdpurple font-thaifonts"
-                  placeholder="เขียนคำตอบตามลำดับข้อโดยไม่ต้องเว้นวรรค "
-                  type="number"
-                  autoComplete="nope"
-                  value={answer}
-                  onChange={(e) => setAnswer(e.target.value)}
-                />
-                <button
-                  onClick={handleSubmitAnswer}
-                  className="mt-2 bg-indigo-500 hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full"
-                >
-                  ส่งคำตอบ
-                </button>
+                {!isFinish && (
+                  <>
+                    <input
+                      className="mt-2 rounded-full w-4/5 py-1 text-md p-4  text-fifthpurple placeholder-gray-400 focus:outline-none focus:border-thirdpurple font-thaifonts"
+                      placeholder="เขียนคำตอบตามลำดับข้อโดยไม่ต้องเว้นวรรค "
+                      type="text"
+                      autoComplete="nope"
+                      value={answer}
+                      onChange={(e) => setAnswer(e.target.value)}
+                    />
+                    <button
+                      onClick={handleSubmitAnswer}
+                      className="mt-2 bg-indigo-500 hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full"
+                    >
+                      ส่งคำตอบ
+                    </button>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -179,22 +242,57 @@ export default function MissionBoard(): ReactElement {
           <div className="text-3xl text-white text-center font-poppins mt-24 mb-2 ml-2 ">
             Password
           </div>
-          <div className="border p-3 rounded-3xl w-full h- mr-auto flex flex-col justify-between text-md  text-white font-thaifont text-lg text-center">
-            <p className="pb-2">คำที่ 01 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ X</p>
-            <p className="pb-2">คำที่ 02 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ X</p>
-            <p className="pb-2">คำที่ 03 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ X</p>
-            <p className="pb-2">คำที่ 04 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ X</p>
-            <p className="pb-2">คำที่ 05 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ X</p>
-            <p className="pb-2">คำที่ 06 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ X</p>
-            <p className="pb-2">คำที่ 07 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ X</p>
-            <p className="pb-2">คำที่ 08 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ X</p>
-            <p className="pb-2">คำที่ 09 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ X</p>
-            <p className="pb-2">คำที่ 10 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ X</p>
-            <p className="pb-2">คำที่ 11 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ X</p>
-            <p className="pb-2">คำที่ 12 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ X</p>
-            <p className="pb-2">คำที่ 13 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ X</p>
-            <p className="pb-2">คำที่ 14 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ X</p>
-            <p className="pb-2">คำที่ 15 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ X</p>
+          <div className="border p-3 rounded-3xl w-full h- mr-auto flex flex-col justify-between text-md  text-white font-thaifont text-lg text-center max-h-96 overflow-y-auto">
+            <p className="pb-2">
+              คำที่ 01 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ {myQuestion.charactors[0]}
+            </p>
+            <p className="pb-2">
+              คำที่ 02 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ {myQuestion.charactors[1]}
+            </p>
+            <p className="pb-2">
+              คำที่ 03 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ {myQuestion.charactors[2]}
+            </p>
+            <p className="pb-2">
+              คำที่ 04 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ {myQuestion.charactors[3]}
+            </p>
+            <p className="pb-2">
+              คำที่ 05 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ {myQuestion.charactors[4]}
+            </p>
+            <p className="pb-2">
+              คำที่ 06 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ {myQuestion.charactors[5]}
+            </p>
+            <p className="pb-2">
+              คำที่ 07 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ {myQuestion.charactors[6]}
+            </p>
+            <p className="pb-2">
+              คำที่ 08 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ {myQuestion.charactors[7]}
+            </p>
+            <p className="pb-2">
+              คำที่ 09 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ {myQuestion.charactors[8]}
+            </p>
+            <p className="pb-2">
+              คำที่ 10 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ {myQuestion.charactors[9]}
+            </p>
+            <p className="pb-2">
+              คำที่ 11 &nbsp;&nbsp;&nbsp; ตัวอักษรที่{" "}
+              {myQuestion.charactors[10]}
+            </p>
+            <p className="pb-2">
+              คำที่ 12 &nbsp;&nbsp;&nbsp; ตัวอักษรที่{" "}
+              {myQuestion.charactors[11]}
+            </p>
+            <p className="pb-2">
+              คำที่ 13 &nbsp;&nbsp;&nbsp; ตัวอักษรที่{" "}
+              {myQuestion.charactors[12]}
+            </p>
+            <p className="pb-2">
+              คำที่ 14 &nbsp;&nbsp;&nbsp; ตัวอักษรที่{" "}
+              {myQuestion.charactors[13]}
+            </p>
+            <p className="pb-2">
+              คำที่ 15 &nbsp;&nbsp;&nbsp; ตัวอักษรที่{" "}
+              {myQuestion.charactors[14]}
+            </p>
           </div>
         </div>
       </div>

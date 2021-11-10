@@ -29,6 +29,7 @@ import MissionScoreboard from "../components/MissionScoreboard";
 interface Props {}
 
 export default function MissionBoard(): ReactElement {
+  const [isFinish, setIsFinish] = useState(false);
   const [answer, setAnswer] = useState([
     [true, false, false, false],
     [false, false, false, false],
@@ -40,21 +41,31 @@ export default function MissionBoard(): ReactElement {
   const history = useHistory();
 
   const handleSubmitAnswer = async () => {
-    const isCorrect = await submitMission6(answer);
-    if (isCorrect) {
-      Swal.fire({
-        title: "คำตอบถูกต้อง",
-        icon: "success",
-        text: `ใช้เวลาไปทั้งหมด ${timer}`,
+    submitMission6(answer)
+      .then((res) => {
+        Swal.fire({
+          title: "คำตอบถูกต้อง",
+          icon: "success",
+          text: `ใช้เวลาไปทั้งหมด ${timer}`,
+        });
+        history.push("/scoreboard");
+        getMissionTimmer(6);
+      })
+      .catch((err) => {
+        if (err.response.status === 403) {
+          Swal.fire({
+            title: `<span className="font-thaifonts">ด่านคุณผ่านไปแล้ว</span>`,
+            icon: "success",
+          }).finally(() => {
+            history.push("/scoreboard");
+          });
+        } else {
+          Swal.fire({
+            title: `<span className="font-thaifonts">คำตอบไม่ถูกต้อง</span>`,
+            iconHtml: "",
+          });
+        }
       });
-      history.push("/scoreboard");
-      getMissionTimmer(6);
-    } else {
-      Swal.fire({
-        title: `<span className="font-thaifonts">คำตอบไม่ถูกต้อง</span>`,
-        iconHtml: "",
-      });
-    }
   };
 
   const getMissionTimmer = (missionId: number | string) => {
@@ -67,6 +78,7 @@ export default function MissionBoard(): ReactElement {
           ).toString();
           console.log(stringDuration);
           setTimer(stringDuration);
+          setIsFinish(true);
         } else {
           setInterval(() => {
             const stringDuration = getDuration(
@@ -357,12 +369,14 @@ export default function MissionBoard(): ReactElement {
                 />
               </div>
             </div>
-            <button
-              onClick={handleSubmitAnswer}
-              className="mt-2 mx-auto w-24  bg-secondpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full"
-            >
-              ส่งคำตอบ
-            </button>
+            {!isFinish && (
+              <button
+                onClick={handleSubmitAnswer}
+                className="mt-2 mx-auto w-24  bg-secondpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full"
+              >
+                ส่งคำตอบ
+              </button>
+            )}
           </div>
           <div></div>
         </div>

@@ -6,7 +6,12 @@ import logo4 from "../assets/images/logo4.png";
 import footer4 from "../assets/images/footer4.png";
 import topper4 from "../assets/images/topper4.png";
 import Swal from "sweetalert2";
-import { getDuration, startMission } from "../services/mission";
+import {
+  getDuration,
+  getMission,
+  startMission,
+  submitMission4,
+} from "../services/mission";
 import star_timer from "../assets/images/star-timer.png";
 import back from "../assets/images/backward.png";
 import { Link } from "react-router-dom";
@@ -22,6 +27,7 @@ interface Props {
 
 export default function MissionBoard({ user }: Props): ReactElement {
   const [timer, setTimer] = useState<string>("00:00");
+  const [isFinish, setIsFinish] = useState(false);
   const myQuestion = questionList[user.id % questionList.length];
   const [answer, setAnswer] = useState<(string | undefined)[]>([
     undefined,
@@ -33,6 +39,66 @@ export default function MissionBoard({ user }: Props): ReactElement {
   ]);
 
   const history = useHistory();
+
+  const handleSubmitAnswer = async () => {
+    submitMission4(answer)
+      .then((res) => {
+        Swal.fire({
+          title: "คำตอบถูกต้อง",
+          icon: "success",
+          text: `ใช้เวลาไปทั้งหมด ${timer}`,
+        });
+        history.push("/scoreboard");
+        getMissionTimmer(4);
+      })
+      .catch((err) => {
+        if (err.response.status === 403) {
+          Swal.fire({
+            title: `<span className="font-thaifonts">ด่านคุณผ่านไปแล้ว</span>`,
+            icon: "success",
+          }).finally(() => {
+            history.push("/scoreboard");
+          });
+        } else {
+          Swal.fire({
+            title: `<span className="font-thaifonts">คำตอบไม่ถูกต้อง</span>`,
+            iconHtml: "",
+          });
+        }
+      });
+  };
+
+  const getMissionTimmer = (missionId: number | string) => {
+    getMission(missionId)
+      .then((res) => {
+        if (res.data.endTime) {
+          const stringDuration = getDuration(
+            new Date(res.data.startTime),
+            new Date(res.data.endTime)
+          ).toString();
+          console.log(stringDuration);
+          setTimer(stringDuration);
+          setIsFinish(true);
+        } else {
+          setInterval(() => {
+            const stringDuration = getDuration(
+              new Date(res.data.startTime),
+              new Date()
+            ).toString();
+            console.log(stringDuration);
+            setTimer(stringDuration);
+          }, 1000);
+        }
+      })
+      .catch((err) => {
+        if (err.response.status === 400) {
+          showDetailMission1();
+          return;
+        }
+        console.log(err);
+        history.push("/scoreboard");
+      });
+  };
 
   const showDetailMission1 = () => {
     if (timer !== "00:00") return;
@@ -52,7 +118,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
     }).then(async (result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        startMission(2)
+        startMission(4)
           .then((res) => {
             if (res.data.endTime) {
               const stringDuration = getDuration(
@@ -90,7 +156,9 @@ export default function MissionBoard({ user }: Props): ReactElement {
   };
 
   useEffect(() => {
-    showDetailMission1();
+    (async () => {
+      getMissionTimmer(4);
+    })();
   }, []);
 
   const handleShowManual = () => {
@@ -185,7 +253,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                         <div className="flex items-center relative inline-block w-full h-14 text-white ">
                           <select
                             value={answer[0]}
-                            onSelect={(e) => handleSetAnswer(e, 0)}
+                            onChange={(e) => handleSetAnswer(e, 0)}
                             className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins"
                           >
                             <option className="bg-lbFirstpurple text-thaifonts">
@@ -275,7 +343,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                         <div className="flex items-center relative inline-block w-full h-14 text-white ">
                           <select
                             value={answer[1]}
-                            onSelect={(e) => handleSetAnswer(e, 1)}
+                            onChange={(e) => handleSetAnswer(e, 1)}
                             className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins"
                           >
                             <option className="bg-lbFirstpurple text-thaifonts">
@@ -366,7 +434,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                         <div className="flex items-center relative inline-block w-full h-14 text-white ">
                           <select
                             value={answer[2]}
-                            onSelect={(e) => handleSetAnswer(e, 2)}
+                            onChange={(e) => handleSetAnswer(e, 2)}
                             className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins"
                           >
                             <option className="bg-lbFirstpurple text-thaifonts">
@@ -456,7 +524,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                         <div className="flex items-center relative inline-block w-full h-14 text-white ">
                           <select
                             value={answer[3]}
-                            onSelect={(e) => handleSetAnswer(e, 3)}
+                            onChange={(e) => handleSetAnswer(e, 3)}
                             className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins"
                           >
                             <option className="bg-lbFirstpurple text-thaifonts">
@@ -546,7 +614,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                         <div className="flex items-center relative inline-block w-full h-14 text-white ">
                           <select
                             value={answer[4]}
-                            onSelect={(e) => handleSetAnswer(e, 4)}
+                            onChange={(e) => handleSetAnswer(e, 4)}
                             className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins"
                           >
                             <option className="bg-lbFirstpurple text-thaifonts">
@@ -636,7 +704,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                         <div className="flex items-center relative inline-block w-full h-14 text-white ">
                           <select
                             value={answer[5]}
-                            onSelect={(e) => handleSetAnswer(e, 5)}
+                            onChange={(e) => handleSetAnswer(e, 5)}
                             className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins"
                           >
                             <option className="bg-lbFirstpurple text-thaifonts">
@@ -718,9 +786,14 @@ export default function MissionBoard({ user }: Props): ReactElement {
             </div>
 
             <div className="flex justify-center">
-              <button className="mt-6 w-24  bg-indigo-500 hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
-                ส่งคำตอบ
-              </button>
+              {!isFinish && (
+                <button
+                  onClick={handleSubmitAnswer}
+                  className="mt-6 w-24  bg-indigo-500 hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full"
+                >
+                  ส่งคำตอบ
+                </button>
+              )}
             </div>
           </div>
           <div></div>
