@@ -49,12 +49,8 @@ export default function MissionBoard({}: Props): ReactElement {
 
   const handleShowManual = () => {
     Swal.fire({
-      title: '<strong class="title"><u>ภารกิจ 1</u>: ถาม-ตอบ ควอนตัม</strong>',
-      html:
-        // '<img src="'+ "{logo1}" +'"/>' +
-        "You can use <b>bold text</b>, " +
-        '<a href="//sweetalert2.github.io">links</a> ' +
-        "and other HTML tags",
+      title: '<strong class="title "><u>ภารกิจ 1</u>: ถาม-ตอบ ควอนตัม</strong>',
+      html: '<div class="text-left px-52 font-thaifonts text-xl ">1.ให้ผู้เล่นชมและศึกษาความรู้จากคลิปเพื่อค้นหาคำตอบ<br/><br/>2.ตอบคำถามทั้งสามข้อที่อยู่ด้านขวามือ<br/><br/>3.เมื่อได้คำตอบแล้วนำตัวเลขมาเรียงกันโดยไม่ต้องเว้นวรรค</div>',
       customClass: {
         popup: "manual-wide",
       },
@@ -65,11 +61,7 @@ export default function MissionBoard({}: Props): ReactElement {
     if (timer !== "00:00") return;
     Swal.fire({
       title: '<strong class="title"><u>ภารกิจ 1</u>: ถาม-ตอบ ควอนตัม</strong>',
-      html:
-        // '<img src="'+ "{logo1}" +'"/>' +
-        "You can use <b>bold text</b>, " +
-        '<a href="//sweetalert2.github.io">links</a> ' +
-        "and other HTML tags",
+      html: '<div class="text-left px-52 font-thaifonts text-xl">1.ให้ผู้เล่นชมและศึกษาความรู้จากคลิปเพื่อค้นหาคำตอบ<br/><br/>2.ตอบคำถามทั้งสามข้อที่อยู่ด้านขวามือ<br/><br/>3.เมื่อได้คำตอบแล้วนำตัวเลขมาเรียงกันโดยไม่ต้องเว้นวรรค</div>',
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
@@ -218,7 +210,7 @@ export default function MissionBoard({}: Props): ReactElement {
             </>
           )}
         </div>
-        <div className="flex flex-col justify-center z-10">
+        <div className="flex flex-col justify-center">
           <p className="text-2xl  font-poppins text-white mb-2 ml-36 ">
             {" "}
             Question
