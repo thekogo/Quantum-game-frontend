@@ -154,7 +154,7 @@ export default function MissionBoard(): ReactElement {
 
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
-      <Stars className="absolute h-full w-full z-0" />
+      <Stars className="absolute h-full w-full" />
       <Link to="/scoreboard" className="z-50">
         <img
           className="absolute  mx-auto mt-16 ml-14 cursor-pointer z-10"
@@ -177,7 +177,7 @@ export default function MissionBoard(): ReactElement {
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-4 w-full">
+      <div className="grid grid-cols-4 w-full z-10">
         <div className="col-span-1 flex items-center justify-center">
           <div className=" p-3 rounded-3xl">
             <MissionScoreboard logo={logo6} missionId="6" />
