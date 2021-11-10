@@ -25,6 +25,7 @@ export default function MissionBoard({}: Props): ReactElement {
   const [answer, setAnswer] = useState<string>();
   const [timer, setTimer] = useState<string>("00:00");
   const [showManual, setShowManual] = useState(false);
+  const [isFinish, setIsFinish] = useState(false);
 
   const history = useHistory();
 
@@ -123,6 +124,7 @@ export default function MissionBoard({}: Props): ReactElement {
           ).toString();
           console.log(stringDuration);
           setTimer(stringDuration);
+          setIsFinish(true);
         } else {
           setInterval(() => {
             const stringDuration = getDuration(
@@ -153,7 +155,7 @@ export default function MissionBoard({}: Props): ReactElement {
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
-      <Link to="/scoreboard">
+      <Link to="/scoreboard" className="z-50">
         <img
           className="absolute  mx-auto mt-16 ml-14 cursor-pointer z-10"
           src={back}
@@ -193,20 +195,24 @@ export default function MissionBoard({}: Props): ReactElement {
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           ></iframe>
-          <input
-            className="mt-2 rounded-full w-2/4 py-1 text-md p-3 font-poppins text-fifthpurple placeholder-secondpurple focus:outline-none focus:border-thirdpurple"
-            placeholder="input your answer"
-            type="number"
-            autoComplete="nope"
-            value={answer}
-            onChange={(e) => setAnswer(e.target.value)}
-          />{" "}
-          <button
-            onClick={handleSubmitAnswer}
-            className="mt-2 bg-secondpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full"
-          >
-            ส่งคำตอบ
-          </button>
+          {!isFinish && (
+            <>
+              <input
+                className="mt-2 rounded-full w-2/4 py-1 text-md p-3 font-poppins text-fifthpurple placeholder-secondpurple focus:outline-none focus:border-thirdpurple"
+                placeholder="input your answer"
+                type="number"
+                autoComplete="nope"
+                value={answer}
+                onChange={(e) => setAnswer(e.target.value)}
+              />{" "}
+              <button
+                onClick={handleSubmitAnswer}
+                className="mt-2 bg-secondpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full"
+              >
+                ส่งคำตอบ
+              </button>
+            </>
+          )}
         </div>
       </div>
 
