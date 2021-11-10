@@ -10,17 +10,26 @@ import P5 from "../assets/images/Mission3/set1/5.png";
 import arrow from "../assets/images/Mission3/arrow.png";
 import footer3 from "../assets/images/footer3.png";
 import { useHistory } from "react-router";
-import { getDuration, startMission, submitMission3 } from "../services/mission";
+import {
+  getDuration,
+  getMission,
+  startMission,
+  submitMission3,
+} from "../services/mission";
 import Swal from "sweetalert2";
 import star_timer from "../assets/images/star-timer.png";
 import back from "../assets/images/backward.png";
 import { Link } from "react-router-dom";
 import MissionScoreboard from "../components/MissionScoreboard";
+import { IUser } from "../interface/user";
+import { questionList } from "../constrants/question3";
+interface Props {
+  user: IUser;
+}
 
-interface Props {}
-
-export default function MissionBoard({}: Props): ReactElement {
+export default function MissionBoard({ user }: Props): ReactElement {
   const [timer, setTimer] = useState<string>("00:00");
+  const [isFinish, setIsFinish] = useState(false);
   const [answer, setAnswer] = useState<(number | undefined)[]>([
     undefined,
     undefined,
@@ -29,22 +38,36 @@ export default function MissionBoard({}: Props): ReactElement {
     undefined,
   ]);
 
+  const myQuestion = questionList[user.id % questionList.length];
+
   const history = useHistory();
 
   const handleSubmitAnswer = async () => {
-    const isCorrect = await submitMission3(answer);
-    if (isCorrect) {
-      Swal.fire({
-        title: "คำตอบถูกต้อง",
-        icon: "success",
+    submitMission3(answer)
+      .then((res) => {
+        Swal.fire({
+          title: "คำตอบถูกต้อง",
+          icon: "success",
+          text: `ใช้เวลาไปทั้งหมด ${timer}`,
+        });
+        history.push("/scoreboard");
+        getMissionTimmer(3);
+      })
+      .catch((err) => {
+        if (err.response.status === 403) {
+          Swal.fire({
+            title: `<span className="font-thaifonts">ด่านคุณผ่านไปแล้ว</span>`,
+            icon: "success",
+          }).finally(() => {
+            history.push("/scoreboard");
+          });
+        } else {
+          Swal.fire({
+            title: `<span className="font-thaifonts">คำตอบไม่ถูกต้อง</span>`,
+            iconHtml: "",
+          });
+        }
       });
-      history.push("/scoreboard");
-    } else {
-      Swal.fire({
-        title: `<span className="font-thaifonts">คำตอบไม่ถูกต้อง</span>`,
-        iconHtml: "",
-      });
-    }
   };
 
   const handleSetAnswer = (idx: number, value: number) => {
@@ -102,8 +125,42 @@ export default function MissionBoard({}: Props): ReactElement {
     });
   };
 
+  const getMissionTimmer = (missionId: number | string) => {
+    getMission(missionId)
+      .then((res) => {
+        if (res.data.endTime) {
+          const stringDuration = getDuration(
+            new Date(res.data.startTime),
+            new Date(res.data.endTime)
+          ).toString();
+          console.log(stringDuration);
+          setTimer(stringDuration);
+          setIsFinish(true);
+        } else {
+          setInterval(() => {
+            const stringDuration = getDuration(
+              new Date(res.data.startTime),
+              new Date()
+            ).toString();
+            console.log(stringDuration);
+            setTimer(stringDuration);
+          }, 1000);
+        }
+      })
+      .catch((err) => {
+        if (err.response.status === 400) {
+          showDetailMission1();
+          return;
+        }
+        console.log(err);
+        history.push("/scoreboard");
+      });
+  };
+
   useEffect(() => {
-    showDetailMission1();
+    (async () => {
+      getMissionTimmer(3);
+    })();
   }, []);
 
   const handleShowManual = () => {
@@ -121,6 +178,7 @@ export default function MissionBoard({}: Props): ReactElement {
       <Stars className="absolute h-full w-full z-0" />
       <Link to="/scoreboard" className="z-50">
         <img
+          draggable={false}
           className="absolute  mx-auto mt-16 ml-14 cursor-pointer z-10"
           src={back}
         />
@@ -132,6 +190,7 @@ export default function MissionBoard({}: Props): ReactElement {
             <div className="absolute top-0 right-0 m-8 w-48 h-28">
               <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
                 <img
+                  draggable={false}
                   className="absolute m-2 self-center top-0 right-0"
                   src={star_timer}
                 />
@@ -162,13 +221,13 @@ export default function MissionBoard({}: Props): ReactElement {
               <div className="border p-2 rounded-3xl h-36">
                 <div className="flex h-full">
                   <img
-                    src={P1}
+                    draggable={false}
+                    src={myQuestion[0].imgPath}
                     className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
 
                   <p className="p-4 text-white text-lg self-center">
-                    ผู้มีส่วนร่วมในความก้าวหน้าของฟิสิกส์เชิงทฤษฎี
-                    แต่ก็เป็นผู้ถูกจดจำในฐานะนักฟิสิกส์ผู้ริเริ่มทฤษฎีควอนตัมซึ่งปฏิวัติความเข้าใจของมนุษย์เกี่ยวกับกระบวนการปรมาณูและอะตอม
+                    {myQuestion[0].description}
                   </p>
                 </div>
               </div>
@@ -176,12 +235,12 @@ export default function MissionBoard({}: Props): ReactElement {
               <div className="border p-2 rounded-3xl h-36">
                 <div className="flex h-full">
                   <img
-                    src={P2}
+                    draggable={false}
+                    src={myQuestion[1].imgPath}
                     className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
                   <p className="p-4 text-white text-lg self-center">
-                    ผู้มีส่วนสนับสนุนพื้นฐานในการทำความเข้าใจโครงสร้างอะตอมและทฤษฎีควอนตัม
-                    ซึ่งเขาได้รับรางวัลโนเบลสาขาฟิสิกส์จากงานด้านการสำรวจโครงสร้างอะตอมและรังสีที่เล็ดลอดออกมา
+                    {myQuestion[1].description}
                   </p>
                 </div>
               </div>
@@ -189,12 +248,12 @@ export default function MissionBoard({}: Props): ReactElement {
               <div className="border p-2 rounded-3xl h-36">
                 <div className="flex h-full">
                   <img
-                    src={P3}
+                    draggable={false}
+                    src={myQuestion[2].imgPath}
                     className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
                   <p className="p-4 text-white text-lg self-center">
-                    ผู้สร้างเมทริกซ์ 2 × 2
-                    ที่เป็นพื้นฐานของตัวดำเนินการการหมุนในทฤษฎีควอนตัม
+                    {myQuestion[2].description}
                   </p>
                 </div>
               </div>
@@ -202,13 +261,12 @@ export default function MissionBoard({}: Props): ReactElement {
               <div className="border p-2 rounded-3xl h-36">
                 <div className="flex h-full">
                   <img
-                    src={P4}
+                    draggable={false}
+                    src={myQuestion[3].imgPath}
                     className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
                   <p className="p-4 text-white text-lg self-center">
-                    นักวิทยาศาสตร์ผู้สร้างการอินทีเกรทตามวิถี (path integral)
-                    และผู้ตั้งสมมติฐานว่าหากเราต้องการจำลองระบบควอนตัม
-                    เราจำเป็นจะต้องสร้างด้วยควอนตัมคอมพิวเตอร์
+                    {myQuestion[3].description}
                   </p>
                 </div>
               </div>
@@ -216,60 +274,93 @@ export default function MissionBoard({}: Props): ReactElement {
               <div className="border p-2 rounded-3xl h-36 col-span-2 w-1/2 mx-auto">
                 <div className="flex h-full">
                   <img
-                    src={P5}
+                    draggable={false}
+                    src={myQuestion[4].imgPath}
                     className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
                   <p className="p-4 text-white text-lg self-center">
-                    นักวิทยาศาสตร์ผู้คิดค้นควอนตัมอัลกอริทึมสำหรับแยกตัวประกอบเฉพาะของจำนวนเต็มขนาดใหญ่
+                    {myQuestion[4].description}
                   </p>
                 </div>
               </div>
               {/* button */}
               <div className="text-center mx-auto my-auto col-span-2 w-4/5">
-                <div className="flex flex-wrap bg-thirdpurple w-full mx-auto rounded-full justify-center p-3">
-                  <input
-                    value={answer[0]}
-                    onChange={(e) => handleSetAnswer(0, Number(e.target.value))}
-                    className="self-center placeholder-gray-400 font-poppins rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
-                    placeholder=""
-                  />{" "}
-                  <img src={arrow} className="flex my-auto w-6" />
-                  <input
-                    value={answer[1]}
-                    onChange={(e) => handleSetAnswer(1, Number(e.target.value))}
-                    className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
-                  />{" "}
-                  <img src={arrow} className="flex my-auto w-6" />
-                  <input
-                    value={answer[3]}
-                    onChange={(e) => handleSetAnswer(3, Number(e.target.value))}
-                    className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
-                  />{" "}
-                  <img src={arrow} className="flex my-auto w-6" />
-                  <input
-                    value={answer[4]}
-                    onChange={(e) => handleSetAnswer(4, Number(e.target.value))}
-                    className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
-                  />{" "}
-                  <img src={arrow} className="flex my-auto w-6" />
-                  <input
-                    value={answer[5]}
-                    onChange={(e) => handleSetAnswer(5, Number(e.target.value))}
-                    className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
-                  />{" "}
-                </div>
-                <button
-                  onClick={handleSubmitAnswer}
-                  className="mt-2 mx-auto w-24  bg-secondpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full"
-                >
-                  ส่งคำตอบ
-                </button>
+                {!isFinish && (
+                  <>
+                    <div className="flex flex-wrap bg-thirdpurple w-full mx-auto rounded-full justify-center p-3">
+                      <input
+                        value={answer[0]}
+                        onChange={(e) =>
+                          handleSetAnswer(0, Number(e.target.value))
+                        }
+                        className="self-center placeholder-gray-400 font-poppins rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                        placeholder=""
+                      />{" "}
+                      <img
+                        draggable={false}
+                        src={arrow}
+                        className="flex my-auto w-6"
+                      />
+                      <input
+                        value={answer[1]}
+                        onChange={(e) =>
+                          handleSetAnswer(1, Number(e.target.value))
+                        }
+                        className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                      />{" "}
+                      <img
+                        draggable={false}
+                        src={arrow}
+                        className="flex my-auto w-6"
+                      />
+                      <input
+                        value={answer[2]}
+                        onChange={(e) =>
+                          handleSetAnswer(2, Number(e.target.value))
+                        }
+                        className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                      />{" "}
+                      <img
+                        draggable={false}
+                        src={arrow}
+                        className="flex my-auto w-6"
+                      />
+                      <input
+                        value={answer[3]}
+                        onChange={(e) =>
+                          handleSetAnswer(3, Number(e.target.value))
+                        }
+                        className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                      />{" "}
+                      <img
+                        draggable={false}
+                        src={arrow}
+                        className="flex my-auto w-6"
+                      />
+                      <input
+                        value={answer[4]}
+                        onChange={(e) =>
+                          handleSetAnswer(4, Number(e.target.value))
+                        }
+                        className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                      />{" "}
+                    </div>
+
+                    <button
+                      onClick={handleSubmitAnswer}
+                      className="mt-2 mx-auto w-24  bg-secondpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full"
+                    >
+                      ส่งคำตอบ
+                    </button>
+                  </>
+                )}
               </div>
             </div>
           </div>
         </div>
       </div>
       <img
+        draggable={false}
         className="absolute bottom-0 object-cover opacity-90 "
         src={footer3}
       />

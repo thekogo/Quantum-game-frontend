@@ -1,3 +1,4 @@
+import { IUser } from "../interface/user";
 import client from "../utils/api";
 
 export const login = (email: string, password: string): Promise<boolean> => {
@@ -16,4 +17,17 @@ export const login = (email: string, password: string): Promise<boolean> => {
     });
 };
 
-export const getUser = () => {};
+export const getUser = (): Promise<IUser> => {
+  return client
+    .get("auth/me", {
+      headers: {
+        Authorization: `Bearer ` + localStorage.getItem("access_token"),
+      },
+    })
+    .then((res) => {
+      return res.data;
+    })
+    .catch((err) => {
+      localStorage.removeItem("access_token");
+    });
+};

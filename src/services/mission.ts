@@ -1,3 +1,4 @@
+import { Axios, AxiosResponse } from "axios";
 import client from "../utils/api";
 
 export const submitMission1 = (
@@ -57,40 +58,44 @@ export const submitMission3 = (
     .catch((err) => false);
 };
 
-export const submitMission5 = (
+export const submitMission4 = (
   answer: (string | undefined)[]
-): Promise<boolean> => {
-  return client
-    .post(
-      "mission/submitanswer/5",
-      { answer: answer },
-      {
-        headers: {
-          Authorization: `Bearer ` + localStorage.getItem("access_token"),
-        },
-      }
-    )
-    .then((res) => {
-      return true;
-    })
-    .catch((err) => false);
+): Promise<AxiosResponse> => {
+  return client.post(
+    "mission/submitanswer/4",
+    { answer: answer },
+    {
+      headers: {
+        Authorization: `Bearer ` + localStorage.getItem("access_token"),
+      },
+    }
+  );
 };
 
-export const submitMission6 = (answer: boolean[][]): Promise<boolean> => {
-  return client
-    .post(
-      "mission/submitanswer/6",
-      { answer: answer },
-      {
-        headers: {
-          Authorization: `Bearer ` + localStorage.getItem("access_token"),
-        },
-      }
-    )
-    .then((res) => {
-      return true;
-    })
-    .catch((err) => false);
+export const submitMission5 = (
+  answer: (string | undefined)[]
+): Promise<AxiosResponse> => {
+  return client.post(
+    "mission/submitanswer/5",
+    { answer: answer },
+    {
+      headers: {
+        Authorization: `Bearer ` + localStorage.getItem("access_token"),
+      },
+    }
+  );
+};
+
+export const submitMission6 = (answer: boolean[][]): Promise<AxiosResponse> => {
+  return client.post(
+    "mission/submitanswer/6",
+    { answer: answer },
+    {
+      headers: {
+        Authorization: `Bearer ` + localStorage.getItem("access_token"),
+      },
+    }
+  );
 };
 
 export const startMission = (missionId: number | string) => {

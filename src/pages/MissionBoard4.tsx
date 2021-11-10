@@ -6,20 +6,99 @@ import logo4 from "../assets/images/logo4.png";
 import footer4 from "../assets/images/footer4.png";
 import topper4 from "../assets/images/topper4.png";
 import Swal from "sweetalert2";
-import { getDuration, startMission } from "../services/mission";
+import {
+  getDuration,
+  getMission,
+  startMission,
+  submitMission4,
+} from "../services/mission";
 import star_timer from "../assets/images/star-timer.png";
 import back from "../assets/images/backward.png";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import MissionScoreboard from "../components/MissionScoreboard";
 import m4 from "../assets/images/m4.png";
+import { IUser } from "../interface/user";
+import { questionList } from "../constrants/question4";
 
-interface Props {}
+interface Props {
+  user: IUser;
+}
 
-export default function MissionBoard({}: Props): ReactElement {
+export default function MissionBoard({ user }: Props): ReactElement {
   const [timer, setTimer] = useState<string>("00:00");
+  const [isFinish, setIsFinish] = useState(false);
+  const myQuestion = questionList[user.id % questionList.length];
+  const [answer, setAnswer] = useState<(string | undefined)[]>([
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+  ]);
 
   const history = useHistory();
+
+  const handleSubmitAnswer = async () => {
+    submitMission4(answer)
+      .then((res) => {
+        Swal.fire({
+          title: "คำตอบถูกต้อง",
+          icon: "success",
+          text: `ใช้เวลาไปทั้งหมด ${timer}`,
+        });
+        history.push("/scoreboard");
+        getMissionTimmer(4);
+      })
+      .catch((err) => {
+        if (err.response.status === 403) {
+          Swal.fire({
+            title: `<span className="font-thaifonts">ด่านคุณผ่านไปแล้ว</span>`,
+            icon: "success",
+          }).finally(() => {
+            history.push("/scoreboard");
+          });
+        } else {
+          Swal.fire({
+            title: `<span className="font-thaifonts">คำตอบไม่ถูกต้อง</span>`,
+            iconHtml: "",
+          });
+        }
+      });
+  };
+
+  const getMissionTimmer = (missionId: number | string) => {
+    getMission(missionId)
+      .then((res) => {
+        if (res.data.endTime) {
+          const stringDuration = getDuration(
+            new Date(res.data.startTime),
+            new Date(res.data.endTime)
+          ).toString();
+          console.log(stringDuration);
+          setTimer(stringDuration);
+          setIsFinish(true);
+        } else {
+          setInterval(() => {
+            const stringDuration = getDuration(
+              new Date(res.data.startTime),
+              new Date()
+            ).toString();
+            console.log(stringDuration);
+            setTimer(stringDuration);
+          }, 1000);
+        }
+      })
+      .catch((err) => {
+        if (err.response.status === 400) {
+          showDetailMission1();
+          return;
+        }
+        console.log(err);
+        history.push("/scoreboard");
+      });
+  };
 
   const showDetailMission1 = () => {
     if (timer !== "00:00") return;
@@ -39,7 +118,7 @@ export default function MissionBoard({}: Props): ReactElement {
     }).then(async (result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        startMission(2)
+        startMission(4)
           .then((res) => {
             if (res.data.endTime) {
               const stringDuration = getDuration(
@@ -70,8 +149,16 @@ export default function MissionBoard({}: Props): ReactElement {
     });
   };
 
+  const handleSetAnswer = (e: any, idx: number) => {
+    let temp = [...answer];
+    temp[idx] = e.target.value;
+    setAnswer(temp);
+  };
+
   useEffect(() => {
-    showDetailMission1();
+    (async () => {
+      getMissionTimmer(4);
+    })();
   }, []);
 
   const handleShowManual = () => {
@@ -88,14 +175,16 @@ export default function MissionBoard({}: Props): ReactElement {
       <Stars className="absolute h-full w-full z-0" />
       <Link to="/scoreboard" className="z-50">
         <img
+          draggable={false}
           className="absolute  mx-auto mt-16 ml-14 cursor-pointer z-10"
           src={back}
         />
       </Link>
-      <img className="absolute  z-0" src={topper4} />
+      <img draggable={false} className="absolute  z-0" src={topper4} />
       <div className="absolute top-0 right-0 m-8 w-48 h-28 z-40">
         <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
           <img
+            draggable={false}
             className="absolute m-2 self-center top-0 right-0"
             src={star_timer}
           />
@@ -134,7 +223,7 @@ export default function MissionBoard({}: Props): ReactElement {
 
             <div>
               <div className=" border-2 p-2 rounded-2xl mt-8 ">
-                <table className="border border-collapse border-transparent mt-2 text-base text-white">
+                <table className="border border-collapse border-transparent mt-2 text-lg text-white">
                   <thead>
                     <tr>
                       <th className="border border-l-0 border-t-0 px-4 pb-5">
@@ -154,46 +243,77 @@ export default function MissionBoard({}: Props): ReactElement {
                   <tbody>
                     <tr className="p-2">
                       <td className="border border-l-0 border-t-0 border-b-0 px-4">
-                        Alan
+                        {myQuestion[0].name}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 px-4">
-                        วิศวกรรมเครื่องกล
+                        {myQuestion[0].carrer}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 px-4">
-                        ทำระบบหล่อเย็นในโรงงาน
+                        {myQuestion[0].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
                         <div className="flex items-center relative inline-block w-full h-14 text-white ">
-                          <select className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins">
+                          <select
+                            value={answer[0]}
+                            onChange={(e) => handleSetAnswer(e, 0)}
+                            className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins"
+                          >
                             <option className="bg-lbFirstpurple text-thaifonts">
-                              เลือกคำตอบ{" "}
+                              เลือกคำตอบ
                             </option>
-                            <option className="bg-lbFirstpurple">
-                              1.Quantum FPGA Engineers{" "}
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum FPGA Engineers"
+                            >
+                              1.Quantum FPGA Engineers
                             </option>
-                            <option className="bg-lbFirstpurple">
-                              2.Quantum Cryogenic Engineers{" "}
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Cryogenic Engineers"
+                            >
+                              2.Quantum Cryogenic Engineers
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Computer Architects"
+                            >
                               3.Quantum Computer Architects
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Algorithms Researcher"
+                            >
                               4.Quantum Algorithms Researcher
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Complexity Theorists"
+                            >
                               5.Quantum Complexity Theorists
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Software Developers"
+                            >
                               6.Quantum Software Developers
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Community Builders"
+                            >
                               7.Quantum Community Builders
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Superconducting Qubit Researchers"
+                            >
                               8.Superconducting Qubit Researchers
                             </option>
-                            <option className="bg-lbFirstpurple">
-                              9.Quantum Microwave Engineers{" "}
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Microwave Engineers"
+                            >
+                              9.Quantum Microwave Engineers
                             </option>
                           </select>
                           <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
@@ -213,46 +333,77 @@ export default function MissionBoard({}: Props): ReactElement {
                     </tr>
                     <tr className=" ">
                       <td className="border border-l-0 border-t-0 border-b-0 px-4">
-                        Gus
+                        {myQuestion[1].name}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 px-4">
-                        วิศวกรรมไฟฟ้า
+                        {myQuestion[1].carrer}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 px-4">
-                        ทำงานเกี่ยวกับอุปกรณ์รับส่งคลื่นแม่เหล็กไฟฟ้า
+                        {myQuestion[1].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
                         <div className="flex items-center relative inline-block w-full h-14 text-white ">
-                          <select className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins">
+                          <select
+                            value={answer[1]}
+                            onChange={(e) => handleSetAnswer(e, 1)}
+                            className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins"
+                          >
                             <option className="bg-lbFirstpurple text-thaifonts">
-                              เลือกคำตอบ{" "}
+                              เลือกคำตอบ
                             </option>
-                            <option className="bg-lbFirstpurple">
-                              1.Quantum FPGA Engineers{" "}
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum FPGA Engineers"
+                            >
+                              1.Quantum FPGA Engineers
                             </option>
-                            <option className="bg-lbFirstpurple">
-                              2.Quantum Cryogenic Engineers{" "}
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Cryogenic Engineers"
+                            >
+                              2.Quantum Cryogenic Engineers
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Computer Architects"
+                            >
                               3.Quantum Computer Architects
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Algorithms Researcher"
+                            >
                               4.Quantum Algorithms Researcher
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Complexity Theorists"
+                            >
                               5.Quantum Complexity Theorists
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Software Developers"
+                            >
                               6.Quantum Software Developers
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Community Builders"
+                            >
                               7.Quantum Community Builders
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Superconducting Qubit Researchers"
+                            >
                               8.Superconducting Qubit Researchers
                             </option>
-                            <option className="bg-lbFirstpurple">
-                              9.Quantum Microwave Engineers{" "}
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Microwave Engineers"
+                            >
+                              9.Quantum Microwave Engineers
                             </option>
                           </select>
                           <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
@@ -273,46 +424,77 @@ export default function MissionBoard({}: Props): ReactElement {
 
                     <tr className="">
                       <td className="border border-l-0 border-t-0 border-b-0 px-4">
-                        Finley
+                        {myQuestion[2].name}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 px-4">
-                        ฟิสิกส์
+                        {myQuestion[2].carrer}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 px-4">
-                        เป็นเน็ตไอดอล
+                        {myQuestion[2].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
                         <div className="flex items-center relative inline-block w-full h-14 text-white ">
-                          <select className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins">
+                          <select
+                            value={answer[2]}
+                            onChange={(e) => handleSetAnswer(e, 2)}
+                            className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins"
+                          >
                             <option className="bg-lbFirstpurple text-thaifonts">
-                              เลือกคำตอบ{" "}
+                              เลือกคำตอบ
                             </option>
-                            <option className="bg-lbFirstpurple">
-                              1.Quantum FPGA Engineers{" "}
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum FPGA Engineers"
+                            >
+                              1.Quantum FPGA Engineers
                             </option>
-                            <option className="bg-lbFirstpurple">
-                              2.Quantum Cryogenic Engineers{" "}
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Cryogenic Engineers"
+                            >
+                              2.Quantum Cryogenic Engineers
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Computer Architects"
+                            >
                               3.Quantum Computer Architects
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Algorithms Researcher"
+                            >
                               4.Quantum Algorithms Researcher
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Complexity Theorists"
+                            >
                               5.Quantum Complexity Theorists
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Software Developers"
+                            >
                               6.Quantum Software Developers
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Community Builders"
+                            >
                               7.Quantum Community Builders
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Superconducting Qubit Researchers"
+                            >
                               8.Superconducting Qubit Researchers
                             </option>
-                            <option className="bg-lbFirstpurple">
-                              9.Quantum Microwave Engineers{" "}
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Microwave Engineers"
+                            >
+                              9.Quantum Microwave Engineers
                             </option>
                           </select>
                           <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
@@ -332,46 +514,77 @@ export default function MissionBoard({}: Props): ReactElement {
                     </tr>
                     <tr className="">
                       <td className="border border-l-0 border-t-0 border-b-0 px-4">
-                        Belinda{" "}
+                        {myQuestion[3].name}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 px-4">
-                        คณิตศาสตร์
+                        {myQuestion[3].carrer}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 px-4">
-                        เป็นอาจารย์สอนคณิตศาสตร์ในมหาวิทยาลัย
+                        {myQuestion[3].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
                         <div className="flex items-center relative inline-block w-full h-14 text-white ">
-                          <select className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins">
+                          <select
+                            value={answer[3]}
+                            onChange={(e) => handleSetAnswer(e, 3)}
+                            className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins"
+                          >
                             <option className="bg-lbFirstpurple text-thaifonts">
-                              เลือกคำตอบ{" "}
+                              เลือกคำตอบ
                             </option>
-                            <option className="bg-lbFirstpurple">
-                              1.Quantum FPGA Engineers{" "}
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum FPGA Engineers"
+                            >
+                              1.Quantum FPGA Engineers
                             </option>
-                            <option className="bg-lbFirstpurple">
-                              2.Quantum Cryogenic Engineers{" "}
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Cryogenic Engineers"
+                            >
+                              2.Quantum Cryogenic Engineers
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Computer Architects"
+                            >
                               3.Quantum Computer Architects
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Algorithms Researcher"
+                            >
                               4.Quantum Algorithms Researcher
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Complexity Theorists"
+                            >
                               5.Quantum Complexity Theorists
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Software Developers"
+                            >
                               6.Quantum Software Developers
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Community Builders"
+                            >
                               7.Quantum Community Builders
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Superconducting Qubit Researchers"
+                            >
                               8.Superconducting Qubit Researchers
                             </option>
-                            <option className="bg-lbFirstpurple">
-                              9.Quantum Microwave Engineers{" "}
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Microwave Engineers"
+                            >
+                              9.Quantum Microwave Engineers
                             </option>
                           </select>
                           <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
@@ -391,46 +604,77 @@ export default function MissionBoard({}: Props): ReactElement {
                     </tr>
                     <tr className="">
                       <td className="border border-l-0 border-t-0 border-b-0 px-4">
-                        Belinda{" "}
+                        {myQuestion[4].name}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 px-4">
-                        คณิตศาสตร์
+                        {myQuestion[4].carrer}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 px-4">
-                        เป็นอาจารย์สอนคณิตศาสตร์ในมหาวิทยาลัย
+                        {myQuestion[4].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
                         <div className="flex items-center relative inline-block w-full h-14 text-white ">
-                          <select className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins">
+                          <select
+                            value={answer[4]}
+                            onChange={(e) => handleSetAnswer(e, 4)}
+                            className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins"
+                          >
                             <option className="bg-lbFirstpurple text-thaifonts">
-                              เลือกคำตอบ{" "}
+                              เลือกคำตอบ
                             </option>
-                            <option className="bg-lbFirstpurple">
-                              1.Quantum FPGA Engineers{" "}
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum FPGA Engineers"
+                            >
+                              1.Quantum FPGA Engineers
                             </option>
-                            <option className="bg-lbFirstpurple">
-                              2.Quantum Cryogenic Engineers{" "}
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Cryogenic Engineers"
+                            >
+                              2.Quantum Cryogenic Engineers
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Computer Architects"
+                            >
                               3.Quantum Computer Architects
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Algorithms Researcher"
+                            >
                               4.Quantum Algorithms Researcher
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Complexity Theorists"
+                            >
                               5.Quantum Complexity Theorists
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Software Developers"
+                            >
                               6.Quantum Software Developers
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Community Builders"
+                            >
                               7.Quantum Community Builders
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Superconducting Qubit Researchers"
+                            >
                               8.Superconducting Qubit Researchers
                             </option>
-                            <option className="bg-lbFirstpurple">
-                              9.Quantum Microwave Engineers{" "}
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Microwave Engineers"
+                            >
+                              9.Quantum Microwave Engineers
                             </option>
                           </select>
                           <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
@@ -450,46 +694,77 @@ export default function MissionBoard({}: Props): ReactElement {
                     </tr>
                     <tr className="">
                       <td className="border border-l-0 border-t-0 border-b-0 px-4">
-                        Belinda{" "}
+                        {myQuestion[5].name}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 px-4">
-                        คณิตศาสตร์
+                        {myQuestion[5].carrer}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 px-4">
-                        เป็นอาจารย์สอนคณิตศาสตร์ในมหาวิทยาลัย
+                        {myQuestion[5].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
                         <div className="flex items-center relative inline-block w-full h-14 text-white ">
-                          <select className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins">
+                          <select
+                            value={answer[5]}
+                            onChange={(e) => handleSetAnswer(e, 5)}
+                            className="w-full h-10 pl-2 pr-7 text-sm  border bg-transparent  rounded-md  appearance-none  font-poppins"
+                          >
                             <option className="bg-lbFirstpurple text-thaifonts">
-                              เลือกคำตอบ{" "}
+                              เลือกคำตอบ
                             </option>
-                            <option className="bg-lbFirstpurple">
-                              1.Quantum FPGA Engineers{" "}
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum FPGA Engineers"
+                            >
+                              1.Quantum FPGA Engineers
                             </option>
-                            <option className="bg-lbFirstpurple">
-                              2.Quantum Cryogenic Engineers{" "}
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Cryogenic Engineers"
+                            >
+                              2.Quantum Cryogenic Engineers
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Computer Architects"
+                            >
                               3.Quantum Computer Architects
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Algorithms Researcher"
+                            >
                               4.Quantum Algorithms Researcher
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Complexity Theorists"
+                            >
                               5.Quantum Complexity Theorists
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Software Developers"
+                            >
                               6.Quantum Software Developers
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Community Builders"
+                            >
                               7.Quantum Community Builders
                             </option>
-                            <option className="bg-lbFirstpurple">
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Superconducting Qubit Researchers"
+                            >
                               8.Superconducting Qubit Researchers
                             </option>
-                            <option className="bg-lbFirstpurple">
-                              9.Quantum Microwave Engineers{" "}
+                            <option
+                              className="bg-lbFirstpurple"
+                              value="Quantum Microwave Engineers"
+                            >
+                              9.Quantum Microwave Engineers
                             </option>
                           </select>
                           <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
@@ -513,9 +788,14 @@ export default function MissionBoard({}: Props): ReactElement {
             </div>
 
             <div className="flex justify-center">
-              <button className="mt-6 w-24  bg-indigo-500 hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
-                ส่งคำตอบ
-              </button>
+              {!isFinish && (
+                <button
+                  onClick={handleSubmitAnswer}
+                  className="mt-6 w-24  bg-indigo-500 hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full"
+                >
+                  ส่งคำตอบ
+                </button>
+              )}
             </div>
           </div>
           <div></div>
@@ -523,7 +803,7 @@ export default function MissionBoard({}: Props): ReactElement {
         </div>
         <div className="flex flex-col justify-center items-center z-10">
           <div>
-            <img className="h-44 w-40 mx-auto " src={m4} />
+            <img draggable={false} className="h-44 w-40 mx-auto " src={m4} />
             <a href="https://drive.google.com/u/0/uc?id=10r5ABbZM3fpww7ZAVGkI9JDCltfoOdqG&export=download">
               <button className="  mt-6   bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
                 ข้อมูลของตำแหน่งงาน
@@ -533,6 +813,7 @@ export default function MissionBoard({}: Props): ReactElement {
         </div>
       </div>
       <img
+        draggable={false}
         className="absolute bottom-0 object-cover opacity-90 "
         src={footer4}
       />
