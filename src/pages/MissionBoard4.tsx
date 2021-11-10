@@ -223,7 +223,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
 
             <div>
               <div className=" border-2 p-2 rounded-2xl mt-8 ">
-                <table className="border border-collapse border-transparent mt-2 text-lg text-white">
+                <table className="border border-collapse border-transparent mt-2 text-base 3xl:text-lg text-white">
                   <thead>
                     <tr>
                       <th className="border border-l-0 border-t-0 px-4 pb-5">
@@ -242,7 +242,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                   </thead>
                   <tbody>
                     <tr className="p-2">
-                      <td className="border border-l-0 border-t-0 border-b-0 px-4">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4 ">
                         {myQuestion[0].name}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 px-4">

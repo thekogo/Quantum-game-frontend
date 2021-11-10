@@ -5,6 +5,7 @@ import footer from "../assets/images/footer.png";
 import { ReactComponent as Stars } from "../assets/images/stars.svg";
 import { login } from "../services/auth";
 import toplogin from "../assets/images/toplogin.png";
+import logo111 from "../assets/images/logo111.png";
 
 export default function Login(): ReactElement {
   const [email, setEmail] = useState<string>("");
@@ -37,6 +38,7 @@ export default function Login(): ReactElement {
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex flex-col items-center  overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
+      <img src={logo111} className="absolute right-4 top-4" />
 
       {/* <BgLogin className=" object-cover overflow-hidden object-bottom"> */}
       <img className="h-1/4 mt-10" src={toplogin} draggable={false} />

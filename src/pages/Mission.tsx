@@ -54,7 +54,7 @@ export default function Scoreboard({ user }: Props): ReactElement {
               <img
                 draggable={false}
                 src={trophy}
-                className="absolute -inset-y-40 inset-x-5"
+                className="absolute -inset-y-40 inset-x-1"
               />
               <div className="bg-lbSecondpurple rounded-3xl w-5/6 h-full m-auto text-center shadow-2xl py-4">
                 <div className="w-full h-full text-center">
@@ -203,11 +203,6 @@ export default function Scoreboard({ user }: Props): ReactElement {
           </div>
         </div>
       </div>
-      <img
-        className="h-auto w-full absolute bottom-0 "
-        src={footer}
-        draggable={false}
-      />
     </div>
   );
 }
