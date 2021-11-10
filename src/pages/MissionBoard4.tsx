@@ -21,61 +21,68 @@ export default function MissionBoard({}: Props): ReactElement {
 
   const history = useHistory();
 
-  // const showDetailMission1 = () => {
-  //   Swal.fire({
-  //     title: '<strong class="title"><u>ภารกิจ 1</u>: ถาม-ตอบ ควอนตัม</strong>',
-  //     html:
-  //       // '<img src="'+ "{logo1}" +'"/>' +
-  //       "You can use <b>bold text</b>, " +
-  //       '<a href="//sweetalert2.github.io">links</a> ' +
-  //       "and other HTML tags",
-  //     showCloseButton: true,
-  //     showCancelButton: true,
-  //     focusConfirm: false,
-  //     cancelButtonText: '<i class="fa fa-thumbs-down"> กลับหน้าหลัก </i>',
-  //     cancelButtonAriaLabel: "Thumbs down",
-  //     confirmButtonText: "เริ่มเล่น!",
-  //     reverseButtons: true,
-  //     customClass: {
-  //       popup: "manual-wide",
-  //     },
-  //   }).then(async (result) => {
-  //     /* Read more about isConfirmed, isDenied below */
-  //     if (result.isConfirmed) {
-  //       startMission(2)
-  //         .then((res) => {
-  //           if (res.data.endTime) {
-  //             const stringDuration = getDuration(
-  //               new Date(res.data.startTime),
-  //               new Date(res.data.endTime)
-  //             ).toString();
-  //             console.log(stringDuration);
-  //             setTimer(stringDuration);
-  //           } else {
-  //             setInterval(() => {
-  //               const stringDuration = getDuration(
-  //                 new Date(res.data.startTime),
-  //                 new Date()
-  //               ).toString();
-  //               console.log(stringDuration);
-  //               setTimer(stringDuration);
-  //             }, 1000);
-  //           }
-  //         })
-  //         .catch((err) => {
-  //           console.log(err);
-  //           history.push("/scoreboard");
-  //         });
-  //       console.log("OK");
-  //     } else if (result.isDismissed) {
-  //       history.push("/scoreboard");
-  //     }
-  //   });
-  // };
+  const showDetailMission1 = () => {
+    if (timer !== "00:00") return;
+    Swal.fire({
+      title: '<strong class="title"><u>ภารกิจ 4</u>: จับคู่ชู้ชื่น</strong>',
+      html: '<div class="text-left px-52 font-thaifonts text-xl">1.ผู้เล่นจะสวมบทเป็นพนักงาน HR ในบริษัท QX โดยทางผู้บริหารต้องการบุคลากรจำนวนหนึ่งเพื่อสร้างควอนตัมคอมพิวเตอร์ในประเทศไทย<br/><br/>2.ผู้เล่นจะต้องคัดเลือกคนให้เหมาะสมกับตำแหน่งที่เปิดรับ โดยพิจารณาจากใบสมัครงานของพวกเขา</div>',
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      cancelButtonText: '<i class="fa fa-thumbs-down"> กลับหน้าหลัก </i>',
+      cancelButtonAriaLabel: "Thumbs down",
+      confirmButtonText: "เริ่มเล่น!",
+      reverseButtons: true,
+      customClass: {
+        popup: "manual-wide",
+      },
+    }).then(async (result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        startMission(2)
+          .then((res) => {
+            if (res.data.endTime) {
+              const stringDuration = getDuration(
+                new Date(res.data.startTime),
+                new Date(res.data.endTime)
+              ).toString();
+              console.log(stringDuration);
+              setTimer(stringDuration);
+            } else {
+              setInterval(() => {
+                const stringDuration = getDuration(
+                  new Date(res.data.startTime),
+                  new Date()
+                ).toString();
+                console.log(stringDuration);
+                setTimer(stringDuration);
+              }, 1000);
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+            history.push("/scoreboard");
+          });
+        console.log("OK");
+      } else if (result.isDismissed) {
+        history.push("/scoreboard");
+      }
+    });
+  };
 
-  // useEffect(() => {
-  //   showDetailMission1();
-  // });
+  useEffect(() => {
+    showDetailMission1();
+  }, []);
+
+  const handleShowManual = () => {
+    Swal.fire({
+      title: '<strong class="title "><u>ภารกิจ 4</u>: จับคู่ชู้ชื่น</strong>',
+      html: '<div class="text-left px-52 font-thaifonts text-xl">1.ผู้เล่นจะสวมบทเป็นพนักงาน HR ในบริษัท QX โดยทางผู้บริหารต้องการบุคลากรจำนวนหนึ่งเพื่อสร้างควอนตัมคอมพิวเตอร์ในประเทศไทย<br/><br/>2.ผู้เล่นจะต้องคัดเลือกคนให้เหมาะสมกับตำแหน่งที่เปิดรับ โดยพิจารณาจากใบสมัครงานของพวกเขา</div>',
+      customClass: {
+        popup: "manual-wide",
+      },
+    });
+  };
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
@@ -86,7 +93,7 @@ export default function MissionBoard({}: Props): ReactElement {
         />
       </Link>
       <img className="absolute  z-0" src={topper4} />
-      <div className="absolute top-0 right-0 m-8 w-48 h-28">
+      <div className="absolute top-0 right-0 m-8 w-48 h-28 z-40">
         <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
           <img
             className="absolute m-2 self-center top-0 right-0"
@@ -95,27 +102,16 @@ export default function MissionBoard({}: Props): ReactElement {
           <p className="text-white font-poppins text-4xl mt-2">{timer}</p>
         </div>
         <div className="flex flex-wrap justify-center">
-          <button className="w-4/5 mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center">
+          <button
+            onClick={handleShowManual}
+            className="w-4/5 mt-2  bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center"
+          >
             คู่มือการเล่นเกม
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-4 w-full">
+      <div className="grid grid-cols-4 w-full z-10">
         <div className="col-span-1 flex items-center justify-center">
-          <div className="absolute top-0 right-0 m-8 w-48 h-28">
-            <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
-              <img
-                className="absolute m-2 self-center top-0 right-0"
-                src={star_timer}
-              />
-              <p className="text-white font-poppins text-4xl mt-2">00:00</p>
-            </div>
-            <div className="flex flex-wrap justify-center">
-              <button className="w-4/5 mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center">
-                คู่มือการเล่นเกม
-              </button>
-            </div>
-          </div>
           <div className=" p-3 rounded-3xl">
             <MissionScoreboard logo={logo4} missionId="4" />
           </div>
@@ -525,13 +521,15 @@ export default function MissionBoard({}: Props): ReactElement {
           <div></div>
           <div></div>
         </div>
-        <div className="flex flex-col justify-center z-10">
-          <img className="h-44 w-40 mx-auto mt-16" src={m4} />
-          <a href="https://drive.google.com/u/0/uc?id=10r5ABbZM3fpww7ZAVGkI9JDCltfoOdqG&export=download">
-            <button className=" mb-32 mt-6 ml-32   bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
-              ข้อมูลของตำแหน่งงาน
-            </button>
-          </a>
+        <div className="flex flex-col justify-center items-center z-10">
+          <div>
+            <img className="h-44 w-40 mx-auto " src={m4} />
+            <a href="https://drive.google.com/u/0/uc?id=10r5ABbZM3fpww7ZAVGkI9JDCltfoOdqG&export=download">
+              <button className="  mt-6   bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
+                ข้อมูลของตำแหน่งงาน
+              </button>
+            </a>
+          </div>
         </div>
       </div>
       <img
