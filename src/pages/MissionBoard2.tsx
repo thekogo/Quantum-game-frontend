@@ -25,7 +25,7 @@ interface Props {
 }
 
 export default function MissionBoard({ user }: Props): ReactElement {
-  const [answer, setAnswer] = useState<string>();
+  const [answer, setAnswer] = useState<string>("");
   const [timer, setTimer] = useState<string>("00:00");
   const [isFinish, setIsFinish] = useState(false);
   const myQuestion = questionList[user.id % questionList.length];

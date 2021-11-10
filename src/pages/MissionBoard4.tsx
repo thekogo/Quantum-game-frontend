@@ -29,13 +29,13 @@ export default function MissionBoard({ user }: Props): ReactElement {
   const [timer, setTimer] = useState<string>("00:00");
   const [isFinish, setIsFinish] = useState(false);
   const myQuestion = questionList[user.id % questionList.length];
-  const [answer, setAnswer] = useState<(string | undefined)[]>([
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
+  const [answer, setAnswer] = useState<(string | "")[]>([
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
   ]);
 
   const history = useHistory();

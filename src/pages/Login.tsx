@@ -35,7 +35,7 @@ export default function Login(): ReactElement {
   };
 
   return (
-    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
+    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
       <div className=" absolute ml- top-0">
         <img src={toplogin} draggable={false} />

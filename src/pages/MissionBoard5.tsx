@@ -24,12 +24,15 @@ import m5 from "../assets/images/m5.png";
 export default function MissionBoard(): ReactElement {
   const [timer, setTimer] = useState<string>("00:00");
   const [isFinish, setIsFinish] = useState(false);
-  const [answer, setAnswer] = useState<(string | undefined)[]>([
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
+  const [answer, setAnswer] = useState<string[]>([
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
   ]);
 
   const history = useHistory();

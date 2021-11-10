@@ -129,7 +129,7 @@ export default function MissionBoard(): ReactElement {
     }).then(async (result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        startMission(3)
+        startMission(6)
           .then((res) => {
             if (res.data.endTime) {
               const stringDuration = getDuration(
@@ -378,7 +378,7 @@ export default function MissionBoard(): ReactElement {
               <div className="bg-white justify-center flex flex-wrap">
                 <img
                   draggable={false}
-                  src={mirrorLT}
+                  src={beamSlitterT}
                   alt="mirror"
                   className={classNames("object-contain", "cursor-pointer", {
                     "filter grayscale opacity-20": !answer[3][3],
