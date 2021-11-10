@@ -135,8 +135,10 @@ export default function MissionBoard(): ReactElement {
                 <button
                   onClick={handleShowManual}
                   className="w-full mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center"
-                >
-                  คู่มือการเล่นเกม
+                />
+                คู่มือการเล่นเกม
+                <button className="w-full mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center">
+                  กติกาภารกิจที่ 5
                 </button>
               </div>
             </div>
