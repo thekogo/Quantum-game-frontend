@@ -45,7 +45,7 @@ export default function Scoreboard({ user }: Props): ReactElement {
       <Planet className="absolute top-0 right-0" />
       <div className="w-full m-6">
         <div>
-          <img draggable={false} className="mx-auto" src={missionHeader} />
+          <img draggable={false} className="mx-auto " src={missionHeader} />
         </div>
         <div className="grid grid-rows-2 grid-cols-12 w-fulls m-3 ">
           <div className="p-3 col-span-3 row-span-2 gap-3 ">

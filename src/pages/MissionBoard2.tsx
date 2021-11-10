@@ -196,17 +196,21 @@ export default function MissionBoard({ user }: Props): ReactElement {
         </div>
         <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-evenly mt-2">
           <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-center mt-2">
-            <p className="text-white mb-8 text-5xl ">
+            <p className="text-white mb-8 text-4xl ">
               ภารกิจ 2 : อักษรที่หายไป
             </p>
-            <p className="text-2xl font-thaifonts text-center text-white mb-8">
+            <p className="text-xl font-thaifonts text-center text-white mb-8">
               แก้ปริศนาของอักษรที่หายไปจากคำตอบของ crossword
               <p />
             </p>
 
             <div className="border rounded-3xl p-6">
               <div className="bg-fadepurple rounded-3xl flex flex-wrap justify-center items-center">
-                <img draggable={false} src={crossword} className="my-5" />
+                <img
+                  draggable={false}
+                  src={crossword}
+                  className="my-5 md:h-96"
+                />
                 <div className="absolute">
                   {/* INSERT CROSSWORD HERE */}
                   <a href={myQuestion.downloadLink}>

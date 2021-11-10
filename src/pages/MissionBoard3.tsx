@@ -174,7 +174,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
     });
   };
   return (
-    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
+    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple overflow-hidden w-screen font-thaifonts flex">
       <Stars className="absolute h-full w-full z-0" />
       <Link to="/scoreboard" className="z-50">
         <img
@@ -212,60 +212,60 @@ export default function MissionBoard({ user }: Props): ReactElement {
           <p className="text-white mb-8 text-5xl ">
             ภารกิจ 3 : เรียงปีไม่เรียงเบอร์
           </p>
-          <p className="text-white font-thaifonts text-2xl mb-8">
+          <p className="text-white font-thaifonts text-2xl mb-8 ">
             จงเรียงปีเกิดของนักวิทยาศาสตร์ทั้ง 5 ท่านจากก่อนไปหลัง
           </p>
           <div className="flex flex-col p-4 w-full font-thaifonts text-lg">
             <div className="flex flex-wrap grid grid-cols-2 gap-8 w-full">
               {/* PIC 1-1 */}
-              <div className="border p-2 rounded-3xl h-36">
+              <div className="border p-2 rounded-3xl h-32">
                 <div className="flex h-full">
                   <img
                     draggable={false}
                     src={myQuestion[0].imgPath}
-                    className="border h-32 w-1/5 rounded-3xl object-cover"
+                    className="border  w-1/5 rounded-3xl object-cover"
                   />
 
-                  <p className="p-4 text-white text-lg self-center">
+                  <p className="p-4 text-white self-center text-sm 3xl:text-lg">
                     {myQuestion[0].description}
                   </p>
                 </div>
               </div>
               {/* PIC 1-2 */}
-              <div className="border p-2 rounded-3xl h-36">
+              <div className="border p-2 rounded-3xl h-32">
                 <div className="flex h-full">
                   <img
                     draggable={false}
                     src={myQuestion[1].imgPath}
-                    className="border h-32 w-1/5 rounded-3xl object-cover"
+                    className="border w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white text-lg self-center">
+                  <p className="p-4 text-white text-sm 3xl:text-lg self-center">
                     {myQuestion[1].description}
                   </p>
                 </div>
               </div>
               {/* PIC 2-1 */}
-              <div className="border p-2 rounded-3xl h-36">
+              <div className="border p-2 rounded-3xl h-32">
                 <div className="flex h-full">
                   <img
                     draggable={false}
                     src={myQuestion[2].imgPath}
-                    className="border h-32 w-1/5 rounded-3xl object-cover"
+                    className="border w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white text-lg self-center">
+                  <p className="p-4 text-white text-sm 3xl:text-lg self-center">
                     {myQuestion[2].description}
                   </p>
                 </div>
               </div>
               {/* PIC 2-2 */}
-              <div className="border p-2 rounded-3xl h-36">
+              <div className="border p-2 rounded-3xl h-32">
                 <div className="flex h-full">
                   <img
                     draggable={false}
                     src={myQuestion[3].imgPath}
-                    className="border h-32 w-1/5 rounded-3xl object-cover"
+                    className="border w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white text-lg self-center">
+                  <p className="p-4 text-white text-sm 3xl:text-lg self-center">
                     {myQuestion[3].description}
                   </p>
                 </div>
@@ -278,7 +278,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                     src={myQuestion[4].imgPath}
                     className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white text-lg self-center">
+                  <p className="p-4 text-white text-sm 3xl:text-lg self-center">
                     {myQuestion[4].description}
                   </p>
                 </div>
@@ -287,7 +287,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
               <div className="text-center mx-auto my-auto col-span-2 w-4/5">
                 {!isFinish && (
                   <>
-                    <div className="flex flex-wrap bg-thirdpurple w-full mx-auto rounded-full justify-center p-3">
+                    <div className="flex flex-wrap bg-thirdpurple w-full mx-auto rounded-full justify-center p-3 ">
                       <input
                         value={answer[0]}
                         onChange={(e) =>
@@ -361,7 +361,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
       </div>
       <img
         draggable={false}
-        className="absolute bottom-0 object-cover opacity-90 "
+        className="fixed bottom-0 object-cover w-full opacity-90 "
         src={footer3}
       />
       {/* <Maa className="w-60 absolute bottom-0 right-0" /> */}
