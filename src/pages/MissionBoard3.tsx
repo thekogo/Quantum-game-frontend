@@ -55,7 +55,7 @@ export default function MissionBoard({}: Props): ReactElement {
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
-      <Link to="/scoreboard">
+      <Link to="/scoreboard" className="z-50">
         <img
           className="absolute  mx-auto mt-16 ml-14 cursor-pointer z-10"
           src={back}

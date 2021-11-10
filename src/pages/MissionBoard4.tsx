@@ -20,65 +20,10 @@ export default function MissionBoard({}: Props): ReactElement {
 
   const history = useHistory();
 
-  const showDetailMission1 = () => {
-    Swal.fire({
-      title: '<strong class="title"><u>ภารกิจ 1</u>: ถาม-ตอบ ควอนตัม</strong>',
-      html:
-        // '<img src="'+ "{logo1}" +'"/>' +
-        "You can use <b>bold text</b>, " +
-        '<a href="//sweetalert2.github.io">links</a> ' +
-        "and other HTML tags",
-      showCloseButton: true,
-      showCancelButton: true,
-      focusConfirm: false,
-      cancelButtonText: '<i class="fa fa-thumbs-down"> กลับหน้าหลัก </i>',
-      cancelButtonAriaLabel: "Thumbs down",
-      confirmButtonText: "เริ่มเล่น!",
-      reverseButtons: true,
-      customClass: {
-        popup: "manual-wide",
-      },
-    }).then(async (result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        startMission(2)
-          .then((res) => {
-            if (res.data.endTime) {
-              const stringDuration = getDuration(
-                new Date(res.data.startTime),
-                new Date(res.data.endTime)
-              ).toString();
-              console.log(stringDuration);
-              setTimer(stringDuration);
-            } else {
-              setInterval(() => {
-                const stringDuration = getDuration(
-                  new Date(res.data.startTime),
-                  new Date()
-                ).toString();
-                console.log(stringDuration);
-                setTimer(stringDuration);
-              }, 1000);
-            }
-          })
-          .catch((err) => {
-            console.log(err);
-            history.push("/scoreboard");
-          });
-        console.log("OK");
-      } else if (result.isDismissed) {
-        history.push("/scoreboard");
-      }
-    });
-  };
-
-  useEffect(() => {
-    showDetailMission1();
-  });
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
-      <Link to="/scoreboard">
+      <Link to="/scoreboard" className="z-50">
         <img
           className="absolute  mx-auto mt-16 ml-14 cursor-pointer z-10"
           src={back}
