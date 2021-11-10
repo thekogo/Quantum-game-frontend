@@ -22,7 +22,7 @@ import MissionScoreboard from "../components/MissionScoreboard";
 interface Props {}
 
 export default function MissionBoard({}: Props): ReactElement {
-  const [answer, setAnswer] = useState<string>();
+  const [answer, setAnswer] = useState<string>("");
   const [timer, setTimer] = useState<string>("00:00");
   const [showManual, setShowManual] = useState(false);
   const [isFinish, setIsFinish] = useState(false);
@@ -30,21 +30,31 @@ export default function MissionBoard({}: Props): ReactElement {
   const history = useHistory();
 
   const handleSubmitAnswer = async () => {
-    const isCorrect = await submitMission1(Number(answer));
-    if (isCorrect) {
-      Swal.fire({
-        title: "คำตอบถูกต้อง",
-        icon: "success",
-        text: `ใช้เวลาไปทั้งหมด ${timer}`,
+    submitMission1(answer)
+      .then((res) => {
+        Swal.fire({
+          title: "คำตอบถูกต้อง",
+          icon: "success",
+          text: `ใช้เวลาไปทั้งหมด ${timer}`,
+        });
+        history.push("/scoreboard");
+        getMissionTimmer(1);
+      })
+      .catch((err) => {
+        if (err.response.status === 403) {
+          Swal.fire({
+            title: `<span className="font-thaifonts">ด่านคุณผ่านไปแล้ว</span>`,
+            icon: "success",
+          }).finally(() => {
+            history.push("/scoreboard");
+          });
+        } else {
+          Swal.fire({
+            title: `<span className="font-thaifonts">คำตอบไม่ถูกต้อง</span>`,
+            iconHtml: "",
+          });
+        }
       });
-      history.push("/scoreboard");
-      getMissionTimmer();
-    } else {
-      Swal.fire({
-        title: `<span className="font-thaifonts">คำตอบไม่ถูกต้อง</span>`,
-        iconHtml: "",
-      });
-    }
   };
 
   const handleShowManual = () => {

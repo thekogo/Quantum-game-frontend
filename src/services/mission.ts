@@ -1,61 +1,41 @@
 import { Axios, AxiosResponse } from "axios";
 import client from "../utils/api";
 
-export const submitMission1 = (
-  answer: number | undefined
-): Promise<boolean> => {
-  return client
-    .post(
-      "mission/submitanswer/1",
-      { answer: Number(answer) },
-      {
-        headers: {
-          Authorization: `Bearer ` + localStorage.getItem("access_token"),
-        },
-      }
-    )
-    .then((res) => {
-      return true;
-    })
-    .catch((err) => false);
+export const submitMission1 = (answer: string): Promise<AxiosResponse> => {
+  return client.post(
+    "mission/submitanswer/1",
+    { answer: Number(answer) },
+    {
+      headers: {
+        Authorization: `Bearer ` + localStorage.getItem("access_token"),
+      },
+    }
+  );
 };
 
-export const submitMission2 = (
-  answer: string | undefined
-): Promise<boolean> => {
-  return client
-    .post(
-      "mission/submitanswer/2",
-      { answer: answer },
-      {
-        headers: {
-          Authorization: `Bearer ` + localStorage.getItem("access_token"),
-        },
-      }
-    )
-    .then((res) => {
-      return true;
-    })
-    .catch((err) => false);
+export const submitMission2 = (answer: string): Promise<AxiosResponse> => {
+  return client.post(
+    "mission/submitanswer/2",
+    { answer: answer.trim() },
+    {
+      headers: {
+        Authorization: `Bearer ` + localStorage.getItem("access_token"),
+      },
+    }
+  );
 };
 
-export const submitMission3 = (
-  answer: (number | undefined)[]
-): Promise<boolean> => {
-  return client
-    .post(
-      "mission/submitanswer/3",
-      { answer: answer },
-      {
-        headers: {
-          Authorization: `Bearer ` + localStorage.getItem("access_token"),
-        },
-      }
-    )
-    .then((res) => {
-      return true;
-    })
-    .catch((err) => false);
+export const submitMission3 = (answer: string[]): Promise<AxiosResponse> => {
+  const newAnswer = answer.map((ans) => Number(ans));
+  return client.post(
+    "mission/submitanswer/3",
+    { answer: newAnswer },
+    {
+      headers: {
+        Authorization: `Bearer ` + localStorage.getItem("access_token"),
+      },
+    }
+  );
 };
 
 export const submitMission4 = (
@@ -72,9 +52,7 @@ export const submitMission4 = (
   );
 };
 
-export const submitMission5 = (
-  answer: (string | undefined)[]
-): Promise<AxiosResponse> => {
+export const submitMission5 = (answer: string[]): Promise<AxiosResponse> => {
   return client.post(
     "mission/submitanswer/5",
     { answer: answer },

@@ -30,13 +30,7 @@ interface Props {
 export default function MissionBoard({ user }: Props): ReactElement {
   const [timer, setTimer] = useState<string>("00:00");
   const [isFinish, setIsFinish] = useState(false);
-  const [answer, setAnswer] = useState<(number | undefined)[]>([
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-    undefined,
-  ]);
+  const [answer, setAnswer] = useState<string[]>(["", "", "", "", ""]);
 
   const myQuestion = questionList[user.id % questionList.length];
 
@@ -70,7 +64,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
       });
   };
 
-  const handleSetAnswer = (idx: number, value: number) => {
+  const handleSetAnswer = (idx: number, value: string) => {
     let temp = [...answer];
     temp[idx] = value;
     setAnswer(temp);
@@ -290,9 +284,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                     <div className="flex flex-wrap bg-thirdpurple w-full mx-auto rounded-full justify-center p-3 ">
                       <input
                         value={answer[0]}
-                        onChange={(e) =>
-                          handleSetAnswer(0, Number(e.target.value))
-                        }
+                        onChange={(e) => handleSetAnswer(0, e.target.value)}
                         className="self-center placeholder-gray-400 font-poppins rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                         placeholder=""
                       />{" "}
@@ -303,9 +295,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                       />
                       <input
                         value={answer[1]}
-                        onChange={(e) =>
-                          handleSetAnswer(1, Number(e.target.value))
-                        }
+                        onChange={(e) => handleSetAnswer(1, e.target.value)}
                         className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                       />{" "}
                       <img
@@ -315,9 +305,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                       />
                       <input
                         value={answer[2]}
-                        onChange={(e) =>
-                          handleSetAnswer(2, Number(e.target.value))
-                        }
+                        onChange={(e) => handleSetAnswer(2, e.target.value)}
                         className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                       />{" "}
                       <img
@@ -327,9 +315,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                       />
                       <input
                         value={answer[3]}
-                        onChange={(e) =>
-                          handleSetAnswer(3, Number(e.target.value))
-                        }
+                        onChange={(e) => handleSetAnswer(3, e.target.value)}
                         className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                       />{" "}
                       <img
@@ -339,9 +325,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                       />
                       <input
                         value={answer[4]}
-                        onChange={(e) =>
-                          handleSetAnswer(4, Number(e.target.value))
-                        }
+                        onChange={(e) => handleSetAnswer(4, e.target.value)}
                         className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                       />{" "}
                     </div>
