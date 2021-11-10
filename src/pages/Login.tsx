@@ -74,6 +74,7 @@ export default function Login(): ReactElement {
       </div>
       {/* </BgLogin> */}
       <img
+        draggable={false}
         className="absolute bottom-0 w-full object-cover opacity-90"
         src={footerpageone}
       />
