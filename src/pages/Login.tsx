@@ -35,14 +35,12 @@ export default function Login(): ReactElement {
   };
 
   return (
-    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden overflow-hidden">
+    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex flex-col items-center  overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
-      <div className=" absolute ml- top-0">
-        <img src={toplogin} draggable={false} />
-      </div>
 
       {/* <BgLogin className=" object-cover overflow-hidden object-bottom"> */}
-      <div className="max-w-lg m-auto bg-white py-10  rounded-3xl px-20 z-10 w-96">
+      <img className="h-1/4 mt-10" src={toplogin} draggable={false} />
+      <div className="max-w-lg mt-10 bg-white py-10  rounded-3xl px-20 z-10 w-96">
         <form onSubmit={handleLogin}>
           <p className="text-fifthpurple text-center text-2xl font-poppins">
             Sign In
