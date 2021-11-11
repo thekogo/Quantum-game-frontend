@@ -804,7 +804,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
         <div className="flex flex-col justify-center items-center z-10">
           <div>
             <img draggable={false} className="h-44 w-40 mx-auto " src={m4} />
-            <a href="https://drive.google.com/u/0/uc?id=10r5ABbZM3fpww7ZAVGkI9JDCltfoOdqG&export=download">
+            <a target="_blank" href="https://drive.google.com/u/0/uc?id=10r5ABbZM3fpww7ZAVGkI9JDCltfoOdqG">
               <button className="  mt-6   bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
                 ข้อมูลของตำแหน่งงาน
               </button>

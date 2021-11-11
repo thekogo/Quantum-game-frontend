@@ -213,7 +213,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                 />
                 <div className="absolute">
                   {/* INSERT CROSSWORD HERE */}
-                  <a href={myQuestion.downloadLink}>
+                  <a target="_blank" href={myQuestion.downloadLink}>
                     <button className="bg-mhoored border-fifthpurple hover:bg-firstpurple text-white text-lg font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
                       ดาวน์โหลด Crossword และคำใบ้
                     </button>

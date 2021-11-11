@@ -325,7 +325,7 @@ export default function MissionBoard(): ReactElement {
         <div className="flex flex-col justify-center items-center">
           <div className=" z-10">
             <img draggable={false} className="h-44 w-40 mx-auto " src={m5} />
-            <a href="https://drive.google.com/u/0/uc?id=1QumrLQS_LJU2OH4u4aWhaUAMM0kT1mWb&export=download">
+            <a target="_blank" href="https://drive.google.com/u/0/uc?id=1QumrLQS_LJU2OH4u4aWhaUAMM0kT1mWb">
               <button className="  mt-6  mr-1 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
                 ดาวน์โหลดกระดาษโอริกามิ
               </button>
