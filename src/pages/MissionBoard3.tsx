@@ -210,7 +210,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
             จงเรียงปีเกิดของนักวิทยาศาสตร์ทั้ง 5 ท่านจากก่อนไปหลัง
           </p>
           <div className="flex flex-col p-4 w-full font-thaifonts text-lg">
-            <div className="flex flex-wrap grid grid-cols-2 gap-8 w-full">
+            <div className="flex-wrap grid grid-cols-2 gap-8 w-full">
               {/* PIC 1-1 */}
               <div className="border p-2 rounded-3xl h-32">
                 <div className="flex h-full">

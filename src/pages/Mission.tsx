@@ -55,7 +55,7 @@ export default function Scoreboard({ user }: Props): ReactElement {
             <div className="bg-gradient-to-b from-lbFirstpurple to-fifthpurple rounded-3xl w-5/6 h-3/4 m-auto mt-3 text-center shadow-2xl align-middle flex">
               <div className="bg-lbSecondpurple rounded-3xl w-5/6 h-5/6 m-auto text-center shadow-2xl ">
                 <div className="w-full h-full text-center pt-4">
-                  <table className="text-left text-center w-full h-full flex flex-col">
+                  <table className="text-center w-full h-full flex flex-col">
                     <thead className="bg-lbFirstpurple flex text-white w-full mx-auto rounded-sm">
                       <tr className="flex w-full mr-4">
                         <th className="p-4 w-1/3">Player</th>
