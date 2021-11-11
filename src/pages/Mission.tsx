@@ -19,7 +19,12 @@ import game6Pass from "../assets/images/Scoreboard/game6-pass.png";
 import trophy from "../assets/images/Scoreboard/trophy.png";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import { getMyPass, Score } from "../services/scoreboard";
+import {
+  getGameScoreboard,
+  getMyPass,
+  IMainScorebaord,
+  Score,
+} from "../services/scoreboard";
 import { IUser } from "../interface/user";
 
 interface Props {
@@ -28,12 +33,14 @@ interface Props {
 
 export default function Scoreboard({ user }: Props): ReactElement {
   const [myPass, setMyPass] = useState<Score[]>([]);
+  const [scoreboard, setScoreboard] = useState<IMainScorebaord[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getMyPass();
       console.log(data);
       setMyPass(data);
+      setScoreboard(await getGameScoreboard());
     };
     fetchData();
   }, []);
@@ -58,17 +65,20 @@ export default function Scoreboard({ user }: Props): ReactElement {
                   <table className="text-center w-full h-full flex flex-col">
                     <thead className="bg-lbFirstpurple flex text-white w-full mx-auto rounded-sm">
                       <tr className="flex w-full mr-4">
-                        <th className="p-4 w-1/3">Player</th>
+                        <th className="p-4 w-1/3">Team</th>
                         <th className="p-4 w-1/3">Finish</th>
                         <th className="p-4 w-1/3">Time</th>
                       </tr>
                     </thead>
                     <tbody className="flex flex-col items-center overflow-y-scroll w-full h-full z-10 font-poppins text-white">
-                      <tr className="flex w-full">
-                        <td className="p-2 w-1/3">Player1</td>
-                        <td className="p-2 w-1/3">5</td>
-                        <td className="p-2 w-1/3">01:05:00</td>
-                      </tr>
+                      {scoreboard.map((score) => (
+                        <tr className="flex w-full">
+                          <td className="p-2 w-1/3">{score.teamName}</td>
+                          <td className="p-2 w-1/3">{score.missionPass}</td>
+                          <td className="p-2 w-1/3">{score.durationStr}</td>
+                        </tr>
+                      ))}
+
                       <tr className="flex w-full">
                         <td className="p-2 w-1/3">Player1</td>
                         <td className="p-2 w-1/3">5</td>
