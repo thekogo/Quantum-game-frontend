@@ -171,7 +171,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
     });
   };
   return (
-    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-full w-screen font-thaifonts flex">
+    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple  h-full min-h-screen w-screen font-thaifonts flex">
       <Stars className="absolute h-full w-full z-0" />
       <Link to="/scoreboard" className="z-50">
         <img
@@ -223,7 +223,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
 
             <div>
               <div className=" border-2 p-2 rounded-2xl mt-8 ">
-                <table className="border border-collapse border-transparent mt-2 text-base 3xl:text-lg text-white">
+                <table className="border border-collapse border-transparent mt-2 text-base text-white">
                   <thead>
                     <tr>
                       <th className="border border-l-0 border-t-0 px-4 pb-5">

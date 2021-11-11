@@ -166,7 +166,7 @@ export default function MissionBoard(): ReactElement {
     });
   };
   return (
-    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
+    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple  h-full min-h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
       <Link to="/scoreboard" className="z-50">
         <img
@@ -338,7 +338,6 @@ export default function MissionBoard(): ReactElement {
         className="absolute bottom-0 object-cover opacity-90"
         src={footer5}
       />
-      {/* <Maa className="w-60 absolute bottom-0 right-0" /> */}
     </div>
   );
 }

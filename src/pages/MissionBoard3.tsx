@@ -168,7 +168,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
     });
   };
   return (
-    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple overflow-hidden h-screen w-screen font-thaifonts flex">
+    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple  h-full min-h-screen w-screen font-thaifonts ">
       <Stars className="absolute h-full w-full z-0" />
       <Link to="/scoreboard" className="z-50">
         <img
@@ -203,7 +203,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
           </div>
         </div>
         <div className=" w-auto z-10 col-span-7 flex flex-col items-center justify-center mt-2">
-          <p className="text-white mb-8 text-5xl ">
+          <p className="text-white mb-8 text-5xl  mt-20">
             ภารกิจ 3 : เรียงปีไม่เรียงเบอร์
           </p>
           <p className="text-white font-thaifonts text-2xl mb-8 ">
@@ -220,7 +220,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                     className="border  w-1/5 rounded-3xl object-cover"
                   />
 
-                  <p className="p-4 text-white self-center text-sm 3xl:text-lg">
+                  <p className="p-4 text-white self-center text-base 3xl:text-lg">
                     {myQuestion[0].description}
                   </p>
                 </div>
@@ -233,7 +233,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                     src={myQuestion[1].imgPath}
                     className="border w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white text-sm 3xl:text-lg self-center">
+                  <p className="p-4 text-white text-base 3xl:text-lg self-center">
                     {myQuestion[1].description}
                   </p>
                 </div>
@@ -246,7 +246,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                     src={myQuestion[2].imgPath}
                     className="border w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white text-sm 3xl:text-lg self-center">
+                  <p className="p-4 text-white text-base 3xl:text-lg self-center">
                     {myQuestion[2].description}
                   </p>
                 </div>
@@ -259,7 +259,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                     src={myQuestion[3].imgPath}
                     className="border w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white text-sm 3xl:text-lg self-center">
+                  <p className="p-4 text-white text-base 3xl:text-lg self-center">
                     {myQuestion[3].description}
                   </p>
                 </div>
@@ -272,7 +272,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                     src={myQuestion[4].imgPath}
                     className="border h-32 w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white text-sm 3xl:text-lg self-center">
+                  <p className="p-4 text-white text-base 3xl:text-lg self-center">
                     {myQuestion[4].description}
                   </p>
                 </div>
@@ -327,7 +327,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                         value={answer[4]}
                         onChange={(e) => handleSetAnswer(4, e.target.value)}
                         className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
-                      />{" "}
+                      />
                     </div>
 
                     <button
@@ -348,7 +348,6 @@ export default function MissionBoard({ user }: Props): ReactElement {
         className="fixed bottom-0 object-cover w-full opacity-90 "
         src={footer3}
       />
-      {/* <Maa className="w-60 absolute bottom-0 right-0" /> */}
     </div>
   );
 }

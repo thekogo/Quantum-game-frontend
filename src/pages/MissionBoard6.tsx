@@ -169,7 +169,7 @@ export default function MissionBoard(): ReactElement {
     });
   };
   return (
-    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
+    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple md:h-full 2xl:h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full" />
       <Link to="/scoreboard" className="z-50">
         <img
