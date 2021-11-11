@@ -38,7 +38,7 @@ export default function MissionBoard({}: Props): ReactElement {
           text: `ใช้เวลาไปทั้งหมด ${timer}`,
         });
         history.push("/scoreboard");
-        getMissionTimmer(1);
+        getMissionTimmer();
       })
       .catch((err) => {
         if (err.response.status === 403) {
