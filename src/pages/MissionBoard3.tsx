@@ -168,7 +168,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
     });
   };
   return (
-    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple overflow-hidden h-full w-screen font-thaifonts flex">
+    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple  h-screen w-screen font-thaifonts ">
       <Stars className="absolute h-full w-full z-0" />
       <Link to="/scoreboard" className="z-50">
         <img
@@ -202,8 +202,8 @@ export default function MissionBoard({ user }: Props): ReactElement {
             <MissionScoreboard logo={logo3} missionId="3" />
           </div>
         </div>
-        <div className=" w-auto z-10 col-span-7 flex flex-col items-center justify-center mt-2">
-          <p className="text-white mb-8 text-5xl ">
+        <div className=" w-auto z-10 col-span-7 flex flex-col items-center justify-center mt-20">
+          <p className="text-white mb-8 text-5xl mt-">
             ภารกิจ 3 : เรียงปีไม่เรียงเบอร์
           </p>
           <p className="text-white font-thaifonts text-2xl mb-8 ">
