@@ -47,17 +47,14 @@ export default function Scoreboard({ user }: Props): ReactElement {
         <div>
           <img draggable={false} className="mx-auto " src={missionHeader} />
         </div>
-        <div className="grid grid-rows-2 grid-cols-12 w-fulls m-3 ">
-          <div className="p-3 col-span-3 row-span-2 gap-3 ">
-            <div className="relative bg-gradient-to-b from-lbFirstpurple to-fifthpurple rounded-3xl w-3/4 h-3/4 m-auto mt-3 text-center shadow-2xl py-8">
-              {/* <img draggable={false} src={trophy} className="absolute -inset-y-40 inset-x-8" /> */}
-              <img
-                draggable={false}
-                src={trophy}
-                className="absolute -inset-y-40 inset-x-1"
-              />
-              <div className="bg-lbSecondpurple rounded-3xl w-5/6 h-full m-auto text-center shadow-2xl py-4">
-                <div className="w-full h-full text-center">
+        <div className="grid grid-rows-2 grid-cols-12 w-full m-3 ">
+          <div className="p-3 col-span-3 row-span-2 gap-3 -mt-24">
+            <div className="relative  mx-auto top-10">
+              <img draggable={false} src={trophy} className="m-auto" />
+            </div>
+            <div className="bg-gradient-to-b from-lbFirstpurple to-fifthpurple rounded-3xl w-5/6 h-3/4 m-auto mt-3 text-center shadow-2xl align-middle flex">
+              <div className="bg-lbSecondpurple rounded-3xl w-5/6 h-5/6 m-auto text-center shadow-2xl ">
+                <div className="w-full h-full text-center pt-4">
                   <table className="text-left text-center w-full h-full flex flex-col">
                     <thead className="bg-lbFirstpurple flex text-white w-full mx-auto rounded-sm">
                       <tr className="flex w-full mr-4">
@@ -66,7 +63,7 @@ export default function Scoreboard({ user }: Props): ReactElement {
                         <th className="p-4 w-1/3">Time</th>
                       </tr>
                     </thead>
-                    <tbody className="flex flex-col items-center overflow-y-scroll w-full z-10 font-poppins text-white">
+                    <tbody className="flex flex-col items-center overflow-y-scroll w-full h-full z-10 font-poppins text-white">
                       <tr className="flex w-full">
                         <td className="p-2 w-1/3">Player1</td>
                         <td className="p-2 w-1/3">5</td>
@@ -88,6 +85,11 @@ export default function Scoreboard({ user }: Props): ReactElement {
                         <td className="p-2 w-1/3">01:05:00</td>
                       </tr>
 
+                      <tr className="flex w-full">
+                        <td className="p-2 w-1/3">Player1</td>
+                        <td className="p-2 w-1/3">5</td>
+                        <td className="p-2 w-1/3">01:05:00</td>
+                      </tr>
                       <tr className="flex w-full">
                         <td className="p-2 w-1/3">Player1</td>
                         <td className="p-2 w-1/3">5</td>
