@@ -74,7 +74,14 @@ export default function MissionBoard({ user }: Props): ReactElement {
     Swal.fire({
       title:
         '<strong class="title"><u>ภารกิจ 3</u>: เรียงปีไม่เรียงเบอร์</strong>',
-      html: '<div class="text-left px-52 font-thaifonts text-xl ">1.ผู้เล่นจะได้รับรูปนักวิทยาศาสตร์พร้อมคำบรรยายผลงานและความสามารถ<br/><br/>2.ผู้เล่นต้องเรียงลำดับปีเกิดของนักวิทยาศาสตร์ โดยเรียงลำดับจากน้อยไปมากให้ถูกต้อง จึงจะผ่านภารกิจ</div>',
+      html: '<div class="text-left px-52 font-thaifonts text-xl ">1.ผู้เล่นจะได้รับรูปนักวิทยาศาสตร์ที่เกี่ยวข้องกับเทคโนโลยีควอนตัมพร้อมคำบรรยายผลงานและความสามารถ<br/><br/>2.ผู้เล่นต้องเรียงลำดับปีเกิดของนักวิทยาศาสตร์ โดยเรียงลำดับจากน้อยไปมากให้ถูกต้อง จึงจะผ่านภารกิจ</div>'+
+      '<br/><br/><div class="flex justify-center">'+
+      '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1880</div>'+
+      '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1890</div>'+
+      '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1900</div>'+
+      '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1910</div>'+
+      '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1920</div>'+
+      '</div><div class="font-thaifonts mt-2">ตัวอย่างคำตอบ</div>',
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
@@ -161,7 +168,14 @@ export default function MissionBoard({ user }: Props): ReactElement {
     Swal.fire({
       title:
         '<strong class="title "><u>ภารกิจ 3</u>: เรียงปีไม่เรียงเบอร์</strong>',
-      html: '<div class="text-left px-52 font-thaifonts text-xl ">1.ผู้เล่นจะได้รับรูปนักวิทยาศาสตร์พร้อมคำบรรยายผลงานและความสามารถ<br/><br/>2.ผู้เล่นต้องเรียงลำดับปีเกิด(คศ.) ของนักวิทยาศาสตร์ โดยเรียงลำดับจากน้อยไปมากให้ถูกต้อง จึงจะผ่านภารกิจ<br/><br/>ตัวอย่าง   19XX < 19XX < 19XX < 19XX <19XX</div>',
+      html: '<div class="text-left px-52 font-thaifonts text-xl ">1.ผู้เล่นจะได้รับรูปนักวิทยาศาสตร์ที่เกี่ยวข้องกับเทคโนโลยีควอนตัมพร้อมคำบรรยายผลงานและความสามารถ<br/><br/>2.ผู้เล่นต้องเรียงลำดับปีเกิดของนักวิทยาศาสตร์ โดยเรียงลำดับจากน้อยไปมากให้ถูกต้อง จึงจะผ่านภารกิจ</div>'+
+      '<br/><br/><div class="flex justify-center">'+
+      '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1880</div>'+
+      '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1890</div>'+
+      '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1900</div>'+
+      '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1910</div>'+
+      '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1920</div>'+
+      '</div><div class="font-thaifonts mt-2">ตัวอย่างคำตอบ</div>',
       customClass: {
         popup: "manual-wide",
       },
@@ -285,7 +299,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                       <input
                         value={answer[0]}
                         onChange={(e) => handleSetAnswer(0, e.target.value)}
-                        className="self-center placeholder-gray-400 font-poppins rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                        className="self-center placeholder-gray-400 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                         placeholder=""
                       />{" "}
                       <img

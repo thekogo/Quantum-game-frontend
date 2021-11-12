@@ -98,7 +98,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
       title: '<strong class="title"><u>ภารกิจ 2</u>: อักษรที่หายไป</strong>',
       html:
         '<div class="text-left px-52 font-thaifonts text-xl"><p className="text-left">1.ผู้เล่นต้องแก้ Crossword ที่กำหนด โดยใช้คำตอบเป็นภาษาอังกฤษ<br/><br/>' +
-        "2.เมื่อแก้ปริศนา Crossword เสร็จสิ้น จะได้รับ Password สำหรับผ่านด่าน โดยพิจารณาตัวอักษรตามที่กำหนด</div>",
+        "2.เมื่อแก้ปริศนา Crossword เสร็จสิ้น ให้นำหนึ่งตัวอักษรของแต่ละคำตอบมาเรียงเป็น Password ความยาว 15 ตัวอักษร</div>"+'<br/><br/><div class="flex flex-wrap justify-center"><div class="bg-gray-200 w-1/4 py-2 rounded-full font-poppins text-2xl">ABCDEFGHIJKL</div></div><div class="font-thaifonts">ตัวอย่างคำตอบ</div>',
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
@@ -146,8 +146,8 @@ export default function MissionBoard({ user }: Props): ReactElement {
     Swal.fire({
       title: '<strong class="title "><u>ภารกิจ 2</u>: อักษรที่หายไป</strong>',
       html:
-        '<div class="text-left px-52 font-thaifonts text-xl"><p className="text-left">1.ผู้เล่นต้องแก้ Crossword ที่กำหนด โดยใช้คำตอบเป็นภาษาอังกฤษ<br/><br/>' +
-        "2.เมื่อแก้ปริศนา Crossword เสร็จสิ้น จะได้รับ Password สำหรับผ่านด่าน โดยพิจารณาตัวอักษรตามที่กำหนด</div>",
+      '<div class="text-left px-52 font-thaifonts text-xl"><p className="text-left">1.ผู้เล่นต้องแก้ Crossword ที่กำหนด โดยใช้คำตอบเป็นภาษาอังกฤษ<br/><br/>' +
+      "2.เมื่อแก้ปริศนา Crossword เสร็จสิ้น ให้นำหนึ่งตัวอักษรของแต่ละคำตอบมาเรียงเป็น Password ความยาว 15 ตัวอักษร</div>"+'<br/><br/><div class="flex flex-wrap justify-center"><div class="bg-gray-200 w-1/4 py-2 rounded-full font-poppins text-2xl">ABCDEFGHIJKL</div></div><div class="font-thaifonts">ตัวอย่างคำตอบ</div>',
       customClass: {
         popup: "manual-wide",
       },

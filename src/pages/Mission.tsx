@@ -70,7 +70,7 @@ export default function Scoreboard({ user }: Props): ReactElement {
                         <th className="p-4 w-1/4 mr-4">Time</th>
                       </tr>
                     </thead>
-                    <tbody className="flex flex-col items-center overflow-y-scroll overflow-x-hidden w-full h-full z-10 font-poppins text-white">
+                    <tbody className="flex flex-col items-center overflow-y-scroll overflow-x-hidd w-full h-full z-10 font-poppins text-white">
                       {scoreboard.map((score) => (
                         <tr className="flex w-full">
                           <td className="p-2 w-2/4 font-thaifonts text-left border-collapse border-b border-secondpurple ml-4">

@@ -60,7 +60,13 @@ export default function MissionBoard({}: Props): ReactElement {
   const handleShowManual = () => {
     Swal.fire({
       title: '<strong class="title "><u>ภารกิจ 1</u>: ถาม-ตอบ ควอนตัม</strong>',
-      html: '<div class="text-left px-52 font-thaifonts text-xl ">1.ให้ผู้เล่นชมและศึกษาความรู้จากคลิปเพื่อค้นหาคำตอบ<br/><br/>2.ตอบคำถามทั้งสามข้อที่อยู่ด้านขวามือ<br/><br/>3.เมื่อได้คำตอบแล้วนำตัวเลขมาเรียงกันโดยไม่ต้องเว้นวรรค</div>',
+      html: '<div class="text-left px-52 font-thaifonts text-xl">'+
+      '1.ให้ผู้เล่นชมและศึกษาความรู้จากคลิปเพื่อค้นหาคำตอบ<br/><br/>'+
+      '2.ตอบคำถามทั้งสามข้อที่อยู่ด้านขวามือ<br/><br/>'+
+      '3.เมื่อได้คำตอบแล้วนำตัวเลขมาเรียงกันโดยไม่ต้องเว้นวรรค</div>'+
+      '<br/><br/><div class="font-poppins text-2xl">'+
+      '<div class="flex flex-wrap justify-center"><div class="bg-gray-200 w-1/4 py-2 rounded-full">123456</div></div>'+
+      '</div>'+'<div class="font-thaifonts">ตัวอย่างคำตอบ</div>',
       customClass: {
         popup: "manual-wide",
       },
@@ -71,7 +77,14 @@ export default function MissionBoard({}: Props): ReactElement {
     if (timer !== "00:00") return;
     Swal.fire({
       title: '<strong class="title"><u>ภารกิจ 1</u>: ถาม-ตอบ ควอนตัม</strong>',
-      html: '<div class="text-left px-52 font-thaifonts text-xl">1.ให้ผู้เล่นชมและศึกษาความรู้จากคลิปเพื่อค้นหาคำตอบ<br/><br/>2.ตอบคำถามทั้งสามข้อที่อยู่ด้านขวามือ<br/><br/>3.เมื่อได้คำตอบแล้วนำตัวเลขมาเรียงกันโดยไม่ต้องเว้นวรรค</div>',
+      html: '<div class="text-left px-52 font-thaifonts text-xl">'+
+      '1.ให้ผู้เล่นชมและศึกษาความรู้จากคลิปเพื่อค้นหาคำตอบ<br/><br/>'+
+      '2.ตอบคำถามทั้งสามข้อที่อยู่ด้านขวามือ<br/><br/>'+
+      '3.เมื่อได้คำตอบแล้วนำตัวเลขมาเรียงกันโดยไม่ต้องเว้นวรรค</div>'+
+      '<br/><br/><div class="font-poppins text-2xl">'+
+      '<div class="flex flex-wrap justify-center"><div class="bg-gray-200 w-1/4 py-2 rounded-full">123456</div></div>'+
+      '</div>'+'<div class="font-thaifonts">ตัวอย่างคำตอบ</div>'
+      ,
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
