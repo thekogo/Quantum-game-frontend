@@ -23,7 +23,7 @@ export default function MissionScoreboard({ logo, missionId }: Props) {
       </div>
       <div className="flex flex-col gap-3 h-52 overflow-y-auto z-20">
         {scoreboard.map((log) => (
-          <p className="border-2 rounded-full px-3 text-white font-poppins flex gap-2 justify-between">
+          <p className="border-2 rounded-full px-3 text-white font-poppins flex gap-2 justify-between font-thaifonts">
             <span>{log.teamName}</span>
             <span>{log.durationStr}</span>
           </p>
