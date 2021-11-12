@@ -49,8 +49,8 @@ export default function Scoreboard({ user }: Props): ReactElement {
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
 
-      <Planet className="absolute top-0 right-0 transform origin-top-right md:scale-90 3xl:scale-100" />
-      <div className="w-full m-6">
+      <Planet className="absolute z-0 top-0 right-0 transform origin-top-right md:scale-90 3xl:scale-100" />
+      <div className="w-full m-6 z-10">
         <div className=" 3xl:mb-12">
           <img draggable={false} className="mx-auto" src={missionHeader} />
         </div>
@@ -62,7 +62,7 @@ export default function Scoreboard({ user }: Props): ReactElement {
             <div className="bg-gradient-to-b from-lbFirstpurple to-fifthpurple rounded-3xl w-full h-full m-auto mt-3 text-center shadow-2xl align-middle flex">
               <div className="bg-lbSecondpurple rounded-3xl w-5/6 h-5/6 m-auto text-center shadow-2xl ">
                 <div className="w-full h-full text-center pt-4">
-                  <table className="text-center w-full h-full flex flex-col">
+                  <table className="table-fixed text-center w-full h-full flex flex-col">
                     <thead className="bg-lbFirstpurple flex text-white w-full mx-auto rounded-sm">
                       <tr className="flex w-full mr-4">
                         <th className="p-4 w-2/4 ml-4">Team</th>
@@ -84,62 +84,6 @@ export default function Scoreboard({ user }: Props): ReactElement {
                           </td>
                         </tr>
                       ))}
-
-                      <tr className="flex w-full">
-                        <td className="p-2 w-2/4 font-thaifonts text-left border-collapse border-b ml-4 border-secondpurple">
-                          มหาวิทยาลัยเทคโลยีพระจอมเกล้าธนบุรี
-                        </td>
-                        <td className="p-2 w-1/4 border-collapse border-b border-secondpurple">
-                          5
-                        </td>
-                        <td className="p-2 w-1/4 border-collapse border-b mr-3 border-secondpurple">
-                          01:05:00
-                        </td>
-                      </tr>
-                      <tr className="flex w-full">
-                        <td className="p-2 w-2/4 font-thaifonts text-left border-collapse border-b ml-4 border-secondpurple">
-                          มหาวิทยาลัยเทคโลยีพระจอมเกล้าธนบุรี
-                        </td>
-                        <td className="p-2 w-1/4 border-collapse border-b border-secondpurple">
-                          5
-                        </td>
-                        <td className="p-2 w-1/4 border-collapse border-b mr-3 border-secondpurple">
-                          01:05:00
-                        </td>
-                      </tr>
-                      <tr className="flex w-full">
-                        <td className="p-2 w-2/4 font-thaifonts text-left border-collapse border-b ml-4 border-secondpurple">
-                          มหาวิทยาลัยเทคโลยีพระจอมเกล้าธนบุรี
-                        </td>
-                        <td className="p-2 w-1/4 border-collapse border-b border-secondpurple">
-                          5
-                        </td>
-                        <td className="p-2 w-1/4 border-collapse border-b mr-3 border-secondpurple">
-                          01:05:00
-                        </td>
-                      </tr>
-                      <tr className="flex w-full">
-                        <td className="p-2 w-2/4 font-thaifonts text-left border-collapse border-b ml-4 border-secondpurple">
-                          มหาวิทยาลัยเทคโลยีพระจอมเกล้าธนบุรี
-                        </td>
-                        <td className="p-2 w-1/4 border-collapse border-b border-secondpurple">
-                          5
-                        </td>
-                        <td className="p-2 w-1/4 border-collapse border-b mr-3 border-secondpurple">
-                          01:05:00
-                        </td>
-                      </tr>
-                      <tr className="flex w-full">
-                        <td className="p-2 w-2/4 font-thaifonts text-left border-collapse border-b ml-4 border-secondpurple">
-                          มหาวิทยาลัยเทคโลยีพระจอมเกล้าธนบุรี
-                        </td>
-                        <td className="p-2 w-1/4 border-collapse border-b border-secondpurple">
-                          5
-                        </td>
-                        <td className="p-2 w-1/4 border-collapse border-b mr-3 border-secondpurple">
-                          01:05:00
-                        </td>
-                      </tr>
                     </tbody>
                   </table>
                 </div>
