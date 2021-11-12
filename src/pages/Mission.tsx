@@ -84,6 +84,19 @@ export default function Scoreboard({ user }: Props): ReactElement {
                           </td>
                         </tr>
                       ))}
+                      {scoreboard.length === 0 && (
+                        <tr className="flex w-full">
+                          <td className="p-2 w-2/4 font-thaifonts text-left border-collapse border-b border-secondpurple ml-4">
+                            {"------"}
+                          </td>
+                          <td className="p-2 w-1/4 border-collapse border-b border-secondpurple">
+                            {"--"}
+                          </td>
+                          <td className="p-2 w-1/4 border-collapse border-b mr-3 border-secondpurple">
+                            {"--:--"}
+                          </td>
+                        </tr>
+                      )}
                     </tbody>
                   </table>
                 </div>
