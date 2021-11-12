@@ -74,14 +74,15 @@ export default function MissionBoard({ user }: Props): ReactElement {
     Swal.fire({
       title:
         '<strong class="title"><u>ภารกิจ 3</u>: เรียงปีไม่เรียงเบอร์</strong>',
-      html: '<div class="text-left px-52 font-thaifonts text-xl ">1.ผู้เล่นจะได้รับรูปนักวิทยาศาสตร์ที่เกี่ยวข้องกับเทคโนโลยีควอนตัมพร้อมคำบรรยายผลงานและความสามารถ<br/><br/>2.ผู้เล่นต้องเรียงลำดับปีเกิดของนักวิทยาศาสตร์ โดยเรียงลำดับจากน้อยไปมากให้ถูกต้อง จึงจะผ่านภารกิจ</div>'+
-      '<br/><br/><div class="flex justify-center">'+
-      '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1880</div>'+
-      '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1890</div>'+
-      '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1900</div>'+
-      '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1910</div>'+
-      '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1920</div>'+
-      '</div><div class="font-thaifonts mt-2">ตัวอย่างคำตอบ</div>',
+      html:
+        '<div class="text-left px-52 font-thaifonts text-xl ">1.ผู้เล่นจะได้รับรูปนักวิทยาศาสตร์ที่เกี่ยวข้องกับเทคโนโลยีควอนตัมพร้อมคำบรรยายผลงานและความสามารถ<br/><br/>2.ผู้เล่นต้องเรียงลำดับปีเกิดของนักวิทยาศาสตร์ โดยเรียงลำดับจากน้อยไปมากให้ถูกต้อง จึงจะผ่านภารกิจ</div>' +
+        '<br/><br/><div class="flex justify-center">' +
+        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1880</div>' +
+        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1890</div>' +
+        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1900</div>' +
+        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1910</div>' +
+        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1920</div>' +
+        '</div><div class="font-thaifonts mt-2">ตัวอย่างคำตอบ</div>',
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
@@ -168,21 +169,22 @@ export default function MissionBoard({ user }: Props): ReactElement {
     Swal.fire({
       title:
         '<strong class="title "><u>ภารกิจ 3</u>: เรียงปีไม่เรียงเบอร์</strong>',
-      html: '<div class="text-left px-52 font-thaifonts text-xl ">1.ผู้เล่นจะได้รับรูปนักวิทยาศาสตร์ที่เกี่ยวข้องกับเทคโนโลยีควอนตัมพร้อมคำบรรยายผลงานและความสามารถ<br/><br/>2.ผู้เล่นต้องเรียงลำดับปีเกิดของนักวิทยาศาสตร์ โดยเรียงลำดับจากน้อยไปมากให้ถูกต้อง จึงจะผ่านภารกิจ</div>'+
-      '<br/><br/><div class="flex justify-center">'+
-      '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1880</div>'+
-      '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1890</div>'+
-      '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1900</div>'+
-      '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1910</div>'+
-      '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1920</div>'+
-      '</div><div class="font-thaifonts mt-2">ตัวอย่างคำตอบ</div>',
+      html:
+        '<div class="text-left px-52 font-thaifonts text-xl ">1.ผู้เล่นจะได้รับรูปนักวิทยาศาสตร์ที่เกี่ยวข้องกับเทคโนโลยีควอนตัมพร้อมคำบรรยายผลงานและความสามารถ<br/><br/>2.ผู้เล่นต้องเรียงลำดับปีเกิดของนักวิทยาศาสตร์ โดยเรียงลำดับจากน้อยไปมากให้ถูกต้อง จึงจะผ่านภารกิจ</div>' +
+        '<br/><br/><div class="flex justify-center">' +
+        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1880</div>' +
+        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1890</div>' +
+        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1900</div>' +
+        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1910</div>' +
+        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-2xl mx-2">1920</div>' +
+        '</div><div class="font-thaifonts mt-2">ตัวอย่างคำตอบ</div>',
       customClass: {
         popup: "manual-wide",
       },
     });
   };
   return (
-    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple  h-full min-h-screen w-screen font-thaifonts ">
+    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple  h-full min-h-screen w-full font-thaifonts flex overflow-x-hidden">
       <Stars className="absolute h-full w-full z-0" />
       <Link to="/scoreboard" className="z-50">
         <img
@@ -194,25 +196,25 @@ export default function MissionBoard({ user }: Props): ReactElement {
 
       <div className="grid grid-cols-12 w-full z-10">
         <div className="col-span-3 flex items-center justify-center">
-          <div className=" p-3 rounded-3xl">
-            <div className="absolute top-0 right-0 m-8 w-48 h-28">
-              <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
-                <img
-                  draggable={false}
-                  className="absolute m-2 self-center top-0 right-0"
-                  src={star_timer}
-                />
-                <p className="text-white font-poppins text-4xl mt-2">{timer}</p>
-              </div>
-              <div className="flex flex-wrap justify-center">
-                <button
-                  onClick={handleShowManual}
-                  className="w-4/5 mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center"
-                >
-                  กติกาภารกิจที่ 3
-                </button>
-              </div>
+          <div className="absolute top-0 right-0 m-8 w-48 h-28">
+            <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
+              <img
+                draggable={false}
+                className="absolute m-2 self-center top-0 right-0"
+                src={star_timer}
+              />
+              <p className="text-white font-poppins text-4xl mt-2">{timer}</p>
             </div>
+            <div className="flex flex-wrap justify-center">
+              <button
+                onClick={handleShowManual}
+                className="w-4/5 mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center"
+              >
+                กติกาภารกิจที่ 2
+              </button>
+            </div>
+          </div>
+          <div className=" p-3 rounded-3xl z-10">
             <MissionScoreboard logo={logo3} missionId="3" />
           </div>
         </div>
@@ -223,8 +225,8 @@ export default function MissionBoard({ user }: Props): ReactElement {
           <p className="text-white font-thaifonts text-2xl mb-8 ">
             จงเรียงปีเกิดของนักวิทยาศาสตร์ทั้ง 5 ท่านจากก่อนไปหลัง
           </p>
-          <div className="flex flex-col p-4 w-full font-thaifonts text-lg">
-            <div className="flex-wrap grid grid-cols-2 gap-8 w-full">
+          <div className="flex flex-col p-4 w-full h-full font-thaifonts text-lg">
+            <div className="flex-wrap grid grid-cols-2 3xl:gap-8 md:gap-4 w-full">
               {/* PIC 1-1 */}
               <div className="border p-2 rounded-3xl h-32">
                 <div className="flex h-full">
@@ -279,12 +281,12 @@ export default function MissionBoard({ user }: Props): ReactElement {
                 </div>
               </div>
               {/* PIC 3-1 */}
-              <div className="border p-2 rounded-3xl h-36 col-span-2 w-1/2 mx-auto">
+              <div className="border p-2 rounded-3xl h-32 col-span-2 w-1/2 mx-auto">
                 <div className="flex h-full">
                   <img
                     draggable={false}
                     src={myQuestion[4].imgPath}
-                    className="border h-32 w-1/5 rounded-3xl object-cover"
+                    className="border w-1/5 rounded-3xl object-cover"
                   />
                   <p className="p-4 text-white text-base 3xl:text-lg self-center">
                     {myQuestion[4].description}
