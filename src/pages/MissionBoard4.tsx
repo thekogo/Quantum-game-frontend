@@ -278,7 +278,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                         {myQuestion[0].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
-                        <div className="flex items-center relative inline-block w-full h-14 text-white ">
+                        <div className="flex items-center relative w-full h-14 text-white ">
                           <select
                             value={answer[0]}
                             onChange={(e) => handleSetAnswer(e, 0)}
@@ -368,7 +368,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                         {myQuestion[1].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
-                        <div className="flex items-center relative inline-block w-full h-14 text-white ">
+                        <div className="flex items-center relative w-full h-14 text-white ">
                           <select
                             value={answer[1]}
                             onChange={(e) => handleSetAnswer(e, 1)}
@@ -459,7 +459,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                         {myQuestion[2].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
-                        <div className="flex items-center relative inline-block w-full h-14 text-white ">
+                        <div className="flex items-center relative w-full h-14 text-white ">
                           <select
                             value={answer[2]}
                             onChange={(e) => handleSetAnswer(e, 2)}
@@ -549,7 +549,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                         {myQuestion[3].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
-                        <div className="flex items-center relative inline-block w-full h-14 text-white ">
+                        <div className="flex items-center relative w-full h-14 text-white ">
                           <select
                             value={answer[3]}
                             onChange={(e) => handleSetAnswer(e, 3)}
@@ -639,7 +639,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                         {myQuestion[4].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
-                        <div className="flex items-center relative inline-block w-full h-14 text-white ">
+                        <div className="flex items-center relative w-full h-14 text-white ">
                           <select
                             value={answer[4]}
                             onChange={(e) => handleSetAnswer(e, 4)}
@@ -729,7 +729,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                         {myQuestion[5].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
-                        <div className="flex items-center relative inline-block w-full h-14 text-white ">
+                        <div className="flex items-center relative w-full h-14 text-white ">
                           <select
                             value={answer[5]}
                             onChange={(e) => handleSetAnswer(e, 5)}
