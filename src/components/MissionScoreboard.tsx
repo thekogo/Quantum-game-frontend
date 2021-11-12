@@ -28,38 +28,12 @@ export default function MissionScoreboard({ logo, missionId }: Props) {
             <span>{log.durationStr}</span>
           </p>
         ))}
-        <p className="border-2 rounded-full px-3 text-white font-poppins flex gap-2 justify-between">
-          <span>{"Dummy"}</span>
-          <span>{"99:99"}</span>
-        </p>
-        <p className="border-2 rounded-full px-3 text-white font-poppins flex gap-2 justify-between">
-          <span>{"Dummy"}</span>
-          <span>{"99:99"}</span>
-        </p>
-        <p className="border-2 rounded-full px-3 text-white font-poppins flex gap-2 justify-between">
-          <span>{"Dummy"}</span>
-          <span>{"99:99"}</span>
-        </p>
-        <p className="border-2 rounded-full px-3 text-white font-poppins flex gap-2 justify-between">
-          <span>{"Dummy"}</span>
-          <span>{"99:99"}</span>
-        </p>
-        <p className="border-2 rounded-full px-3 text-white font-poppins flex gap-2 justify-between">
-          <span>{"Dummy"}</span>
-          <span>{"99:99"}</span>
-        </p>
-        <p className="border-2 rounded-full px-3 text-white font-poppins flex gap-2 justify-between">
-          <span>{"Dummy"}</span>
-          <span>{"99:99"}</span>
-        </p>
-        <p className="border-2 rounded-full px-3 text-white font-poppins flex gap-2 justify-between">
-          <span>{"Dummy"}</span>
-          <span>{"99:99"}</span>
-        </p>
-        <p className="border-2 rounded-full px-3 text-white font-poppins flex gap-2 justify-between">
-          <span>{"Dummy"}</span>
-          <span>{"99:99"}</span>
-        </p>
+        {scoreboard.length === 0 && (
+          <p className="border-2 rounded-full px-3 text-white font-poppins flex gap-2 justify-between">
+            <span>{"------"}</span>
+            <span>{"--:--"}</span>
+          </p>
+        )}
       </div>
     </div>
   );

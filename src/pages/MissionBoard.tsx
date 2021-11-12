@@ -24,7 +24,6 @@ interface Props {}
 export default function MissionBoard({}: Props): ReactElement {
   const [answer, setAnswer] = useState<string>("");
   const [timer, setTimer] = useState<string>("00:00");
-  const [showManual, setShowManual] = useState(false);
   const [isFinish, setIsFinish] = useState(false);
 
   const history = useHistory();
