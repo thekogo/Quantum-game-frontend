@@ -38,7 +38,7 @@ export default function MissionBoard({}: Props): ReactElement {
           text: `ใช้เวลาไปทั้งหมด ${timer}`,
         });
         history.push("/scoreboard");
-        getMissionTimmer(1);
+        getMissionTimmer();
       })
       .catch((err) => {
         if (err.response.status === 403) {
@@ -60,7 +60,15 @@ export default function MissionBoard({}: Props): ReactElement {
   const handleShowManual = () => {
     Swal.fire({
       title: '<strong class="title "><u>ภารกิจ 1</u>: ถาม-ตอบ ควอนตัม</strong>',
-      html: '<div class="text-left px-52 font-thaifonts text-xl ">1.ให้ผู้เล่นชมและศึกษาความรู้จากคลิปเพื่อค้นหาคำตอบ<br/><br/>2.ตอบคำถามทั้งสามข้อที่อยู่ด้านขวามือ<br/><br/>3.เมื่อได้คำตอบแล้วนำตัวเลขมาเรียงกันโดยไม่ต้องเว้นวรรค</div>',
+      html:
+        '<div class="text-left px-52 font-thaifonts text-xl">' +
+        "1.ให้ผู้เล่นชมและศึกษาความรู้จากคลิปเพื่อค้นหาคำตอบ<br/><br/>" +
+        "2.ตอบคำถามทั้งสามข้อที่อยู่ด้านขวามือ<br/><br/>" +
+        "3.เมื่อได้คำตอบแล้วนำตัวเลขมาเรียงกันโดยไม่ต้องเว้นวรรค</div>" +
+        '<br/><br/><div class="font-poppins text-2xl">' +
+        '<div class="flex flex-wrap justify-center"><div class="bg-gray-200 w-1/4 py-2 rounded-full">123456</div></div>' +
+        "</div>" +
+        '<div class="font-thaifonts">ตัวอย่างคำตอบ</div>',
       customClass: {
         popup: "manual-wide",
       },
@@ -71,7 +79,15 @@ export default function MissionBoard({}: Props): ReactElement {
     if (timer !== "00:00") return;
     Swal.fire({
       title: '<strong class="title"><u>ภารกิจ 1</u>: ถาม-ตอบ ควอนตัม</strong>',
-      html: '<div class="text-left px-52 font-thaifonts text-xl">1.ให้ผู้เล่นชมและศึกษาความรู้จากคลิปเพื่อค้นหาคำตอบ<br/><br/>2.ตอบคำถามทั้งสามข้อที่อยู่ด้านขวามือ<br/><br/>3.เมื่อได้คำตอบแล้วนำตัวเลขมาเรียงกันโดยไม่ต้องเว้นวรรค</div>',
+      html:
+        '<div class="text-left px-52 font-thaifonts text-xl">' +
+        "1.ให้ผู้เล่นชมและศึกษาความรู้จากคลิปเพื่อค้นหาคำตอบ<br/><br/>" +
+        "2.ตอบคำถามทั้งสามข้อที่อยู่ด้านขวามือ<br/><br/>" +
+        "3.เมื่อได้คำตอบแล้วนำตัวเลขมาเรียงกันโดยไม่ต้องเว้นวรรค</div>" +
+        '<br/><br/><div class="font-poppins text-2xl">' +
+        '<div class="flex flex-wrap justify-center"><div class="bg-gray-200 w-1/4 py-2 rounded-full">123456</div></div>' +
+        "</div>" +
+        '<div class="font-thaifonts">ตัวอย่างคำตอบ</div>',
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
@@ -222,12 +238,12 @@ export default function MissionBoard({}: Props): ReactElement {
             </>
           )}
         </div>
-        <div className="flex flex-col justify-center">
-          <p className="text-2xl  font-poppins text-white mb-2 ml-36 ">
-            {" "}
-            Question
-          </p>
-          <div className="border rounded-2xl h-60 w-11/12 p-3 text-white">
+        <div className="flex flex-col justify-center w-9/12 md:mt-20 3xl:my-auto">
+          <div className="flex p-3 text-white w-full justify-center">
+            <p className="text-2xl  font-poppins text-white"> Question</p>
+          </div>
+
+          <div className="border rounded-2xl p-4 text-white">
             1. กระบวนการทำงานของคอมพิวเตอร์แบ่งเป็นกี่ขั้น <br />{" "}
             (จากที่ได้รับฟังบรรยาย)
             <br /> <br />
@@ -245,13 +261,13 @@ export default function MissionBoard({}: Props): ReactElement {
 
       <img
         draggable={false}
-        className="h-48 w-58 absolute bottom-0 left-0"
+        className="h-48 w-58 absolute bottom-0 left-0 transform origin-bottom-left md:scale-75 3xl:scale-100"
         src={ma}
       />
 
       <img
         draggable={false}
-        className="h-48 w-58 absolute bottom-0 right-0"
+        className="h-48 w-58 absolute bottom-0 right-0 transform origin-bottom-right md:scale-75 3xl:scale-100"
         src={mq}
       />
     </div>

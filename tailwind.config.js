@@ -37,6 +37,10 @@ module.exports = {
         negative: -1,
         0: 0,
       },
+      screens: {
+        '3xl': {'min': '1800px'},
+      },
+  
     },
   },
 

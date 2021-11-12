@@ -104,7 +104,20 @@ export default function MissionBoard({ user }: Props): ReactElement {
     if (timer !== "00:00") return;
     Swal.fire({
       title: '<strong class="title"><u>ภารกิจ 4</u>: จับคู่ชู้ชื่น</strong>',
-      html: '<div class="text-left px-52 font-thaifonts text-xl">1.ผู้เล่นจะสวมบทเป็นพนักงาน HR ในบริษัท QX โดยทางผู้บริหารต้องการบุคลากรจำนวนหนึ่งเพื่อสร้างควอนตัมคอมพิวเตอร์ในประเทศไทย<br/><br/>2.ผู้เล่นจะต้องคัดเลือกคนให้เหมาะสมกับตำแหน่งที่เปิดรับ โดยพิจารณาจากใบสมัครงานของพวกเขา</div>',
+      html:
+        '<div class="text-left px-52 font-thaifonts text-xl">1.ผู้เล่นจะสวมบทเป็นพนักงาน HR ในบริษัท QX โดยทางผู้บริหารต้องการบุคลากรจำนวนหนึ่งเพื่อสร้างควอนตัมคอมพิวเตอร์ในประเทศไทย<br/><br/>2.ผู้เล่นจะต้องคัดเลือกคนให้เหมาะสมกับตำแหน่งที่เปิดรับ โดยพิจารณาจากใบสมัครงานของพวกเขา</div>' +
+        `<div><br/><br/><select class="w-1/4 h-10 pl-2 pr-7 text-sm  border bg-gray-200  rounded-md  font-poppins">
+      <option> 1.Quantum FPGA Engineers </option>
+      <option> 2.Quantum Cryogenic Engineers </option>
+      <option> 3.Quantum Computer Architects </option>
+      <option> 4.Quantum Algorithms Researcher </option>
+      <option> 5.Quantum Complexity Theorists </option>
+      <option> 6.Quantum Software Developers </option>
+      <option> 7.Quantum Community Builders </option>
+      <option> 8.Superconducting Qubit Researchers </option>
+      <option> 9.Quantum Microwave Engineers </option>
+    </select></div>
+    </div><div class="font-thaifonts mt-2">ตัวอย่างคำตอบ</div>`,
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
@@ -164,14 +177,27 @@ export default function MissionBoard({ user }: Props): ReactElement {
   const handleShowManual = () => {
     Swal.fire({
       title: '<strong class="title "><u>ภารกิจ 4</u>: จับคู่ชู้ชื่น</strong>',
-      html: '<div class="text-left px-52 font-thaifonts text-xl">1.ผู้เล่นจะสวมบทเป็นพนักงาน HR ในบริษัท QX โดยทางผู้บริหารต้องการบุคลากรจำนวนหนึ่งเพื่อสร้างควอนตัมคอมพิวเตอร์ในประเทศไทย<br/><br/>2.ผู้เล่นจะต้องคัดเลือกคนให้เหมาะสมกับตำแหน่งที่เปิดรับ โดยพิจารณาจากใบสมัครงานของพวกเขา</div>',
+      html:
+        '<div class="text-left px-52 font-thaifonts text-xl">1.ผู้เล่นจะสวมบทเป็นพนักงาน HR ในบริษัท QX โดยทางผู้บริหารต้องการบุคลากรจำนวนหนึ่งเพื่อสร้างควอนตัมคอมพิวเตอร์ในประเทศไทย<br/><br/>2.ผู้เล่นจะต้องคัดเลือกคนให้เหมาะสมกับตำแหน่งที่เปิดรับ โดยพิจารณาจากใบสมัครงานของพวกเขา</div>' +
+        `<div><br/><br/><select class="w-1/4 h-10 pl-2 pr-7 text-sm  border bg-gray-200  rounded-md  font-poppins">
+    <option> 1.Quantum FPGA Engineers </option>
+    <option> 2.Quantum Cryogenic Engineers </option>
+    <option> 3.Quantum Computer Architects </option>
+    <option> 4.Quantum Algorithms Researcher </option>
+    <option> 5.Quantum Complexity Theorists </option>
+    <option> 6.Quantum Software Developers </option>
+    <option> 7.Quantum Community Builders </option>
+    <option> 8.Superconducting Qubit Researchers </option>
+    <option> 9.Quantum Microwave Engineers </option>
+  </select></div>
+  </div><div class="font-thaifonts mt-2">ตัวอย่างคำตอบ</div>`,
       customClass: {
         popup: "manual-wide",
       },
     });
   };
   return (
-    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple  h-full min-h-screen w-screen font-thaifonts flex">
+    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple  h-full min-h-screen w-full font-thaifonts flex overflow-x-hidden">
       <Stars className="absolute h-full w-full z-0" />
       <Link to="/scoreboard" className="z-50">
         <img
@@ -180,7 +206,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
           src={back}
         />
       </Link>
-      <img draggable={false} className="absolute  z-0" src={topper4} />
+      <img draggable={false} className="absolute  z-0 w-full" src={topper4} />
       <div className="absolute top-0 right-0 m-8 w-48 h-28 z-40">
         <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
           <img
@@ -210,7 +236,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
             <p className="text-white mb-8 text-5xl ">
               ภารกิจ 4 : จับคู่ชู้ชื่น
             </p>
-            <p className="text-2xl font-thaifonts text-center text-white mb-8">
+            <p className="text-2xl font-thaifonts text-center text-white md:mb-4 3xl:mb-8">
               จงเลือกงานเกี่ยวกับเทคโนโลยีควอนตัมที่เหมาะสมกับแต่ละคน
               <p />
             </p>
@@ -222,7 +248,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
             </p>
 
             <div>
-              <div className=" border-2 p-2 rounded-2xl mt-8 ">
+              <div className=" border-2 p-2 rounded-2xl md:mb-4 3xl:mt-8 ">
                 <table className="border border-collapse border-transparent mt-2 text-base text-white">
                   <thead>
                     <tr>
@@ -252,7 +278,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                         {myQuestion[0].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
-                        <div className="flex items-center relative inline-block w-full h-14 text-white ">
+                        <div className="flex items-center relative w-full h-14 text-white ">
                           <select
                             value={answer[0]}
                             onChange={(e) => handleSetAnswer(e, 0)}
@@ -342,7 +368,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                         {myQuestion[1].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
-                        <div className="flex items-center relative inline-block w-full h-14 text-white ">
+                        <div className="flex items-center relative w-full h-14 text-white ">
                           <select
                             value={answer[1]}
                             onChange={(e) => handleSetAnswer(e, 1)}
@@ -433,7 +459,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                         {myQuestion[2].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
-                        <div className="flex items-center relative inline-block w-full h-14 text-white ">
+                        <div className="flex items-center relative w-full h-14 text-white ">
                           <select
                             value={answer[2]}
                             onChange={(e) => handleSetAnswer(e, 2)}
@@ -523,7 +549,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                         {myQuestion[3].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
-                        <div className="flex items-center relative inline-block w-full h-14 text-white ">
+                        <div className="flex items-center relative w-full h-14 text-white ">
                           <select
                             value={answer[3]}
                             onChange={(e) => handleSetAnswer(e, 3)}
@@ -613,7 +639,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                         {myQuestion[4].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
-                        <div className="flex items-center relative inline-block w-full h-14 text-white ">
+                        <div className="flex items-center relative w-full h-14 text-white ">
                           <select
                             value={answer[4]}
                             onChange={(e) => handleSetAnswer(e, 4)}
@@ -703,7 +729,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                         {myQuestion[5].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
-                        <div className="flex items-center relative inline-block w-full h-14 text-white ">
+                        <div className="flex items-center relative w-full h-14 text-white ">
                           <select
                             value={answer[5]}
                             onChange={(e) => handleSetAnswer(e, 5)}
@@ -791,7 +817,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
               {!isFinish && (
                 <button
                   onClick={handleSubmitAnswer}
-                  className="mt-6 w-24  bg-indigo-500 hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full"
+                  className="md:mt-0 3xl:mt-4 w-24  bg-indigo-500 hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full"
                 >
                   ส่งคำตอบ
                 </button>
@@ -803,8 +829,11 @@ export default function MissionBoard({ user }: Props): ReactElement {
         </div>
         <div className="flex flex-col justify-center items-center z-10">
           <div>
-            <img draggable={false} className="h-44 w-40 mx-auto " src={m4} />
-            <a href="https://drive.google.com/u/0/uc?id=10r5ABbZM3fpww7ZAVGkI9JDCltfoOdqG&export=download">
+            <img draggable={false} className="h-44 w-40 mx-auto md:mt-16 3xl:mt-0" src={m4} />
+            <a
+              target="_blank"
+              href="https://drive.google.com/u/0/uc?id=10r5ABbZM3fpww7ZAVGkI9JDCltfoOdqG"
+            >
               <button className="  mt-6   bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
                 ข้อมูลของตำแหน่งงาน
               </button>
@@ -814,7 +843,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
       </div>
       <img
         draggable={false}
-        className="fixed bottom-0 object-cover opacity-90 "
+        className="fixed bottom-0 object-cover opacity-90 w-full"
         src={footer4}
       />
       {/* <Maa className="w-60 absolute bottom-0 right-0" /> */}

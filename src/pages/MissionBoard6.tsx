@@ -114,7 +114,7 @@ export default function MissionBoard(): ReactElement {
     if (timer !== "00:00") return;
     Swal.fire({
       title:
-        '<strong class="title"><u>ภารกิจ 6</u>: เรียงปีไม่เรียงเบอร์</strong>',
+        '<strong class="title"><u>ภารกิจ 6</u>: ลำแสงแห่งอนาคต</strong>',
       html: '<div class="text-left px-52 font-thaifonts text-xl">1.ก่อนการเล่น ผู้เล่นควรทำความรู้จักสัญลักษณ์ต่าง ๆ และหน้าที่ของเครื่องมือแต่ละประเภท<br/><br/>2.เมื่อเริ่มเล่น ผู้เล่นจะเห็นแผ่นภาพ ที่ประกอบด้วย ตารางพร้อมทั้งสัญลักษณ์ของเครื่องมืออยู่ประจำช่องต่าง ๆ<br/> <br/>3.ให้ผู้เล่นเลือกกดช่องที่มีสัญลักษณ์ของเครื่องมือที่ต้องการเพื่อสร้างเส้นทางเดินของแสง โดยช่องที่ไม่ได้เลือกจะไม่เกี่ยวข้องกับทางเดินของแสง<br/><br/>4.ผู้เล่นสามารถยกเลิกเครื่องมือที่เลือกไว้โดยการกดที่รูปอีกครั้ง<br/><br/>5.ผู้เล่นจะต้องสร้างเส้นทางการเดินของแสงจากจุดเริ่มต้นให้เดินทางไปยังเป้าหมาย โดยกำหนดให้แสงต้องแยกการเดินทางออกมากกว่า 1 เส้นทาง และถึงเป้าหมาย ณ จุดเดียวกัน</div>',
       showCloseButton: true,
       showCancelButton: true,
@@ -402,10 +402,10 @@ export default function MissionBoard(): ReactElement {
           <div className="flex flex-col items-center">
             <img
               draggable={false}
-              className="h-44 w-40 mx-auto "
+              className="h-44 w-40 mx-auto md:mt-16 3xl:mt-0"
               src={equipment}
             />
-            <a href="https://drive.google.com/u/1/uc?id=1stByaWJZkoXQU6_7Iop3htdY9toHfpfZ&export=download">
+            <a target="_blank" href="https://drive.google.com/u/1/uc?id=1stByaWJZkoXQU6_7Iop3htdY9toHfpfZ">
               <button className="  mt-2   bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
                 รายละเอียดอุปกรณ์
               </button>
@@ -416,7 +416,7 @@ export default function MissionBoard(): ReactElement {
 
       <img
         draggable={false}
-        className="absolute bottom-0 object-cover opacity-90"
+        className="absolute bottom-0 object-cover opacity-90 w-full"
         src={footer6}
         alt="footer"
       />

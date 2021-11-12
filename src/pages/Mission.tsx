@@ -19,7 +19,12 @@ import game6Pass from "../assets/images/Scoreboard/game6-pass.png";
 import trophy from "../assets/images/Scoreboard/trophy.png";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import { getMyPass, Score } from "../services/scoreboard";
+import {
+  getGameScoreboard,
+  getMyPass,
+  IMainScorebaord,
+  Score,
+} from "../services/scoreboard";
 import { IUser } from "../interface/user";
 
 interface Props {
@@ -28,12 +33,14 @@ interface Props {
 
 export default function Scoreboard({ user }: Props): ReactElement {
   const [myPass, setMyPass] = useState<Score[]>([]);
+  const [scoreboard, setScoreboard] = useState<IMainScorebaord[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getMyPass();
       console.log(data);
       setMyPass(data);
+      setScoreboard(await getGameScoreboard());
     };
     fetchData();
   }, []);
@@ -42,66 +49,96 @@ export default function Scoreboard({ user }: Props): ReactElement {
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
 
-      <Planet className="absolute top-0 right-0" />
+      <Planet className="absolute top-0 right-0 transform origin-top-right md:scale-90 3xl:scale-100" />
       <div className="w-full m-6">
-        <div>
-          <img draggable={false} className="mx-auto " src={missionHeader} />
+        <div className=" 3xl:mb-12">
+          <img draggable={false} className="mx-auto" src={missionHeader} />
         </div>
-        <div className="grid grid-rows-2 grid-cols-12 w-fulls m-3 ">
-          <div className="p-3 col-span-3 row-span-2 gap-3 ">
-            <div className="relative bg-gradient-to-b from-lbFirstpurple to-fifthpurple rounded-3xl w-3/4 h-3/4 m-auto mt-3 text-center shadow-2xl py-8">
-              {/* <img draggable={false} src={trophy} className="absolute -inset-y-40 inset-x-8" /> */}
-              <img
-                draggable={false}
-                src={trophy}
-                className="absolute -inset-y-40 inset-x-1"
-              />
-              <div className="bg-lbSecondpurple rounded-3xl w-5/6 h-full m-auto text-center shadow-2xl py-4">
-                <div className="w-full h-full text-center">
-                  <table className="text-left text-center w-full h-full flex flex-col">
+        <div className="grid grid-rows-2 grid-cols-12 w-full h-screen m-3">
+          <div className="p-3 col-span-3 row-span-2 gap-3 -mt-40 h-3/5">
+            <div className="relative  mx-auto top-10">
+              <img draggable={false} src={trophy} className="m-auto" />
+            </div>
+            <div className="bg-gradient-to-b from-lbFirstpurple to-fifthpurple rounded-3xl w-full h-full m-auto mt-3 text-center shadow-2xl align-middle flex">
+              <div className="bg-lbSecondpurple rounded-3xl w-5/6 h-5/6 m-auto text-center shadow-2xl ">
+                <div className="w-full h-full text-center pt-4">
+                  <table className="text-center w-full h-full flex flex-col">
                     <thead className="bg-lbFirstpurple flex text-white w-full mx-auto rounded-sm">
                       <tr className="flex w-full mr-4">
-                        <th className="p-4 w-1/3">Player</th>
-                        <th className="p-4 w-1/3">Finish</th>
-                        <th className="p-4 w-1/3">Time</th>
+                        <th className="p-4 w-2/4 ml-4">Team</th>
+                        <th className="p-4 w-1/4">Finish</th>
+                        <th className="p-4 w-1/4 mr-4">Time</th>
                       </tr>
                     </thead>
-                    <tbody className="flex flex-col items-center overflow-y-scroll w-full z-10 font-poppins text-white">
-                      <tr className="flex w-full">
-                        <td className="p-2 w-1/3">Player1</td>
-                        <td className="p-2 w-1/3">5</td>
-                        <td className="p-2 w-1/3">01:05:00</td>
-                      </tr>
-                      <tr className="flex w-full">
-                        <td className="p-2 w-1/3">Player1</td>
-                        <td className="p-2 w-1/3">5</td>
-                        <td className="p-2 w-1/3">01:05:00</td>
-                      </tr>
-                      <tr className="flex w-full">
-                        <td className="p-2 w-1/3">Player1</td>
-                        <td className="p-2 w-1/3">5</td>
-                        <td className="p-2 w-1/3">01:05:00</td>
-                      </tr>
-                      <tr className="flex w-full">
-                        <td className="p-2 w-1/3">Player1</td>
-                        <td className="p-2 w-1/3">5</td>
-                        <td className="p-2 w-1/3">01:05:00</td>
-                      </tr>
+                    <tbody className="flex flex-col items-center overflow-y-scroll overflow-x-hidd w-full h-full z-10 font-poppins text-white">
+                      {scoreboard.map((score) => (
+                        <tr className="flex w-full">
+                          <td className="p-2 w-2/4 font-thaifonts text-left border-collapse border-b border-secondpurple ml-4">
+                            {score.teamName}
+                          </td>
+                          <td className="p-2 w-1/4 border-collapse border-b border-secondpurple">
+                            {score.missionPass}
+                          </td>
+                          <td className="p-2 w-1/4 border-collapse border-b mr-3 border-secondpurple">
+                            {score.durationStr}
+                          </td>
+                        </tr>
+                      ))}
 
                       <tr className="flex w-full">
-                        <td className="p-2 w-1/3">Player1</td>
-                        <td className="p-2 w-1/3">5</td>
-                        <td className="p-2 w-1/3">01:05:00</td>
+                        <td className="p-2 w-2/4 font-thaifonts text-left border-collapse border-b ml-4 border-secondpurple">
+                          มหาวิทยาลัยเทคโลยีพระจอมเกล้าธนบุรี
+                        </td>
+                        <td className="p-2 w-1/4 border-collapse border-b border-secondpurple">
+                          5
+                        </td>
+                        <td className="p-2 w-1/4 border-collapse border-b mr-3 border-secondpurple">
+                          01:05:00
+                        </td>
                       </tr>
                       <tr className="flex w-full">
-                        <td className="p-2 w-1/3">Player1</td>
-                        <td className="p-2 w-1/3">5</td>
-                        <td className="p-2 w-1/3">01:05:00</td>
+                        <td className="p-2 w-2/4 font-thaifonts text-left border-collapse border-b ml-4 border-secondpurple">
+                          มหาวิทยาลัยเทคโลยีพระจอมเกล้าธนบุรี
+                        </td>
+                        <td className="p-2 w-1/4 border-collapse border-b border-secondpurple">
+                          5
+                        </td>
+                        <td className="p-2 w-1/4 border-collapse border-b mr-3 border-secondpurple">
+                          01:05:00
+                        </td>
                       </tr>
                       <tr className="flex w-full">
-                        <td className="p-2 w-1/3">Player1</td>
-                        <td className="p-2 w-1/3">5</td>
-                        <td className="p-2 w-1/3">01:05:00</td>
+                        <td className="p-2 w-2/4 font-thaifonts text-left border-collapse border-b ml-4 border-secondpurple">
+                          มหาวิทยาลัยเทคโลยีพระจอมเกล้าธนบุรี
+                        </td>
+                        <td className="p-2 w-1/4 border-collapse border-b border-secondpurple">
+                          5
+                        </td>
+                        <td className="p-2 w-1/4 border-collapse border-b mr-3 border-secondpurple">
+                          01:05:00
+                        </td>
+                      </tr>
+                      <tr className="flex w-full">
+                        <td className="p-2 w-2/4 font-thaifonts text-left border-collapse border-b ml-4 border-secondpurple">
+                          มหาวิทยาลัยเทคโลยีพระจอมเกล้าธนบุรี
+                        </td>
+                        <td className="p-2 w-1/4 border-collapse border-b border-secondpurple">
+                          5
+                        </td>
+                        <td className="p-2 w-1/4 border-collapse border-b mr-3 border-secondpurple">
+                          01:05:00
+                        </td>
+                      </tr>
+                      <tr className="flex w-full">
+                        <td className="p-2 w-2/4 font-thaifonts text-left border-collapse border-b ml-4 border-secondpurple">
+                          มหาวิทยาลัยเทคโลยีพระจอมเกล้าธนบุรี
+                        </td>
+                        <td className="p-2 w-1/4 border-collapse border-b border-secondpurple">
+                          5
+                        </td>
+                        <td className="p-2 w-1/4 border-collapse border-b mr-3 border-secondpurple">
+                          01:05:00
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -109,8 +146,8 @@ export default function Scoreboard({ user }: Props): ReactElement {
               </div>
             </div>
           </div>
-          <div className="row-span-1 col-span-7 w-full ">
-            <div className="flex flex-row gap-x-4 ">
+          <div className="row-span-1 col-span-7 w-full md:ml-4 3xl:ml-auto">
+            <div className="flex flex-row gap-x-4">
               <div className="w-1/3 transform transition duration-500 hover:scale-125 hover:-rotate-12">
                 <Link to="/mission/1">
                   <img
@@ -120,7 +157,7 @@ export default function Scoreboard({ user }: Props): ReactElement {
                         ? game1Pass
                         : game1
                     }
-                    className="object-contain h-52 m-auto cursor-pointer"
+                    className="object-contain md:h-48 3xl:h-52 m-auto cursor-pointer"
                     alt="mission 1"
                   />
                 </Link>
@@ -134,7 +171,7 @@ export default function Scoreboard({ user }: Props): ReactElement {
                         ? game2Pass
                         : game2
                     }
-                    className="object-contain h-52 m-auto cursor-pointer"
+                    className="object-contain md:h-48 3xl:h-52 m-auto cursor-pointer"
                     alt="mission 2"
                   />
                 </Link>
@@ -148,14 +185,14 @@ export default function Scoreboard({ user }: Props): ReactElement {
                         ? game3Pass
                         : game3
                     }
-                    className="object-contain h-48 m-auto cursor-pointer"
+                    className="object-contain md:h-44 3xl:h-48 m-auto cursor-pointer"
                     alt="mission 3"
                   />
                 </Link>
               </div>
             </div>
           </div>
-          <div className="row-span-1 col-span-7 w-full">
+          <div className="row-span-1 col-span-7 w-full -mt-40 md:ml-4 3xl:ml-auto">
             <div className="flex flex-row gap-x-4">
               <div className="w-1/3 transform transition duration-500 hover:scale-125 hover:rotate-12 z-10">
                 <Link to="/mission/4">
@@ -166,7 +203,7 @@ export default function Scoreboard({ user }: Props): ReactElement {
                         ? game4Pass
                         : game4
                     }
-                    className="object-contain h-60 m-auto cursor-pointer"
+                    className="object-contain md:h-56 3xl:h-60 m-auto cursor-pointer"
                     alt="mission 4"
                   />
                 </Link>
@@ -180,7 +217,7 @@ export default function Scoreboard({ user }: Props): ReactElement {
                         ? game5Pass
                         : game5
                     }
-                    className="object-contain h-60 m-auto cursor-pointer"
+                    className="object-contain md:h-56 3xl:h-60 m-auto cursor-pointer"
                     alt="mission 5"
                   />
                 </Link>
@@ -194,7 +231,7 @@ export default function Scoreboard({ user }: Props): ReactElement {
                         ? game6Pass
                         : game6
                     }
-                    className="object-contain h-64 m-auto cursor-pointer"
+                    className="object-contain md:h-60 3xl:h-64 m-auto cursor-pointer"
                     alt="mission 6"
                   />
                 </Link>

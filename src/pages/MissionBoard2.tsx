@@ -98,7 +98,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
       title: '<strong class="title"><u>ภารกิจ 2</u>: อักษรที่หายไป</strong>',
       html:
         '<div class="text-left px-52 font-thaifonts text-xl"><p className="text-left">1.ผู้เล่นต้องแก้ Crossword ที่กำหนด โดยใช้คำตอบเป็นภาษาอังกฤษ<br/><br/>' +
-        "2.เมื่อแก้ปริศนา Crossword เสร็จสิ้น จะได้รับ Password สำหรับผ่านด่าน โดยพิจารณาตัวอักษรตามที่กำหนด</div>",
+        "2.เมื่อแก้ปริศนา Crossword เสร็จสิ้น ให้นำหนึ่งตัวอักษรตามลำดับที่กำหนดของแต่ละคำตอบมาเรียงเป็น Password ความยาว 15 ตัวอักษร</div>"+'<br/><br/><div class="flex flex-wrap justify-center"><div class="bg-gray-200 w-1/4 py-2 rounded-full font-poppins text-2xl">ABCDEFGHIJKL</div></div><div class="font-thaifonts">ตัวอย่างคำตอบ</div>',
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
@@ -146,8 +146,8 @@ export default function MissionBoard({ user }: Props): ReactElement {
     Swal.fire({
       title: '<strong class="title "><u>ภารกิจ 2</u>: อักษรที่หายไป</strong>',
       html:
-        '<div class="text-left px-52 font-thaifonts text-xl"><p className="text-left">1.ผู้เล่นต้องแก้ Crossword ที่กำหนด โดยใช้คำตอบเป็นภาษาอังกฤษ<br/><br/>' +
-        "2.เมื่อแก้ปริศนา Crossword เสร็จสิ้น จะได้รับ Password สำหรับผ่านด่าน โดยพิจารณาตัวอักษรตามที่กำหนด</div>",
+      '<div class="text-left px-52 font-thaifonts text-xl"><p className="text-left">1.ผู้เล่นต้องแก้ Crossword ที่กำหนด โดยใช้คำตอบเป็นภาษาอังกฤษ<br/><br/>' +
+      "2.เมื่อแก้ปริศนา Crossword เสร็จสิ้น ให้นำหนึ่งตัวอักษรตามลำดับที่กำหนดของแต่ละคำตอบมาเรียงเป็น Password ความยาว 15 ตัวอักษร</div>"+'<br/><br/><div class="flex flex-wrap justify-center"><div class="bg-gray-200 w-1/4 py-2 rounded-full font-poppins text-2xl">ABCDEFGHIJKL</div></div><div class="font-thaifonts">ตัวอย่างคำตอบ</div>',
       customClass: {
         popup: "manual-wide",
       },
@@ -213,8 +213,8 @@ export default function MissionBoard({ user }: Props): ReactElement {
                 />
                 <div className="absolute">
                   {/* INSERT CROSSWORD HERE */}
-                  <a href={myQuestion.downloadLink}>
-                    <button className="bg-mhoored border-fifthpurple hover:bg-firstpurple text-white text-lg font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
+                  <a target="_blank" href={myQuestion.downloadLink}>
+                    <button className="bg-mhoored border-transparent hover:bg-firstpurple text-white text-lg font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
                       ดาวน์โหลด Crossword และคำใบ้
                     </button>
                   </a>
@@ -248,7 +248,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
           <div className="text-3xl text-white text-center font-poppins mt-24 mb-2 ml-2 ">
             Password
           </div>
-          <div className="border p-3 rounded-3xl w-full h- mr-auto flex flex-col justify-between text-md  text-white font-thaifont text-lg text-center max-h-96 overflow-y-auto">
+          <div className="border p-3 rounded-3xl w-full mr-auto flex flex-col justify-between text-md  text-white font-thaifont text-lg text-center md:max-h-72 3xl:max-h-96 overflow-y-auto">
             <p className="pb-2">
               คำที่ 01 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ {myQuestion.charactors[0]}
             </p>
