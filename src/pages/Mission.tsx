@@ -51,15 +51,15 @@ export default function Scoreboard({ user }: Props): ReactElement {
 
       <Planet className="absolute top-0 right-0" />
       <div className="w-full m-6">
-        <div className=" 3xl:h-auto">
-          <img draggable={false} className="mx-auto " src={missionHeader} />
+        <div className=" 3xl:mb-12">
+          <img draggable={false} className="mx-auto" src={missionHeader} />
         </div>
-        <div className="grid grid-rows-2 grid-cols-12 w-full m-3 ">
-          <div className="p-3 col-span-3 row-span-2 gap-3 -mt-24">
+        <div className="grid grid-rows-2 grid-cols-12 w-full h-screen m-3">
+          <div className="p-3 col-span-3 row-span-2 gap-3 -mt-40 h-3/5">
             <div className="relative  mx-auto top-10">
               <img draggable={false} src={trophy} className="m-auto" />
             </div>
-            <div className="bg-gradient-to-b from-lbFirstpurple to-fifthpurple rounded-3xl w-5/6 h-3/4 m-auto mt-3 text-center shadow-2xl align-middle flex">
+            <div className="bg-gradient-to-b from-lbFirstpurple to-fifthpurple rounded-3xl w-full h-full m-auto mt-3 text-center shadow-2xl align-middle flex">
               <div className="bg-lbSecondpurple rounded-3xl w-5/6 h-5/6 m-auto text-center shadow-2xl ">
                 <div className="w-full h-full text-center pt-4">
                   <table className="text-center w-full h-full flex flex-col">
@@ -132,7 +132,7 @@ export default function Scoreboard({ user }: Props): ReactElement {
                         ? game1Pass
                         : game1
                     }
-                    className="object-contain h-52 m-auto cursor-pointer"
+                    className="object-contain md:h-48 3xl:h-52 m-auto cursor-pointer"
                     alt="mission 1"
                   />
                 </Link>
@@ -146,7 +146,7 @@ export default function Scoreboard({ user }: Props): ReactElement {
                         ? game2Pass
                         : game2
                     }
-                    className="object-contain h-52 m-auto cursor-pointer"
+                    className="object-contain md:h-48 3xl:h-52 m-auto cursor-pointer"
                     alt="mission 2"
                   />
                 </Link>
@@ -160,14 +160,14 @@ export default function Scoreboard({ user }: Props): ReactElement {
                         ? game3Pass
                         : game3
                     }
-                    className="object-contain h-48 m-auto cursor-pointer"
+                    className="object-contain md:h-44 3xl:h-48 m-auto cursor-pointer"
                     alt="mission 3"
                   />
                 </Link>
               </div>
             </div>
           </div>
-          <div className="row-span-1 col-span-7 w-full">
+          <div className="row-span-1 col-span-7 w-full -mt-40">
             <div className="flex flex-row gap-x-4">
               <div className="w-1/3 transform transition duration-500 hover:scale-125 hover:rotate-12 z-10">
                 <Link to="/mission/4">
@@ -178,7 +178,7 @@ export default function Scoreboard({ user }: Props): ReactElement {
                         ? game4Pass
                         : game4
                     }
-                    className="object-contain h-60 m-auto cursor-pointer"
+                    className="object-contain md:h-56 3xl:h-60 m-auto cursor-pointer"
                     alt="mission 4"
                   />
                 </Link>
@@ -192,7 +192,7 @@ export default function Scoreboard({ user }: Props): ReactElement {
                         ? game5Pass
                         : game5
                     }
-                    className="object-contain h-60 m-auto cursor-pointer"
+                    className="object-contain md:h-56 3xl:h-60 m-auto cursor-pointer"
                     alt="mission 5"
                   />
                 </Link>
@@ -206,7 +206,7 @@ export default function Scoreboard({ user }: Props): ReactElement {
                         ? game6Pass
                         : game6
                     }
-                    className="object-contain h-64 m-auto cursor-pointer"
+                    className="object-contain md:h-60 3xl:h-64 m-auto cursor-pointer"
                     alt="mission 6"
                   />
                 </Link>
