@@ -6,6 +6,8 @@ import { ReactComponent as Stars } from "../assets/images/stars.svg";
 import { login } from "../services/auth";
 import toplogin from "../assets/images/toplogin.png";
 import logo111 from "../assets/images/logo111.png";
+import loginright from "../assets/images/loginright.png";
+import loginleft from "../assets/images/loginleft.png";
 
 export default function Login(): ReactElement {
   const [email, setEmail] = useState<string>("");
@@ -36,9 +38,27 @@ export default function Login(): ReactElement {
   };
 
   return (
-    <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex flex-col items-center  overflow-hidden">
+    <div className="relative bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex flex-col items-center  overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
-      <img src={logo111} className="absolute right-4 top-4" />
+      <div className="mt-30">
+        {" "}
+        <img
+          draggable={false}
+          src={loginright}
+          className="absolute left-0 w-60 ml-24 object-ud 2xl:w-72 2xl:ml-36"
+        />
+        <img
+          draggable={false}
+          src={loginleft}
+          className="absolute right-0 w-60 object-ud2 2xl:w-72  mr-36"
+        />
+      </div>
+
+      <img
+        draggable={false}
+        src={logo111}
+        className="absolute right-4 top-4 "
+      />
 
       {/* <BgLogin className=" object-cover overflow-hidden object-bottom"> */}
       <img className="h-1/4 mt-10" src={toplogin} draggable={false} />

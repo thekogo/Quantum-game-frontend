@@ -44,3 +44,33 @@ iframe {
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(128, 30, 255);
 }
+
+.object-ud {
+  animation: MoveUpDown 3s linear infinite;
+  position: absolute;
+}
+
+@keyframes MoveUpDown {
+  0%,
+  100% {
+    bottom: 40%;
+  }
+  50% {
+    bottom: 30%;
+  }
+}
+
+.object-ud2 {
+  animation: MoveUpDown2 3.5s linear infinite;
+  position: absolute;
+}
+
+@keyframes MoveUpDown2 {
+  0%,
+  100% {
+    bottom: 20%;
+  }
+  50% {
+    bottom: 30%;
+  }
+}
