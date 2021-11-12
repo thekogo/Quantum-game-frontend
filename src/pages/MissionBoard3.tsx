@@ -103,7 +103,6 @@ export default function MissionBoard({ user }: Props): ReactElement {
                 new Date(res.data.startTime),
                 new Date(res.data.endTime)
               ).toString();
-              console.log(stringDuration);
               setTimer(stringDuration);
             } else {
               setInterval(() => {
@@ -111,16 +110,13 @@ export default function MissionBoard({ user }: Props): ReactElement {
                   new Date(res.data.startTime),
                   new Date()
                 ).toString();
-                console.log(stringDuration);
                 setTimer(stringDuration);
               }, 1000);
             }
           })
           .catch((err) => {
-            console.log(err);
             history.push("/scoreboard");
           });
-        console.log("OK");
       } else if (result.isDismissed) {
         history.push("/scoreboard");
       }
@@ -135,7 +131,6 @@ export default function MissionBoard({ user }: Props): ReactElement {
             new Date(res.data.startTime),
             new Date(res.data.endTime)
           ).toString();
-          console.log(stringDuration);
           setTimer(stringDuration);
           setIsFinish(true);
         } else {
@@ -144,7 +139,6 @@ export default function MissionBoard({ user }: Props): ReactElement {
               new Date(res.data.startTime),
               new Date()
             ).toString();
-            console.log(stringDuration);
             setTimer(stringDuration);
           }, 1000);
         }
@@ -154,7 +148,6 @@ export default function MissionBoard({ user }: Props): ReactElement {
           showDetailMission1();
           return;
         }
-        console.log(err);
         history.push("/scoreboard");
       });
   };

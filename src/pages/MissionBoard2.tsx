@@ -68,7 +68,6 @@ export default function MissionBoard({ user }: Props): ReactElement {
             new Date(res.data.startTime),
             new Date(res.data.endTime)
           ).toString();
-          console.log(stringDuration);
           setIsFinish(true);
           setTimer(stringDuration);
         } else {
@@ -77,7 +76,6 @@ export default function MissionBoard({ user }: Props): ReactElement {
               new Date(res.data.startTime),
               new Date()
             ).toString();
-            console.log(stringDuration);
             setTimer(stringDuration);
           }, 1000);
         }
@@ -87,7 +85,6 @@ export default function MissionBoard({ user }: Props): ReactElement {
           showDetailMission1();
           return;
         }
-        console.log(err);
         history.push("/scoreboard");
       });
   };
@@ -98,7 +95,8 @@ export default function MissionBoard({ user }: Props): ReactElement {
       title: '<strong class="title"><u>ภารกิจ 2</u>: อักษรที่หายไป</strong>',
       html:
         '<div class="text-left px-52 font-thaifonts text-xl"><p className="text-left">1.ผู้เล่นต้องแก้ Crossword ที่กำหนด โดยใช้คำตอบเป็นภาษาอังกฤษ<br/><br/>' +
-        "2.เมื่อแก้ปริศนา Crossword เสร็จสิ้น ให้นำหนึ่งตัวอักษรตามลำดับที่กำหนดของแต่ละคำตอบมาเรียงเป็น Password ความยาว 15 ตัวอักษร</div>"+'<br/><br/><div class="flex flex-wrap justify-center"><div class="bg-gray-200 w-1/4 py-2 rounded-full font-poppins text-2xl">ABCDEFGHIJKL</div></div><div class="font-thaifonts">ตัวอย่างคำตอบ</div>',
+        "2.เมื่อแก้ปริศนา Crossword เสร็จสิ้น ให้นำหนึ่งตัวอักษรตามลำดับที่กำหนดของแต่ละคำตอบมาเรียงเป็น Password ความยาว 15 ตัวอักษร</div>" +
+        '<br/><br/><div class="flex flex-wrap justify-center"><div class="bg-gray-200 w-1/4 py-2 rounded-full font-poppins text-2xl">ABCDEFGHIJKL</div></div><div class="font-thaifonts">ตัวอย่างคำตอบ</div>',
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
@@ -119,7 +117,6 @@ export default function MissionBoard({ user }: Props): ReactElement {
                 new Date(res.data.startTime),
                 new Date(res.data.endTime)
               ).toString();
-              console.log(stringDuration);
               setTimer(stringDuration);
             } else {
               setInterval(() => {
@@ -127,16 +124,13 @@ export default function MissionBoard({ user }: Props): ReactElement {
                   new Date(res.data.startTime),
                   new Date()
                 ).toString();
-                console.log(stringDuration);
                 setTimer(stringDuration);
               }, 1000);
             }
           })
           .catch((err) => {
-            console.log(err);
             history.push("/scoreboard");
           });
-        console.log("OK");
       } else if (result.isDismissed) {
         history.push("/scoreboard");
       }
@@ -146,8 +140,9 @@ export default function MissionBoard({ user }: Props): ReactElement {
     Swal.fire({
       title: '<strong class="title "><u>ภารกิจ 2</u>: อักษรที่หายไป</strong>',
       html:
-      '<div class="text-left px-52 font-thaifonts text-xl"><p className="text-left">1.ผู้เล่นต้องแก้ Crossword ที่กำหนด โดยใช้คำตอบเป็นภาษาอังกฤษ<br/><br/>' +
-      "2.เมื่อแก้ปริศนา Crossword เสร็จสิ้น ให้นำหนึ่งตัวอักษรตามลำดับที่กำหนดของแต่ละคำตอบมาเรียงเป็น Password ความยาว 15 ตัวอักษร</div>"+'<br/><br/><div class="flex flex-wrap justify-center"><div class="bg-gray-200 w-1/4 py-2 rounded-full font-poppins text-2xl">ABCDEFGHIJKL</div></div><div class="font-thaifonts">ตัวอย่างคำตอบ</div>',
+        '<div class="text-left px-52 font-thaifonts text-xl"><p className="text-left">1.ผู้เล่นต้องแก้ Crossword ที่กำหนด โดยใช้คำตอบเป็นภาษาอังกฤษ<br/><br/>' +
+        "2.เมื่อแก้ปริศนา Crossword เสร็จสิ้น ให้นำหนึ่งตัวอักษรตามลำดับที่กำหนดของแต่ละคำตอบมาเรียงเป็น Password ความยาว 15 ตัวอักษร</div>" +
+        '<br/><br/><div class="flex flex-wrap justify-center"><div class="bg-gray-200 w-1/4 py-2 rounded-full font-poppins text-2xl">ABCDEFGHIJKL</div></div><div class="font-thaifonts">ตัวอย่างคำตอบ</div>',
       customClass: {
         popup: "manual-wide",
       },

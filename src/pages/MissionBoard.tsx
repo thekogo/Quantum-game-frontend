@@ -140,7 +140,6 @@ export default function MissionBoard({}: Props): ReactElement {
             new Date(res.data.startTime),
             new Date(res.data.endTime)
           ).toString();
-          console.log(stringDuration);
           setTimer(stringDuration);
           setIsFinish(true);
         } else {
@@ -149,7 +148,6 @@ export default function MissionBoard({}: Props): ReactElement {
               new Date(res.data.startTime),
               new Date()
             ).toString();
-            console.log(stringDuration);
             setTimer(stringDuration);
           }, 1000);
         }
