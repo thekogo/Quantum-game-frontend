@@ -402,7 +402,7 @@ export default function MissionBoard(): ReactElement {
           <div className="flex flex-col items-center">
             <img
               draggable={false}
-              className="h-44 w-40 mx-auto "
+              className="h-44 w-40 mx-auto md:mt-16 3xl:mt-0"
               src={equipment}
             />
             <a target="_blank" href="https://drive.google.com/u/1/uc?id=1stByaWJZkoXQU6_7Iop3htdY9toHfpfZ">
@@ -416,7 +416,7 @@ export default function MissionBoard(): ReactElement {
 
       <img
         draggable={false}
-        className="absolute bottom-0 object-cover opacity-90"
+        className="absolute bottom-0 object-cover opacity-90 w-full"
         src={footer6}
         alt="footer"
       />
