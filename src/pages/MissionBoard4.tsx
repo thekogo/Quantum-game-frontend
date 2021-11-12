@@ -76,7 +76,6 @@ export default function MissionBoard({ user }: Props): ReactElement {
             new Date(res.data.startTime),
             new Date(res.data.endTime)
           ).toString();
-          console.log(stringDuration);
           setTimer(stringDuration);
           setIsFinish(true);
         } else {
@@ -85,7 +84,6 @@ export default function MissionBoard({ user }: Props): ReactElement {
               new Date(res.data.startTime),
               new Date()
             ).toString();
-            console.log(stringDuration);
             setTimer(stringDuration);
           }, 1000);
         }
@@ -95,7 +93,6 @@ export default function MissionBoard({ user }: Props): ReactElement {
           showDetailMission1();
           return;
         }
-        console.log(err);
         history.push("/scoreboard");
       });
   };
@@ -138,7 +135,6 @@ export default function MissionBoard({ user }: Props): ReactElement {
                 new Date(res.data.startTime),
                 new Date(res.data.endTime)
               ).toString();
-              console.log(stringDuration);
               setTimer(stringDuration);
             } else {
               setInterval(() => {
@@ -146,16 +142,13 @@ export default function MissionBoard({ user }: Props): ReactElement {
                   new Date(res.data.startTime),
                   new Date()
                 ).toString();
-                console.log(stringDuration);
                 setTimer(stringDuration);
               }, 1000);
             }
           })
           .catch((err) => {
-            console.log(err);
             history.push("/scoreboard");
           });
-        console.log("OK");
       } else if (result.isDismissed) {
         history.push("/scoreboard");
       }
@@ -829,7 +822,11 @@ export default function MissionBoard({ user }: Props): ReactElement {
         </div>
         <div className="flex flex-col justify-center items-center z-10">
           <div>
-            <img draggable={false} className="h-44 w-40 mx-auto md:mt-16 3xl:mt-0" src={m4} />
+            <img
+              draggable={false}
+              className="h-44 w-40 mx-auto md:mt-16 3xl:mt-0"
+              src={m4}
+            />
             <a
               target="_blank"
               href="https://drive.google.com/u/0/uc?id=10r5ABbZM3fpww7ZAVGkI9JDCltfoOdqG"
