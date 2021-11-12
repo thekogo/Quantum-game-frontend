@@ -49,7 +49,7 @@ export default function Scoreboard({ user }: Props): ReactElement {
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
 
-      <Planet className="absolute top-0 right-0" />
+      <Planet className="absolute top-0 right-0 transform origin-top-right md:scale-90 3xl:scale-100" />
       <div className="w-full m-6">
         <div className=" 3xl:mb-12">
           <img draggable={false} className="mx-auto" src={missionHeader} />
@@ -65,55 +65,80 @@ export default function Scoreboard({ user }: Props): ReactElement {
                   <table className="text-center w-full h-full flex flex-col">
                     <thead className="bg-lbFirstpurple flex text-white w-full mx-auto rounded-sm">
                       <tr className="flex w-full mr-4">
-                        <th className="p-4 w-1/3">Team</th>
-                        <th className="p-4 w-1/3">Finish</th>
-                        <th className="p-4 w-1/3">Time</th>
+                        <th className="p-4 w-2/4 ml-4">Team</th>
+                        <th className="p-4 w-1/4">Finish</th>
+                        <th className="p-4 w-1/4 mr-4">Time</th>
                       </tr>
                     </thead>
-                    <tbody className="flex flex-col items-center overflow-y-scroll w-full h-full z-10 font-poppins text-white">
+                    <tbody className="flex flex-col items-center overflow-y-scroll overflow-x-hidden w-full h-full z-10 font-poppins text-white">
                       {scoreboard.map((score) => (
                         <tr className="flex w-full">
-                          <td className="p-2 w-1/3">{score.teamName}</td>
-                          <td className="p-2 w-1/3">{score.missionPass}</td>
-                          <td className="p-2 w-1/3">{score.durationStr}</td>
+                          <td className="p-2 w-2/4 font-thaifonts text-left border-collapse border-b border-secondpurple ml-4">
+                            {score.teamName}
+                          </td>
+                          <td className="p-2 w-1/4 border-collapse border-b border-secondpurple">
+                            {score.missionPass}
+                          </td>
+                          <td className="p-2 w-1/4 border-collapse border-b mr-3 border-secondpurple">
+                            {score.durationStr}
+                          </td>
                         </tr>
                       ))}
 
                       <tr className="flex w-full">
-                        <td className="p-2 w-1/3">Player1</td>
-                        <td className="p-2 w-1/3">5</td>
-                        <td className="p-2 w-1/3">01:05:00</td>
+                        <td className="p-2 w-2/4 font-thaifonts text-left border-collapse border-b ml-4 border-secondpurple">
+                          มหาวิทยาลัยเทคโลยีพระจอมเกล้าธนบุรี
+                        </td>
+                        <td className="p-2 w-1/4 border-collapse border-b border-secondpurple">
+                          5
+                        </td>
+                        <td className="p-2 w-1/4 border-collapse border-b mr-3 border-secondpurple">
+                          01:05:00
+                        </td>
                       </tr>
                       <tr className="flex w-full">
-                        <td className="p-2 w-1/3">Player1</td>
-                        <td className="p-2 w-1/3">5</td>
-                        <td className="p-2 w-1/3">01:05:00</td>
+                        <td className="p-2 w-2/4 font-thaifonts text-left border-collapse border-b ml-4 border-secondpurple">
+                          มหาวิทยาลัยเทคโลยีพระจอมเกล้าธนบุรี
+                        </td>
+                        <td className="p-2 w-1/4 border-collapse border-b border-secondpurple">
+                          5
+                        </td>
+                        <td className="p-2 w-1/4 border-collapse border-b mr-3 border-secondpurple">
+                          01:05:00
+                        </td>
                       </tr>
                       <tr className="flex w-full">
-                        <td className="p-2 w-1/3">Player1</td>
-                        <td className="p-2 w-1/3">5</td>
-                        <td className="p-2 w-1/3">01:05:00</td>
-                      </tr>
-
-                      <tr className="flex w-full">
-                        <td className="p-2 w-1/3">Player1</td>
-                        <td className="p-2 w-1/3">5</td>
-                        <td className="p-2 w-1/3">01:05:00</td>
-                      </tr>
-                      <tr className="flex w-full">
-                        <td className="p-2 w-1/3">Player1</td>
-                        <td className="p-2 w-1/3">5</td>
-                        <td className="p-2 w-1/3">01:05:00</td>
+                        <td className="p-2 w-2/4 font-thaifonts text-left border-collapse border-b ml-4 border-secondpurple">
+                          มหาวิทยาลัยเทคโลยีพระจอมเกล้าธนบุรี
+                        </td>
+                        <td className="p-2 w-1/4 border-collapse border-b border-secondpurple">
+                          5
+                        </td>
+                        <td className="p-2 w-1/4 border-collapse border-b mr-3 border-secondpurple">
+                          01:05:00
+                        </td>
                       </tr>
                       <tr className="flex w-full">
-                        <td className="p-2 w-1/3">Player1</td>
-                        <td className="p-2 w-1/3">5</td>
-                        <td className="p-2 w-1/3">01:05:00</td>
+                        <td className="p-2 w-2/4 font-thaifonts text-left border-collapse border-b ml-4 border-secondpurple">
+                          มหาวิทยาลัยเทคโลยีพระจอมเกล้าธนบุรี
+                        </td>
+                        <td className="p-2 w-1/4 border-collapse border-b border-secondpurple">
+                          5
+                        </td>
+                        <td className="p-2 w-1/4 border-collapse border-b mr-3 border-secondpurple">
+                          01:05:00
+                        </td>
                       </tr>
                       <tr className="flex w-full">
-                        <td className="p-2 w-1/3">Player1</td>
-                        <td className="p-2 w-1/3">5</td>
-                        <td className="p-2 w-1/3">01:05:00</td>
+                        <td className="p-2 w-2/4 font-thaifonts text-left border-collapse border-b ml-4 border-secondpurple">
+                          มหาวิทยาลัยเทคโลยีพระจอมเกล้าธนบุรี
+                        </td>
+                        <td className="p-2 w-1/4 border-collapse border-b border-secondpurple">
+                          5
+                        </td>
+                        <td className="p-2 w-1/4 border-collapse border-b mr-3 border-secondpurple">
+                          01:05:00
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -121,8 +146,8 @@ export default function Scoreboard({ user }: Props): ReactElement {
               </div>
             </div>
           </div>
-          <div className="row-span-1 col-span-7 w-full ">
-            <div className="flex flex-row gap-x-4 ">
+          <div className="row-span-1 col-span-7 w-full md:ml-4 3xl:ml-auto">
+            <div className="flex flex-row gap-x-4">
               <div className="w-1/3 transform transition duration-500 hover:scale-125 hover:-rotate-12">
                 <Link to="/mission/1">
                   <img
@@ -167,7 +192,7 @@ export default function Scoreboard({ user }: Props): ReactElement {
               </div>
             </div>
           </div>
-          <div className="row-span-1 col-span-7 w-full -mt-40">
+          <div className="row-span-1 col-span-7 w-full -mt-40 md:ml-4 3xl:ml-auto">
             <div className="flex flex-row gap-x-4">
               <div className="w-1/3 transform transition duration-500 hover:scale-125 hover:rotate-12 z-10">
                 <Link to="/mission/4">
