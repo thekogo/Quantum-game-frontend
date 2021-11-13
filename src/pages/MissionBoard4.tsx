@@ -172,7 +172,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
       title: '<strong class="title "><u>ภารกิจ 4</u>: จับคู่ชู้ชื่น</strong>',
       html:
         '<div class="text-left px-52 font-thaifonts text-xl">1.ผู้เล่นจะสวมบทเป็นพนักงาน HR ในบริษัท QX โดยทางผู้บริหารต้องการบุคลากรจำนวนหนึ่งเพื่อสร้างควอนตัมคอมพิวเตอร์ในประเทศไทย<br/><br/>2.ผู้เล่นจะต้องคัดเลือกคนให้เหมาะสมกับตำแหน่งที่เปิดรับ โดยพิจารณาจากใบสมัครงานของพวกเขา</div>' +
-        `<div><br/><br/><select class="w-1/4 h-10 pl-2 pr-7 text-sm  border bg-gray-200  rounded-md  font-poppins">
+        `<div><br/><br/><select class="h-10 pl-2 pr-7 text-sm  border bg-gray-200  rounded-md  font-poppins">
     <option> 1.Quantum FPGA Engineers </option>
     <option> 2.Quantum Cryogenic Engineers </option>
     <option> 3.Quantum Computer Architects </option>
