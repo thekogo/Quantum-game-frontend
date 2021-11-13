@@ -216,10 +216,11 @@ export default function MissionBoard({}: Props): ReactElement {
           </p>
           <iframe
             className="border p-3 rounded-3xl h-3/6 w-4/5"
-            src="https://www.youtube.com/watch?v=-bY0EBSTbdQ"
+            src="https://www.youtube.com/embed/-bY0EBSTbdQ"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           ></iframe>
+
           {!isFinish && (
             <>
               <input
