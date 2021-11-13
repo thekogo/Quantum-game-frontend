@@ -71,14 +71,14 @@ export default function MissionBoard(): ReactElement {
       html:
         '<div class="text-left px-52 font-thaifonts text-xl">1.ให้ผู้เล่นดาวน์โหลดไฟล์และพิมพ์ Origami Fortune Teller ใส่กระดาษ A4 (หากไม่มีเครื่องพิมพ์ สามารถเขียนตามได้)<br/><br/>2.เรียนรู้วิธีการพับ Origami Fortune Teller ได้ผ่าน <a class="text-lbFirstpurple underline" href="https://www.youtube.com/watch?v=SAhiIlTxUYA" target="_blank">คลิกที่นี่</a><br/><br/>3.ตอบคำถามเกี่ยวกับบริษัทด้านควอนตัมคอมพิวเตอร์ตามลำดับ คำตอบอยู่ใน Origami Fortune Teller</div>' +
         '<br/><br/><div class="flex justify-center">' +
-        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-xl mx-2">easy</div>' +
-        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-xl mx-2">fine</div>' +
-        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-xl mx-2">luck</div>' +
-        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-xl mx-2">love</div>' +
-        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-xl mx-2">smooth</div>' +
-        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-xl mx-2">nice</div>' +
-        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-xl mx-2">charm</div>' +
-        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-xl mx-2">beauty</div>' +
+        '<div class="bg-gray-200 px-4 py-2 rounded-full font-poppins md:text-md xl:text-xl mx-2">easy</div>' +
+        '<div class="bg-gray-200 px-4 py-2 rounded-full font-poppins md:text-md xl:text-xl mx-2">fine</div>' +
+        '<div class="bg-gray-200 px-4 py-2 rounded-full font-poppins md:text-md xl:text-xl mx-2">luck</div>' +
+        '<div class="bg-gray-200 px-4 py-2 rounded-full font-poppins md:text-md xl:text-xl mx-2">love</div>' +
+        '<div class="bg-gray-200 px-4 py-2 rounded-full font-poppins md:text-md xl:text-xl mx-2">smooth</div>' +
+        '<div class="bg-gray-200 px-4 py-2 rounded-full font-poppins md:text-md xl:text-xl mx-2">nice</div>' +
+        '<div class="bg-gray-200 px-4 py-2 rounded-full font-poppins md:text-md xl:text-xl mx-2">charm</div>' +
+        '<div class="bg-gray-200 px-4 py-2 rounded-full font-poppins md:text-md xl:text-xl mx-2">beauty</div>' +
         '</div><div class="font-thaifonts mt-2">ตัวอย่างคำตอบ</div>',
       showCloseButton: true,
       showCancelButton: true,
@@ -166,14 +166,14 @@ export default function MissionBoard(): ReactElement {
       html:
         '<div class="text-left px-52 font-thaifonts text-xl">1.ให้ผู้เล่นดาวน์โหลดไฟล์และพิมพ์ Origami Fortune Teller ใส่กระดาษ A4 (หากไม่มีเครื่องพิมพ์ สามารถเขียนตามได้)<br/><br/>2.เรียนรู้วิธีการพับ Origami Fortune Teller ได้ผ่าน <a class="text-lbFirstpurple underline" href="https://www.youtube.com/watch?v=SAhiIlTxUYA" target="_blank">คลิกที่นี่</a><br/><br/>3.ตอบคำถามเกี่ยวกับบริษัทด้านควอนตัมคอมพิวเตอร์ตามลำดับ คำตอบอยู่ใน Origami Fortune Teller</div>' +
         '<br/><br/><div class="flex justify-center">' +
-        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-xl mx-2">easy</div>' +
-        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-xl mx-2">fine</div>' +
-        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-xl mx-2">luck</div>' +
-        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-xl mx-2">love</div>' +
-        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-xl mx-2">smooth</div>' +
-        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-xl mx-2">nice</div>' +
-        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-xl mx-2">charm</div>' +
-        '<div class="bg-gray-200 px-8 py-2 rounded-full font-poppins text-xl mx-2">beauty</div>' +
+        '<div class="bg-gray-200 px-4 py-2 rounded-full font-poppins md:text-md xl:text-xl mx-2">easy</div>' +
+        '<div class="bg-gray-200 px-4 py-2 rounded-full font-poppins md:text-md xl:text-xl mx-2">fine</div>' +
+        '<div class="bg-gray-200 px-4 py-2 rounded-full font-poppins md:text-md xl:text-xl mx-2">luck</div>' +
+        '<div class="bg-gray-200 px-4 py-2 rounded-full font-poppins md:text-md xl:text-xl mx-2">love</div>' +
+        '<div class="bg-gray-200 px-4 py-2 rounded-full font-poppins md:text-md xl:text-xl mx-2">smooth</div>' +
+        '<div class="bg-gray-200 px-4 py-2 rounded-full font-poppins md:text-md xl:text-xl mx-2">nice</div>' +
+        '<div class="bg-gray-200 px-4 py-2 rounded-full font-poppins md:text-md xl:text-xl mx-2">charm</div>' +
+        '<div class="bg-gray-200 px-4 py-2 rounded-full font-poppins md:text-md xl:text-xl mx-2">beauty</div>' +
         '</div><div class="font-thaifonts mt-2">ตัวอย่างคำตอบ</div>',
       customClass: {
         popup: "manual-wide",
@@ -191,168 +191,179 @@ export default function MissionBoard(): ReactElement {
         />
       </Link>
 
-      <div className="absolute top-0 right-0 m-8 w-48 h-28 z-40">
+      <div className="absolute top-0 right-0 m-8 md:w-40 xl:w-48 md:h-20 xl:h-28 z-40">
         <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
           <img
             draggable={false}
-            className="absolute m-2 self-center top-0 right-0"
+            className="absolute m-2 self-center top-0 right-0 transform md:scale-75 xl:scale-100"
             src={star_timer}
           />
-          <p className="text-white font-poppins text-4xl mt-2">{timer}</p>
+          <p className="text-white font-poppins md:text-2xl xl:text-4xl mt-2">
+            {timer}
+          </p>
         </div>
         <div className="flex flex-wrap justify-center">
           <button
             onClick={handleShowManual}
-            className="w-4/5 mt-2  bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center"
+            className="w-4/5 xl:mt-2  bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center"
           >
             กติกาภารกิจที่ 5
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-4 w-full z-10">
-        <div className="col-span-1 flex items-center justify-center">
-          <div className=" p-3 rounded-3xl">
-            <MissionScoreboard logo={logo5} missionId="5" />
+      <div className="my-auto">
+        <div className="grid grid-cols-4 w-full z-10">
+          <div className="col-span-1 flex items-center justify-center">
+            <div className=" p-3 rounded-3xl">
+              <MissionScoreboard logo={logo5} missionId="5" />
+            </div>
           </div>
-        </div>
-        <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-center mt-2">
-          <p className="text-white mb-8 text-5xl ">ภารกิจ 5 : ดูดวง...ดาว</p>
-          <p className="text-2xl font-thaifonts text-center text-white mb-8">
-            โปรดจำไว้ว่า ลำดับโชคชะตาคือทางออก
-          </p>
-          <div className="flex flex-col gap-4 p-4 ">
-            <div className="border p-3 rounded-3xl w-full mr-auto ">
-              <p className=" text-white text-lg">
-                1. ในปี ค.ศ.2011
-                มีการขายควอนตัมคอมพิวเตอร์สำหรับธุรกิจเครื่องแรก
-              </p>
-            </div>
-            <div className="border p-3 rounded-3xl w-full mr-auto">
-              <p className=" text-white text-lg">
-                2.ในปี ค.ศ.2016 มีการให้บริการคลาวด์สาธารณะ สำหรับโปรแกรมบน
-                เครื่องควอนตัมคอมพิวเตอร์เป็นครั้งแรก
-              </p>
-            </div>
-            <div className="border p-3 rounded-3xl w-full mr-auto">
-              <p className=" text-white text-lg">
-                3.ในปี ค.ศ.2019 มีข่าวการอ้างความสำเร็จ Quantum Supremacy
-              </p>
-            </div>
-            <div className="border p-3 rounded-3xl w-full mr-auto">
-              <p className=" text-white text-lg">
-                4.ในกลางปี ค.ศ.2020 มีการเปิดตัวการให้บริการคลาวด์สาธารณะอีก
-                แต่พิเศษที่เป็นควอนตัมคอมพิวเตอร์ที่ทำงานด้วยแสงหรือโฟโตนิกส์
-              </p>
-            </div>
+          <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-center mt-2">
+            <p className="text-white mb-8 md:text-4xl xl:text-5xl ">
+              ภารกิจ 5 : ดูดวง...ดาว
+            </p>
+            <p className="text-2xl font-thaifonts text-center text-white mb-8">
+              โปรดจำไว้ว่า ลำดับโชคชะตาคือทางออก
+            </p>
+            <div className="flex flex-col gap-4 p-4 mb-8">
+              <div className="border p-3 rounded-3xl w-full mr-auto ">
+                <p className=" text-white md:text-base xl:text-lg">
+                  1. ในปี ค.ศ.2011
+                  มีการขายควอนตัมคอมพิวเตอร์สำหรับธุรกิจเครื่องแรก
+                </p>
+              </div>
+              <div className="border p-3 rounded-3xl w-full mr-auto">
+                <p className=" text-white md:text-base xl:text-lg">
+                  2.ในปี ค.ศ.2016 มีการให้บริการคลาวด์สาธารณะ สำหรับโปรแกรมบน
+                  เครื่องควอนตัมคอมพิวเตอร์เป็นครั้งแรก
+                </p>
+              </div>
+              <div className="border p-3 rounded-3xl w-full mr-auto">
+                <p className=" text-white md:text-base xl:text-lg">
+                  3.ในปี ค.ศ.2019 มีข่าวการอ้างความสำเร็จ Quantum Supremacy
+                </p>
+              </div>
+              <div className="border p-3 rounded-3xl w-full mr-auto">
+                <p className=" text-white md:text-base xl:text-lg">
+                  4.ในกลางปี ค.ศ.2020 มีการเปิดตัวการให้บริการคลาวด์สาธารณะอีก
+                  แต่พิเศษที่เป็นควอนตัมคอมพิวเตอร์ที่ทำงานด้วยแสงหรือโฟโตนิกส์
+                </p>
+              </div>
 
-            <div className="text-center m-full my-auto">
-              {!isFinish && (
-                <>
-                  <div className="flex bg-thirdpurple w-full mx-auto rounded-2xl justify-center p-2">
-                    <input
-                      value={answer[0]}
-                      onChange={(e) => handleSetAnswer(0, e.target.value)}
-                      className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
-                    />{" "}
-                    <img
-                      draggable={false}
-                      src={arrow}
-                      className="flex my-auto p-1 h-3"
-                    />
-                    <input
-                      value={answer[1]}
-                      onChange={(e) => handleSetAnswer(1, e.target.value)}
-                      className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
-                    />{" "}
-                    <img
-                      draggable={false}
-                      src={arrow}
-                      className="flex my-auto p-1 h-3"
-                    />
-                    <input
-                      value={answer[2]}
-                      onChange={(e) => handleSetAnswer(2, e.target.value)}
-                      className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
-                    />{" "}
-                    <img
-                      draggable={false}
-                      src={arrow}
-                      className="flex my-auto p-1 h-3"
-                    />
-                    <input
-                      value={answer[3]}
-                      onChange={(e) => handleSetAnswer(3, e.target.value)}
-                      className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
-                    />{" "}
-                    <img
-                      draggable={false}
-                      src={arrow}
-                      className="flex my-auto p-1 h-3"
-                    />
-                    <input
-                      value={answer[4]}
-                      onChange={(e) => handleSetAnswer(4, e.target.value)}
-                      className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
-                    />{" "}
-                    <img
-                      draggable={false}
-                      src={arrow}
-                      className="flex my-auto p-1 h-3"
-                    />
-                    <input
-                      value={answer[5]}
-                      onChange={(e) => handleSetAnswer(5, e.target.value)}
-                      className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
-                    />{" "}
-                    <img
-                      draggable={false}
-                      src={arrow}
-                      className="flex my-auto p-1 h-3"
-                    />
-                    <input
-                      value={answer[6]}
-                      onChange={(e) => handleSetAnswer(6, e.target.value)}
-                      className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
-                    />{" "}
-                    <img
-                      draggable={false}
-                      src={arrow}
-                      className="flex my-auto p-1 h-3"
-                    />
-                    <input
-                      value={answer[7]}
-                      onChange={(e) => handleSetAnswer(7, e.target.value)}
-                      className="mt-2 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
-                    />{" "}
-                  </div>
-                  <button
-                    onClick={handleSubmitAnswer}
-                    className="mt-2 mx-auto w-24  bg-secondpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full"
-                  >
-                    ส่งคำตอบ
-                  </button>
-                </>
-              )}
+              
+            </div>
+            <div></div>
+          </div>
+          <div className="flex flex-col justify-center items-center xl:mt-12">
+            <div className=" z-10">
+              <img
+                draggable={false}
+                className="md:h-40 md:w-40 xl:h-44 xl:w-44 mx-auto md:mt-16 3xl:mt-0"
+                src={m5}
+              />
+              <a
+                target="_blank"
+                href="https://drive.google.com/u/0/uc?id=1QumrLQS_LJU2OH4u4aWhaUAMM0kT1mWb"
+              >
+                <button className="md:mt-2 xl:mt-6  mr-1 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
+                  ดาวน์โหลดกระดาษโอริกามิ
+                </button>
+              </a>
             </div>
           </div>
-          <div></div>
         </div>
-        <div className="flex flex-col justify-center items-center">
-          <div className=" z-10">
-            <img
-              draggable={false}
-              className="h-44 w-40 mx-auto md:mt-16 3xl:mt-0"
-              src={m5}
-            />
-            <a
-              target="_blank"
-              href="https://drive.google.com/u/0/uc?id=1QumrLQS_LJU2OH4u4aWhaUAMM0kT1mWb"
-            >
-              <button className="  mt-6  mr-1 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
-                ดาวน์โหลดกระดาษโอริกามิ
-              </button>
-            </a>
-          </div>
+        <div className="flex flex-wrap justify-center">
+          <div className="md:w-5/6 xl:w-7/12 3xl:w-1/2 z-50">
+          <div className="text-center m-full my-auto">
+                {!isFinish && (
+                  <>
+                    <div className="flex bg-thirdpurple w-full mx-auto rounded-full justify-center align-middle px-4 py-2">
+                      <input
+                        value={answer[0]}
+                        onChange={(e) => handleSetAnswer(0, e.target.value)}
+                        className="rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                      />{" "}
+                      <img
+                        draggable={false}
+                        src={arrow}
+                        className="flex my-auto p-1 h-3"
+                      />
+                      <input
+                        value={answer[1]}
+                        onChange={(e) => handleSetAnswer(1, e.target.value)}
+                        className="rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                      />{" "}
+                      <img
+                        draggable={false}
+                        src={arrow}
+                        className="flex my-auto p-1 h-3"
+                      />
+                      <input
+                        value={answer[2]}
+                        onChange={(e) => handleSetAnswer(2, e.target.value)}
+                        className="rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                      />{" "}
+                      <img
+                        draggable={false}
+                        src={arrow}
+                        className="flex my-auto p-1 h-3"
+                      />
+                      <input
+                        value={answer[3]}
+                        onChange={(e) => handleSetAnswer(3, e.target.value)}
+                        className="rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                      />{" "}
+                      <img
+                        draggable={false}
+                        src={arrow}
+                        className="flex my-auto p-1 h-3"
+                      />
+                      <input
+                        value={answer[4]}
+                        onChange={(e) => handleSetAnswer(4, e.target.value)}
+                        className="rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                      />{" "}
+                      <img
+                        draggable={false}
+                        src={arrow}
+                        className="flex my-auto p-1 h-3"
+                      />
+                      <input
+                        value={answer[5]}
+                        onChange={(e) => handleSetAnswer(5, e.target.value)}
+                        className="rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                      />{" "}
+                      <img
+                        draggable={false}
+                        src={arrow}
+                        className="flex my-auto p-1 h-3"
+                      />
+                      <input
+                        value={answer[6]}
+                        onChange={(e) => handleSetAnswer(6, e.target.value)}
+                        className="rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                      />{" "}
+                      <img
+                        draggable={false}
+                        src={arrow}
+                        className="flex my-auto p-1 h-3"
+                      />
+                      <input
+                        value={answer[7]}
+                        onChange={(e) => handleSetAnswer(7, e.target.value)}
+                        className="rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                      />{" "}
+                    </div>
+                    <button
+                      onClick={handleSubmitAnswer}
+                      className="mx-auto w-24  bg-secondpurple hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full mt-2"
+                    >
+                      ส่งคำตอบ
+                    </button>
+                  </>
+                )}
+              </div>
+            </div>
         </div>
       </div>
       <img
