@@ -41,7 +41,7 @@ export default function ScoreboardHidden({ user }: Props): ReactElement {
         <div className=" 3xl:mb-12">
           <img draggable={false} className="mx-auto" src={missionHeader} />
         </div>
-        <div className="grid grid-rows-2 grid-cols-12 w-full h-screen m-3">
+        <div className="grid grid-rows-2 grid-cols-12 w-full h-screen m-3 xl:mt-12 3xl:mt-0">
           <div className="p-3 col-span-4 col-start-5 row-span-2 gap-3 -mt-40 h-3/5">
             <div className="relative  mx-auto top-10">
               <img draggable={false} src={trophy} className="m-auto" />
