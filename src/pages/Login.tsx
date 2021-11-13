@@ -50,7 +50,7 @@ export default function Login(): ReactElement {
         <img
           draggable={false}
           src={loginleft}
-          className="absolute right-0 w-60 object-ud2 2xl:w-72  mr-36"
+          className="absolute right-0 w-60 object-ud2 2xl:w-72 md:mr-20 xl:mr-36"
         />
       </div>
 
