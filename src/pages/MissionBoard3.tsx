@@ -189,19 +189,19 @@ export default function MissionBoard({ user }: Props): ReactElement {
 
       <div className="grid grid-cols-12 w-full z-10">
         <div className="col-span-3 flex items-center justify-center">
-          <div className="absolute top-0 right-0 m-8 w-48 h-28">
+          <div className="absolute top-0 right-0 m-8 md:w-40 xl:w-48 md:h-20 xl:h-28">
             <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
               <img
                 draggable={false}
-                className="absolute m-2 self-center top-0 right-0"
+                className="absolute m-2 self-center top-0 right-0 transform md:scale-75 xl:scale-100"
                 src={star_timer}
               />
-              <p className="text-white font-poppins text-4xl mt-2">{timer}</p>
+              <p className="text-white font-poppins md:text-2xl xl:text-4xl mt-2">{timer}</p>
             </div>
             <div className="flex flex-wrap justify-center">
               <button
                 onClick={handleShowManual}
-                className="w-4/5 mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center"
+                className="w-4/5 xl:mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center"
               >
                 กติกาภารกิจที่ 3
               </button>
@@ -211,17 +211,17 @@ export default function MissionBoard({ user }: Props): ReactElement {
             <MissionScoreboard logo={logo3} missionId="3" />
           </div>
         </div>
-        <div className=" w-auto z-10 col-span-7 flex flex-col items-center justify-center mt-2">
-          <p className="text-white mb-8 text-5xl  mt-20">
+        <div className=" w-auto z-10 md:col-span-9 md:mr-4 xl:col-span-8 3xl:col-span-7 flex flex-col items-center justify-center mt-2">
+          <p className="text-white mb-8 md:text-4xl md:mr-40 xl:mr-28 3xl-mr-0 xl:text-5xl mt-20">
             ภารกิจ 3 : เรียงปีไม่เรียงเบอร์
           </p>
-          <p className="text-white font-thaifonts text-2xl mb-8 ">
+          <p className="text-white font-thaifonts md:mr-40 xl:mr-28 3xl-mr-0 md:text-xl  xl:text-2xl md:mb-8 xl:mb-1 3xl:mb-8 ">
             จงเรียงปีเกิดของนักวิทยาศาสตร์ทั้ง 5 ท่านจากก่อนไปหลัง
           </p>
           <div className="flex flex-col p-4 w-full h-full font-thaifonts text-lg">
             <div className="flex-wrap grid grid-cols-2 3xl:gap-8 md:gap-4 w-full">
               {/* PIC 1-1 */}
-              <div className="border p-2 rounded-3xl h-32">
+              <div className="border p-2 rounded-3xl md:h-28 3xl:h-32">
                 <div className="flex h-full">
                   <img
                     draggable={false}
@@ -229,72 +229,72 @@ export default function MissionBoard({ user }: Props): ReactElement {
                     className="border  w-1/5 rounded-3xl object-cover"
                   />
 
-                  <p className="p-4 text-white self-center text-base 3xl:text-lg">
+                  <p className="p-4 text-white self-center md:text-sm xl:text-base 3xl:text-lg">
                     {myQuestion[0].description}
                   </p>
                 </div>
               </div>
               {/* PIC 1-2 */}
-              <div className="border p-2 rounded-3xl h-32">
+              <div className="border p-2 rounded-3xl md:h-28 3xl:h-32">
                 <div className="flex h-full">
                   <img
                     draggable={false}
                     src={myQuestion[1].imgPath}
                     className="border w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white text-base 3xl:text-lg self-center">
+                  <p className="p-4 text-white md:text-sm xl:text-base 3xl:text-lg self-center">
                     {myQuestion[1].description}
                   </p>
                 </div>
               </div>
               {/* PIC 2-1 */}
-              <div className="border p-2 rounded-3xl h-32">
+              <div className="border p-2 rounded-3xl md:h-28 3xl:h-32">
                 <div className="flex h-full">
                   <img
                     draggable={false}
                     src={myQuestion[2].imgPath}
                     className="border w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white text-base 3xl:text-lg self-center">
+                  <p className="p-4 text-white md:text-sm xl:text-base 3xl:text-lg self-center">
                     {myQuestion[2].description}
                   </p>
                 </div>
               </div>
               {/* PIC 2-2 */}
-              <div className="border p-2 rounded-3xl h-32">
+              <div className="border p-2 rounded-3xl md:h-28 3xl:h-32">
                 <div className="flex h-full">
                   <img
                     draggable={false}
                     src={myQuestion[3].imgPath}
                     className="border w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white text-base 3xl:text-lg self-center">
+                  <p className="p-4 text-white md:text-sm xl:text-base 3xl:text-lg self-center">
                     {myQuestion[3].description}
                   </p>
                 </div>
               </div>
               {/* PIC 3-1 */}
-              <div className="border p-2 rounded-3xl h-32 col-span-2 w-1/2 mx-auto">
+              <div className="border p-2 rounded-3xl md:h-28 3xl:h-32 col-span-2 w-1/2 mx-auto">
                 <div className="flex h-full">
                   <img
                     draggable={false}
                     src={myQuestion[4].imgPath}
                     className="border w-1/5 rounded-3xl object-cover"
                   />
-                  <p className="p-4 text-white text-base 3xl:text-lg self-center">
+                  <p className="p-4 text-white md:text-sm xl:text-base 3xl:text-lg self-center">
                     {myQuestion[4].description}
                   </p>
                 </div>
               </div>
               {/* button */}
-              <div className="text-center mx-auto my-auto col-span-2 w-4/5">
+              <div className="text-center mx-auto my-auto col-span-2 md:w-full xl:w-4/5">
                 {!isFinish && (
                   <>
                     <div className="flex flex-wrap bg-thirdpurple w-full mx-auto rounded-full justify-center p-3 ">
                       <input
                         value={answer[0]}
                         onChange={(e) => handleSetAnswer(0, e.target.value)}
-                        className="self-center placeholder-gray-400 rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                        className="self-center placeholder-gray-400 rounded-full w-1/6 py-1 md:text-base xl:text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                         placeholder=""
                       />{" "}
                       <img
@@ -305,7 +305,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                       <input
                         value={answer[1]}
                         onChange={(e) => handleSetAnswer(1, e.target.value)}
-                        className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                        className="self-center rounded-full w-1/6 py-1 md:text-base xl:text-mdmd:text-base xl:text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                       />{" "}
                       <img
                         draggable={false}
@@ -315,7 +315,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                       <input
                         value={answer[2]}
                         onChange={(e) => handleSetAnswer(2, e.target.value)}
-                        className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                        className="self-center rounded-full w-1/6 py-1 md:text-base xl:text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                       />{" "}
                       <img
                         draggable={false}
@@ -325,7 +325,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                       <input
                         value={answer[3]}
                         onChange={(e) => handleSetAnswer(3, e.target.value)}
-                        className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                        className="self-center rounded-full w-1/6 py-1 md:text-base xl:text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                       />{" "}
                       <img
                         draggable={false}
@@ -335,7 +335,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                       <input
                         value={answer[4]}
                         onChange={(e) => handleSetAnswer(4, e.target.value)}
-                        className="self-center rounded-full w-1/6 py-1 text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
+                        className="self-center rounded-full w-1/6 py-1 md:text-base xl:text-md p-3 font-poppins text-fifthpurple focus:outline-none text-center"
                       />
                     </div>
 
