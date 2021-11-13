@@ -179,14 +179,16 @@ export default function MissionBoard({}: Props): ReactElement {
       </Link>
 
       <div className="grid grid-cols-4 w-full">
-        <div className="absolute top-0 right-0 m-8 w-48 h-28">
-          <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
+        <div className="absolute top-0 right-0 m-8 md:w-40 xl:w-48 md:h-20 xl:h-28">
+          <div className="top-0 right-0 mt-4 mr-4 xl:mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
             <img
               draggable={false}
-              className="absolute m-2 self-center top-0 right-0"
+              className="absolute m-2 self-center top-0 right-0 transform md:scale-75 xl:scale-100"
               src={star_timer}
             />
-            <p className="text-white font-poppins text-4xl mt-2">{timer}</p>
+            <p className="text-white font-poppins md:text-2xl xl:text-4xl mt-2">
+              {timer}
+            </p>
           </div>
           <div className="flex flex-wrap justify-center">
             <button
@@ -203,12 +205,14 @@ export default function MissionBoard({}: Props): ReactElement {
           </div>
         </div>
         <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-center mt-2">
-          <p className="text-white mb-8 text-5xl ">
+          <p className="text-white mb-8 md:text-4xl xl:text-5xl ">
             ภารกิจ 1 : ถาม-ตอบ ควอนตัม
           </p>
-          <p className="text-2xl font-thaifonts text-center text-white mb-8">
-            ดูคลิปและตอบคำถาม <br /> Password คือ คำตอบของข้อ 1, 2, 3
-            เรียงตามลำดับ โดยไม่ต้องเว้นวรรค
+          <p className="md:text-xl xl:text-2xl font-thaifonts text-center text-white ">
+            ดูคลิปและตอบคำถาม
+          </p>
+          <p className="md:text-md xl:text-2xl font-thaifonts text-center text-white mb-8">
+            Password คือ คำตอบของข้อ 1, 2, 3 เรียงตามลำดับ โดยไม่ต้องเว้นวรรค
           </p>
           <iframe
             className="border p-3 rounded-3xl h-3/6 w-4/5"
@@ -235,13 +239,16 @@ export default function MissionBoard({}: Props): ReactElement {
             </>
           )}
         </div>
-        <div className="flex flex-col justify-center w-9/12 md:mt-20 3xl:my-auto">
-          <div className="flex p-3 text-white w-full justify-center">
-            <p className="text-2xl  font-poppins text-white"> Question</p>
+        <div className="flex flex-col justify-center w-9/12 md:mt-24 xl:mt-20 3xl:my-auto">
+          <div className="flex md:p-0 xl:p-3 text-white w-full justify-center">
+            <p className="md:text-xl xl:text-2xl  font-poppins text-white">
+              {" "}
+              Question
+            </p>
           </div>
 
           <div className="border rounded-2xl p-4 text-white">
-            1. กระบวนการทำงานของคอมพิวเตอร์แบ่งเป็นกี่ขั้น <br />{" "}
+            1. กระบวนการทำงานของคอมพิวเตอร์แบ่งเป็นกี่ขั้น 
             (จากที่ได้รับฟังบรรยาย)
             <br /> <br />
             2. ค่าที่เป็นไปได้ของ 1 บิต มีอะไรบ้าง (เรียงจากน้อยไปมาก)
@@ -258,13 +265,13 @@ export default function MissionBoard({}: Props): ReactElement {
 
       <img
         draggable={false}
-        className="h-48 w-58 absolute bottom-0 left-0 transform origin-bottom-left md:scale-75 3xl:scale-100"
+        className="h-48 w-58 absolute bottom-0 left-0 transform origin-bottom-left md:scale-50 xl:scale-75 3xl:scale-100"
         src={ma}
       />
 
       <img
         draggable={false}
-        className="h-48 w-58 absolute bottom-0 right-0 transform origin-bottom-right md:scale-75 3xl:scale-100"
+        className="h-48 w-58 absolute bottom-0 right-0 transform origin-bottom-right md:scale-50 xl:scale-75 3xl:scale-100"
         src={mq}
       />
     </div>
