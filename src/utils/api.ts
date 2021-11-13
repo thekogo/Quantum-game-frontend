@@ -1,6 +1,8 @@
 import axios from "axios";
 const client = axios.create({
-  baseURL: "https://qx-nstfair.pj.innosoft.kmutt.ac.th/api/",
+  baseURL:
+    // "http://localhost:8000/api/" ||
+    "https://qx-nstfair.pj.innosoft.kmutt.ac.th/api/",
 });
 
 export default client;
