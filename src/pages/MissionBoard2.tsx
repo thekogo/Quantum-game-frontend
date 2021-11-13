@@ -167,19 +167,21 @@ export default function MissionBoard({ user }: Props): ReactElement {
 
       <div className="grid grid-cols-4 w-full z-10">
         <div className="col-span-1 flex items-center justify-center">
-          <div className="absolute top-0 right-0 m-8 w-48 h-28">
+          <div className="absolute top-0 right-0 m-8 md:w-40 xl:w-48 md:h-20 xl:h-28">
             <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
               <img
                 draggable={false}
-                className="absolute m-2 self-center top-0 right-0"
+                className="absolute m-2 self-center top-0 right-0 transform md:scale-75 xl:scale-100"
                 src={star_timer}
               />
-              <p className="text-white font-poppins text-4xl mt-2">{timer}</p>
+              <p className="text-white font-poppins md:text-2xl xl:text-4xl mt-2">
+                {timer}
+              </p>
             </div>
             <div className="flex flex-wrap justify-center">
               <button
                 onClick={handleShowManual}
-                className="w-4/5 mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center"
+                className="w-4/5 xl:mt-2 bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center"
               >
                 กติกาภารกิจที่ 2
               </button>
@@ -191,10 +193,10 @@ export default function MissionBoard({ user }: Props): ReactElement {
         </div>
         <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-evenly mt-2">
           <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-center mt-2">
-            <p className="text-white mb-8 text-4xl ">
+            <p className="text-white mb-8 md:text-4xl xl:text-5xl  ">
               ภารกิจ 2 : อักษรที่หายไป
             </p>
-            <p className="text-xl font-thaifonts text-center text-white mb-8">
+            <p className="md:text-xl xl:text-2xl font-thaifonts text-center text-white mb-8">
               แก้ปริศนาของอักษรที่หายไปจากคำตอบของ crossword
               <p />
             </p>
@@ -204,22 +206,22 @@ export default function MissionBoard({ user }: Props): ReactElement {
                 <img
                   draggable={false}
                   src={crossword}
-                  className="my-5 md:h-96"
+                  className="my-5 md:h-72 xl:h-80 3xl:h-96"
                 />
                 <div className="absolute">
                   {/* INSERT CROSSWORD HERE */}
                   <a target="_blank" href={myQuestion.downloadLink}>
-                    <button className="bg-mhoored border-transparent hover:bg-firstpurple text-white text-lg font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
+                    <button className="bg-mhoored border-transparent hover:bg-firstpurple text-white md:text-md xl:text-lg font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full">
                       ดาวน์โหลด Crossword และคำใบ้
                     </button>
                   </a>
                 </div>
               </div>
-              <div className="flex justify-center gap-3 mt-4">
+              <div className="flex justify-center md:gap-1 xl:gap-3 mt-4">
                 {!isFinish && (
                   <>
                     <input
-                      className="mt-2 rounded-full w-4/5 py-1 text-md p-4  text-fifthpurple placeholder-gray-400 focus:outline-none focus:border-thirdpurple font-thaifonts"
+                      className="md:mt-0 xl:mt-2 rounded-full w-4/5 py-1 md:text-sm xl:text-md p-4  text-fifthpurple placeholder-gray-400 focus:outline-none focus:border-thirdpurple font-thaifonts"
                       placeholder="เขียนคำตอบตามลำดับข้อโดยไม่ต้องเว้นวรรค "
                       type="text"
                       autoComplete="nope"
@@ -228,7 +230,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
                     />
                     <button
                       onClick={handleSubmitAnswer}
-                      className="mt-2 bg-indigo-500 hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full"
+                      className="md:mt-0 xl:mt-2 bg-indigo-500 hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 md:px-2 xl:px-4 border border-blue-500 hover:border-transparent rounded-full"
                     >
                       ส่งคำตอบ
                     </button>
@@ -239,11 +241,11 @@ export default function MissionBoard({ user }: Props): ReactElement {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center w-2/3">
-          <div className="text-3xl text-white text-center font-poppins mt-24 mb-2 ml-2 ">
+        <div className="flex flex-col justify-center md:w-5/6 xl:w-2/3">
+          <div className="md:text-xl xl:text-2xl text-white text-center font-poppins mt-24 md:mb-0 xl:mb-2 ml-2 ">
             Password
           </div>
-          <div className="border p-3 rounded-3xl w-full mr-auto flex flex-col justify-between text-md  text-white font-thaifont text-lg text-center md:max-h-72 3xl:max-h-96 overflow-y-auto">
+          <div className="border p-3 rounded-3xl w-full flex flex-col justify-between text-md  text-white font-thaifont text-lg text-center md:max-h-72 3xl:max-h-96 overflow-y-auto">
             <p className="pb-2">
               คำที่ 01 &nbsp;&nbsp;&nbsp; ตัวอักษรที่ {myQuestion.charactors[0]}
             </p>
