@@ -21,7 +21,7 @@ function App() {
       <PrivateRoute path="/mission/2" component={MissionBoard2} />
       <PrivateRoute path="/mission/1" component={MissionBoard} />
       <PrivateRoute path="/scoreboard" component={Scoreboard} />
-      <PrivateRoute path="/qxkmutt/scoreboard" component={ScoreboardHidden} />
+      <Route path="/qxkmutt/scoreboard" component={ScoreboardHidden} />
       <Route path="/">
         <Login />
       </Route>
