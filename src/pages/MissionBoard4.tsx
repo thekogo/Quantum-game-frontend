@@ -103,7 +103,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
       title: '<strong class="title"><u>ภารกิจ 4</u>: จับคู่ชู้ชื่น</strong>',
       html:
         '<div class="text-left px-52 font-thaifonts text-xl">1.ผู้เล่นจะสวมบทเป็นพนักงาน HR ในบริษัท QX โดยทางผู้บริหารต้องการบุคลากรจำนวนหนึ่งเพื่อสร้างควอนตัมคอมพิวเตอร์ในประเทศไทย<br/><br/>2.ผู้เล่นจะต้องคัดเลือกคนให้เหมาะสมกับตำแหน่งที่เปิดรับ โดยพิจารณาจากใบสมัครงานของพวกเขา</div>' +
-        `<div><br/><br/><select class="w-1/4 h-10 pl-2 pr-7 text-sm  border bg-gray-200  rounded-md  font-poppins">
+        `<div><br/><br/><select class="h-10 pl-2 pr-7 text-sm  border bg-gray-200  rounded-md  font-poppins">
       <option> 1.Quantum FPGA Engineers </option>
       <option> 2.Quantum Cryogenic Engineers </option>
       <option> 3.Quantum Computer Architects </option>
@@ -200,19 +200,19 @@ export default function MissionBoard({ user }: Props): ReactElement {
         />
       </Link>
       <img draggable={false} className="absolute  z-0 w-full" src={topper4} />
-      <div className="absolute top-0 right-0 m-8 w-48 h-28 z-40">
+      <div className="absolute top-0 right-0 m-8 md:w-40 xl:w-48 md:h-20 xl:h-28 z-40">
         <div className="top-0 right-0 mt-4 mr-4 mb-2 w-full h-full border-2 rounded-3xl flex flex-wrap content-center justify-center relative">
           <img
             draggable={false}
-            className="absolute m-2 self-center top-0 right-0"
+            className="absolute m-2 self-center top-0 right-0 transform md:scale-75 xl:scale-100"
             src={star_timer}
           />
-          <p className="text-white font-poppins text-4xl mt-2">{timer}</p>
+          <p className="text-white font-poppins md:text-2xl xl:text-4xl mt-2">{timer}</p>
         </div>
         <div className="flex flex-wrap justify-center">
           <button
             onClick={handleShowManual}
-            className="w-4/5 mt-2  bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center"
+            className="w-4/5 xl:mt-2  bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 hover:border-transparent rounded-full self-center"
           >
             กติกาภารกิจที่ 4
           </button>
@@ -226,14 +226,14 @@ export default function MissionBoard({ user }: Props): ReactElement {
         </div>
         <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-evenly mt-2">
           <div className=" w-auto z-10 col-span-2 flex flex-col items-center justify-center mt-2">
-            <p className="text-white mb-8 text-5xl ">
+            <p className="text-white mb-8 md:text-4xl xl:text-5xl ">
               ภารกิจ 4 : จับคู่ชู้ชื่น
             </p>
-            <p className="text-2xl font-thaifonts text-center text-white md:mb-4 3xl:mb-8">
+            <p className="md:text-xl xl:text-2xl font-thaifonts text-center text-white mb-8">
               จงเลือกงานเกี่ยวกับเทคโนโลยีควอนตัมที่เหมาะสมกับแต่ละคน
               <p />
             </p>
-            <p className="font-thaifonts text-lg text-white">
+            <p className="font-thaifonts md:hidden xl:text-lg text-white">
               เราเป็นพนักงาน HR อยู่ในบริษัท QX
               โดยทางผู้บริหารต้องการบุคลาการจำนวนหนึ่งเพื่อมาสร้างควอนตัมคอมพิวเตอร์ในประเทศไทย
               ในบริษัทมีตำแหน่งที่ว่าง และคุณได้รับใบสมัครงานมา
@@ -242,7 +242,7 @@ export default function MissionBoard({ user }: Props): ReactElement {
 
             <div>
               <div className=" border-2 p-2 rounded-2xl md:mb-4 3xl:mt-8 ">
-                <table className="border border-collapse border-transparent mt-2 text-base text-white">
+                <table className="border border-collapse border-transparent mt-2 md:text-sm xl:text-base text-white">
                   <thead>
                     <tr>
                       <th className="border border-l-0 border-t-0 px-4 pb-5">
@@ -260,14 +260,14 @@ export default function MissionBoard({ user }: Props): ReactElement {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="p-2">
-                      <td className="border border-l-0 border-t-0 border-b-0 px-4 ">
+                    <tr className="">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4 md:pt-4 xl:pt-6 ">
                         {myQuestion[0].name}
                       </td>
-                      <td className="border border-l-0 border-t-0 border-b-0 px-4">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4 md:pt-4 xl:pt-6">
                         {myQuestion[0].carrer}
                       </td>
-                      <td className="border border-l-0 border-t-0 border-b-0 px-4">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4 md:pt-4 xl:pt-6">
                         {myQuestion[0].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
@@ -350,14 +350,14 @@ export default function MissionBoard({ user }: Props): ReactElement {
                         </div>
                       </td>
                     </tr>
-                    <tr className=" ">
-                      <td className="border border-l-0 border-t-0 border-b-0 px-4">
+                    <tr className="">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4 md:pt-4 xl:pt-6">
                         {myQuestion[1].name}
                       </td>
-                      <td className="border border-l-0 border-t-0 border-b-0 px-4">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4 md:pt-4 xl:pt-6">
                         {myQuestion[1].carrer}
                       </td>
-                      <td className="border border-l-0 border-t-0 border-b-0 px-4">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4 md:pt-4 xl:pt-6">
                         {myQuestion[1].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
@@ -442,13 +442,13 @@ export default function MissionBoard({ user }: Props): ReactElement {
                     </tr>
 
                     <tr className="">
-                      <td className="border border-l-0 border-t-0 border-b-0 px-4">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4 md:pt-4 xl:pt-6">
                         {myQuestion[2].name}
                       </td>
-                      <td className="border border-l-0 border-t-0 border-b-0 px-4">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4 md:pt-4 xl:pt-6">
                         {myQuestion[2].carrer}
                       </td>
-                      <td className="border border-l-0 border-t-0 border-b-0 px-4">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4 md:pt-4 xl:pt-6">
                         {myQuestion[2].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
@@ -532,13 +532,13 @@ export default function MissionBoard({ user }: Props): ReactElement {
                       </td>
                     </tr>
                     <tr className="">
-                      <td className="border border-l-0 border-t-0 border-b-0 px-4">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4 md:pt-4 xl:pt-6">
                         {myQuestion[3].name}
                       </td>
-                      <td className="border border-l-0 border-t-0 border-b-0 px-4">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4 md:pt-4 xl:pt-6">
                         {myQuestion[3].carrer}
                       </td>
-                      <td className="border border-l-0 border-t-0 border-b-0 px-4">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4 md:pt-4 xl:pt-6">
                         {myQuestion[3].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
@@ -622,13 +622,13 @@ export default function MissionBoard({ user }: Props): ReactElement {
                       </td>
                     </tr>
                     <tr className="">
-                      <td className="border border-l-0 border-t-0 border-b-0 px-4">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4 md:pt-4 xl:pt-6">
                         {myQuestion[4].name}
                       </td>
-                      <td className="border border-l-0 border-t-0 border-b-0 px-4">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4 md:pt-4 xl:pt-6">
                         {myQuestion[4].carrer}
                       </td>
-                      <td className="border border-l-0 border-t-0 border-b-0 px-4">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4 md:pt-4 xl:pt-6">
                         {myQuestion[4].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
@@ -712,13 +712,13 @@ export default function MissionBoard({ user }: Props): ReactElement {
                       </td>
                     </tr>
                     <tr className="">
-                      <td className="border border-l-0 border-t-0 border-b-0 px-4">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4 md:pt-4 xl:pt-6">
                         {myQuestion[5].name}
                       </td>
-                      <td className="border border-l-0 border-t-0 border-b-0 px-4">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4 md:pt-4 xl:pt-6">
                         {myQuestion[5].carrer}
                       </td>
-                      <td className="border border-l-0 border-t-0 border-b-0 px-4">
+                      <td className="border border-l-0 border-t-0 border-b-0 px-4 md:pt-4 xl:pt-6">
                         {myQuestion[5].duty}
                       </td>
                       <td className="border border-l-0 border-t-0 border-b-0 border-r-0 px-4">
@@ -824,14 +824,14 @@ export default function MissionBoard({ user }: Props): ReactElement {
           <div>
             <img
               draggable={false}
-              className="h-44 w-40 mx-auto md:mt-16 3xl:mt-0"
+              className="md:h-36 md:w-32 xl:h-44 xl:w-40 mx-auto md:mt-16 3xl:mt-0 "
               src={m4}
             />
             <a
               target="_blank"
               href="https://drive.google.com/u/0/uc?id=10r5ABbZM3fpww7ZAVGkI9JDCltfoOdqG"
             >
-              <button className="  mt-6   bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
+              <button className="md:mt-4 xl:mt-6   bg-mhoored hover:bg-firstpurple text-white text-sm font-thaifonts hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded-full z-10">
                 ข้อมูลของตำแหน่งงาน
               </button>
             </a>
