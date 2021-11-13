@@ -216,7 +216,7 @@ export default function MissionBoard({}: Props): ReactElement {
           </p>
           <iframe
             className="border p-3 rounded-3xl h-3/6 w-4/5"
-            src="https://www.youtube.com/embed/aehbDMIEmnM"
+            src="https://www.youtube.com/watch?v=-bY0EBSTbdQ"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           ></iframe>
@@ -248,7 +248,7 @@ export default function MissionBoard({}: Props): ReactElement {
           </div>
 
           <div className="border rounded-2xl p-4 text-white">
-            1. กระบวนการทำงานของคอมพิวเตอร์แบ่งเป็นกี่ขั้น 
+            1. กระบวนการทำงานของคอมพิวเตอร์แบ่งเป็นกี่ขั้น
             (จากที่ได้รับฟังบรรยาย)
             <br /> <br />
             2. ค่าที่เป็นไปได้ของ 1 บิต มีอะไรบ้าง (เรียงจากน้อยไปมาก)
