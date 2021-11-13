@@ -13,6 +13,8 @@ import {
   Score,
 } from "../services/scoreboard";
 import { IUser } from "../interface/user";
+import loginright from "../assets/images/loginright.png";
+import loginleft from "../assets/images/loginleft.png";
 
 interface Props {
   user: IUser;
@@ -35,11 +37,24 @@ export default function ScoreboardHidden({ user }: Props): ReactElement {
   return (
     <div className="bg-gradient-to-b from-forthpurple to-fifthpurple h-screen w-screen font-thaifonts flex overflow-hidden">
       <Stars className="absolute h-full w-full z-0" />
+      <div className="mt-30">
+        {" "}
+        <img
+          draggable={false}
+          src={loginright}
+          className="absolute left-0 w-60 ml-24 object-ud 2xl:w-72 2xl:ml-36"
+        />
+        <img
+          draggable={false}
+          src={loginleft}
+          className="absolute right-0 w-60 object-ud2 2xl:w-72 md:mr-20 xl:mr-36"
+        />
+      </div>
 
       <Planet className="absolute z-0 top-0 right-0 transform origin-top-right md:scale-90 3xl:scale-100" />
       <div className="w-full m-6 z-10">
         <div className=" 3xl:mb-12">
-          <img draggable={false} className="mx-auto" src={missionHeader} />
+          <img draggable={false} className="mx-auto mt-12" src={missionHeader} />
         </div>
         <div className="grid grid-rows-2 grid-cols-12 w-full h-screen m-3 xl:mt-12 3xl:mt-0">
           <div className="p-3 col-span-4 col-start-5 row-span-2 gap-3 -mt-40 h-3/5">
@@ -79,6 +94,11 @@ export default function ScoreboardHidden({ user }: Props): ReactElement {
           </div>
         </div>
       </div>
+      <img
+        draggable={false}
+        className="absolute bottom-0 w-full object-cover opacity-90"
+        src={footer}
+      />
     </div>
   );
 }
